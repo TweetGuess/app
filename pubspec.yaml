@@ -21,6 +21,11 @@ environment:
   sdk: ">=2.12.0 <3.0.0"
 
 dependencies:
+  # UI Stuff
+  flutter_native_splash: ^1.1.8+4
+  blur: ^2.0.0
+  flex_color_scheme: ^2.1.1
+
   flutter:
     sdk: flutter
 
