@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_displaymode/flutter_displaymode.dart';
 
-void main() {
+void main() async {
   runApp(MyApp());
+
+  await FlutterDisplayMode.setHighRefreshRate();
 }
 
 class MyApp extends StatelessWidget {
