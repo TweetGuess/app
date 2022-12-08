@@ -1,4 +1,9 @@
+import 'dart:io';
+
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/themes.dart';
 import 'package:tweetguess/utils/shared_preferences.dart';
 import 'package:tweetguess/utils/tweet_service.dart';
@@ -21,14 +26,16 @@ class TweetGuess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'TweetGuess',
-      theme: lightThemeData(),
-      darkTheme: darkThemeData(),
-      navigatorKey: globalKey,
-      themeMode: ThemeMode.system,
-      home: finishedIntro ? HomeScreen() : IntroScreen(),
-    );
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
+      return MaterialApp(
+        title: 'TweetGuess',
+        theme: lightThemeData(),
+        darkTheme: darkThemeData(),
+        navigatorKey: globalKey,
+        themeMode: ThemeMode.system,
+        home: finishedIntro ? HomeScreen() : IntroScreen(),
+      );
+    });
   }
 }
 
@@ -38,25 +45,79 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    if (Platform.isAndroid) {
+      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+          systemNavigationBarColor: Theme.of(context).colorScheme.surface));
+    }
+
     return Scaffold(
       appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text("TweetGuess"),
+        title: Text(
+          "TweetGuess",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {
+              Navigator.pushNamed(context, "/settings");
+            },
+          )
+        ],
+        leading: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: GestureDetector(
+            onTap: () {
+              print("GG");
+            },
+            child: CircleAvatar(
+              radius: 55.0,
+              backgroundColor: Theme.of(context).colorScheme.background,
+              child: Icon(Icons.person),
+            ),
+          ),
+        ),
       ),
       body: Center(
-          // TODO
-          ),
+        child: Container(
+            padding: EdgeInsets.only(
+                top: 15.h, bottom: 7.5.h, left: 15.w, right: 15.w),
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Expanded(
+                      child: AutoSizeText("Ready\nfor the Challenge?",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 50.dp)),
+                      flex: 2),
+                  Spacer(),
+                  Expanded(
+                    flex: 5,
+                    child: Image.asset(
+                      "assets/brand.png",
+                    ),
+                  ),
+                  Spacer(),
+                  Expanded(
+                    flex: 5,
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 10.h),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // TODO
+                          Navigator.pushNamed(context, "/game");
+                        },
+                        child: Text("Start game"),
+                      ),
+                    ),
+                  )
+                ])),
+      ),
     );
   }
 }
