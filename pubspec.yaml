@@ -24,17 +24,17 @@ dependencies:
   intl_utils: ^2.3.0
 
   # Diverse Utilities
-  google_fonts: ^2.0.0
+  google_fonts: ^3.0.1
   animations: ^2.0.1
   http: ^0.13.3
   rxdart: ^0.27.0
-  connectivity_plus: ^1.0.1
-  provider: ^5.0.0
+  connectivity_plus: ^3.0.2
+  provider: ^6.0.4
   jwt_decode: ^0.3.1
   path_provider: ^2.0.1
   uuid: ^3.0.4
   restart_app: ^1.0.3
-  introduction_screen: ^2.1.0
+  introduction_screen: ^3.1.1
   animated_widgets: ^1.1.0
   # dio: ^4.0.0
   # dio_retry:
@@ -48,10 +48,10 @@ dependencies:
     sdk: flutter
 
   # UI Stuff
-  flutter_native_splash: ^1.1.8+4
-  blur: ^2.0.0
-  flex_color_scheme: ^2.1.1
-  flutter_launcher_icons: ^0.9.0
+  flutter_native_splash: ^2.2.16
+  blur: ^3.1.0
+  flex_color_scheme: ^6.1.1
+  flutter_launcher_icons: ^0.11.0
   google_nav_bar: ^5.0.6
 
   flutter:
@@ -61,6 +61,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  page_transition: ^2.0.9
 
 dev_dependencies:
   flutter_test:

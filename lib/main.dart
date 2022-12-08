@@ -24,8 +24,8 @@ class TweetGuess extends StatelessWidget {
     return MaterialApp(
       title: 'TweetGuess',
       theme: lightThemeData(),
-      navigatorKey: globalKey,
       darkTheme: darkThemeData(),
+      navigatorKey: globalKey,
       themeMode: ThemeMode.system,
       home: finishedIntro ? HomeScreen() : IntroScreen(),
     );

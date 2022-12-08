@@ -1,6 +1,7 @@
 import 'package:animated_widgets/widgets/translation_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:tweetguess/utils/shared_preferences.dart';
 
 import '../main.dart';
@@ -30,7 +31,6 @@ class _IntroScreenState extends State<IntroScreen> {
         body:
             "Den Autor eines Tweets anhand des Inhalts erraten... Einfach, oder?\nBei TweetGuess kannst du zeigen, ob du unsere Politiker kennst & dich gleichzeitig politisch mit ihren Aussagen auseinandersetzen sowie lernen fragwürdigen Content stärker zu hinterfragen. ",
         decoration: PageDecoration(
-            pageColor: Theme.of(context).colorScheme.primary,
             imageFlex: 7,
             bodyFlex: 6,
             imageAlignment: Alignment.bottomCenter,
@@ -39,11 +39,12 @@ class _IntroScreenState extends State<IntroScreen> {
         image: Center(
             child: TranslationAnimatedWidget(
                 enabled: this.startAnim,
-                delay: Duration(seconds: 1),
-                curve: Curves.easeInOut,
+                delay: Duration(milliseconds: 500),
+                curve: Curves.easeInOutSine,
                 //update this boolean to forward/reverse the animation
                 values: [
                   Offset(0, -400), // disabled value value
+                  Offset(0, -300),
                   Offset(0, -200), //intermediate value
                   Offset(0, 0) //enabled value
                 ],
@@ -56,10 +57,14 @@ class _IntroScreenState extends State<IntroScreen> {
       done: const Text("Done", style: TextStyle(fontWeight: FontWeight.w600)),
       next: const Icon(Icons.arrow_forward),
       onDone: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
-        );
+        Navigator.pushReplacement(
+            context,
+            PageTransition(
+                type: PageTransitionType.fade,
+                curve: Curves.easeInOutSine,
+                childCurrent: this.widget,
+                alignment: Alignment.bottomCenter,
+                child: HomeScreen()));
         SharedPrefs().finishedIntro = true;
       },
     );
