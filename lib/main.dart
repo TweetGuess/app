@@ -1,12 +1,16 @@
 import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/themes.dart';
+import 'package:tweetguess/utils/gestures.dart';
 import 'package:tweetguess/utils/shared_preferences.dart';
 import 'package:tweetguess/utils/tweet_service.dart';
+import 'package:tweetguess/widgets/game.dart';
 import 'package:tweetguess/widgets/intro.dart';
 
 void main() async {
@@ -45,6 +49,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // Last tap down position to create circular reveal animation
+  TapDownDetails? tapDownDetails;
+
   @override
   Widget build(BuildContext context) {
     if (Platform.isAndroid) {
@@ -56,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: Text(
           "TweetGuess",
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: TextStyle(fontWeight: FontWeight.w600, letterSpacing: 1.5),
         ),
         centerTitle: true,
         actions: [
@@ -92,8 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                       child: AutoSizeText("Ready\nfor the Challenge?",
                           textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 50.dp)),
+                          style: GoogleFonts.robotoMono(
+                              textStyle: TextStyle(fontSize: 40.dp))),
                       flex: 2),
                   Spacer(),
                   Expanded(
@@ -106,15 +113,47 @@ class _HomeScreenState extends State<HomeScreen> {
                   Expanded(
                     flex: 5,
                     child: Padding(
-                      padding: EdgeInsets.only(bottom: 10.h),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          // TODO
-                          Navigator.pushNamed(context, "/game");
-                        },
-                        child: Text("Start game"),
-                      ),
-                    ),
+                        padding: EdgeInsets.only(bottom: 10.h),
+                        child: RawGestureDetector(
+                          gestures: {
+                            AllowMultipleGestureRecognizer:
+                                GestureRecognizerFactoryWithHandlers<
+                                    AllowMultipleGestureRecognizer>(
+                              () => AllowMultipleGestureRecognizer(),
+                              (AllowMultipleGestureRecognizer instance) {
+                                instance.onTapUp = (TapUpDetails details) {
+                                  Future.delayed(Duration(milliseconds: 100),
+                                      () {
+                                    Navigator.of(context).push(PageRouteBuilder(
+                                        transitionDuration:
+                                            Duration(milliseconds: 600),
+                                        pageBuilder: (context, animation,
+                                                secondaryAnimation) =>
+                                            const GameScreen(),
+                                        transitionsBuilder: (context, animation,
+                                            secondaryAnimation, child) {
+                                          return CircularRevealAnimation(
+                                            child: child,
+                                            animation: animation,
+                                            centerOffset:
+                                                details.globalPosition,
+                                          );
+                                        }));
+                                  });
+                                };
+                              },
+                            )
+                          },
+                          child: ElevatedButton(
+                              onPressed: () {},
+                              child: Text(
+                                "START GAME",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "Pixeboy",
+                                    fontSize: 25.sp),
+                              )),
+                        )),
                   )
                 ])),
       ),

@@ -22,7 +22,7 @@ ThemeData lightThemeData() {
       blendOnLevel: 10,
       blendOnColors: false,
     ),
-    fontFamily: GoogleFonts.notoSans().fontFamily,
+    fontFamily: GoogleFonts.lato().fontFamily,
     useMaterial3ErrorColors: true,
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     useMaterial3: true,
@@ -54,7 +54,7 @@ ThemeData darkThemeData() {
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     useMaterial3: true,
     swapLegacyOnMaterial3: true,
-    fontFamily: GoogleFonts.notoSans().fontFamily,
+    fontFamily: GoogleFonts.lato().fontFamily,
     // To use the Playground font, add GoogleFonts package and uncomment
     // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
