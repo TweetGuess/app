@@ -100,20 +100,31 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: AutoSizeText("Ready\nfor the Challenge?",
                           textAlign: TextAlign.center,
                           style: GoogleFonts.robotoMono(
-                              textStyle: TextStyle(fontSize: 40.dp))),
-                      flex: 2),
-                  Spacer(),
+                              textStyle: TextStyle(fontSize: 40.sp))),
+                      flex: 3),
                   Expanded(
-                    flex: 5,
-                    child: Image.asset(
-                      "assets/brand.png",
-                    ),
+                    flex: 8,
+                    child: Column(children: [
+                      Expanded(
+                        flex: 8,
+                        child: Image.asset(
+                          "assets/images/earth.png",
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                      Expanded(
+                        child: AutoSizeText("Global Mode",
+                            textAlign: TextAlign.center,
+                            style: GoogleFonts.robotoMono(
+                                textStyle: TextStyle(fontSize: 5.sp))),
+                      )
+                    ]),
                   ),
                   Spacer(),
                   Expanded(
-                    flex: 5,
+                    flex: 6,
                     child: Padding(
-                        padding: EdgeInsets.only(bottom: 10.h),
+                        padding: EdgeInsets.only(bottom: 8.h),
                         child: RawGestureDetector(
                           gestures: {
                             AllowMultipleGestureRecognizer:

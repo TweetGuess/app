@@ -10,7 +10,6 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
-    // Container with onTap - smart way
     return Container(
       color: Colors.blue,
       child: GestureDetector(
