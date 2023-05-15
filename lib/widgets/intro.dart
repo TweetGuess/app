@@ -4,7 +4,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:tweetguess/utils/shared_preferences.dart';
 
-import '../main.dart';
+import 'home.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);
@@ -67,7 +67,7 @@ class _IntroScreenState extends State<IntroScreen> {
             curve: Curves.easeInOutSine,
             childCurrent: widget,
             alignment: Alignment.bottomCenter,
-            child: HomeScreen(),
+            child: const HomeScreen(),
           ),
         );
         SharedPrefs().finishedIntro = true;

@@ -1,0 +1,163 @@
+import 'dart:io';
+
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tweetguess/widgets/profile.dart';
+
+import '../ui/utils/routes/circular_transition_route.dart';
+import 'game.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Widget build(BuildContext context) {
+    if (Platform.isAndroid) {
+      SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(
+          systemNavigationBarColor: Theme.of(context).colorScheme.surface,
+        ),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "TweetGuess",
+          style: TextStyle(fontWeight: FontWeight.w600, letterSpacing: 1.5),
+        ),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Navigator.pushNamed(context, "/settings");
+            },
+          )
+        ],
+        leading: _buildLeading(context),
+      ),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.only(
+            top: 15.h,
+            bottom: 7.5.h,
+            left: 15.w,
+            right: 15.w,
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                flex: 3,
+                child: AutoSizeText(
+                  "mainpage.header".tr(),
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.robotoMono(
+                    textStyle: TextStyle(fontSize: 40.sp),
+                  ),
+                ),
+              ),
+              Expanded(
+                flex: 8,
+                child: Column(
+                  children: [
+                    Expanded(
+                      flex: 8,
+                      child: Image.asset(
+                        "assets/images/earth.png",
+                        fit: BoxFit.fitWidth,
+                      ),
+                    ),
+                    Expanded(
+                      child: AutoSizeText(
+                        "mainpage.gamemodes.global".tr(),
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.robotoMono(
+                          textStyle: TextStyle(fontSize: 5.sp),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              const Spacer(),
+              Expanded(
+                flex: 6,
+                child: Padding(
+                  padding: EdgeInsets.only(bottom: 8.h),
+                  child: _buildStartGameButton(context),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Padding _buildLeading(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: GestureDetector(
+        onTapUp: (details) {
+          Navigator.of(context).push(
+            CircularTransitionRoute(
+              page: const ProfilePage(),
+              offset: details.globalPosition,
+              transitionDuration: const Duration(milliseconds: 300),
+            ),
+          );
+        },
+        child: CircleAvatar(
+          radius: 55.0,
+          backgroundColor: Theme.of(context).colorScheme.background,
+          child: const Icon(Icons.person),
+        ),
+      ),
+    );
+  }
+
+  ElevatedButton _buildStartGameButton(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(padding: EdgeInsets.zero),
+      onPressed: () {},
+      child: Stack(
+        children: [
+          Center(
+            child: Text(
+              "mainpage.startgame-button".tr(),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: "Pixeboy",
+                fontSize: 25.sp,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: double.infinity,
+            height: double.infinity,
+            child: GestureDetector(
+              onTapUp: (details) => Navigator.of(context).push(
+                CircularTransitionRoute(
+                  page: const GameScreen(),
+                  offset: details.globalPosition,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
