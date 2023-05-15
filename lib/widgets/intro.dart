@@ -10,7 +10,7 @@ class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);
 
   @override
-  _IntroScreenState createState() => _IntroScreenState();
+  State<IntroScreen> createState() => _IntroScreenState();
 }
 
 class _IntroScreenState extends State<IntroScreen> {
@@ -18,11 +18,11 @@ class _IntroScreenState extends State<IntroScreen> {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) => {
-          setState(() {
-            this.startAnim = true;
-          })
-        });
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => setState(() {
+        startAnim = true;
+      }),
+    );
 
     // TODO: Translate text into English
     List<PageViewModel> listPagesViewModel = [
@@ -31,24 +31,27 @@ class _IntroScreenState extends State<IntroScreen> {
         body:
             "Den Autor eines Tweets anhand des Inhalts erraten... Einfach, oder?\nBei TweetGuess kannst du zeigen, ob du unsere Politiker kennst & dich gleichzeitig politisch mit ihren Aussagen auseinandersetzen sowie lernen fragwürdigen Content stärker zu hinterfragen. ",
         decoration: PageDecoration(
-            imageFlex: 7,
-            bodyFlex: 6,
-            imageAlignment: Alignment.bottomCenter,
-            imagePadding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1)),
+          imageFlex: 7,
+          bodyFlex: 6,
+          imageAlignment: Alignment.bottomCenter,
+          imagePadding:
+              EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1),
+        ),
         image: Center(
-            child: TranslationAnimatedWidget(
-                enabled: this.startAnim,
-                delay: Duration(milliseconds: 500),
-                curve: Curves.easeInOutSine,
-                //update this boolean to forward/reverse the animation
-                values: [
-                  Offset(0, -400), // disabled value value
-                  Offset(0, -300),
-                  Offset(0, -200), //intermediate value
-                  Offset(0, 0) //enabled value
-                ],
-                child: Image.asset("assets/splash.png", height: 300.0))),
+          child: TranslationAnimatedWidget(
+            enabled: startAnim,
+            delay: const Duration(milliseconds: 500),
+            curve: Curves.easeInOutSine,
+            //update this boolean to forward/reverse the animation
+            values: const [
+              Offset(0, -400), // disabled value value
+              Offset(0, -300),
+              Offset(0, -200), //intermediate value
+              Offset(0, 0) //enabled value
+            ],
+            child: Image.asset("assets/splash.png", height: 300.0),
+          ),
+        ),
       )
     ];
 
@@ -58,13 +61,15 @@ class _IntroScreenState extends State<IntroScreen> {
       next: const Icon(Icons.arrow_forward),
       onDone: () {
         Navigator.pushReplacement(
-            context,
-            PageTransition(
-                type: PageTransitionType.fade,
-                curve: Curves.easeInOutSine,
-                childCurrent: this.widget,
-                alignment: Alignment.bottomCenter,
-                child: HomeScreen()));
+          context,
+          PageTransition(
+            type: PageTransitionType.fade,
+            curve: Curves.easeInOutSine,
+            childCurrent: widget,
+            alignment: Alignment.bottomCenter,
+            child: HomeScreen(),
+          ),
+        );
         SharedPrefs().finishedIntro = true;
       },
     );
