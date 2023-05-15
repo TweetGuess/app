@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:circular_reveal_animation/circular_reveal_animation.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,12 +23,21 @@ void main() async {
 
   // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-  runApp(TweetGuess());
+  runApp(DevicePreview(
+    builder: (context) => TweetGuess(),
+    enabled: !kReleaseMode,
+  ));
 }
 
-class TweetGuess extends StatelessWidget {
-  var finishedIntro = SharedPrefs().finishedIntro;
+class TweetGuess extends StatefulWidget {
   static GlobalKey<NavigatorState> globalKey = new GlobalKey();
+
+  @override
+  State<TweetGuess> createState() => _TweetGuessState();
+}
+
+class _TweetGuessState extends State<TweetGuess> {
+  var finishedIntro = SharedPrefs().finishedIntro;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +45,11 @@ class TweetGuess extends StatelessWidget {
       return MaterialApp(
         title: 'TweetGuess',
         theme: lightThemeData(),
+        // ignore: deprecated_member_use
+        useInheritedMediaQuery: true,
         darkTheme: darkThemeData(),
-        navigatorKey: globalKey,
+        locale: DevicePreview.locale(context),
+        navigatorKey: TweetGuess.globalKey,
         themeMode: ThemeMode.system,
         home: finishedIntro ? HomeScreen() : IntroScreen(),
       );
