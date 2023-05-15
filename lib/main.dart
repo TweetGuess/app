@@ -15,6 +15,8 @@ import 'package:tweetguess/utils/shared_preferences.dart';
 import 'package:tweetguess/utils/tweet_service.dart';
 import 'package:tweetguess/widgets/game.dart';
 import 'package:tweetguess/widgets/intro.dart';
+import 'package:tweetguess/widgets/profile.dart';
+import 'package:tweetguess/widgets/settings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,7 +64,13 @@ class _TweetGuessState extends State<TweetGuess> {
           locale: DevicePreview.locale(context),
           navigatorKey: TweetGuess.globalKey,
           themeMode: ThemeMode.system,
-          home: finishedIntro ? const HomeScreen() : const IntroScreen(),
+          initialRoute: "/",
+          routes: {
+            '/': (context) =>
+                finishedIntro ? const HomeScreen() : const IntroScreen(),
+            '/settings': (context) => const SettingsPage(),
+            'profile': (context) => const ProfilePage()
+          },
         );
       },
     );
@@ -109,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(10.0),
           child: GestureDetector(
             onTap: () {
-              print("GG");
+              GetIt.I<Logger>().d("GG");
             },
             child: CircleAvatar(
               radius: 55.0,
