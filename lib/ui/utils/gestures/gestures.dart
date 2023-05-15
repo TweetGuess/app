@@ -1,6 +1,7 @@
-import 'package:circular_reveal_animation/circular_reveal_animation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+import '../routes/circular_transition_route.dart';
 
 class AllowMultipleGestureRecognizer extends TapGestureRecognizer {
   @override
@@ -17,26 +18,9 @@ GestureRecognizerFactoryWithHandlers<AllowMultipleGestureRecognizer>
       instance.onTapUp = (TapUpDetails details) {
         Future.delayed(const Duration(milliseconds: 100), () {
           Navigator.of(context).push(
-            PageRouteBuilder(
-              transitionDuration: const Duration(milliseconds: 600),
-              pageBuilder: (
-                context,
-                animation,
-                secondaryAnimation,
-              ) =>
-                  page,
-              transitionsBuilder: (
-                context,
-                animation,
-                secondaryAnimation,
-                child,
-              ) {
-                return CircularRevealAnimation(
-                  animation: animation,
-                  centerOffset: details.globalPosition,
-                  child: child,
-                );
-              },
+            CircularTransitionRoute(
+              page: page,
+              offset: details.globalPosition,
             ),
           );
         });
