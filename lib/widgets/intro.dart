@@ -2,7 +2,7 @@ import 'package:animated_widgets/widgets/translation_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:tweetguess/utils/shared_preferences.dart';
+import 'package:tweetguess/core/utils/shared_preferences.dart';
 
 import 'home.dart';
 
