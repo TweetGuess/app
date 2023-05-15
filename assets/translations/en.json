@@ -1,0 +1,10 @@
+{
+  "global": {},
+  "mainpage": {
+    "startgame-button": "START GAME",
+    "header": "Ready\nfor the Challenge?",
+    "gamemodes": {
+      "global": "Global Mode"
+    }
+  }
+}

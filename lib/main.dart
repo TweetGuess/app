@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +21,7 @@ import 'package:tweetguess/widgets/settings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
 
   await SharedPrefs().init();
   await TweetService.loadTweets();
@@ -28,7 +30,12 @@ void main() async {
 
   runApp(
     DevicePreview(
-      builder: (context) => const TweetGuess(),
+      builder: (context) => EasyLocalization(
+        supportedLocales: const [Locale('en')],
+        path: 'assets/translations',
+        fallbackLocale: const Locale('en'),
+        child: const TweetGuess(),
+      ),
       enabled: !kReleaseMode,
     ),
   );
@@ -63,6 +70,8 @@ class _TweetGuessState extends State<TweetGuess> {
           darkTheme: darkThemeData(),
           locale: DevicePreview.locale(context),
           navigatorKey: TweetGuess.globalKey,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
           themeMode: ThemeMode.system,
           initialRoute: "/",
           routes: {
@@ -142,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 flex: 3,
                 child: AutoSizeText(
-                  "Ready\nfor the Challenge?",
+                  "mainpage.header".tr(),
                   textAlign: TextAlign.center,
                   style: GoogleFonts.robotoMono(
                     textStyle: TextStyle(fontSize: 40.sp),
@@ -162,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Expanded(
                       child: AutoSizeText(
-                        "Global Mode",
+                        "mainpage.gamemodes.global".tr(),
                         textAlign: TextAlign.center,
                         style: GoogleFonts.robotoMono(
                           textStyle: TextStyle(fontSize: 5.sp),
@@ -188,7 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ElevatedButton(
                       onPressed: () {},
                       child: Text(
-                        "START GAME",
+                        "mainpage.startgame-button".tr(),
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontFamily: "Pixeboy",
