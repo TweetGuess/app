@@ -6,7 +6,9 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:logger/logger.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/themes.dart';
 import 'package:tweetguess/utils/gestures.dart';
@@ -21,12 +23,17 @@ void main() async {
   await SharedPrefs().init();
   await TweetService.loadTweets();
 
-  // SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+  setupGetIt();
 
   runApp(DevicePreview(
     builder: (context) => TweetGuess(),
     enabled: !kReleaseMode,
   ));
+}
+
+void setupGetIt() {
+  // Global Logger Singleton
+  GetIt.instance.registerSingleton<Logger>(Logger());
 }
 
 class TweetGuess extends StatefulWidget {
