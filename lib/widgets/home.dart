@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/widgets/profile.dart';
+import 'package:tweetguess/widgets/settings.dart';
 
 import '../ui/utils/routes/circular_transition_route.dart';
 import 'game.dart';
@@ -38,10 +39,19 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              Navigator.pushNamed(context, "/settings");
-            },
+            icon: GestureDetector(
+              onTapUp: (details) {
+                Navigator.of(context).push(
+                  CircularTransitionRoute(
+                    page: const SettingsPage(),
+                    offset: details.globalPosition,
+                    transitionDuration: const Duration(milliseconds: 300),
+                  ),
+                );
+              },
+              child: const Icon(Icons.settings),
+            ),
+            onPressed: () {},
           )
         ],
         leading: _buildLeading(context),

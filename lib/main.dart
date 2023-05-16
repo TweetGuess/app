@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tweetguess/themes.dart';
 import 'package:tweetguess/core/utils/shared_preferences.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
+import 'package:tweetguess/themes.dart';
 import 'package:tweetguess/widgets/home.dart';
 import 'package:tweetguess/widgets/intro.dart';
 import 'package:tweetguess/widgets/profile.dart';
@@ -68,6 +68,7 @@ class _TweetGuessState extends State<TweetGuess> {
           supportedLocales: context.supportedLocales,
           themeMode: ThemeMode.system,
           initialRoute: "/",
+          builder: DevicePreview.appBuilder,
           routes: {
             '/': (context) =>
                 finishedIntro ? const HomeScreen() : const IntroScreen(),
