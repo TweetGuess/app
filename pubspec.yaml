@@ -59,6 +59,7 @@ dependencies:
   circular_reveal_animation: ^2.0.1
   device_preview: ^1.1.0
   easy_localization: ^3.0.1
+  flutter_boring_avatars: ^1.0.1
 
   flutter:
     sdk: flutter
