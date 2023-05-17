@@ -11,9 +11,9 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
       : super(
           UserState(
             username: UniqueNameGenerator(
-              dictionaries: [adjectives, animals],
+              dictionaries: [adjectives, starwars, names],
               style: NameStyle.capital,
-              separator: '_',
+              separator: '',
             ).generate(),
             statistics: UserStatistics(),
           ),
