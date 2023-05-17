@@ -29,8 +29,13 @@ class UIScaffold extends StatelessWidget {
     this.drawerEnableOpenDragGesture = true,
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
+    this.bodyPadding,
   }) : super(key: key);
 
+  // UIScaffold parameters
+  final EdgeInsets? bodyPadding;
+
+  // Original Scaffold parameters
   final bool extendBody;
 
   final bool extendBodyBehindAppBar;
@@ -86,7 +91,7 @@ class UIScaffold extends StatelessWidget {
       extendBodyBehindAppBar: extendBodyBehindAppBar,
       appBar: appBar ?? appBar,
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: bodyPadding ?? const EdgeInsets.all(16),
         child: body,
       ),
       floatingActionButton: floatingActionButton ?? floatingActionButton,

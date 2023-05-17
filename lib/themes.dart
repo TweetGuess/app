@@ -50,10 +50,8 @@ ThemeData darkThemeData() {
       primary: Color(0xff54a9ec),
       primaryContainer: Color(0xff00325b),
       secondary: Color(0xff264653),
-      secondaryContainer: Color(0xff872100),
       tertiary: Color(0xff86d2e1),
       tertiaryContainer: Color(0xff004e59),
-      appBarColor: Color(0xff872100),
       error: Color(0xffcf6679),
     ),
     surfaceMode: FlexSurfaceMode.level,
@@ -78,7 +76,6 @@ ThemeData darkThemeData() {
         letterSpacing: 1.5,
       ),
     ),
-    
   );
 
   return theme;

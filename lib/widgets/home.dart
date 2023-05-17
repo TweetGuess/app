@@ -34,9 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text(
           "TweetGuess",
-          style: TextStyle(fontWeight: FontWeight.w600, letterSpacing: 1.5),
         ),
-        centerTitle: true,
         actions: [
           IconButton(
             icon: GestureDetector(
