@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 // TODO: import better color schemes
 // Basically all of our themes with some tweaks so the UI is more consistent (rounded corners)
 ThemeData lightThemeData() {
-  return FlexThemeData.light(
+  var theme = FlexThemeData.light(
     colors: const FlexSchemeColor(
       primary: Color(0xff004881),
       primaryContainer: Color(0xffd0e4ff),
@@ -30,11 +30,22 @@ ThemeData lightThemeData() {
     // To use the playground font, add GoogleFonts package and uncomment
     // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
-  ;
+
+  theme = theme.copyWith(
+    appBarTheme: theme.appBarTheme.copyWith(
+      centerTitle: true,
+      titleTextStyle: theme.appBarTheme.titleTextStyle?.copyWith(
+        fontWeight: FontWeight.w600,
+        letterSpacing: 1.5,
+      ),
+    ),
+  );
+
+  return theme;
 }
 
 ThemeData darkThemeData() {
-  return FlexThemeData.dark(
+  var theme = FlexThemeData.dark(
     colors: const FlexSchemeColor(
       primary: Color(0xff54a9ec),
       primaryContainer: Color(0xff00325b),
@@ -58,4 +69,17 @@ ThemeData darkThemeData() {
     // To use the Playground font, add GoogleFonts package and uncomment
     // fontFamily: GoogleFonts.notoSans().fontFamily,
   );
+
+  theme = theme.copyWith(
+    appBarTheme: theme.appBarTheme.copyWith(
+      centerTitle: true,
+      titleTextStyle: theme.appBarTheme.titleTextStyle?.copyWith(
+        fontWeight: FontWeight.w600,
+        letterSpacing: 1.5,
+      ),
+    ),
+    
+  );
+
+  return theme;
 }
