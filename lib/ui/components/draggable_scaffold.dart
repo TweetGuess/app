@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sliver_tools/sliver_tools.dart';
@@ -66,9 +67,11 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
           final bool fullyCollapsed = (snapshot.data ?? false);
 
           return Container(
-            color: Theme.of(context).scaffoldBackgroundColor,
+            color: Theme.of(context).colorScheme.surface,
             child: SafeArea(
               child: UIScaffold(
+                backgroundColor:
+                    Theme.of(context).colorScheme.surface.lighten(),
                 bodyPadding: EdgeInsets.zero,
                 body: body(
                   context,
@@ -120,7 +123,7 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
                       children: [
                         FlexibleSpaceBar(
                           background: Container(
-                            color: Theme.of(context).focusColor,
+                            color: Theme.of(context).colorScheme.surface,
                             margin: const EdgeInsets.only(bottom: 0.2),
                             child: Padding(
                               padding: EdgeInsets.only(
@@ -142,7 +145,10 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
                           child: Container(
                             height: widget.curvedBodyRadius,
                             decoration: BoxDecoration(
-                              color: Theme.of(context).scaffoldBackgroundColor,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .surface
+                                  .lighten(),
                               borderRadius: BorderRadius.vertical(
                                 top: Radius.circular(widget.curvedBodyRadius),
                               ),
@@ -175,7 +181,7 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
           Container(
             height:
                 MediaQuery.of(context).size.height - appBarHeight + topPadding,
-            color: Theme.of(context).scaffoldBackgroundColor,
+            color: Theme.of(context).colorScheme.surface.lighten(),
           ),
           Column(
             children: [bodyChild],

@@ -24,6 +24,8 @@ dependencies:
   bloc: ^8.0.0
   flutter_bloc: ^8.1.2
   hydrated_bloc: ^9.1.0
+  rxdart: ^0.27.7
+  sliver_tools: ^0.2.10
 
   # Diverse Utilities
   google_fonts: ^4.0.4
