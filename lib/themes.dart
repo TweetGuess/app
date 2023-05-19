@@ -49,7 +49,7 @@ ThemeData darkThemeData() {
     colors: const FlexSchemeColor(
       primary: Color(0xff54a9ec),
       primaryContainer: Color(0xff00325b),
-      secondary: Color(0xff264653),
+      secondary: Color(0xff264a653),
       tertiary: Color(0xff86d2e1),
       tertiaryContainer: Color(0xff004e59),
       error: Color(0xffcf6679),

@@ -13,7 +13,7 @@ class DraggableScaffold extends StatefulWidget {
     this.curvedBodyRadius = 20,
   });
 
-  Widget bodyChild;
+  List<Widget> bodyChild;
   Widget title;
   Widget headerWidget;
   double curvedBodyRadius;
@@ -97,7 +97,7 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
     double topPadding,
     bool fullyCollapsed,
     double expandedHeight,
-    Widget bodyChild,
+    List<Widget> bodyChild,
     Widget title,
     Widget headerWidget,
   ) {
@@ -184,7 +184,7 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
             color: Theme.of(context).colorScheme.surface.lighten(),
           ),
           Column(
-            children: [bodyChild],
+            children: [...bodyChild],
           ),
         ],
       ),
