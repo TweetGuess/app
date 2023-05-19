@@ -103,13 +103,75 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
           const Gap(16),
-          AutoSizeText(
-            userBloc.state.username,
-            style: GoogleFonts.robotoMono(
-              textStyle: TextStyle(fontSize: 20.sp),
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AutoSizeText(
+                userBloc.state.username,
+                style: GoogleFonts.robotoMono(
+                  textStyle: TextStyle(fontSize: 20.sp),
+                ),
+              ),
+              const Gap(4),
+              IconButton(
+                icon: const Icon(Icons.edit),
+                onPressed: () => showDialog(
+                  context: context,
+                  builder: (context) => const _changeUsernameDialogue(),
+                ),
+              )
+            ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _changeUsernameDialogue extends StatefulWidget {
+  const _changeUsernameDialogue();
+
+  @override
+  State<_changeUsernameDialogue> createState() =>
+      _changeUsernameDialogueState();
+}
+
+class _changeUsernameDialogueState extends State<_changeUsernameDialogue> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Material(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
+            color: Theme.of(context).colorScheme.surface,
+          ),
+          height: 20.h,
+          width: 80.w,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                AutoSizeText(
+                  "Please input your new username:",
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+                // TODO
+                const TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Your new username',
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
