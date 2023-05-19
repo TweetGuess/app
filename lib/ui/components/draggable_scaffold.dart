@@ -5,7 +5,7 @@ import 'package:sliver_tools/sliver_tools.dart';
 import 'package:tweetguess/ui/components/scaffold.dart';
 
 class DraggableScaffold extends StatefulWidget {
-  DraggableScaffold({
+  const DraggableScaffold({
     super.key,
     required this.bodyChild,
     required this.title,
@@ -13,10 +13,10 @@ class DraggableScaffold extends StatefulWidget {
     this.curvedBodyRadius = 20,
   });
 
-  List<Widget> bodyChild;
-  Widget title;
-  Widget headerWidget;
-  double curvedBodyRadius;
+  final List<Widget> bodyChild;
+  final Widget title;
+  final Widget headerWidget;
+  final double curvedBodyRadius;
 
   num get headerExpandedHeight => 0.35;
 
