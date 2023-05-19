@@ -11,14 +11,16 @@ class DraggableScaffold extends StatefulWidget {
     required this.title,
     required this.headerWidget,
     this.curvedBodyRadius = 20,
+    this.scrollController,
   });
 
-  final List<Widget> bodyChild;
+  final Widget bodyChild;
   final Widget title;
   final Widget headerWidget;
+  final ScrollController? scrollController;
   final double curvedBodyRadius;
 
-  num get headerExpandedHeight => 0.35;
+  num get headerExpandedHeight => 0.4;
 
   get stretchMaxHeight => 0.9;
 
@@ -97,12 +99,13 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
     double topPadding,
     bool fullyCollapsed,
     double expandedHeight,
-    List<Widget> bodyChild,
+    Widget bodyChild,
     Widget title,
     Widget headerWidget,
   ) {
     return NestedScrollView(
       physics: const BouncingScrollPhysics(),
+      controller: widget.scrollController,
       headerSliverBuilder: (context, innerBoxIsScrolled) {
         return [
           SliverOverlapAbsorber(
@@ -125,17 +128,7 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
                           background: Container(
                             color: Theme.of(context).colorScheme.surface,
                             margin: const EdgeInsets.only(bottom: 0.2),
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: MediaQuery.of(context).padding.top,
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(
-                                  16,
-                                ),
-                                child: headerWidget,
-                              ),
-                            ),
+                            child: headerWidget,
                           ),
                         ),
                         Positioned(
@@ -176,17 +169,16 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
           )
         ];
       },
-      body: Stack(
-        children: [
-          Container(
-            height:
-                MediaQuery.of(context).size.height - appBarHeight + topPadding,
-            color: Theme.of(context).colorScheme.surface.lighten(),
-          ),
-          Column(
-            children: [...bodyChild],
-          ),
-        ],
+      body: SizedBox(
+        height: MediaQuery.of(context).size.height - appBarHeight + topPadding,
+        child: Stack(
+          children: [
+            Container(
+              color: Theme.of(context).colorScheme.surface.lighten(),
+            ),
+            bodyChild
+          ],
+        ),
       ),
     );
   }

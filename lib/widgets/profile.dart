@@ -25,118 +25,168 @@ class _ProfilePageState extends State<ProfilePage> {
 
     var colors = generateAvatarColors(userBloc.state.username);
 
+    var scrollController = ScrollController();
+
     return DraggableScaffold(
-      bodyChild: [
-        const Gap(20),
-        SizedBox(
-          height: 40.h,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              const Gap(18),
-              Flexible(
-                fit: FlexFit.tight,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Expanded(
-                      child: InfoTile(
-                        isGradient: true,
-                        gradientColors: colors,
-                        data: '${userBloc.state.statistics.accuracyOfGuesses}',
-                        title: "Accuracy of Guesses",
+      scrollController: scrollController,
+      bodyChild: ListView(
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          const Gap(20),
+          SizedBox(
+            height: 45.h,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                const Gap(18),
+                Flexible(
+                  fit: FlexFit.tight,
+                  child: Column(
+                    key: ValueKey(userBloc.state.username),
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Expanded(
+                        child: InfoTile(
+                          isGradient: true,
+                          gradientColors: colors,
+                          data:
+                              '${userBloc.state.statistics.accuracyOfGuesses}',
+                          title: "Accuracy of Guesses",
+                        ),
                       ),
-                    ),
-                    const Gap(18),
-                    Expanded(
-                      child: InfoTile(
-                        isGradient: true,
-                        gradientColors: colors,
-                        data: '${userBloc.state.statistics.longestStreak}',
-                        title: "Longest Streak",
-                      ),
-                    )
-                  ],
+                      const Gap(18),
+                      Expanded(
+                        child: InfoTile(
+                          isGradient: true,
+                          gradientColors: colors,
+                          data: '${userBloc.state.statistics.longestStreak}',
+                          title: "Longest Streak",
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              const Gap(18),
-              Flexible(
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: InfoTile(
-                        isGradient: true,
-                        gradientColors: colors,
-                        data: '${userBloc.state.statistics.roundsPlayed}',
-                        title: "Rounds Played",
+                const Gap(18),
+                Flexible(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: InfoTile(
+                          isGradient: true,
+                          gradientColors: colors,
+                          data: '${userBloc.state.statistics.roundsPlayed}',
+                          title: "Rounds Played",
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              const Gap(18),
-            ],
+                const Gap(18),
+              ],
+            ),
           ),
-        )
-      ],
+          const Gap(270),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ColorFiltered(
+                // Grayscale Matrix that doesn't affect transparent bits
+                colorFilter: const ColorFilter.matrix(<double>[
+                  0.2126,
+                  0.7152,
+                  0.0722,
+                  0,
+                  0,
+                  0.2126,
+                  0.7152,
+                  0.0722,
+                  0,
+                  0,
+                  0.2126,
+                  0.7152,
+                  0.0722,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  1,
+                  0,
+                ]),
+                child: Image.asset(
+                  "assets/icons/mario.png",
+                  height: 50,
+                ),
+              ),
+              const Gap(10),
+              const AutoSizeText("More to come soon!"),
+              const Gap(16),
+            ],
+          )
+        ],
+      ),
       title: const Text(
         "Profile",
       ),
-      headerWidget: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: SizedBox(
-              width: 100,
-              height: 100,
-              child: BoringAvatars(
-                colors: const [
-                  Color(0xff00325b),
-                  Color(0xff54a9ec),
-                  Color(0xffD0E3EA),
-                  Color(0xffFCF7E7),
-                  Color(0xffC24C32)
-                ],
-                name: userBloc.state.username,
+      headerWidget: Padding(
+        padding: EdgeInsets.only(top: AppBar().preferredSize.height),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: SizedBox(
+                width: 15.h,
+                height: 15.h,
+                child: BoringAvatars(
+                  colors: const [
+                    Color(0xff00325b),
+                    Color(0xff54a9ec),
+                    Color(0xffD0E3EA),
+                    Color(0xffFCF7E7),
+                    Color(0xffC24C32)
+                  ],
+                  name: userBloc.state.username,
+                ),
               ),
             ),
-          ),
-          const Gap(16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AutoSizeText(
-                userBloc.state.username,
-                style: GoogleFonts.robotoMono(
-                  textStyle: TextStyle(fontSize: 20.sp),
+            const Gap(16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                AutoSizeText(
+                  userBloc.state.username,
+                  style: GoogleFonts.robotoMono(
+                    textStyle: TextStyle(fontSize: 20.sp),
+                  ),
                 ),
-              ),
-              const Gap(4),
-              IconButton(
-                icon: const Icon(Icons.edit),
-                onPressed: () => showDialog(
-                  context: context,
-                  builder: (context) => const _changeUsernameDialogue(),
-                ),
-              )
-            ],
-          ),
-        ],
+                const Gap(4),
+                IconButton(
+                  icon: const Icon(Icons.edit),
+                  onPressed: () => showDialog(
+                    context: context,
+                    builder: (context) => const _ChangeUsernameDialogue(),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
 }
 
-class _changeUsernameDialogue extends StatefulWidget {
-  const _changeUsernameDialogue();
+class _ChangeUsernameDialogue extends StatefulWidget {
+  const _ChangeUsernameDialogue();
 
   @override
-  State<_changeUsernameDialogue> createState() =>
-      _changeUsernameDialogueState();
+  State<_ChangeUsernameDialogue> createState() =>
+      _ChangeUsernameDialogueState();
 }
 
-class _changeUsernameDialogueState extends State<_changeUsernameDialogue> {
+class _ChangeUsernameDialogueState extends State<_ChangeUsernameDialogue> {
   @override
   Widget build(BuildContext context) {
     return Center(
