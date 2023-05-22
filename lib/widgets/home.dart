@@ -10,7 +10,7 @@ import 'package:tweetguess/widgets/profile.dart';
 import 'package:tweetguess/widgets/settings.dart';
 
 import '../ui/utils/routes/circular_transition_route.dart';
-import 'game.dart';
+import 'game/game.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -157,10 +157,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: double.infinity,
             child: GestureDetector(
               onTapUp: (details) => Navigator.of(context).push(
-                CircularTransitionRoute(
-                  page: const GameScreen(),
-                  offset: details.globalPosition,
-                ),
+                GameScreen.route(),
               ),
             ),
           ),
