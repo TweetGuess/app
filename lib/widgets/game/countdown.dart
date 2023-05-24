@@ -2,8 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tweetguess/core/bloc/game/game_event.dart';
 
-import '../../ui/utils/routes/circular_transition_route.dart';
+import '../../core/bloc/game/game_bloc.dart';
 import 'game.dart';
 
 class Countdown extends StatefulWidget {
@@ -52,10 +54,12 @@ class _CountdownState extends State<Countdown> {
   Widget build(BuildContext context) {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       if (_count == 0) {
+        context.read<GameBloc>().add(StartGame());
+        
         Navigator.of(context).pushReplacement(
-          CircularTransitionRoute(
-            page: const GameScreen(),
-            transitionDuration: const Duration(milliseconds: 300),
+          GameScreen.route(
+            countdownEnabled: false,
+            bloc: context.read<GameBloc>(),
           ),
         );
       }

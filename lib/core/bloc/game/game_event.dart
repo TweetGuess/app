@@ -7,12 +7,14 @@ part 'game_event.g.dart';
 sealed class GameEvent with _$GameEvent {
   factory GameEvent() = _GameEvent;
   // Basic game operations
-  factory GameEvent.startGame() = _StartGame;
-  factory GameEvent.exitGame() = _ExitGame;
+  factory GameEvent.startGame() = StartGame;
+    factory GameEvent.pausGame() = PauseGame;
+  factory GameEvent.exitGame() = ExitGame;
   // State-dependent Game Events
-  factory GameEvent.nextRound() = _NextRound;
-  factory GameEvent.noTimeLeft() = _NoTimeLeft;
-  factory GameEvent.noLivesLeft() = _NoLivesLeft;
+  factory GameEvent.nextRound() = NextRound;
+  factory GameEvent.noTimeLeft() = NoTimeLeft;
+  factory GameEvent.noLivesLeft() = NoLivesLeft;
+  factory GameEvent.gameTick() = GameTick;
 
   factory GameEvent.fromJson(Map<String, dynamic> json) =>
       _$GameEventFromJson(json);

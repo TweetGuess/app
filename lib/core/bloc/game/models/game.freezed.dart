@@ -24,6 +24,7 @@ mixin _$Game {
   List<String> get usedTweets => throw _privateConstructorUsedError;
   int get lives => throw _privateConstructorUsedError;
   int get timeLeft => throw _privateConstructorUsedError;
+  bool get isPaused => throw _privateConstructorUsedError;
   Round get currentRound => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,6 +42,7 @@ abstract class $GameCopyWith<$Res> {
       List<String> usedTweets,
       int lives,
       int timeLeft,
+      bool isPaused,
       Round currentRound});
 
   $RoundCopyWith<$Res> get currentRound;
@@ -63,6 +65,7 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
     Object? usedTweets = null,
     Object? lives = null,
     Object? timeLeft = null,
+    Object? isPaused = null,
     Object? currentRound = null,
   }) {
     return _then(_value.copyWith(
@@ -82,6 +85,10 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
           ? _value.timeLeft
           : timeLeft // ignore: cast_nullable_to_non_nullable
               as int,
+      isPaused: null == isPaused
+          ? _value.isPaused
+          : isPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
       currentRound: null == currentRound
           ? _value.currentRound
           : currentRound // ignore: cast_nullable_to_non_nullable
@@ -109,6 +116,7 @@ abstract class _$$_GameCopyWith<$Res> implements $GameCopyWith<$Res> {
       List<String> usedTweets,
       int lives,
       int timeLeft,
+      bool isPaused,
       Round currentRound});
 
   @override
@@ -128,6 +136,7 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
     Object? usedTweets = null,
     Object? lives = null,
     Object? timeLeft = null,
+    Object? isPaused = null,
     Object? currentRound = null,
   }) {
     return _then(_$_Game(
@@ -147,6 +156,10 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
           ? _value.timeLeft
           : timeLeft // ignore: cast_nullable_to_non_nullable
               as int,
+      isPaused: null == isPaused
+          ? _value.isPaused
+          : isPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
       currentRound: null == currentRound
           ? _value.currentRound
           : currentRound // ignore: cast_nullable_to_non_nullable
@@ -163,6 +176,7 @@ class _$_Game implements _Game {
       final List<String> usedTweets = const [],
       this.lives = 3,
       this.timeLeft = 30,
+      this.isPaused = false,
       required this.currentRound})
       : _usedTweets = usedTweets;
 
@@ -187,11 +201,14 @@ class _$_Game implements _Game {
   @JsonKey()
   final int timeLeft;
   @override
+  @JsonKey()
+  final bool isPaused;
+  @override
   final Round currentRound;
 
   @override
   String toString() {
-    return 'Game._(points: $points, usedTweets: $usedTweets, lives: $lives, timeLeft: $timeLeft, currentRound: $currentRound)';
+    return 'Game._(points: $points, usedTweets: $usedTweets, lives: $lives, timeLeft: $timeLeft, isPaused: $isPaused, currentRound: $currentRound)';
   }
 
   @override
@@ -205,6 +222,8 @@ class _$_Game implements _Game {
             (identical(other.lives, lives) || other.lives == lives) &&
             (identical(other.timeLeft, timeLeft) ||
                 other.timeLeft == timeLeft) &&
+            (identical(other.isPaused, isPaused) ||
+                other.isPaused == isPaused) &&
             (identical(other.currentRound, currentRound) ||
                 other.currentRound == currentRound));
   }
@@ -217,6 +236,7 @@ class _$_Game implements _Game {
       const DeepCollectionEquality().hash(_usedTweets),
       lives,
       timeLeft,
+      isPaused,
       currentRound);
 
   @JsonKey(ignore: true)
@@ -239,6 +259,7 @@ abstract class _Game implements Game {
       final List<String> usedTweets,
       final int lives,
       final int timeLeft,
+      final bool isPaused,
       required final Round currentRound}) = _$_Game;
 
   factory _Game.fromJson(Map<String, dynamic> json) = _$_Game.fromJson;
@@ -251,6 +272,8 @@ abstract class _Game implements Game {
   int get lives;
   @override
   int get timeLeft;
+  @override
+  bool get isPaused;
   @override
   Round get currentRound;
   @override

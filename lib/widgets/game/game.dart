@@ -1,6 +1,12 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/widgets/game/countdown.dart';
 
+import '../../core/bloc/game/game_bloc.dart';
+import '../../core/bloc/game/game_state.dart';
 import '../../ui/utils/routes/circular_transition_route.dart';
 
 class GameScreen extends StatefulWidget {
@@ -11,10 +17,14 @@ class GameScreen extends StatefulWidget {
 
   static Route route({
     bool countdownEnabled = true,
+    GameBloc? bloc,
     Duration transitionDuration = const Duration(milliseconds: 600),
   }) {
     return CircularTransitionRoute(
-      page: countdownEnabled ? const Countdown() : const GameScreen(),
+      page: BlocProvider<GameBloc>(
+        create: (context) => bloc ?? GameBloc(),
+        child: (countdownEnabled ? const Countdown() : const GameScreen()),
+      ),
       settings: const RouteSettings(name: "/game"),
     );
   }
@@ -23,18 +33,68 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: GestureDetector(
-        onTap: () {
-          // Pop route back to the one before
-          Navigator.pop(context);
-        },
-        child: Container(
-          color: Colors.red,
-          child: const Center(
-            child: Text('TODO'),
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: const Text("TweetGuess"),
+        centerTitle: true,
+        actions: const [
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [],
+            ),
           ),
-        ),
+        ],
+      ),
+      body: BlocBuilder<GameBloc, GameState>(
+        builder: (context, parentState) {
+          return parentState.map(
+            initial: (value) {
+              return const CircularProgressIndicator();
+            },
+            inProgress: (value) {
+              return Column(
+                children: [
+                  SizedBox(
+                    height: 5.h,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const Spacer(),
+                        const FittedBox(child: Icon(Icons.abc)),
+                        Expanded(
+                          child: FittedBox(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              // TODO: Put number into heart!
+                              child: Row(
+                                children: [
+                                  FittedBox(
+                                    fit: BoxFit.fitHeight,
+                                    child: AutoSizeText("${value.game.lives}"),
+                                  ),
+                                  const Gap(5),
+                                  const FittedBox(
+                                    fit: BoxFit.fitHeight,
+                                    child: Icon(Icons.favorite_border_outlined),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              );
+            },
+          );
+        },
       ),
     );
   }

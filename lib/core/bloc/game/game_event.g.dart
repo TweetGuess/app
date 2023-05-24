@@ -15,49 +15,66 @@ Map<String, dynamic> _$$_GameEventToJson(_$_GameEvent instance) =>
       'runtimeType': instance.$type,
     };
 
-_$_StartGame _$$_StartGameFromJson(Map<String, dynamic> json) => _$_StartGame(
+_$StartGame _$$StartGameFromJson(Map<String, dynamic> json) => _$StartGame(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_StartGameToJson(_$_StartGame instance) =>
+Map<String, dynamic> _$$StartGameToJson(_$StartGame instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$_ExitGame _$$_ExitGameFromJson(Map<String, dynamic> json) => _$_ExitGame(
+_$PauseGame _$$PauseGameFromJson(Map<String, dynamic> json) => _$PauseGame(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_ExitGameToJson(_$_ExitGame instance) =>
+Map<String, dynamic> _$$PauseGameToJson(_$PauseGame instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$_NextRound _$$_NextRoundFromJson(Map<String, dynamic> json) => _$_NextRound(
+_$ExitGame _$$ExitGameFromJson(Map<String, dynamic> json) => _$ExitGame(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_NextRoundToJson(_$_NextRound instance) =>
+Map<String, dynamic> _$$ExitGameToJson(_$ExitGame instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$_NoTimeLeft _$$_NoTimeLeftFromJson(Map<String, dynamic> json) =>
-    _$_NoTimeLeft(
+_$NextRound _$$NextRoundFromJson(Map<String, dynamic> json) => _$NextRound(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_NoTimeLeftToJson(_$_NoTimeLeft instance) =>
+Map<String, dynamic> _$$NextRoundToJson(_$NextRound instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$_NoLivesLeft _$$_NoLivesLeftFromJson(Map<String, dynamic> json) =>
-    _$_NoLivesLeft(
+_$NoTimeLeft _$$NoTimeLeftFromJson(Map<String, dynamic> json) => _$NoTimeLeft(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_NoLivesLeftToJson(_$_NoLivesLeft instance) =>
+Map<String, dynamic> _$$NoTimeLeftToJson(_$NoTimeLeft instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$NoLivesLeft _$$NoLivesLeftFromJson(Map<String, dynamic> json) =>
+    _$NoLivesLeft(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$NoLivesLeftToJson(_$NoLivesLeft instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
+_$GameTick _$$GameTickFromJson(Map<String, dynamic> json) => _$GameTick(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$GameTickToJson(_$GameTick instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };

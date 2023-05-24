@@ -14,6 +14,7 @@ _$_Game _$$_GameFromJson(Map<String, dynamic> json) => _$_Game(
           const [],
       lives: json['lives'] as int? ?? 3,
       timeLeft: json['timeLeft'] as int? ?? 30,
+      isPaused: json['isPaused'] as bool? ?? false,
       currentRound:
           Round.fromJson(json['currentRound'] as Map<String, dynamic>),
     );
@@ -23,5 +24,6 @@ Map<String, dynamic> _$$_GameToJson(_$_Game instance) => <String, dynamic>{
       'usedTweets': instance.usedTweets,
       'lives': instance.lives,
       'timeLeft': instance.timeLeft,
+      'isPaused': instance.isPaused,
       'currentRound': instance.currentRound,
     };

@@ -7,7 +7,7 @@ part 'game_state.g.dart';
 
 @freezed
 sealed class GameState with _$GameState {
-  factory GameState() = _GameState;
+  const GameState._();
   factory GameState.initial() = _Initial;
   factory GameState.inProgress(Game game) = _Inprogress;
 

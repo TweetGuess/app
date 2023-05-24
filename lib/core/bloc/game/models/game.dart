@@ -2,6 +2,7 @@
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tweetguess/core/bloc/game/models/round.dart';
+import 'package:tweetguess/models/Tweet.dart';
 
 part 'game.freezed.dart';
 part 'game.g.dart';
@@ -13,6 +14,7 @@ class Game with _$Game {
     @Default([]) List<String> usedTweets,
     @Default(3) int lives,
     @Default(30) int timeLeft,
+    @Default(false) bool isPaused,
     required Round currentRound,
   }) = _Game;
 
@@ -23,6 +25,6 @@ class Game with _$Game {
   factory Game.fromJson(Map<String, dynamic> json) => _$GameFromJson(json);
 
   static Round _generateRound() {
-    throw "error";
+    return Round(currentTweet: Tweet(), answerPossibilities: ["GG"]);
   }
 }

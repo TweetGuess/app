@@ -16,8 +16,6 @@ final _privateConstructorUsedError = UnsupportedError(
 
 GameState _$GameStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
-    case 'default':
-      return _GameState.fromJson(json);
     case 'initial':
       return _Initial.fromJson(json);
     case 'inProgress':
@@ -32,44 +30,38 @@ GameState _$GameStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GameState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(Game game) inProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(Game game)? inProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Game game)? inProgress,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Inprogress value) inProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Inprogress value)? inProgress,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Inprogress value)? inProgress,
     required TResult orElse(),
@@ -96,131 +88,6 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
 }
 
 /// @nodoc
-abstract class _$$_GameStateCopyWith<$Res> {
-  factory _$$_GameStateCopyWith(
-          _$_GameState value, $Res Function(_$_GameState) then) =
-      __$$_GameStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_GameStateCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$_GameState>
-    implements _$$_GameStateCopyWith<$Res> {
-  __$$_GameStateCopyWithImpl(
-      _$_GameState _value, $Res Function(_$_GameState) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$_GameState implements _GameState {
-  _$_GameState({final String? $type}) : $type = $type ?? 'default';
-
-  factory _$_GameState.fromJson(Map<String, dynamic> json) =>
-      _$$_GameStateFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'GameState()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GameState);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() initial,
-    required TResult Function(Game game) inProgress,
-  }) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? initial,
-    TResult? Function(Game game)? inProgress,
-  }) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? initial,
-    TResult Function(Game game)? inProgress,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameState value) $default, {
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Inprogress value) inProgress,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameState value)? $default, {
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Inprogress value)? inProgress,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameState value)? $default, {
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Inprogress value)? inProgress,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_GameStateToJson(
-      this,
-    );
-  }
-}
-
-abstract class _GameState implements GameState {
-  factory _GameState() = _$_GameState;
-
-  factory _GameState.fromJson(Map<String, dynamic> json) =
-      _$_GameState.fromJson;
-}
-
-/// @nodoc
 abstract class _$$_InitialCopyWith<$Res> {
   factory _$$_InitialCopyWith(
           _$_Initial value, $Res Function(_$_Initial) then) =
@@ -237,8 +104,10 @@ class __$$_InitialCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Initial implements _Initial {
-  _$_Initial({final String? $type}) : $type = $type ?? 'initial';
+class _$_Initial extends _Initial {
+  _$_Initial({final String? $type})
+      : $type = $type ?? 'initial',
+        super._();
 
   factory _$_Initial.fromJson(Map<String, dynamic> json) =>
       _$$_InitialFromJson(json);
@@ -263,8 +132,7 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(Game game) inProgress,
   }) {
@@ -273,8 +141,7 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(Game game)? inProgress,
   }) {
@@ -283,8 +150,7 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Game game)? inProgress,
     required TResult orElse(),
@@ -297,8 +163,7 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Inprogress value) inProgress,
   }) {
@@ -307,8 +172,7 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Inprogress value)? inProgress,
   }) {
@@ -317,8 +181,7 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Inprogress value)? inProgress,
     required TResult orElse(),
@@ -337,8 +200,9 @@ class _$_Initial implements _Initial {
   }
 }
 
-abstract class _Initial implements GameState {
+abstract class _Initial extends GameState {
   factory _Initial() = _$_Initial;
+  _Initial._() : super._();
 
   factory _Initial.fromJson(Map<String, dynamic> json) = _$_Initial.fromJson;
 }
@@ -386,9 +250,10 @@ class __$$_InprogressCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Inprogress implements _Inprogress {
+class _$_Inprogress extends _Inprogress {
   _$_Inprogress(this.game, {final String? $type})
-      : $type = $type ?? 'inProgress';
+      : $type = $type ?? 'inProgress',
+        super._();
 
   factory _$_Inprogress.fromJson(Map<String, dynamic> json) =>
       _$$_InprogressFromJson(json);
@@ -424,8 +289,7 @@ class _$_Inprogress implements _Inprogress {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(Game game) inProgress,
   }) {
@@ -434,8 +298,7 @@ class _$_Inprogress implements _Inprogress {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(Game game)? inProgress,
   }) {
@@ -444,8 +307,7 @@ class _$_Inprogress implements _Inprogress {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(Game game)? inProgress,
     required TResult orElse(),
@@ -458,8 +320,7 @@ class _$_Inprogress implements _Inprogress {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameState value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Inprogress value) inProgress,
   }) {
@@ -468,8 +329,7 @@ class _$_Inprogress implements _Inprogress {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameState value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Inprogress value)? inProgress,
   }) {
@@ -478,8 +338,7 @@ class _$_Inprogress implements _Inprogress {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameState value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Inprogress value)? inProgress,
     required TResult orElse(),
@@ -498,8 +357,9 @@ class _$_Inprogress implements _Inprogress {
   }
 }
 
-abstract class _Inprogress implements GameState {
+abstract class _Inprogress extends GameState {
   factory _Inprogress(final Game game) = _$_Inprogress;
+  _Inprogress._() : super._();
 
   factory _Inprogress.fromJson(Map<String, dynamic> json) =
       _$_Inprogress.fromJson;
