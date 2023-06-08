@@ -8,8 +8,8 @@ part 'game_state.g.dart';
 @freezed
 sealed class GameState with _$GameState {
   const GameState._();
-  factory GameState.initial() = _Initial;
-  factory GameState.inProgress(Game game) = _Inprogress;
+  factory GameState.initial() = GameInitial;
+  factory GameState.inProgress(Game game) = GameInProgress;
 
   factory GameState.fromJson(Map<String, dynamic> json) =>
       _$GameStateFromJson(json);

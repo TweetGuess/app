@@ -6,22 +6,23 @@ part of 'game_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Initial _$$_InitialFromJson(Map<String, dynamic> json) => _$_Initial(
+_$GameInitial _$$GameInitialFromJson(Map<String, dynamic> json) =>
+    _$GameInitial(
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_InitialToJson(_$_Initial instance) =>
+Map<String, dynamic> _$$GameInitialToJson(_$GameInitial instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };
 
-_$_Inprogress _$$_InprogressFromJson(Map<String, dynamic> json) =>
-    _$_Inprogress(
+_$GameInProgress _$$GameInProgressFromJson(Map<String, dynamic> json) =>
+    _$GameInProgress(
       Game.fromJson(json['game'] as Map<String, dynamic>),
       $type: json['runtimeType'] as String?,
     );
 
-Map<String, dynamic> _$$_InprogressToJson(_$_Inprogress instance) =>
+Map<String, dynamic> _$$GameInProgressToJson(_$GameInProgress instance) =>
     <String, dynamic>{
       'game': instance.game,
       'runtimeType': instance.$type,
