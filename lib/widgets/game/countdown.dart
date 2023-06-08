@@ -17,7 +17,7 @@ class Countdown extends StatefulWidget {
 
 class _CountdownState extends State<Countdown> {
   late Timer _timer;
-  int _count = 5;
+  int _count = 3;
 
   @override
   void initState() {
@@ -55,7 +55,7 @@ class _CountdownState extends State<Countdown> {
     SchedulerBinding.instance.addPostFrameCallback((_) {
       if (_count == 0) {
         context.read<GameBloc>().add(StartGame());
-        
+
         Navigator.of(context).pushReplacement(
           GameScreen.route(
             countdownEnabled: false,
