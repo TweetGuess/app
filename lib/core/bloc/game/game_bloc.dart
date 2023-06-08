@@ -15,6 +15,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   FutureOr<void> handleGameStart(StartGame event, Emitter<GameState> emit) {
     state.when(
       initial: () => emit(
+        
         GameState.inProgress(Game()),
       ),
       inProgress: (game) {
