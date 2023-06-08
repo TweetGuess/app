@@ -63,7 +63,7 @@ dependencies:
   easy_localization: ^3.0.1
   flutter_boring_avatars: ^1.0.1
   gap: ^3.0.0
-
+  
   flutter:
     sdk: flutter
 
@@ -83,6 +83,7 @@ dev_dependencies:
   freezed: ^2.3.4
   json_serializable: ^6.6.2
   flutter_lints: ^2.0.1
+  mockito: ^5.4.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
