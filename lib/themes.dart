@@ -34,10 +34,12 @@ ThemeData lightThemeData() {
   theme = theme.copyWith(
     appBarTheme: theme.appBarTheme.copyWith(
       centerTitle: true,
-      titleTextStyle: theme.appBarTheme.titleTextStyle?.copyWith(
+      titleTextStyle: const TextStyle(
+        fontFamily: "Pixeboy",
+        fontSize: 30,
         fontWeight: FontWeight.w600,
         letterSpacing: 1.5,
-      ),
+      ).merge(theme.appBarTheme.titleTextStyle),
     ),
   );
 
@@ -71,10 +73,12 @@ ThemeData darkThemeData() {
   theme = theme.copyWith(
     appBarTheme: theme.appBarTheme.copyWith(
       centerTitle: true,
-      titleTextStyle: theme.appBarTheme.titleTextStyle?.copyWith(
+      titleTextStyle: const TextStyle(
+        fontFamily: "Pixeboy",
+        fontSize: 30,
         fontWeight: FontWeight.w600,
         letterSpacing: 1.5,
-      ),
+      ).merge(theme.appBarTheme.titleTextStyle),
     ),
   );
 
