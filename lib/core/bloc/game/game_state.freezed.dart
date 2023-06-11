@@ -14,60 +14,58 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GameState _$GameStateFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'initial':
-      return GameInitial.fromJson(json);
-    case 'inProgress':
-      return GameInProgress.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'GameState',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
-
 /// @nodoc
 mixin _$GameState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Game game) inProgress,
+    required TResult Function(Game game) roundInProgress,
+    required TResult Function(Game game) roundFinished,
+    required TResult Function(Game game, GameEvent event) terminal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Game game)? inProgress,
+    TResult? Function(Game game)? roundInProgress,
+    TResult? Function(Game game)? roundFinished,
+    TResult? Function(Game game, GameEvent event)? terminal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Game game)? inProgress,
+    TResult Function(Game game)? roundInProgress,
+    TResult Function(Game game)? roundFinished,
+    TResult Function(Game game, GameEvent event)? terminal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GameInitial value) initial,
-    required TResult Function(GameInProgress value) inProgress,
+    required TResult Function(GameRoundInProgress value) roundInProgress,
+    required TResult Function(GameRoundFinished value) roundFinished,
+    required TResult Function(GameTerminal value) terminal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GameInitial value)? initial,
-    TResult? Function(GameInProgress value)? inProgress,
+    TResult? Function(GameRoundInProgress value)? roundInProgress,
+    TResult? Function(GameRoundFinished value)? roundFinished,
+    TResult? Function(GameTerminal value)? terminal,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GameInitial value)? initial,
-    TResult Function(GameInProgress value)? inProgress,
+    TResult Function(GameRoundInProgress value)? roundInProgress,
+    TResult Function(GameRoundFinished value)? roundFinished,
+    TResult Function(GameTerminal value)? terminal,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -104,17 +102,9 @@ class __$$GameInitialCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$GameInitial extends GameInitial {
-  _$GameInitial({final String? $type})
-      : $type = $type ?? 'initial',
-        super._();
-
-  factory _$GameInitial.fromJson(Map<String, dynamic> json) =>
-      _$$GameInitialFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  _$GameInitial() : super._();
 
   @override
   String toString() {
@@ -127,7 +117,6 @@ class _$GameInitial extends GameInitial {
         (other.runtimeType == runtimeType && other is _$GameInitial);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -135,7 +124,9 @@ class _$GameInitial extends GameInitial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Game game) inProgress,
+    required TResult Function(Game game) roundInProgress,
+    required TResult Function(Game game) roundFinished,
+    required TResult Function(Game game, GameEvent event) terminal,
   }) {
     return initial();
   }
@@ -144,7 +135,9 @@ class _$GameInitial extends GameInitial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Game game)? inProgress,
+    TResult? Function(Game game)? roundInProgress,
+    TResult? Function(Game game)? roundFinished,
+    TResult? Function(Game game, GameEvent event)? terminal,
   }) {
     return initial?.call();
   }
@@ -153,7 +146,9 @@ class _$GameInitial extends GameInitial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Game game)? inProgress,
+    TResult Function(Game game)? roundInProgress,
+    TResult Function(Game game)? roundFinished,
+    TResult Function(Game game, GameEvent event)? terminal,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -166,7 +161,9 @@ class _$GameInitial extends GameInitial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GameInitial value) initial,
-    required TResult Function(GameInProgress value) inProgress,
+    required TResult Function(GameRoundInProgress value) roundInProgress,
+    required TResult Function(GameRoundFinished value) roundFinished,
+    required TResult Function(GameTerminal value) terminal,
   }) {
     return initial(this);
   }
@@ -175,7 +172,9 @@ class _$GameInitial extends GameInitial {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GameInitial value)? initial,
-    TResult? Function(GameInProgress value)? inProgress,
+    TResult? Function(GameRoundInProgress value)? roundInProgress,
+    TResult? Function(GameRoundFinished value)? roundFinished,
+    TResult? Function(GameTerminal value)? terminal,
   }) {
     return initial?.call(this);
   }
@@ -184,7 +183,9 @@ class _$GameInitial extends GameInitial {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GameInitial value)? initial,
-    TResult Function(GameInProgress value)? inProgress,
+    TResult Function(GameRoundInProgress value)? roundInProgress,
+    TResult Function(GameRoundFinished value)? roundFinished,
+    TResult Function(GameTerminal value)? terminal,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -192,28 +193,18 @@ class _$GameInitial extends GameInitial {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GameInitialToJson(
-      this,
-    );
-  }
 }
 
 abstract class GameInitial extends GameState {
   factory GameInitial() = _$GameInitial;
   GameInitial._() : super._();
-
-  factory GameInitial.fromJson(Map<String, dynamic> json) =
-      _$GameInitial.fromJson;
 }
 
 /// @nodoc
-abstract class _$$GameInProgressCopyWith<$Res> {
-  factory _$$GameInProgressCopyWith(
-          _$GameInProgress value, $Res Function(_$GameInProgress) then) =
-      __$$GameInProgressCopyWithImpl<$Res>;
+abstract class _$$GameRoundInProgressCopyWith<$Res> {
+  factory _$$GameRoundInProgressCopyWith(_$GameRoundInProgress value,
+          $Res Function(_$GameRoundInProgress) then) =
+      __$$GameRoundInProgressCopyWithImpl<$Res>;
   @useResult
   $Res call({Game game});
 
@@ -221,11 +212,11 @@ abstract class _$$GameInProgressCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$GameInProgressCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$GameInProgress>
-    implements _$$GameInProgressCopyWith<$Res> {
-  __$$GameInProgressCopyWithImpl(
-      _$GameInProgress _value, $Res Function(_$GameInProgress) _then)
+class __$$GameRoundInProgressCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$GameRoundInProgress>
+    implements _$$GameRoundInProgressCopyWith<$Res> {
+  __$$GameRoundInProgressCopyWithImpl(
+      _$GameRoundInProgress _value, $Res Function(_$GameRoundInProgress) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -233,7 +224,7 @@ class __$$GameInProgressCopyWithImpl<$Res>
   $Res call({
     Object? game = null,
   }) {
-    return _then(_$GameInProgress(
+    return _then(_$GameRoundInProgress(
       null == game
           ? _value.game
           : game // ignore: cast_nullable_to_non_nullable
@@ -251,71 +242,69 @@ class __$$GameInProgressCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$GameInProgress extends GameInProgress {
-  _$GameInProgress(this.game, {final String? $type})
-      : $type = $type ?? 'inProgress',
-        super._();
 
-  factory _$GameInProgress.fromJson(Map<String, dynamic> json) =>
-      _$$GameInProgressFromJson(json);
+class _$GameRoundInProgress extends GameRoundInProgress {
+  _$GameRoundInProgress(this.game) : super._();
 
   @override
   final Game game;
 
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
   @override
   String toString() {
-    return 'GameState.inProgress(game: $game)';
+    return 'GameState.roundInProgress(game: $game)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GameInProgress &&
+            other is _$GameRoundInProgress &&
             (identical(other.game, game) || other.game == game));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, game);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GameInProgressCopyWith<_$GameInProgress> get copyWith =>
-      __$$GameInProgressCopyWithImpl<_$GameInProgress>(this, _$identity);
+  _$$GameRoundInProgressCopyWith<_$GameRoundInProgress> get copyWith =>
+      __$$GameRoundInProgressCopyWithImpl<_$GameRoundInProgress>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(Game game) inProgress,
+    required TResult Function(Game game) roundInProgress,
+    required TResult Function(Game game) roundFinished,
+    required TResult Function(Game game, GameEvent event) terminal,
   }) {
-    return inProgress(game);
+    return roundInProgress(game);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(Game game)? inProgress,
+    TResult? Function(Game game)? roundInProgress,
+    TResult? Function(Game game)? roundFinished,
+    TResult? Function(Game game, GameEvent event)? terminal,
   }) {
-    return inProgress?.call(game);
+    return roundInProgress?.call(game);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(Game game)? inProgress,
+    TResult Function(Game game)? roundInProgress,
+    TResult Function(Game game)? roundFinished,
+    TResult Function(Game game, GameEvent event)? terminal,
     required TResult orElse(),
   }) {
-    if (inProgress != null) {
-      return inProgress(game);
+    if (roundInProgress != null) {
+      return roundInProgress(game);
     }
     return orElse();
   }
@@ -324,50 +313,376 @@ class _$GameInProgress extends GameInProgress {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GameInitial value) initial,
-    required TResult Function(GameInProgress value) inProgress,
+    required TResult Function(GameRoundInProgress value) roundInProgress,
+    required TResult Function(GameRoundFinished value) roundFinished,
+    required TResult Function(GameTerminal value) terminal,
   }) {
-    return inProgress(this);
+    return roundInProgress(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GameInitial value)? initial,
-    TResult? Function(GameInProgress value)? inProgress,
+    TResult? Function(GameRoundInProgress value)? roundInProgress,
+    TResult? Function(GameRoundFinished value)? roundFinished,
+    TResult? Function(GameTerminal value)? terminal,
   }) {
-    return inProgress?.call(this);
+    return roundInProgress?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GameInitial value)? initial,
-    TResult Function(GameInProgress value)? inProgress,
+    TResult Function(GameRoundInProgress value)? roundInProgress,
+    TResult Function(GameRoundFinished value)? roundFinished,
+    TResult Function(GameTerminal value)? terminal,
     required TResult orElse(),
   }) {
-    if (inProgress != null) {
-      return inProgress(this);
+    if (roundInProgress != null) {
+      return roundInProgress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GameRoundInProgress extends GameState {
+  factory GameRoundInProgress(final Game game) = _$GameRoundInProgress;
+  GameRoundInProgress._() : super._();
+
+  Game get game;
+  @JsonKey(ignore: true)
+  _$$GameRoundInProgressCopyWith<_$GameRoundInProgress> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GameRoundFinishedCopyWith<$Res> {
+  factory _$$GameRoundFinishedCopyWith(
+          _$GameRoundFinished value, $Res Function(_$GameRoundFinished) then) =
+      __$$GameRoundFinishedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Game game});
+
+  $GameCopyWith<$Res> get game;
+}
+
+/// @nodoc
+class __$$GameRoundFinishedCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$GameRoundFinished>
+    implements _$$GameRoundFinishedCopyWith<$Res> {
+  __$$GameRoundFinishedCopyWithImpl(
+      _$GameRoundFinished _value, $Res Function(_$GameRoundFinished) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? game = null,
+  }) {
+    return _then(_$GameRoundFinished(
+      null == game
+          ? _value.game
+          : game // ignore: cast_nullable_to_non_nullable
+              as Game,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameCopyWith<$Res> get game {
+    return $GameCopyWith<$Res>(_value.game, (value) {
+      return _then(_value.copyWith(game: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$GameRoundFinished extends GameRoundFinished {
+  _$GameRoundFinished(this.game) : super._();
+
+  @override
+  final Game game;
+
+  @override
+  String toString() {
+    return 'GameState.roundFinished(game: $game)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GameRoundFinished &&
+            (identical(other.game, game) || other.game == game));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, game);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GameRoundFinishedCopyWith<_$GameRoundFinished> get copyWith =>
+      __$$GameRoundFinishedCopyWithImpl<_$GameRoundFinished>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Game game) roundInProgress,
+    required TResult Function(Game game) roundFinished,
+    required TResult Function(Game game, GameEvent event) terminal,
+  }) {
+    return roundFinished(game);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Game game)? roundInProgress,
+    TResult? Function(Game game)? roundFinished,
+    TResult? Function(Game game, GameEvent event)? terminal,
+  }) {
+    return roundFinished?.call(game);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Game game)? roundInProgress,
+    TResult Function(Game game)? roundFinished,
+    TResult Function(Game game, GameEvent event)? terminal,
+    required TResult orElse(),
+  }) {
+    if (roundFinished != null) {
+      return roundFinished(game);
     }
     return orElse();
   }
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$GameInProgressToJson(
-      this,
-    );
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GameInitial value) initial,
+    required TResult Function(GameRoundInProgress value) roundInProgress,
+    required TResult Function(GameRoundFinished value) roundFinished,
+    required TResult Function(GameTerminal value) terminal,
+  }) {
+    return roundFinished(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GameInitial value)? initial,
+    TResult? Function(GameRoundInProgress value)? roundInProgress,
+    TResult? Function(GameRoundFinished value)? roundFinished,
+    TResult? Function(GameTerminal value)? terminal,
+  }) {
+    return roundFinished?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GameInitial value)? initial,
+    TResult Function(GameRoundInProgress value)? roundInProgress,
+    TResult Function(GameRoundFinished value)? roundFinished,
+    TResult Function(GameTerminal value)? terminal,
+    required TResult orElse(),
+  }) {
+    if (roundFinished != null) {
+      return roundFinished(this);
+    }
+    return orElse();
   }
 }
 
-abstract class GameInProgress extends GameState {
-  factory GameInProgress(final Game game) = _$GameInProgress;
-  GameInProgress._() : super._();
-
-  factory GameInProgress.fromJson(Map<String, dynamic> json) =
-      _$GameInProgress.fromJson;
+abstract class GameRoundFinished extends GameState {
+  factory GameRoundFinished(final Game game) = _$GameRoundFinished;
+  GameRoundFinished._() : super._();
 
   Game get game;
   @JsonKey(ignore: true)
-  _$$GameInProgressCopyWith<_$GameInProgress> get copyWith =>
+  _$$GameRoundFinishedCopyWith<_$GameRoundFinished> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GameTerminalCopyWith<$Res> {
+  factory _$$GameTerminalCopyWith(
+          _$GameTerminal value, $Res Function(_$GameTerminal) then) =
+      __$$GameTerminalCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Game game, GameEvent event});
+
+  $GameCopyWith<$Res> get game;
+  $GameEventCopyWith<$Res> get event;
+}
+
+/// @nodoc
+class __$$GameTerminalCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$GameTerminal>
+    implements _$$GameTerminalCopyWith<$Res> {
+  __$$GameTerminalCopyWithImpl(
+      _$GameTerminal _value, $Res Function(_$GameTerminal) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? game = null,
+    Object? event = null,
+  }) {
+    return _then(_$GameTerminal(
+      null == game
+          ? _value.game
+          : game // ignore: cast_nullable_to_non_nullable
+              as Game,
+      null == event
+          ? _value.event
+          : event // ignore: cast_nullable_to_non_nullable
+              as GameEvent,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameCopyWith<$Res> get game {
+    return $GameCopyWith<$Res>(_value.game, (value) {
+      return _then(_value.copyWith(game: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameEventCopyWith<$Res> get event {
+    return $GameEventCopyWith<$Res>(_value.event, (value) {
+      return _then(_value.copyWith(event: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$GameTerminal extends GameTerminal {
+  _$GameTerminal(this.game, this.event) : super._();
+
+  @override
+  final Game game;
+  @override
+  final GameEvent event;
+
+  @override
+  String toString() {
+    return 'GameState.terminal(game: $game, event: $event)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GameTerminal &&
+            (identical(other.game, game) || other.game == game) &&
+            (identical(other.event, event) || other.event == event));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, game, event);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GameTerminalCopyWith<_$GameTerminal> get copyWith =>
+      __$$GameTerminalCopyWithImpl<_$GameTerminal>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(Game game) roundInProgress,
+    required TResult Function(Game game) roundFinished,
+    required TResult Function(Game game, GameEvent event) terminal,
+  }) {
+    return terminal(game, event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(Game game)? roundInProgress,
+    TResult? Function(Game game)? roundFinished,
+    TResult? Function(Game game, GameEvent event)? terminal,
+  }) {
+    return terminal?.call(game, event);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(Game game)? roundInProgress,
+    TResult Function(Game game)? roundFinished,
+    TResult Function(Game game, GameEvent event)? terminal,
+    required TResult orElse(),
+  }) {
+    if (terminal != null) {
+      return terminal(game, event);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GameInitial value) initial,
+    required TResult Function(GameRoundInProgress value) roundInProgress,
+    required TResult Function(GameRoundFinished value) roundFinished,
+    required TResult Function(GameTerminal value) terminal,
+  }) {
+    return terminal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GameInitial value)? initial,
+    TResult? Function(GameRoundInProgress value)? roundInProgress,
+    TResult? Function(GameRoundFinished value)? roundFinished,
+    TResult? Function(GameTerminal value)? terminal,
+  }) {
+    return terminal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GameInitial value)? initial,
+    TResult Function(GameRoundInProgress value)? roundInProgress,
+    TResult Function(GameRoundFinished value)? roundFinished,
+    TResult Function(GameTerminal value)? terminal,
+    required TResult orElse(),
+  }) {
+    if (terminal != null) {
+      return terminal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GameTerminal extends GameState {
+  factory GameTerminal(final Game game, final GameEvent event) = _$GameTerminal;
+  GameTerminal._() : super._();
+
+  Game get game;
+  GameEvent get event;
+  @JsonKey(ignore: true)
+  _$$GameTerminalCopyWith<_$GameTerminal> get copyWith =>
       throw _privateConstructorUsedError;
 }

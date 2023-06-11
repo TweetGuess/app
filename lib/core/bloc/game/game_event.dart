@@ -8,13 +8,14 @@ sealed class GameEvent with _$GameEvent {
   factory GameEvent() = _GameEvent;
   // Basic game operations
   factory GameEvent.startGame() = StartGame;
-    factory GameEvent.pausGame() = PauseGame;
+  factory GameEvent.pauseGame() = PauseGame;
   factory GameEvent.exitGame() = ExitGame;
+
   // State-dependent Game Events
+  factory GameEvent.submitRound() = SubmitRound;
   factory GameEvent.nextRound() = NextRound;
   factory GameEvent.noTimeLeft() = NoTimeLeft;
   factory GameEvent.noLivesLeft() = NoLivesLeft;
-  factory GameEvent.gameTick() = GameTick;
 
   factory GameEvent.fromJson(Map<String, dynamic> json) =>
       _$GameEventFromJson(json);

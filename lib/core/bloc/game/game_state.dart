@@ -1,16 +1,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'game_event.dart';
 import 'models/game.dart';
 
 part 'game_state.freezed.dart';
-part 'game_state.g.dart';
 
 @freezed
 sealed class GameState with _$GameState {
   const GameState._();
   factory GameState.initial() = GameInitial;
-  factory GameState.inProgress(Game game) = GameInProgress;
 
-  factory GameState.fromJson(Map<String, dynamic> json) =>
-      _$GameStateFromJson(json);
+  factory GameState.roundInProgress(Game game) = GameRoundInProgress;
+
+  factory GameState.roundFinished(Game game) = GameRoundFinished;
+
+  // Passing the event that led to the game ending
+  factory GameState.terminal(Game game, GameEvent event) = GameTerminal;
 }

@@ -14,16 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Round _$RoundFromJson(Map<String, dynamic> json) {
-  return _Round.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Round {
-  Tweet get currentTweet => throw _privateConstructorUsedError;
-  List<String> get answerPossibilities => throw _privateConstructorUsedError;
+  String get tweetId => throw _privateConstructorUsedError;
+  String get content => throw _privateConstructorUsedError;
+  List<(GlobalKey<UIPrimaryButtonState>, String)> get answerPossibilities =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  /// The right answer is given here by the index
+  int get rightAnswer => throw _privateConstructorUsedError;
+
   @JsonKey(ignore: true)
   $RoundCopyWith<Round> get copyWith => throw _privateConstructorUsedError;
 }
@@ -33,7 +33,11 @@ abstract class $RoundCopyWith<$Res> {
   factory $RoundCopyWith(Round value, $Res Function(Round) then) =
       _$RoundCopyWithImpl<$Res, Round>;
   @useResult
-  $Res call({Tweet currentTweet, List<String> answerPossibilities});
+  $Res call(
+      {String tweetId,
+      String content,
+      List<(GlobalKey<UIPrimaryButtonState>, String)> answerPossibilities,
+      int rightAnswer});
 }
 
 /// @nodoc
@@ -49,18 +53,28 @@ class _$RoundCopyWithImpl<$Res, $Val extends Round>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentTweet = freezed,
+    Object? tweetId = null,
+    Object? content = null,
     Object? answerPossibilities = null,
+    Object? rightAnswer = null,
   }) {
     return _then(_value.copyWith(
-      currentTweet: freezed == currentTweet
-          ? _value.currentTweet
-          : currentTweet // ignore: cast_nullable_to_non_nullable
-              as Tweet,
+      tweetId: null == tweetId
+          ? _value.tweetId
+          : tweetId // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
       answerPossibilities: null == answerPossibilities
           ? _value.answerPossibilities
           : answerPossibilities // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<(GlobalKey<UIPrimaryButtonState>, String)>,
+      rightAnswer: null == rightAnswer
+          ? _value.rightAnswer
+          : rightAnswer // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -71,7 +85,11 @@ abstract class _$$_RoundCopyWith<$Res> implements $RoundCopyWith<$Res> {
       __$$_RoundCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Tweet currentTweet, List<String> answerPossibilities});
+  $Res call(
+      {String tweetId,
+      String content,
+      List<(GlobalKey<UIPrimaryButtonState>, String)> answerPossibilities,
+      int rightAnswer});
 }
 
 /// @nodoc
@@ -83,47 +101,63 @@ class __$$_RoundCopyWithImpl<$Res> extends _$RoundCopyWithImpl<$Res, _$_Round>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? currentTweet = freezed,
+    Object? tweetId = null,
+    Object? content = null,
     Object? answerPossibilities = null,
+    Object? rightAnswer = null,
   }) {
     return _then(_$_Round(
-      currentTweet: freezed == currentTweet
-          ? _value.currentTweet
-          : currentTweet // ignore: cast_nullable_to_non_nullable
-              as Tweet,
+      tweetId: null == tweetId
+          ? _value.tweetId
+          : tweetId // ignore: cast_nullable_to_non_nullable
+              as String,
+      content: null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
       answerPossibilities: null == answerPossibilities
           ? _value._answerPossibilities
           : answerPossibilities // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<(GlobalKey<UIPrimaryButtonState>, String)>,
+      rightAnswer: null == rightAnswer
+          ? _value.rightAnswer
+          : rightAnswer // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Round implements _Round {
   _$_Round(
-      {required this.currentTweet,
-      required final List<String> answerPossibilities})
+      {required this.tweetId,
+      required this.content,
+      required final List<(GlobalKey<UIPrimaryButtonState>, String)>
+          answerPossibilities,
+      required this.rightAnswer})
       : _answerPossibilities = answerPossibilities;
 
-  factory _$_Round.fromJson(Map<String, dynamic> json) =>
-      _$$_RoundFromJson(json);
-
   @override
-  final Tweet currentTweet;
-  final List<String> _answerPossibilities;
+  final String tweetId;
   @override
-  List<String> get answerPossibilities {
+  final String content;
+  final List<(GlobalKey<UIPrimaryButtonState>, String)> _answerPossibilities;
+  @override
+  List<(GlobalKey<UIPrimaryButtonState>, String)> get answerPossibilities {
     if (_answerPossibilities is EqualUnmodifiableListView)
       return _answerPossibilities;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_answerPossibilities);
   }
 
+  /// The right answer is given here by the index
+  @override
+  final int rightAnswer;
+
   @override
   String toString() {
-    return 'Round(currentTweet: $currentTweet, answerPossibilities: $answerPossibilities)';
+    return 'Round(tweetId: $tweetId, content: $content, answerPossibilities: $answerPossibilities, rightAnswer: $rightAnswer)';
   }
 
   @override
@@ -131,44 +165,43 @@ class _$_Round implements _Round {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Round &&
+            (identical(other.tweetId, tweetId) || other.tweetId == tweetId) &&
+            (identical(other.content, content) || other.content == content) &&
             const DeepCollectionEquality()
-                .equals(other.currentTweet, currentTweet) &&
-            const DeepCollectionEquality()
-                .equals(other._answerPossibilities, _answerPossibilities));
+                .equals(other._answerPossibilities, _answerPossibilities) &&
+            (identical(other.rightAnswer, rightAnswer) ||
+                other.rightAnswer == rightAnswer));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(currentTweet),
-      const DeepCollectionEquality().hash(_answerPossibilities));
+  int get hashCode => Object.hash(runtimeType, tweetId, content,
+      const DeepCollectionEquality().hash(_answerPossibilities), rightAnswer);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$_RoundCopyWith<_$_Round> get copyWith =>
       __$$_RoundCopyWithImpl<_$_Round>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_RoundToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Round implements Round {
   factory _Round(
-      {required final Tweet currentTweet,
-      required final List<String> answerPossibilities}) = _$_Round;
-
-  factory _Round.fromJson(Map<String, dynamic> json) = _$_Round.fromJson;
+      {required final String tweetId,
+      required final String content,
+      required final List<(GlobalKey<UIPrimaryButtonState>, String)>
+          answerPossibilities,
+      required final int rightAnswer}) = _$_Round;
 
   @override
-  Tweet get currentTweet;
+  String get tweetId;
   @override
-  List<String> get answerPossibilities;
+  String get content;
+  @override
+  List<(GlobalKey<UIPrimaryButtonState>, String)> get answerPossibilities;
+  @override
+
+  /// The right answer is given here by the index
+  int get rightAnswer;
   @override
   @JsonKey(ignore: true)
   _$$_RoundCopyWith<_$_Round> get copyWith =>

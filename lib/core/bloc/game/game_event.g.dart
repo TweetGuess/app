@@ -42,6 +42,16 @@ Map<String, dynamic> _$$ExitGameToJson(_$ExitGame instance) =>
       'runtimeType': instance.$type,
     };
 
+_$SubmitRound _$$SubmitRoundFromJson(Map<String, dynamic> json) =>
+    _$SubmitRound(
+      $type: json['runtimeType'] as String?,
+    );
+
+Map<String, dynamic> _$$SubmitRoundToJson(_$SubmitRound instance) =>
+    <String, dynamic>{
+      'runtimeType': instance.$type,
+    };
+
 _$NextRound _$$NextRoundFromJson(Map<String, dynamic> json) => _$NextRound(
       $type: json['runtimeType'] as String?,
     );
@@ -66,15 +76,6 @@ _$NoLivesLeft _$$NoLivesLeftFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$NoLivesLeftToJson(_$NoLivesLeft instance) =>
-    <String, dynamic>{
-      'runtimeType': instance.$type,
-    };
-
-_$GameTick _$$GameTickFromJson(Map<String, dynamic> json) => _$GameTick(
-      $type: json['runtimeType'] as String?,
-    );
-
-Map<String, dynamic> _$$GameTickToJson(_$GameTick instance) =>
     <String, dynamic>{
       'runtimeType': instance.$type,
     };

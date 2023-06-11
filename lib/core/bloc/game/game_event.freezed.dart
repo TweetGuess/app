@@ -20,18 +20,18 @@ GameEvent _$GameEventFromJson(Map<String, dynamic> json) {
       return _GameEvent.fromJson(json);
     case 'startGame':
       return StartGame.fromJson(json);
-    case 'pausGame':
+    case 'pauseGame':
       return PauseGame.fromJson(json);
     case 'exitGame':
       return ExitGame.fromJson(json);
+    case 'submitRound':
+      return SubmitRound.fromJson(json);
     case 'nextRound':
       return NextRound.fromJson(json);
     case 'noTimeLeft':
       return NoTimeLeft.fromJson(json);
     case 'noLivesLeft':
       return NoLivesLeft.fromJson(json);
-    case 'gameTick':
-      return GameTick.fromJson(json);
 
     default:
       throw CheckedFromJsonException(json, 'runtimeType', 'GameEvent',
@@ -45,36 +45,36 @@ mixin _$GameEvent {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() startGame,
-    required TResult Function() pausGame,
+    required TResult Function() pauseGame,
     required TResult Function() exitGame,
+    required TResult Function() submitRound,
     required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? startGame,
-    TResult? Function()? pausGame,
+    TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
     TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? startGame,
-    TResult Function()? pausGame,
+    TResult Function()? pauseGame,
     TResult Function()? exitGame,
+    TResult Function()? submitRound,
     TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -82,36 +82,36 @@ mixin _$GameEvent {
   TResult map<TResult extends Object?>(
     TResult Function(_GameEvent value) $default, {
     required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
+    required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
     required TResult Function(NextRound value) nextRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_GameEvent value)? $default, {
     TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
+    TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
     TResult? Function(NextRound value)? nextRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_GameEvent value)? $default, {
     TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
+    TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
     TResult Function(NextRound value)? nextRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -182,12 +182,12 @@ class _$_GameEvent implements _GameEvent {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() startGame,
-    required TResult Function() pausGame,
+    required TResult Function() pauseGame,
     required TResult Function() exitGame,
+    required TResult Function() submitRound,
     required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
   }) {
     return $default();
   }
@@ -197,12 +197,12 @@ class _$_GameEvent implements _GameEvent {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? startGame,
-    TResult? Function()? pausGame,
+    TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
     TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
   }) {
     return $default?.call();
   }
@@ -212,12 +212,12 @@ class _$_GameEvent implements _GameEvent {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? startGame,
-    TResult Function()? pausGame,
+    TResult Function()? pauseGame,
     TResult Function()? exitGame,
+    TResult Function()? submitRound,
     TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -231,12 +231,12 @@ class _$_GameEvent implements _GameEvent {
   TResult map<TResult extends Object?>(
     TResult Function(_GameEvent value) $default, {
     required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
+    required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
     required TResult Function(NextRound value) nextRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
   }) {
     return $default(this);
   }
@@ -246,12 +246,12 @@ class _$_GameEvent implements _GameEvent {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_GameEvent value)? $default, {
     TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
+    TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
     TResult? Function(NextRound value)? nextRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
   }) {
     return $default?.call(this);
   }
@@ -261,12 +261,12 @@ class _$_GameEvent implements _GameEvent {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_GameEvent value)? $default, {
     TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
+    TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
     TResult Function(NextRound value)? nextRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -337,12 +337,12 @@ class _$StartGame implements StartGame {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() startGame,
-    required TResult Function() pausGame,
+    required TResult Function() pauseGame,
     required TResult Function() exitGame,
+    required TResult Function() submitRound,
     required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
   }) {
     return startGame();
   }
@@ -352,12 +352,12 @@ class _$StartGame implements StartGame {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? startGame,
-    TResult? Function()? pausGame,
+    TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
     TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
   }) {
     return startGame?.call();
   }
@@ -367,12 +367,12 @@ class _$StartGame implements StartGame {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? startGame,
-    TResult Function()? pausGame,
+    TResult Function()? pauseGame,
     TResult Function()? exitGame,
+    TResult Function()? submitRound,
     TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
     required TResult orElse(),
   }) {
     if (startGame != null) {
@@ -386,12 +386,12 @@ class _$StartGame implements StartGame {
   TResult map<TResult extends Object?>(
     TResult Function(_GameEvent value) $default, {
     required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
+    required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
     required TResult Function(NextRound value) nextRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
   }) {
     return startGame(this);
   }
@@ -401,12 +401,12 @@ class _$StartGame implements StartGame {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_GameEvent value)? $default, {
     TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
+    TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
     TResult? Function(NextRound value)? nextRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
   }) {
     return startGame?.call(this);
   }
@@ -416,12 +416,12 @@ class _$StartGame implements StartGame {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_GameEvent value)? $default, {
     TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
+    TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
     TResult Function(NextRound value)? nextRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
     required TResult orElse(),
   }) {
     if (startGame != null) {
@@ -463,7 +463,7 @@ class __$$PauseGameCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$PauseGame implements PauseGame {
-  _$PauseGame({final String? $type}) : $type = $type ?? 'pausGame';
+  _$PauseGame({final String? $type}) : $type = $type ?? 'pauseGame';
 
   factory _$PauseGame.fromJson(Map<String, dynamic> json) =>
       _$$PauseGameFromJson(json);
@@ -473,7 +473,7 @@ class _$PauseGame implements PauseGame {
 
   @override
   String toString() {
-    return 'GameEvent.pausGame()';
+    return 'GameEvent.pauseGame()';
   }
 
   @override
@@ -491,14 +491,14 @@ class _$PauseGame implements PauseGame {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() startGame,
-    required TResult Function() pausGame,
+    required TResult Function() pauseGame,
     required TResult Function() exitGame,
+    required TResult Function() submitRound,
     required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
   }) {
-    return pausGame();
+    return pauseGame();
   }
 
   @override
@@ -506,14 +506,14 @@ class _$PauseGame implements PauseGame {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? startGame,
-    TResult? Function()? pausGame,
+    TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
     TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
   }) {
-    return pausGame?.call();
+    return pauseGame?.call();
   }
 
   @override
@@ -521,16 +521,16 @@ class _$PauseGame implements PauseGame {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? startGame,
-    TResult Function()? pausGame,
+    TResult Function()? pauseGame,
     TResult Function()? exitGame,
+    TResult Function()? submitRound,
     TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
     required TResult orElse(),
   }) {
-    if (pausGame != null) {
-      return pausGame();
+    if (pauseGame != null) {
+      return pauseGame();
     }
     return orElse();
   }
@@ -540,14 +540,14 @@ class _$PauseGame implements PauseGame {
   TResult map<TResult extends Object?>(
     TResult Function(_GameEvent value) $default, {
     required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
+    required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
     required TResult Function(NextRound value) nextRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
   }) {
-    return pausGame(this);
+    return pauseGame(this);
   }
 
   @override
@@ -555,14 +555,14 @@ class _$PauseGame implements PauseGame {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_GameEvent value)? $default, {
     TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
+    TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
     TResult? Function(NextRound value)? nextRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
   }) {
-    return pausGame?.call(this);
+    return pauseGame?.call(this);
   }
 
   @override
@@ -570,16 +570,16 @@ class _$PauseGame implements PauseGame {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_GameEvent value)? $default, {
     TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
+    TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
     TResult Function(NextRound value)? nextRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
     required TResult orElse(),
   }) {
-    if (pausGame != null) {
-      return pausGame(this);
+    if (pauseGame != null) {
+      return pauseGame(this);
     }
     return orElse();
   }
@@ -644,12 +644,12 @@ class _$ExitGame implements ExitGame {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() startGame,
-    required TResult Function() pausGame,
+    required TResult Function() pauseGame,
     required TResult Function() exitGame,
+    required TResult Function() submitRound,
     required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
   }) {
     return exitGame();
   }
@@ -659,12 +659,12 @@ class _$ExitGame implements ExitGame {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? startGame,
-    TResult? Function()? pausGame,
+    TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
     TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
   }) {
     return exitGame?.call();
   }
@@ -674,12 +674,12 @@ class _$ExitGame implements ExitGame {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? startGame,
-    TResult Function()? pausGame,
+    TResult Function()? pauseGame,
     TResult Function()? exitGame,
+    TResult Function()? submitRound,
     TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
     required TResult orElse(),
   }) {
     if (exitGame != null) {
@@ -693,12 +693,12 @@ class _$ExitGame implements ExitGame {
   TResult map<TResult extends Object?>(
     TResult Function(_GameEvent value) $default, {
     required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
+    required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
     required TResult Function(NextRound value) nextRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
   }) {
     return exitGame(this);
   }
@@ -708,12 +708,12 @@ class _$ExitGame implements ExitGame {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_GameEvent value)? $default, {
     TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
+    TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
     TResult? Function(NextRound value)? nextRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
   }) {
     return exitGame?.call(this);
   }
@@ -723,12 +723,12 @@ class _$ExitGame implements ExitGame {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_GameEvent value)? $default, {
     TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
+    TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
     TResult Function(NextRound value)? nextRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
     required TResult orElse(),
   }) {
     if (exitGame != null) {
@@ -749,6 +749,161 @@ abstract class ExitGame implements GameEvent {
   factory ExitGame() = _$ExitGame;
 
   factory ExitGame.fromJson(Map<String, dynamic> json) = _$ExitGame.fromJson;
+}
+
+/// @nodoc
+abstract class _$$SubmitRoundCopyWith<$Res> {
+  factory _$$SubmitRoundCopyWith(
+          _$SubmitRound value, $Res Function(_$SubmitRound) then) =
+      __$$SubmitRoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SubmitRoundCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$SubmitRound>
+    implements _$$SubmitRoundCopyWith<$Res> {
+  __$$SubmitRoundCopyWithImpl(
+      _$SubmitRound _value, $Res Function(_$SubmitRound) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$SubmitRound implements SubmitRound {
+  _$SubmitRound({final String? $type}) : $type = $type ?? 'submitRound';
+
+  factory _$SubmitRound.fromJson(Map<String, dynamic> json) =>
+      _$$SubmitRoundFromJson(json);
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'GameEvent.submitRound()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SubmitRound);
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function() $default, {
+    required TResult Function() startGame,
+    required TResult Function() pauseGame,
+    required TResult Function() exitGame,
+    required TResult Function() submitRound,
+    required TResult Function() nextRound,
+    required TResult Function() noTimeLeft,
+    required TResult Function() noLivesLeft,
+  }) {
+    return submitRound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function()? $default, {
+    TResult? Function()? startGame,
+    TResult? Function()? pauseGame,
+    TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
+    TResult? Function()? nextRound,
+    TResult? Function()? noTimeLeft,
+    TResult? Function()? noLivesLeft,
+  }) {
+    return submitRound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function()? $default, {
+    TResult Function()? startGame,
+    TResult Function()? pauseGame,
+    TResult Function()? exitGame,
+    TResult Function()? submitRound,
+    TResult Function()? nextRound,
+    TResult Function()? noTimeLeft,
+    TResult Function()? noLivesLeft,
+    required TResult orElse(),
+  }) {
+    if (submitRound != null) {
+      return submitRound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_GameEvent value) $default, {
+    required TResult Function(StartGame value) startGame,
+    required TResult Function(PauseGame value) pauseGame,
+    required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
+    required TResult Function(NextRound value) nextRound,
+    required TResult Function(NoTimeLeft value) noTimeLeft,
+    required TResult Function(NoLivesLeft value) noLivesLeft,
+  }) {
+    return submitRound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_GameEvent value)? $default, {
+    TResult? Function(StartGame value)? startGame,
+    TResult? Function(PauseGame value)? pauseGame,
+    TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
+    TResult? Function(NextRound value)? nextRound,
+    TResult? Function(NoTimeLeft value)? noTimeLeft,
+    TResult? Function(NoLivesLeft value)? noLivesLeft,
+  }) {
+    return submitRound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_GameEvent value)? $default, {
+    TResult Function(StartGame value)? startGame,
+    TResult Function(PauseGame value)? pauseGame,
+    TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
+    TResult Function(NextRound value)? nextRound,
+    TResult Function(NoTimeLeft value)? noTimeLeft,
+    TResult Function(NoLivesLeft value)? noLivesLeft,
+    required TResult orElse(),
+  }) {
+    if (submitRound != null) {
+      return submitRound(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$SubmitRoundToJson(
+      this,
+    );
+  }
+}
+
+abstract class SubmitRound implements GameEvent {
+  factory SubmitRound() = _$SubmitRound;
+
+  factory SubmitRound.fromJson(Map<String, dynamic> json) =
+      _$SubmitRound.fromJson;
 }
 
 /// @nodoc
@@ -798,12 +953,12 @@ class _$NextRound implements NextRound {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() startGame,
-    required TResult Function() pausGame,
+    required TResult Function() pauseGame,
     required TResult Function() exitGame,
+    required TResult Function() submitRound,
     required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
   }) {
     return nextRound();
   }
@@ -813,12 +968,12 @@ class _$NextRound implements NextRound {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? startGame,
-    TResult? Function()? pausGame,
+    TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
     TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
   }) {
     return nextRound?.call();
   }
@@ -828,12 +983,12 @@ class _$NextRound implements NextRound {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? startGame,
-    TResult Function()? pausGame,
+    TResult Function()? pauseGame,
     TResult Function()? exitGame,
+    TResult Function()? submitRound,
     TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
     required TResult orElse(),
   }) {
     if (nextRound != null) {
@@ -847,12 +1002,12 @@ class _$NextRound implements NextRound {
   TResult map<TResult extends Object?>(
     TResult Function(_GameEvent value) $default, {
     required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
+    required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
     required TResult Function(NextRound value) nextRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
   }) {
     return nextRound(this);
   }
@@ -862,12 +1017,12 @@ class _$NextRound implements NextRound {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_GameEvent value)? $default, {
     TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
+    TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
     TResult? Function(NextRound value)? nextRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
   }) {
     return nextRound?.call(this);
   }
@@ -877,12 +1032,12 @@ class _$NextRound implements NextRound {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_GameEvent value)? $default, {
     TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
+    TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
     TResult Function(NextRound value)? nextRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
     required TResult orElse(),
   }) {
     if (nextRound != null) {
@@ -952,12 +1107,12 @@ class _$NoTimeLeft implements NoTimeLeft {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() startGame,
-    required TResult Function() pausGame,
+    required TResult Function() pauseGame,
     required TResult Function() exitGame,
+    required TResult Function() submitRound,
     required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
   }) {
     return noTimeLeft();
   }
@@ -967,12 +1122,12 @@ class _$NoTimeLeft implements NoTimeLeft {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? startGame,
-    TResult? Function()? pausGame,
+    TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
     TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
   }) {
     return noTimeLeft?.call();
   }
@@ -982,12 +1137,12 @@ class _$NoTimeLeft implements NoTimeLeft {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? startGame,
-    TResult Function()? pausGame,
+    TResult Function()? pauseGame,
     TResult Function()? exitGame,
+    TResult Function()? submitRound,
     TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
     required TResult orElse(),
   }) {
     if (noTimeLeft != null) {
@@ -1001,12 +1156,12 @@ class _$NoTimeLeft implements NoTimeLeft {
   TResult map<TResult extends Object?>(
     TResult Function(_GameEvent value) $default, {
     required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
+    required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
     required TResult Function(NextRound value) nextRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
   }) {
     return noTimeLeft(this);
   }
@@ -1016,12 +1171,12 @@ class _$NoTimeLeft implements NoTimeLeft {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_GameEvent value)? $default, {
     TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
+    TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
     TResult? Function(NextRound value)? nextRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
   }) {
     return noTimeLeft?.call(this);
   }
@@ -1031,12 +1186,12 @@ class _$NoTimeLeft implements NoTimeLeft {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_GameEvent value)? $default, {
     TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
+    TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
     TResult Function(NextRound value)? nextRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
     required TResult orElse(),
   }) {
     if (noTimeLeft != null) {
@@ -1107,12 +1262,12 @@ class _$NoLivesLeft implements NoLivesLeft {
   TResult when<TResult extends Object?>(
     TResult Function() $default, {
     required TResult Function() startGame,
-    required TResult Function() pausGame,
+    required TResult Function() pauseGame,
     required TResult Function() exitGame,
+    required TResult Function() submitRound,
     required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
   }) {
     return noLivesLeft();
   }
@@ -1122,12 +1277,12 @@ class _$NoLivesLeft implements NoLivesLeft {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function()? $default, {
     TResult? Function()? startGame,
-    TResult? Function()? pausGame,
+    TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
+    TResult? Function()? submitRound,
     TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
   }) {
     return noLivesLeft?.call();
   }
@@ -1137,12 +1292,12 @@ class _$NoLivesLeft implements NoLivesLeft {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function()? $default, {
     TResult Function()? startGame,
-    TResult Function()? pausGame,
+    TResult Function()? pauseGame,
     TResult Function()? exitGame,
+    TResult Function()? submitRound,
     TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
     required TResult orElse(),
   }) {
     if (noLivesLeft != null) {
@@ -1156,12 +1311,12 @@ class _$NoLivesLeft implements NoLivesLeft {
   TResult map<TResult extends Object?>(
     TResult Function(_GameEvent value) $default, {
     required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
+    required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
+    required TResult Function(SubmitRound value) submitRound,
     required TResult Function(NextRound value) nextRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
   }) {
     return noLivesLeft(this);
   }
@@ -1171,12 +1326,12 @@ class _$NoLivesLeft implements NoLivesLeft {
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(_GameEvent value)? $default, {
     TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
+    TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
+    TResult? Function(SubmitRound value)? submitRound,
     TResult? Function(NextRound value)? nextRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
   }) {
     return noLivesLeft?.call(this);
   }
@@ -1186,12 +1341,12 @@ class _$NoLivesLeft implements NoLivesLeft {
   TResult maybeMap<TResult extends Object?>(
     TResult Function(_GameEvent value)? $default, {
     TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
+    TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
+    TResult Function(SubmitRound value)? submitRound,
     TResult Function(NextRound value)? nextRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
     required TResult orElse(),
   }) {
     if (noLivesLeft != null) {
@@ -1213,157 +1368,4 @@ abstract class NoLivesLeft implements GameEvent {
 
   factory NoLivesLeft.fromJson(Map<String, dynamic> json) =
       _$NoLivesLeft.fromJson;
-}
-
-/// @nodoc
-abstract class _$$GameTickCopyWith<$Res> {
-  factory _$$GameTickCopyWith(
-          _$GameTick value, $Res Function(_$GameTick) then) =
-      __$$GameTickCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$GameTickCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$GameTick>
-    implements _$$GameTickCopyWith<$Res> {
-  __$$GameTickCopyWithImpl(_$GameTick _value, $Res Function(_$GameTick) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-@JsonSerializable()
-class _$GameTick implements GameTick {
-  _$GameTick({final String? $type}) : $type = $type ?? 'gameTick';
-
-  factory _$GameTick.fromJson(Map<String, dynamic> json) =>
-      _$$GameTickFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'GameEvent.gameTick()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GameTick);
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() startGame,
-    required TResult Function() pausGame,
-    required TResult Function() exitGame,
-    required TResult Function() nextRound,
-    required TResult Function() noTimeLeft,
-    required TResult Function() noLivesLeft,
-    required TResult Function() gameTick,
-  }) {
-    return gameTick();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? startGame,
-    TResult? Function()? pausGame,
-    TResult? Function()? exitGame,
-    TResult? Function()? nextRound,
-    TResult? Function()? noTimeLeft,
-    TResult? Function()? noLivesLeft,
-    TResult? Function()? gameTick,
-  }) {
-    return gameTick?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? startGame,
-    TResult Function()? pausGame,
-    TResult Function()? exitGame,
-    TResult Function()? nextRound,
-    TResult Function()? noTimeLeft,
-    TResult Function()? noLivesLeft,
-    TResult Function()? gameTick,
-    required TResult orElse(),
-  }) {
-    if (gameTick != null) {
-      return gameTick();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
-    required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pausGame,
-    required TResult Function(ExitGame value) exitGame,
-    required TResult Function(NextRound value) nextRound,
-    required TResult Function(NoTimeLeft value) noTimeLeft,
-    required TResult Function(NoLivesLeft value) noLivesLeft,
-    required TResult Function(GameTick value) gameTick,
-  }) {
-    return gameTick(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
-    TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pausGame,
-    TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(NextRound value)? nextRound,
-    TResult? Function(NoTimeLeft value)? noTimeLeft,
-    TResult? Function(NoLivesLeft value)? noLivesLeft,
-    TResult? Function(GameTick value)? gameTick,
-  }) {
-    return gameTick?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
-    TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pausGame,
-    TResult Function(ExitGame value)? exitGame,
-    TResult Function(NextRound value)? nextRound,
-    TResult Function(NoTimeLeft value)? noTimeLeft,
-    TResult Function(NoLivesLeft value)? noLivesLeft,
-    TResult Function(GameTick value)? gameTick,
-    required TResult orElse(),
-  }) {
-    if (gameTick != null) {
-      return gameTick(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GameTickToJson(
-      this,
-    );
-  }
-}
-
-abstract class GameTick implements GameEvent {
-  factory GameTick() = _$GameTick;
-
-  factory GameTick.fromJson(Map<String, dynamic> json) = _$GameTick.fromJson;
 }

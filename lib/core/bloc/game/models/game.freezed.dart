@@ -14,20 +14,14 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Game _$GameFromJson(Map<String, dynamic> json) {
-  return _Game.fromJson(json);
-}
-
 /// @nodoc
 mixin _$Game {
   int get points => throw _privateConstructorUsedError;
-  List<String> get usedTweets => throw _privateConstructorUsedError;
+  List<Round> get pastRounds => throw _privateConstructorUsedError;
   int get lives => throw _privateConstructorUsedError;
-  int get timeLeft => throw _privateConstructorUsedError;
   bool get isPaused => throw _privateConstructorUsedError;
   Round get currentRound => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GameCopyWith<Game> get copyWith => throw _privateConstructorUsedError;
 }
@@ -39,9 +33,8 @@ abstract class $GameCopyWith<$Res> {
   @useResult
   $Res call(
       {int points,
-      List<String> usedTweets,
+      List<Round> pastRounds,
       int lives,
-      int timeLeft,
       bool isPaused,
       Round currentRound});
 
@@ -62,9 +55,8 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
   @override
   $Res call({
     Object? points = null,
-    Object? usedTweets = null,
+    Object? pastRounds = null,
     Object? lives = null,
-    Object? timeLeft = null,
     Object? isPaused = null,
     Object? currentRound = null,
   }) {
@@ -73,17 +65,13 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
           ? _value.points
           : points // ignore: cast_nullable_to_non_nullable
               as int,
-      usedTweets: null == usedTweets
-          ? _value.usedTweets
-          : usedTweets // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      pastRounds: null == pastRounds
+          ? _value.pastRounds
+          : pastRounds // ignore: cast_nullable_to_non_nullable
+              as List<Round>,
       lives: null == lives
           ? _value.lives
           : lives // ignore: cast_nullable_to_non_nullable
-              as int,
-      timeLeft: null == timeLeft
-          ? _value.timeLeft
-          : timeLeft // ignore: cast_nullable_to_non_nullable
               as int,
       isPaused: null == isPaused
           ? _value.isPaused
@@ -113,9 +101,8 @@ abstract class _$$_GameCopyWith<$Res> implements $GameCopyWith<$Res> {
   @useResult
   $Res call(
       {int points,
-      List<String> usedTweets,
+      List<Round> pastRounds,
       int lives,
-      int timeLeft,
       bool isPaused,
       Round currentRound});
 
@@ -133,9 +120,8 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
   @override
   $Res call({
     Object? points = null,
-    Object? usedTweets = null,
+    Object? pastRounds = null,
     Object? lives = null,
-    Object? timeLeft = null,
     Object? isPaused = null,
     Object? currentRound = null,
   }) {
@@ -144,17 +130,13 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
           ? _value.points
           : points // ignore: cast_nullable_to_non_nullable
               as int,
-      usedTweets: null == usedTweets
-          ? _value._usedTweets
-          : usedTweets // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      pastRounds: null == pastRounds
+          ? _value._pastRounds
+          : pastRounds // ignore: cast_nullable_to_non_nullable
+              as List<Round>,
       lives: null == lives
           ? _value.lives
           : lives // ignore: cast_nullable_to_non_nullable
-              as int,
-      timeLeft: null == timeLeft
-          ? _value.timeLeft
-          : timeLeft // ignore: cast_nullable_to_non_nullable
               as int,
       isPaused: null == isPaused
           ? _value.isPaused
@@ -169,37 +151,31 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Game implements _Game {
   _$_Game(
       {this.points = 0,
-      final List<String> usedTweets = const [],
-      this.lives = 3,
-      this.timeLeft = 30,
+      final List<Round> pastRounds = const [],
+      this.lives = GameConstants.MAX_LIVES,
       this.isPaused = false,
       required this.currentRound})
-      : _usedTweets = usedTweets;
-
-  factory _$_Game.fromJson(Map<String, dynamic> json) => _$$_GameFromJson(json);
+      : _pastRounds = pastRounds;
 
   @override
   @JsonKey()
   final int points;
-  final List<String> _usedTweets;
+  final List<Round> _pastRounds;
   @override
   @JsonKey()
-  List<String> get usedTweets {
-    if (_usedTweets is EqualUnmodifiableListView) return _usedTweets;
+  List<Round> get pastRounds {
+    if (_pastRounds is EqualUnmodifiableListView) return _pastRounds;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_usedTweets);
+    return EqualUnmodifiableListView(_pastRounds);
   }
 
   @override
   @JsonKey()
   final int lives;
-  @override
-  @JsonKey()
-  final int timeLeft;
   @override
   @JsonKey()
   final bool isPaused;
@@ -208,7 +184,7 @@ class _$_Game implements _Game {
 
   @override
   String toString() {
-    return 'Game._(points: $points, usedTweets: $usedTweets, lives: $lives, timeLeft: $timeLeft, isPaused: $isPaused, currentRound: $currentRound)';
+    return 'Game._(points: $points, pastRounds: $pastRounds, lives: $lives, isPaused: $isPaused, currentRound: $currentRound)';
   }
 
   @override
@@ -218,24 +194,20 @@ class _$_Game implements _Game {
             other is _$_Game &&
             (identical(other.points, points) || other.points == points) &&
             const DeepCollectionEquality()
-                .equals(other._usedTweets, _usedTweets) &&
+                .equals(other._pastRounds, _pastRounds) &&
             (identical(other.lives, lives) || other.lives == lives) &&
-            (identical(other.timeLeft, timeLeft) ||
-                other.timeLeft == timeLeft) &&
             (identical(other.isPaused, isPaused) ||
                 other.isPaused == isPaused) &&
             (identical(other.currentRound, currentRound) ||
                 other.currentRound == currentRound));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
       points,
-      const DeepCollectionEquality().hash(_usedTweets),
+      const DeepCollectionEquality().hash(_pastRounds),
       lives,
-      timeLeft,
       isPaused,
       currentRound);
 
@@ -244,34 +216,22 @@ class _$_Game implements _Game {
   @pragma('vm:prefer-inline')
   _$$_GameCopyWith<_$_Game> get copyWith =>
       __$$_GameCopyWithImpl<_$_Game>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_GameToJson(
-      this,
-    );
-  }
 }
 
 abstract class _Game implements Game {
   factory _Game(
       {final int points,
-      final List<String> usedTweets,
+      final List<Round> pastRounds,
       final int lives,
-      final int timeLeft,
       final bool isPaused,
       required final Round currentRound}) = _$_Game;
-
-  factory _Game.fromJson(Map<String, dynamic> json) = _$_Game.fromJson;
 
   @override
   int get points;
   @override
-  List<String> get usedTweets;
+  List<Round> get pastRounds;
   @override
   int get lives;
-  @override
-  int get timeLeft;
   @override
   bool get isPaused;
   @override

@@ -1,15 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tweetguess/models/Tweet.dart';
+
+import '../../../../ui/components/primary_button.dart';
 
 part 'round.freezed.dart';
-part 'round.g.dart';
 
 @freezed
 class Round with _$Round {
   factory Round({
-    required Tweet currentTweet,
-    required List<String> answerPossibilities,
-  }) = _Round;
+    required String tweetId,
+    required String content,
+    required List<(GlobalKey<UIPrimaryButtonState>, String)>
+        answerPossibilities,
 
-  factory Round.fromJson(Map<String, dynamic> json) => _$RoundFromJson(json);
+    /// The right answer is given here by the index
+    required int rightAnswer,
+  }) = _Round;
 }
