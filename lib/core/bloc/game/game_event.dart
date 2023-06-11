@@ -12,8 +12,12 @@ sealed class GameEvent with _$GameEvent {
   factory GameEvent.exitGame() = ExitGame;
 
   // State-dependent Game Events
-  factory GameEvent.submitRound() = SubmitRound;
-  factory GameEvent.nextRound() = NextRound;
+  factory GameEvent.submitRound({
+    required int answer,
+  }) = SubmitRound;
+  factory GameEvent.nextRound({
+    required int timeLeft,
+  }) = NextRound;
   factory GameEvent.noTimeLeft() = NoTimeLeft;
   factory GameEvent.noLivesLeft() = NoLivesLeft;
 

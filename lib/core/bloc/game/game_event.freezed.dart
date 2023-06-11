@@ -47,8 +47,8 @@ mixin _$GameEvent {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) =>
@@ -59,8 +59,8 @@ mixin _$GameEvent {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) =>
@@ -71,8 +71,8 @@ mixin _$GameEvent {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -184,8 +184,8 @@ class _$_GameEvent implements _GameEvent {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -199,8 +199,8 @@ class _$_GameEvent implements _GameEvent {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -214,8 +214,8 @@ class _$_GameEvent implements _GameEvent {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -339,8 +339,8 @@ class _$StartGame implements StartGame {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -354,8 +354,8 @@ class _$StartGame implements StartGame {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -369,8 +369,8 @@ class _$StartGame implements StartGame {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -493,8 +493,8 @@ class _$PauseGame implements PauseGame {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -508,8 +508,8 @@ class _$PauseGame implements PauseGame {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -523,8 +523,8 @@ class _$PauseGame implements PauseGame {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -646,8 +646,8 @@ class _$ExitGame implements ExitGame {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -661,8 +661,8 @@ class _$ExitGame implements ExitGame {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -676,8 +676,8 @@ class _$ExitGame implements ExitGame {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -756,6 +756,8 @@ abstract class _$$SubmitRoundCopyWith<$Res> {
   factory _$$SubmitRoundCopyWith(
           _$SubmitRound value, $Res Function(_$SubmitRound) then) =
       __$$SubmitRoundCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int answer});
 }
 
 /// @nodoc
@@ -765,33 +767,58 @@ class __$$SubmitRoundCopyWithImpl<$Res>
   __$$SubmitRoundCopyWithImpl(
       _$SubmitRound _value, $Res Function(_$SubmitRound) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? answer = null,
+  }) {
+    return _then(_$SubmitRound(
+      answer: null == answer
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$SubmitRound implements SubmitRound {
-  _$SubmitRound({final String? $type}) : $type = $type ?? 'submitRound';
+  _$SubmitRound({required this.answer, final String? $type})
+      : $type = $type ?? 'submitRound';
 
   factory _$SubmitRound.fromJson(Map<String, dynamic> json) =>
       _$$SubmitRoundFromJson(json);
+
+  @override
+  final int answer;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GameEvent.submitRound()';
+    return 'GameEvent.submitRound(answer: $answer)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$SubmitRound);
+        (other.runtimeType == runtimeType &&
+            other is _$SubmitRound &&
+            (identical(other.answer, answer) || other.answer == answer));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, answer);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SubmitRoundCopyWith<_$SubmitRound> get copyWith =>
+      __$$SubmitRoundCopyWithImpl<_$SubmitRound>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -800,12 +827,12 @@ class _$SubmitRound implements SubmitRound {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
-    return submitRound();
+    return submitRound(answer);
   }
 
   @override
@@ -815,12 +842,12 @@ class _$SubmitRound implements SubmitRound {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
-    return submitRound?.call();
+    return submitRound?.call(answer);
   }
 
   @override
@@ -830,14 +857,14 @@ class _$SubmitRound implements SubmitRound {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
   }) {
     if (submitRound != null) {
-      return submitRound();
+      return submitRound(answer);
     }
     return orElse();
   }
@@ -900,10 +927,15 @@ class _$SubmitRound implements SubmitRound {
 }
 
 abstract class SubmitRound implements GameEvent {
-  factory SubmitRound() = _$SubmitRound;
+  factory SubmitRound({required final int answer}) = _$SubmitRound;
 
   factory SubmitRound.fromJson(Map<String, dynamic> json) =
       _$SubmitRound.fromJson;
+
+  int get answer;
+  @JsonKey(ignore: true)
+  _$$SubmitRoundCopyWith<_$SubmitRound> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -911,6 +943,8 @@ abstract class _$$NextRoundCopyWith<$Res> {
   factory _$$NextRoundCopyWith(
           _$NextRound value, $Res Function(_$NextRound) then) =
       __$$NextRoundCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int timeLeft});
 }
 
 /// @nodoc
@@ -920,33 +954,59 @@ class __$$NextRoundCopyWithImpl<$Res>
   __$$NextRoundCopyWithImpl(
       _$NextRound _value, $Res Function(_$NextRound) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? timeLeft = null,
+  }) {
+    return _then(_$NextRound(
+      timeLeft: null == timeLeft
+          ? _value.timeLeft
+          : timeLeft // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$NextRound implements NextRound {
-  _$NextRound({final String? $type}) : $type = $type ?? 'nextRound';
+  _$NextRound({required this.timeLeft, final String? $type})
+      : $type = $type ?? 'nextRound';
 
   factory _$NextRound.fromJson(Map<String, dynamic> json) =>
       _$$NextRoundFromJson(json);
+
+  @override
+  final int timeLeft;
 
   @JsonKey(name: 'runtimeType')
   final String $type;
 
   @override
   String toString() {
-    return 'GameEvent.nextRound()';
+    return 'GameEvent.nextRound(timeLeft: $timeLeft)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NextRound);
+        (other.runtimeType == runtimeType &&
+            other is _$NextRound &&
+            (identical(other.timeLeft, timeLeft) ||
+                other.timeLeft == timeLeft));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, timeLeft);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NextRoundCopyWith<_$NextRound> get copyWith =>
+      __$$NextRoundCopyWithImpl<_$NextRound>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -955,12 +1015,12 @@ class _$NextRound implements NextRound {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
-    return nextRound();
+    return nextRound(timeLeft);
   }
 
   @override
@@ -970,12 +1030,12 @@ class _$NextRound implements NextRound {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
-    return nextRound?.call();
+    return nextRound?.call(timeLeft);
   }
 
   @override
@@ -985,14 +1045,14 @@ class _$NextRound implements NextRound {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
   }) {
     if (nextRound != null) {
-      return nextRound();
+      return nextRound(timeLeft);
     }
     return orElse();
   }
@@ -1055,9 +1115,14 @@ class _$NextRound implements NextRound {
 }
 
 abstract class NextRound implements GameEvent {
-  factory NextRound() = _$NextRound;
+  factory NextRound({required final int timeLeft}) = _$NextRound;
 
   factory NextRound.fromJson(Map<String, dynamic> json) = _$NextRound.fromJson;
+
+  int get timeLeft;
+  @JsonKey(ignore: true)
+  _$$NextRoundCopyWith<_$NextRound> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1109,8 +1174,8 @@ class _$NoTimeLeft implements NoTimeLeft {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -1124,8 +1189,8 @@ class _$NoTimeLeft implements NoTimeLeft {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -1139,8 +1204,8 @@ class _$NoTimeLeft implements NoTimeLeft {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -1264,8 +1329,8 @@ class _$NoLivesLeft implements NoLivesLeft {
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
-    required TResult Function() submitRound,
-    required TResult Function() nextRound,
+    required TResult Function(int answer) submitRound,
+    required TResult Function(int timeLeft) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -1279,8 +1344,8 @@ class _$NoLivesLeft implements NoLivesLeft {
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
-    TResult? Function()? submitRound,
-    TResult? Function()? nextRound,
+    TResult? Function(int answer)? submitRound,
+    TResult? Function(int timeLeft)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -1294,8 +1359,8 @@ class _$NoLivesLeft implements NoLivesLeft {
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
-    TResult Function()? submitRound,
-    TResult Function()? nextRound,
+    TResult Function(int answer)? submitRound,
+    TResult Function(int timeLeft)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),

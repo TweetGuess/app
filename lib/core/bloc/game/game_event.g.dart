@@ -44,20 +44,24 @@ Map<String, dynamic> _$$ExitGameToJson(_$ExitGame instance) =>
 
 _$SubmitRound _$$SubmitRoundFromJson(Map<String, dynamic> json) =>
     _$SubmitRound(
+      answer: json['answer'] as int,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$SubmitRoundToJson(_$SubmitRound instance) =>
     <String, dynamic>{
+      'answer': instance.answer,
       'runtimeType': instance.$type,
     };
 
 _$NextRound _$$NextRoundFromJson(Map<String, dynamic> json) => _$NextRound(
+      timeLeft: json['timeLeft'] as int,
       $type: json['runtimeType'] as String?,
     );
 
 Map<String, dynamic> _$$NextRoundToJson(_$NextRound instance) =>
     <String, dynamic>{
+      'timeLeft': instance.timeLeft,
       'runtimeType': instance.$type,
     };
 

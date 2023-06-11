@@ -10,10 +10,38 @@ sealed class GameState with _$GameState {
   const GameState._();
   factory GameState.initial() = GameInitial;
 
-  factory GameState.roundInProgress(Game game) = GameRoundInProgress;
-
-  factory GameState.roundFinished(Game game) = GameRoundFinished;
+  factory GameState.roundInProgress(
+    Game game, [
+    GameInProgressState? inProgressState,
+  ]) = GameRoundInProgress;
 
   // Passing the event that led to the game ending
   factory GameState.terminal(Game game, GameEvent event) = GameTerminal;
+}
+
+/*
+  Helper State Class for more fine-grained state-processing
+*/
+
+sealed class GameInProgressState {}
+
+class RoundWrongAnswer extends GameInProgressState {
+  RoundWrongAnswer({
+    required int selectedAnswer,
+  });
+}
+
+/* 
+  RoundFinished - (Sub-)States
+*/
+class RoundFinished extends GameInProgressState {}
+
+class RoundRightAnswer extends RoundFinished {
+  RoundRightAnswer({
+    required int selectedAnswer,
+  });
+}
+
+class RoundNoTimeLeft extends RoundFinished {
+  RoundNoTimeLeft();
 }

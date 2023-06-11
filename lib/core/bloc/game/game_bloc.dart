@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:tweetguess/core/bloc/game/game_state.dart';
-import 'package:tweetguess/core/bloc/game/utils/const.dart';
 import 'package:tweetguess/core/bloc/game/utils/game.dart';
 import 'package:tweetguess/core/presentation/effect_controller/effect_controller.dart';
 
@@ -13,15 +12,13 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   late GameEffectController effectController;
 
   GameBloc() : super(GameState.initial()) {
-    // TODO: Inject over DI!
-    //effectController = GameEffectController(bloc: this);
-
     on<StartGame>(handleGameStart);
     on<PauseGame>(handlePauseGame);
     on<ExitGame>(handleExitGame);
     on<NextRound>(handleNextRound);
     on<NoTimeLeft>(handleNoTimeLeft);
     on<NoLivesLeft>(handleNoLivesLeft);
+    on<SubmitRound>(handleSubmitRound);
   }
 
   FutureOr<void> handleGameStart(StartGame event, Emitter<GameState> emit) {
@@ -29,7 +26,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       initial: () => emit(
         GameState.roundInProgress(Game()),
       ),
-      roundInProgress: (game) {
+      roundInProgress: (game, _) {
         if (game.isPaused) {
           emit(GameState.roundInProgress(game.copyWith(isPaused: false)));
         }
@@ -39,7 +36,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   void handlePauseGame(PauseGame event, Emitter<GameState> emit) {
     state.whenOrNull(
-      roundInProgress: (game) {
+      roundInProgress: (game, _) {
         emit(GameState.roundInProgress(game.copyWith(isPaused: true)));
       },
     );
@@ -47,7 +44,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   FutureOr<void> handleExitGame(ExitGame event, Emitter<GameState> emit) {
     state.whenOrNull(
-      roundInProgress: (game) {
+      roundInProgress: (game, _) {
         emit(GameState.terminal(game, event));
       },
     );
@@ -55,7 +52,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   FutureOr<void> handleNextRound(NextRound event, Emitter<GameState> emit) {
     state.whenOrNull(
-      roundInProgress: (game) {
+      roundInProgress: (game, _) {
         var currentRound = game.currentRound;
 
         var nextRound =
@@ -64,8 +61,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         emit(
           GameState.roundInProgress(
             game.copyWith(
-              points: game.points + game.timeLeft,
-              timeLeft: GameConstants.TIME_PER_ROUND,
+              points: game.points + event.timeLeft,
               pastRounds: [...game.pastRounds, currentRound],
               currentRound: nextRound,
             ),
@@ -77,10 +73,9 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   FutureOr<void> handleNoTimeLeft(NoTimeLeft event, Emitter<GameState> emit) {
     state.whenOrNull(
-      roundInProgress: (game) {
+      roundInProgress: (game, _) {
         if (game.lives - 1 > 0) {
           emit(GameState.roundInProgress(game.copyWith(lives: game.lives - 1)));
-          add(GameEvent.nextRound());
         } else {
           emit(GameState.terminal(game, event));
         }
@@ -93,8 +88,30 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     Emitter<GameState> emit,
   ) {
     state.whenOrNull(
-      roundInProgress: (game) {
+      roundInProgress: (game, _) {
         emit(GameState.terminal(game, event));
+      },
+    );
+  }
+
+  void handleSubmitRound(SubmitRound event, Emitter<GameState> emit) {
+    state.whenOrNull(
+      roundInProgress: (game, inProgressState) {
+        if (game.currentRound.rightAnswer == event.answer) {
+          emit(
+            GameState.roundInProgress(
+              game,
+              RoundRightAnswer(selectedAnswer: event.answer),
+            ),
+          );
+        } else {
+          emit(
+            GameState.roundInProgress(
+              game,
+              RoundWrongAnswer(selectedAnswer: event.answer),
+            ),
+          );
+        }
       },
     );
   }

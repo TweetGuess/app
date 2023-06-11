@@ -54,7 +54,7 @@ class _GameScreenState extends State<GameScreen> {
             initial: (gameInitial) {
               return const CircularProgressIndicator();
             },
-            inProgress: (gameInProgress) {
+            roundInProgress: (gameInProgress) {
               return Column(
                 children: [
                   _gameBar(gameInProgress),
@@ -69,7 +69,7 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  SizedBox _gameBar(GameInProgress value) {
+  SizedBox _gameBar(GameRoundInProgress value) {
     return SizedBox(
       height: 5.h,
       child: Row(
