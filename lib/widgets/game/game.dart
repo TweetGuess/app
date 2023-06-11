@@ -51,50 +51,55 @@ class _GameScreenState extends State<GameScreen> {
       body: BlocBuilder<GameBloc, GameState>(
         builder: (context, parentState) {
           return parentState.map(
-            initial: (value) {
+            initial: (gameInitial) {
               return const CircularProgressIndicator();
             },
-            inProgress: (value) {
+            inProgress: (gameInProgress) {
               return Column(
                 children: [
-                  SizedBox(
-                    height: 5.h,
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        const Spacer(),
-                        const FittedBox(child: Icon(Icons.abc)),
-                        Expanded(
-                          child: FittedBox(
-                            alignment: Alignment.centerRight,
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 10),
-                              // TODO: Put number into heart!
-                              child: Row(
-                                children: [
-                                  FittedBox(
-                                    fit: BoxFit.fitHeight,
-                                    child: AutoSizeText("${value.game.lives}"),
-                                  ),
-                                  const Gap(5),
-                                  const FittedBox(
-                                    fit: BoxFit.fitHeight,
-                                    child: Icon(Icons.favorite_border_outlined),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  )
+                  _gameBar(gameInProgress),
+                  Text(gameInProgress.game.currentRound.content)
                 ],
               );
             },
+            terminal: (value) => const Text("LOL"),
           );
         },
+      ),
+    );
+  }
+
+  SizedBox _gameBar(GameInProgress value) {
+    return SizedBox(
+      height: 5.h,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          const Spacer(),
+          const FittedBox(child: Icon(Icons.abc)),
+          Expanded(
+            child: FittedBox(
+              alignment: Alignment.centerRight,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                // TODO: Put number into heart!
+                child: Row(
+                  children: [
+                    FittedBox(
+                      fit: BoxFit.fitHeight,
+                      child: AutoSizeText("${value.game.lives}"),
+                    ),
+                    const Gap(5),
+                    const FittedBox(
+                      fit: BoxFit.fitHeight,
+                      child: Icon(Icons.favorite_border_outlined),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
