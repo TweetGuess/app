@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tweetguess/core/utils/context.dart';
 import 'package:tweetguess/widgets/game/countdown.dart';
+import 'package:tweetguess/widgets/game/timer.dart';
 
 import '../../core/bloc/game/game_bloc.dart';
 import '../../core/bloc/game/game_state.dart';
@@ -15,6 +17,7 @@ class GameScreen extends StatefulWidget {
   @override
   State<GameScreen> createState() => _GameScreenState();
 
+  // TODO: Maybe add a round parameter to set condition for when the BlocBuilder should listen?
   static Route route({
     bool countdownEnabled = true,
     GameBloc? bloc,
@@ -22,7 +25,8 @@ class GameScreen extends StatefulWidget {
   }) {
     return CircularTransitionRoute(
       page: BlocProvider<GameBloc>(
-        create: (context) => bloc ?? GameBloc(),
+        create: (context) =>
+            bloc ?? context.readOrNull<GameBloc>() ?? GameBloc(),
         child: (countdownEnabled ? const Countdown() : const GameScreen()),
       ),
       settings: const RouteSettings(name: "/game"),
@@ -36,7 +40,9 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text("TweetGuess"),
+        title: const Text(
+          "TweetGuess",
+        ),
         centerTitle: true,
         actions: const [
           Padding(
@@ -55,11 +61,20 @@ class _GameScreenState extends State<GameScreen> {
               return const CircularProgressIndicator();
             },
             roundInProgress: (gameInProgress) {
-              return Column(
-                children: [
-                  _gameBar(gameInProgress),
-                  Text(gameInProgress.game.currentRound.content)
-                ],
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10)
+                    .copyWith(bottom: 20),
+                child: Column(
+                  children: [
+                    _gameBar(gameInProgress),
+                    const Gap(20),
+                    Flexible(child: _tweetContent(context, gameInProgress)),
+                    const Gap(20),
+                    Flexible(
+                      child: _answerButtons(context),
+                    ),
+                  ],
+                ),
               );
             },
             terminal: (value) => const Text("LOL"),
@@ -69,32 +84,156 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
+  Column _answerButtons(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Expanded(
+                child: _buildButton(context),
+              ),
+              const Gap(10),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: const Center(
+                    child: Text(
+                      "gg",
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+        const Gap(10),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: const Center(
+                    child: Text(
+                      "gg",
+                    ),
+                  ),
+                ),
+              ),
+              const Gap(10),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.all(10),
+                  child: const Center(
+                    child: Text(
+                      "gg",
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Container _buildButton(BuildContext context) {
+    return Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).colorScheme.primary,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.all(10),
+                child: const Center(
+                  child: Text(
+                    "gg",
+                  ),
+                ),
+              );
+  }
+
+  Container _tweetContent(
+    BuildContext context,
+    GameRoundInProgress gameInProgress,
+  ) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: const EdgeInsets.all(20),
+      child: Center(
+        child: Text(gameInProgress.game.currentRound.content),
+      ),
+    );
+  }
+
   SizedBox _gameBar(GameRoundInProgress value) {
     return SizedBox(
-      height: 5.h,
+      height: 10.h,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           const Spacer(),
-          const FittedBox(child: Icon(Icons.abc)),
+          Container(
+            alignment: Alignment.center,
+            child: const GameTimer(),
+          ),
           Expanded(
-            child: FittedBox(
-              alignment: Alignment.centerRight,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                // TODO: Put number into heart!
-                child: Row(
-                  children: [
-                    FittedBox(
-                      fit: BoxFit.fitHeight,
-                      child: AutoSizeText("${value.game.lives}"),
-                    ),
-                    const Gap(5),
-                    const FittedBox(
-                      fit: BoxFit.fitHeight,
-                      child: Icon(Icons.favorite_border_outlined),
-                    ),
-                  ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: SizedBox(
+                  height: 60,
+                  width: 60,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    fit: StackFit.expand,
+                    children: [
+                      const Positioned.fill(
+                        top: 1,
+                        child: FittedBox(
+                          fit: BoxFit.fitHeight,
+                          alignment: Alignment.bottomCenter,
+                          child: Icon(Icons.favorite, color: Colors.red),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(5),
+                        child: FittedBox(
+                          child: AutoSizeText(
+                            "${value.game.lives}",
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Pixeboy",
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

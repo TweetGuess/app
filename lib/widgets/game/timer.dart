@@ -74,7 +74,6 @@ class _GameTimerState extends State<GameTimer>
             fontWeight: FontWeight.bold,
             fontSize: 30,
             fontFamily: "Pixeboy",
-            color: Colors.white,
           ),
           autoStart: true,
           ringColor: _colorAnimation.value!.withOpacity(0.3),

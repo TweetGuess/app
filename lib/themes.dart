@@ -34,12 +34,14 @@ ThemeData lightThemeData() {
   theme = theme.copyWith(
     appBarTheme: theme.appBarTheme.copyWith(
       centerTitle: true,
-      titleTextStyle: const TextStyle(
-        fontFamily: "Pixeboy",
-        fontSize: 30,
-        fontWeight: FontWeight.w600,
-        letterSpacing: 1.5,
-      ).merge(theme.appBarTheme.titleTextStyle),
+      titleTextStyle: theme.textTheme.bodyMedium!.merge(
+        const TextStyle(
+          fontFamily: "Pixeboy",
+          fontSize: 30,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 1.5,
+        ),
+      ),
     ),
   );
 

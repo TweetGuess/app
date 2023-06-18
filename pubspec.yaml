@@ -63,7 +63,8 @@ dependencies:
   easy_localization: ^3.0.1
   flutter_boring_avatars: ^1.0.1
   gap: ^3.0.0
-  
+  circular_countdown_timer: ^0.2.3
+
   flutter:
     sdk: flutter
 

@@ -70,11 +70,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Expanded(
                 flex: 3,
-                child: AutoSizeText(
-                  "mainpage.header".tr(),
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.robotoMono(
-                    textStyle: TextStyle(fontSize: 40.sp),
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: AutoSizeText(
+                    "mainpage.header".tr(),
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.robotoMono(),
                   ),
                 ),
               ),
@@ -90,11 +91,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Expanded(
-                      child: AutoSizeText(
-                        "mainpage.gamemodes.global".tr(),
-                        textAlign: TextAlign.center,
-                        style: GoogleFonts.robotoMono(
-                          textStyle: TextStyle(fontSize: 5.sp),
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: AutoSizeText(
+                          "mainpage.gamemodes.global".tr(),
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.robotoMono(
+                            textStyle: TextStyle(fontSize: 5.sp),
+                          ),
                         ),
                       ),
                     )
