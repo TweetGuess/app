@@ -10,7 +10,8 @@ class Round with _$Round {
   factory Round({
     required String tweetId,
     required String content,
-    required List<(GlobalKey<UIPrimaryButtonState>, String)>
+    required List<
+            (GlobalKey<UIPrimaryButtonState>, (String name, String handle))>
         answerPossibilities,
 
     /// The right answer is given here by the index

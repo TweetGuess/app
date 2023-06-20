@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/utils/context.dart';
+import 'package:tweetguess/ui/components/primary_button.dart';
 import 'package:tweetguess/widgets/game/countdown.dart';
 import 'package:tweetguess/widgets/game/timer.dart';
 
@@ -71,7 +72,7 @@ class _GameScreenState extends State<GameScreen> {
                     Flexible(child: _tweetContent(context, gameInProgress)),
                     const Gap(20),
                     Flexible(
-                      child: _answerButtons(context),
+                      child: _answerButtons(context, gameInProgress),
                     ),
                   ],
                 ),
@@ -84,91 +85,80 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  Column _answerButtons(BuildContext context) {
+  Column _answerButtons(
+    BuildContext context,
+    GameRoundInProgress gameInProgress,
+  ) {
     return Column(
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Expanded(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                child: _buildButton(context),
-              ),
-              const Gap(10),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: const Center(
-                    child: Text(
-                      "gg",
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-        const Gap(10),
-        Expanded(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: const Center(
-                    child: Text(
-                      "gg",
-                    ),
-                  ),
-                ),
-              ),
-              const Gap(10),
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: const Center(
-                    child: Text(
-                      "gg",
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      ],
+      children: _generateLayout(context, gameInProgress)..shuffle(),
     );
   }
 
-  Container _buildButton(BuildContext context) {
+  List<Widget> _generateLayout(
+    BuildContext context,
+    GameRoundInProgress gameInProgress,
+  ) {
+    var layout = <Widget>[];
+
+    for (var i = 0;
+        i <
+            (gameInProgress.game.currentRound.answerPossibilities.length / 2)
+                .floor();
+        i++) {
+      for (var element in [
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Expanded(
+                child: _buildButton(
+                  context,
+                  gameInProgress.game.currentRound.answerPossibilities[i * 2],
+                ),
+              ),
+              const Gap(10),
+              Expanded(
+                child: _buildButton(
+                  context,
+                  gameInProgress
+                      .game.currentRound.answerPossibilities[i * 2 + 1],
+                ),
+              )
+            ],
+          ),
+        ),
+        if (i == 0) const Gap(10)
+      ]) {
+        layout.add(element);
+      }
+    }
+
+    return layout;
+  }
+
+  Container _buildButton(
+    BuildContext context,
+    (
+      GlobalKey<UIPrimaryButtonState>,
+      (String name, String handle)
+    ) answerPossibility,
+  ) {
     return Container(
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                padding: const EdgeInsets.all(10),
-                child: const Center(
-                  child: Text(
-                    "gg",
-                  ),
-                ),
-              );
+      key: answerPossibility.$1,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: const EdgeInsets.all(10),
+      child: Center(
+        child: Text(
+          answerPossibility.$2.$1,
+        ),
+      ),
+    );
   }
 
   Container _tweetContent(

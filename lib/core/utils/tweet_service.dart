@@ -61,4 +61,29 @@ class TweetService {
       }
     }
   }
+
+  /// [filter] is to exclude authors by their handle
+  static List<(String name, String handle)> getRandomAuthors(
+    List<(String, String)> filter,
+  ) {
+    if (_tweets.isEmpty) {
+      throw Exception("Tweets are not initialized yet!");
+    }
+    var res = <(String, String)>[...filter];
+
+    for (var i = filter.length; i < 4; i++) {
+      var randomTweet = _tweets.randomElement();
+
+      if (!filter.any(
+            (e) => e.$2 == randomTweet.handle,
+          ) &&
+          !res.any((element) => element.$1 == randomTweet.name)) {
+        res.add((randomTweet.name, randomTweet.handle));
+      } else {
+        i--;
+      }
+    }
+
+    return res;
+  }
 }

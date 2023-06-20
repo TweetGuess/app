@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Round {
   String get tweetId => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
-  List<(GlobalKey<UIPrimaryButtonState>, String)> get answerPossibilities =>
-      throw _privateConstructorUsedError;
+  List<(GlobalKey<UIPrimaryButtonState>, (String, String))>
+      get answerPossibilities => throw _privateConstructorUsedError;
 
   /// The right answer is given here by the index
   int get rightAnswer => throw _privateConstructorUsedError;
@@ -36,7 +36,8 @@ abstract class $RoundCopyWith<$Res> {
   $Res call(
       {String tweetId,
       String content,
-      List<(GlobalKey<UIPrimaryButtonState>, String)> answerPossibilities,
+      List<(GlobalKey<UIPrimaryButtonState>, (String, String))>
+          answerPossibilities,
       int rightAnswer});
 }
 
@@ -70,7 +71,7 @@ class _$RoundCopyWithImpl<$Res, $Val extends Round>
       answerPossibilities: null == answerPossibilities
           ? _value.answerPossibilities
           : answerPossibilities // ignore: cast_nullable_to_non_nullable
-              as List<(GlobalKey<UIPrimaryButtonState>, String)>,
+              as List<(GlobalKey<UIPrimaryButtonState>, (String, String))>,
       rightAnswer: null == rightAnswer
           ? _value.rightAnswer
           : rightAnswer // ignore: cast_nullable_to_non_nullable
@@ -88,7 +89,8 @@ abstract class _$$_RoundCopyWith<$Res> implements $RoundCopyWith<$Res> {
   $Res call(
       {String tweetId,
       String content,
-      List<(GlobalKey<UIPrimaryButtonState>, String)> answerPossibilities,
+      List<(GlobalKey<UIPrimaryButtonState>, (String, String))>
+          answerPossibilities,
       int rightAnswer});
 }
 
@@ -118,7 +120,7 @@ class __$$_RoundCopyWithImpl<$Res> extends _$RoundCopyWithImpl<$Res, _$_Round>
       answerPossibilities: null == answerPossibilities
           ? _value._answerPossibilities
           : answerPossibilities // ignore: cast_nullable_to_non_nullable
-              as List<(GlobalKey<UIPrimaryButtonState>, String)>,
+              as List<(GlobalKey<UIPrimaryButtonState>, (String, String))>,
       rightAnswer: null == rightAnswer
           ? _value.rightAnswer
           : rightAnswer // ignore: cast_nullable_to_non_nullable
@@ -133,7 +135,7 @@ class _$_Round implements _Round {
   _$_Round(
       {required this.tweetId,
       required this.content,
-      required final List<(GlobalKey<UIPrimaryButtonState>, String)>
+      required final List<(GlobalKey<UIPrimaryButtonState>, (String, String))>
           answerPossibilities,
       required this.rightAnswer})
       : _answerPossibilities = answerPossibilities;
@@ -142,9 +144,11 @@ class _$_Round implements _Round {
   final String tweetId;
   @override
   final String content;
-  final List<(GlobalKey<UIPrimaryButtonState>, String)> _answerPossibilities;
+  final List<(GlobalKey<UIPrimaryButtonState>, (String, String))>
+      _answerPossibilities;
   @override
-  List<(GlobalKey<UIPrimaryButtonState>, String)> get answerPossibilities {
+  List<(GlobalKey<UIPrimaryButtonState>, (String, String))>
+      get answerPossibilities {
     if (_answerPossibilities is EqualUnmodifiableListView)
       return _answerPossibilities;
     // ignore: implicit_dynamic_type
@@ -188,7 +192,7 @@ abstract class _Round implements Round {
   factory _Round(
       {required final String tweetId,
       required final String content,
-      required final List<(GlobalKey<UIPrimaryButtonState>, String)>
+      required final List<(GlobalKey<UIPrimaryButtonState>, (String, String))>
           answerPossibilities,
       required final int rightAnswer}) = _$_Round;
 
@@ -197,7 +201,8 @@ abstract class _Round implements Round {
   @override
   String get content;
   @override
-  List<(GlobalKey<UIPrimaryButtonState>, String)> get answerPossibilities;
+  List<(GlobalKey<UIPrimaryButtonState>, (String, String))>
+      get answerPossibilities;
   @override
 
   /// The right answer is given here by the index
