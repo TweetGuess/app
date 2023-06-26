@@ -13,14 +13,17 @@ class GameUtils {
     var rndmAuthors =
         TweetService.getRandomAuthors([(rndmTweet.name, rndmTweet.handle)]);
 
+    var answerPossibilities = rndmAuthors
+        .map((e) => (GlobalKey<UIPrimaryButtonState>(), e))
+        .toList()
+      ..shuffle();
     // TODO: Sensible Data - prolly needs some post processing of tweet data (the API costs money by now amk)
     return Round(
       tweetId: rndmTweet.id,
       content: rndmTweet.text,
-      rightAnswer: 0,
-      answerPossibilities: rndmAuthors
-          .map((e) => (GlobalKey<UIPrimaryButtonState>(), e))
-          .toList(),
+      rightAnswer: answerPossibilities
+          .indexWhere((element) => element.$2.$2 == rndmTweet.handle),
+      answerPossibilities: answerPossibilities,
     );
   }
 }

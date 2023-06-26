@@ -27,8 +27,10 @@ sealed class GameInProgressState {}
 
 class RoundWrongAnswer extends GameInProgressState {
   RoundWrongAnswer({
-    required int selectedAnswer,
+    required this.selectedAnswer,
   });
+
+  final int selectedAnswer;
 }
 
 /* 
@@ -38,8 +40,10 @@ class RoundFinished extends GameInProgressState {}
 
 class RoundRightAnswer extends RoundFinished {
   RoundRightAnswer({
-    required int selectedAnswer,
+    required this.selectedAnswer,
   });
+
+  final int selectedAnswer;
 }
 
 class RoundNoTimeLeft extends RoundFinished {

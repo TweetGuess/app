@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tweetguess/core/utils/context.dart';
+import 'package:tweetguess/core/bloc/game/game_event.dart';
 import 'package:tweetguess/ui/components/primary_button.dart';
 import 'package:tweetguess/widgets/game/countdown.dart';
 import 'package:tweetguess/widgets/game/timer.dart';
@@ -25,9 +25,8 @@ class GameScreen extends StatefulWidget {
     Duration transitionDuration = const Duration(milliseconds: 600),
   }) {
     return CircularTransitionRoute(
-      page: BlocProvider<GameBloc>(
-        create: (context) =>
-            bloc ?? context.readOrNull<GameBloc>() ?? GameBloc(),
+      page: BlocProvider<GameBloc>.value(
+        value: bloc ?? GameBloc(),
         child: (countdownEnabled ? const Countdown() : const GameScreen()),
       ),
       settings: const RouteSettings(name: "/game"),
@@ -55,7 +54,33 @@ class _GameScreenState extends State<GameScreen> {
           ),
         ],
       ),
-      body: BlocBuilder<GameBloc, GameState>(
+      body: BlocConsumer<GameBloc, GameState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            roundInProgress: (game, inProgressState) {
+              if (inProgressState != null) {
+                switch (inProgressState) {
+                  case RoundWrongAnswer(selectedAnswer: int answerInd):
+                    {
+                      var buttonState =
+                          game.currentRound.answerPossibilities[answerInd].$1;
+                      buttonState.currentState?.lightUpRed();
+                    }
+
+                  case RoundRightAnswer(selectedAnswer: int answerInd):
+                    {
+                      var buttonState =
+                          game.currentRound.answerPossibilities[answerInd].$1;
+                      buttonState.currentState?.lightUpGreen();
+                    }
+
+                  default:
+                    break;
+                }
+              }
+            },
+          );
+        },
         builder: (context, parentState) {
           return parentState.map(
             initial: (gameInitial) {
@@ -93,7 +118,7 @@ class _GameScreenState extends State<GameScreen> {
       mainAxisSize: MainAxisSize.max,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: _generateLayout(context, gameInProgress)..shuffle(),
+      children: _generateLayout(context, gameInProgress),
     );
   }
 
@@ -114,49 +139,40 @@ class _GameScreenState extends State<GameScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Expanded(
-                child: _buildButton(
-                  context,
-                  gameInProgress.game.currentRound.answerPossibilities[i * 2],
-                ),
+                child: _buildAnswerButton(context, gameInProgress, i * 2),
               ),
               const Gap(10),
               Expanded(
-                child: _buildButton(
+                child: _buildAnswerButton(
                   context,
-                  gameInProgress
-                      .game.currentRound.answerPossibilities[i * 2 + 1],
+                  gameInProgress,
+                  i * 2 + 1,
                 ),
               )
             ],
           ),
         ),
-        if (i == 0) const Gap(10)
+        const Gap(10)
       ]) {
         layout.add(element);
       }
     }
 
-    return layout;
+    return layout..removeLast();
   }
 
-  Container _buildButton(
+  GestureDetector _buildAnswerButton(
     BuildContext context,
-    (
-      GlobalKey<UIPrimaryButtonState>,
-      (String name, String handle)
-    ) answerPossibility,
+    GameRoundInProgress gameInProgress,
+    int i,
   ) {
-    return Container(
-      key: answerPossibility.$1,
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      padding: const EdgeInsets.all(10),
-      child: Center(
-        child: Text(
-          answerPossibility.$2.$1,
-        ),
+    return GestureDetector(
+      onTap: () {
+        context.read<GameBloc>().add(GameEvent.submitRound(answer: i));
+      },
+      child: UIPrimaryButton(
+        key: gameInProgress.game.currentRound.answerPossibilities[i].$1,
+        text: gameInProgress.game.currentRound.answerPossibilities[i].$2.$1,
       ),
     );
   }
