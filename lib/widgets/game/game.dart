@@ -52,8 +52,14 @@ class GameScreen extends StatefulWidget {
 }
 
 class _GameScreenState extends State<GameScreen> {
+  /// Used to access the TimerController to pause, resume & stop the timer
   final gameTimerKey = GlobalKey<CircularCountDownTimerState>();
+
+  /// Used to update game score after we get feedback on the answer
   final _gameScoreNotifier = ValueNotifier<int?>(null);
+
+  /// Used to disable taps during score count animation
+  var _ignoringTaps = false;
 
   Future<dynamic> _onWillPopCallback(BuildContext context) async {
     return await showDialog(
@@ -81,116 +87,128 @@ class _GameScreenState extends State<GameScreen> {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        return (await _onWillPopCallback(context)) ?? false;
+        return !_ignoringTaps && (await _onWillPopCallback(context)) ?? false;
       },
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: const Text(
-            "TweetGuess",
-          ),
-          centerTitle: true,
-          actions: const [
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [],
-              ),
+      child: IgnorePointer(
+        ignoring: _ignoringTaps,
+        child: Scaffold(
+          appBar: AppBar(
+            automaticallyImplyLeading: false,
+            title: const Text(
+              "TweetGuess",
             ),
-          ],
-        ).toHero("game"),
-        body: BlocConsumer<GameBloc, GameState>(
-          listener: (context, state) {
-            state.whenOrNull(
-              roundInProgress: (game, inProgressState) async {
-                if (inProgressState != null) {
-                  switch (inProgressState) {
-                    case RoundWrongAnswer(selectedAnswer: int answerInd):
-                      {
-                        var buttonState =
-                            game.currentRound.answerPossibilities[answerInd].$1;
-                        buttonState.currentState?.lightUpRed();
+            centerTitle: true,
+            actions: const [
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [],
+                ),
+              ),
+            ],
+          ).toHero("game"),
+          body: BlocConsumer<GameBloc, GameState>(
+            listener: (context, state) {
+              state.whenOrNull(
+                roundInProgress: (game, inProgressState) async {
+                  if (inProgressState != null) {
+                    switch (inProgressState) {
+                      case RoundWrongAnswer(selectedAnswer: int answerInd):
+                        {
+                          var buttonState = game
+                              .currentRound.answerPossibilities[answerInd].$1;
+                          buttonState.currentState?.lightUpRed();
 
-                        break;
-                      }
-
-                    case RoundFinished():
-                      {
-                        switch (inProgressState) {
-                          case RoundRightAnswer(selectedAnswer: int answerInd):
-                            {
-                              var buttonState = game.currentRound
-                                  .answerPossibilities[answerInd].$1;
-                              buttonState.currentState?.lightUpGreen();
-
-                              // Kick off game score animation & pause timer
-                              gameTimerKey.currentState?.countDownController
-                                  ?.pause();
-                              _gameScoreNotifier.value = game.points +
-                                  GameConstants.TIME_PER_ROUND -
-                                  int.parse(
-                                    gameTimerKey.currentState?.time ?? '15',
-                                  );
-
-                              break;
-                            }
-
-                          default:
-                            {
-                              break;
-                            }
+                          break;
                         }
 
-                        Future.delayed(const Duration(milliseconds: 1000), () {
-                          // then kick off next round
-                          context.read<GameBloc>().add(
-                                GameEvent.nextRound(
-                                  context: context,
-                                  timeLeft: GameConstants.TIME_PER_ROUND -
-                                      int.parse(
-                                        gameTimerKey.currentState?.time ?? '15',
-                                      ),
-                                ),
-                              );
-                        });
-                      }
+                      case RoundFinished():
+                        {
+                          switch (inProgressState) {
+                            case RoundRightAnswer(
+                                selectedAnswer: int answerInd
+                              ):
+                              {
+                                var buttonState = game.currentRound
+                                    .answerPossibilities[answerInd].$1;
+                                buttonState.currentState?.lightUpGreen();
 
-                    default:
-                      break;
+                                // Ignore all taps, kick off game score animation & pause timer
+                                setState(() {
+                                  _ignoringTaps = true;
+                                });
+
+                                gameTimerKey.currentState?.countDownController
+                                    ?.pause();
+
+                                _gameScoreNotifier.value = game.points +
+                                    GameConstants.TIME_PER_ROUND -
+                                    int.parse(
+                                      gameTimerKey.currentState?.time ?? '15',
+                                    );
+
+                                break;
+                              }
+
+                            default:
+                              {
+                                break;
+                              }
+                          }
+
+                          Future.delayed(const Duration(milliseconds: 1000),
+                              () {
+                            // then kick off next round
+                            context.read<GameBloc>().add(
+                                  GameEvent.nextRound(
+                                    context: context,
+                                    timeLeft: GameConstants.TIME_PER_ROUND -
+                                        int.parse(
+                                          gameTimerKey.currentState?.time ??
+                                              '15',
+                                        ),
+                                  ),
+                                );
+                          });
+                        }
+
+                      default:
+                        break;
+                    }
                   }
-                }
-              },
-              terminal: (game, event) {
-                // TODO: Logic for popping page with nice Summary page (regarding all points and shi)
-              },
-            );
-          },
-          builder: (context, parentState) {
-            return parentState.map(
-              initial: (gameInitial) {
-                return const CircularProgressIndicator();
-              },
-              roundInProgress: (gameInProgress) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10)
-                      .copyWith(bottom: 20),
-                  child: Column(
-                    children: [
-                      _gameBar(gameInProgress),
-                      const Gap(20),
-                      Flexible(child: _tweetContent(context, gameInProgress)),
-                      const Gap(20),
-                      Flexible(
-                        child: _answerButtons(context, gameInProgress),
-                      ),
-                    ],
-                  ),
-                );
-              },
-              terminal: (value) => const Text("LOL"),
-            );
-          },
+                },
+                terminal: (game, event) {
+                  // TODO: Logic for popping page with nice Summary page (regarding all points and shi)
+                },
+              );
+            },
+            builder: (context, parentState) {
+              return parentState.map(
+                initial: (gameInitial) {
+                  return const CircularProgressIndicator();
+                },
+                roundInProgress: (gameInProgress) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10)
+                        .copyWith(bottom: 20),
+                    child: Column(
+                      children: [
+                        _gameBar(gameInProgress),
+                        const Gap(20),
+                        Flexible(child: _tweetContent(context, gameInProgress)),
+                        const Gap(20),
+                        Flexible(
+                          child: _answerButtons(context, gameInProgress),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                terminal: (value) => const Text("LOL"),
+              );
+            },
+          ),
         ),
       ),
     );
