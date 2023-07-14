@@ -125,6 +125,11 @@ class _GameScreenState extends State<GameScreen> {
 
                       case RoundFinished():
                         {
+                          // Ignore all taps, kick off game score animation & pause timer
+                          setState(() {
+                            _ignoringTaps = true;
+                          });
+
                           switch (inProgressState) {
                             case RoundRightAnswer(
                                 selectedAnswer: int answerInd
@@ -133,11 +138,6 @@ class _GameScreenState extends State<GameScreen> {
                                 var buttonState = game.currentRound
                                     .answerPossibilities[answerInd].$1;
                                 buttonState.currentState?.lightUpGreen();
-
-                                // Ignore all taps, kick off game score animation & pause timer
-                                setState(() {
-                                  _ignoringTaps = true;
-                                });
 
                                 gameTimerKey.currentState?.countDownController
                                     ?.pause();
@@ -148,6 +148,16 @@ class _GameScreenState extends State<GameScreen> {
                                       gameTimerKey.currentState?.time ?? '15',
                                     );
 
+                                break;
+                              }
+
+                            case RoundNoTimeLeft():
+                              {
+                                // Let all buttons light up red
+                                for (var possibility
+                                    in game.currentRound.answerPossibilities) {
+                                  possibility.$1.currentState?.lightUpRed();
+                                }
                                 break;
                               }
 

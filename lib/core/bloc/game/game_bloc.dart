@@ -92,7 +92,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
           emit(
             GameState.roundInProgress(
               game.copyWith(lives: game.lives - 1),
-              roundInProgress,
+              RoundNoTimeLeft(),
             ),
           );
         } else {
