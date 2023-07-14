@@ -1,17 +1,21 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:tweetguess/core/bloc/game/game_state.dart';
 import 'package:tweetguess/core/bloc/game/utils/game.dart';
 import 'package:tweetguess/core/presentation/effect_controller/effect_controller.dart';
 
+import '../../../ui/utils/routes/game_transitions.dart';
+import '../../../widgets/game/game.dart';
 import 'game_event.dart';
 import 'models/game.dart';
 
 class GameBloc extends Bloc<GameEvent, GameState> {
   late GameEffectController effectController;
 
-  GameBloc() : super(GameState.initial()) {
+  GameBloc([GameState? initial]) : super(initial ?? GameState.initial()) {
     on<StartGame>(handleGameStart);
     on<PauseGame>(handlePauseGame);
     on<ExitGame>(handleExitGame);
@@ -58,24 +62,39 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         var nextRound =
             GameUtils.generateRound([...game.pastRounds, currentRound]);
 
-        emit(
-          GameState.roundInProgress(
-            game.copyWith(
-              points: game.points + event.timeLeft,
-              pastRounds: [...game.pastRounds, currentRound],
-              currentRound: nextRound,
+        // Activate transition to next round
+        Navigator.of(event.context).pushReplacement(
+          NextRoundTransition(
+            page: GameScreen.page(
+              bloc: GameBloc(
+                GameState.roundInProgress(
+                  game.copyWith(
+                    points: game.points + event.timeLeft,
+                    pastRounds: [...game.pastRounds, currentRound],
+                    currentRound: nextRound,
+                  ),
+                ),
+              ),
+              countdownEnabled: false,
             ),
           ),
         );
+
+        close();
       },
     );
   }
 
   FutureOr<void> handleNoTimeLeft(NoTimeLeft event, Emitter<GameState> emit) {
     state.whenOrNull(
-      roundInProgress: (game, _) {
+      roundInProgress: (game, roundInProgress) {
         if (game.lives - 1 > 0) {
-          emit(GameState.roundInProgress(game.copyWith(lives: game.lives - 1)));
+          emit(
+            GameState.roundInProgress(
+              game.copyWith(lives: game.lives - 1),
+              roundInProgress,
+            ),
+          );
         } else {
           emit(GameState.terminal(game, event));
         }

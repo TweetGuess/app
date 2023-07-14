@@ -1,7 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'game_event.freezed.dart';
-part 'game_event.g.dart';
 
 @freezed
 sealed class GameEvent with _$GameEvent {
@@ -17,10 +17,8 @@ sealed class GameEvent with _$GameEvent {
   }) = SubmitRound;
   factory GameEvent.nextRound({
     required int timeLeft,
+    required BuildContext context,
   }) = NextRound;
   factory GameEvent.noTimeLeft() = NoTimeLeft;
   factory GameEvent.noLivesLeft() = NoLivesLeft;
-
-  factory GameEvent.fromJson(Map<String, dynamic> json) =>
-      _$GameEventFromJson(json);
 }

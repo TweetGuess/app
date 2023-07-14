@@ -14,31 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GameEvent _$GameEventFromJson(Map<String, dynamic> json) {
-  switch (json['runtimeType']) {
-    case 'default':
-      return _GameEvent.fromJson(json);
-    case 'startGame':
-      return StartGame.fromJson(json);
-    case 'pauseGame':
-      return PauseGame.fromJson(json);
-    case 'exitGame':
-      return ExitGame.fromJson(json);
-    case 'submitRound':
-      return SubmitRound.fromJson(json);
-    case 'nextRound':
-      return NextRound.fromJson(json);
-    case 'noTimeLeft':
-      return NoTimeLeft.fromJson(json);
-    case 'noLivesLeft':
-      return NoLivesLeft.fromJson(json);
-
-    default:
-      throw CheckedFromJsonException(json, 'runtimeType', 'GameEvent',
-          'Invalid union type "${json['runtimeType']}"!');
-  }
-}
-
 /// @nodoc
 mixin _$GameEvent {
   @optionalTypeArgs
@@ -48,7 +23,7 @@ mixin _$GameEvent {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) =>
@@ -60,7 +35,7 @@ mixin _$GameEvent {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) =>
@@ -72,7 +47,7 @@ mixin _$GameEvent {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -115,7 +90,6 @@ mixin _$GameEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -152,15 +126,9 @@ class __$$_GameEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_GameEvent implements _GameEvent {
-  _$_GameEvent({final String? $type}) : $type = $type ?? 'default';
-
-  factory _$_GameEvent.fromJson(Map<String, dynamic> json) =>
-      _$$_GameEventFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  _$_GameEvent();
 
   @override
   String toString() {
@@ -173,7 +141,6 @@ class _$_GameEvent implements _GameEvent {
         (other.runtimeType == runtimeType && other is _$_GameEvent);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -185,7 +152,7 @@ class _$_GameEvent implements _GameEvent {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -200,7 +167,7 @@ class _$_GameEvent implements _GameEvent {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -215,7 +182,7 @@ class _$_GameEvent implements _GameEvent {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -274,20 +241,10 @@ class _$_GameEvent implements _GameEvent {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_GameEventToJson(
-      this,
-    );
-  }
 }
 
 abstract class _GameEvent implements GameEvent {
   factory _GameEvent() = _$_GameEvent;
-
-  factory _GameEvent.fromJson(Map<String, dynamic> json) =
-      _$_GameEvent.fromJson;
 }
 
 /// @nodoc
@@ -307,15 +264,9 @@ class __$$StartGameCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$StartGame implements StartGame {
-  _$StartGame({final String? $type}) : $type = $type ?? 'startGame';
-
-  factory _$StartGame.fromJson(Map<String, dynamic> json) =>
-      _$$StartGameFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  _$StartGame();
 
   @override
   String toString() {
@@ -328,7 +279,6 @@ class _$StartGame implements StartGame {
         (other.runtimeType == runtimeType && other is _$StartGame);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -340,7 +290,7 @@ class _$StartGame implements StartGame {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -355,7 +305,7 @@ class _$StartGame implements StartGame {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -370,7 +320,7 @@ class _$StartGame implements StartGame {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -429,19 +379,10 @@ class _$StartGame implements StartGame {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$StartGameToJson(
-      this,
-    );
-  }
 }
 
 abstract class StartGame implements GameEvent {
   factory StartGame() = _$StartGame;
-
-  factory StartGame.fromJson(Map<String, dynamic> json) = _$StartGame.fromJson;
 }
 
 /// @nodoc
@@ -461,15 +402,9 @@ class __$$PauseGameCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$PauseGame implements PauseGame {
-  _$PauseGame({final String? $type}) : $type = $type ?? 'pauseGame';
-
-  factory _$PauseGame.fromJson(Map<String, dynamic> json) =>
-      _$$PauseGameFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  _$PauseGame();
 
   @override
   String toString() {
@@ -482,7 +417,6 @@ class _$PauseGame implements PauseGame {
         (other.runtimeType == runtimeType && other is _$PauseGame);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -494,7 +428,7 @@ class _$PauseGame implements PauseGame {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -509,7 +443,7 @@ class _$PauseGame implements PauseGame {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -524,7 +458,7 @@ class _$PauseGame implements PauseGame {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -583,19 +517,10 @@ class _$PauseGame implements PauseGame {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PauseGameToJson(
-      this,
-    );
-  }
 }
 
 abstract class PauseGame implements GameEvent {
   factory PauseGame() = _$PauseGame;
-
-  factory PauseGame.fromJson(Map<String, dynamic> json) = _$PauseGame.fromJson;
 }
 
 /// @nodoc
@@ -614,15 +539,9 @@ class __$$ExitGameCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$ExitGame implements ExitGame {
-  _$ExitGame({final String? $type}) : $type = $type ?? 'exitGame';
-
-  factory _$ExitGame.fromJson(Map<String, dynamic> json) =>
-      _$$ExitGameFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  _$ExitGame();
 
   @override
   String toString() {
@@ -635,7 +554,6 @@ class _$ExitGame implements ExitGame {
         (other.runtimeType == runtimeType && other is _$ExitGame);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -647,7 +565,7 @@ class _$ExitGame implements ExitGame {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -662,7 +580,7 @@ class _$ExitGame implements ExitGame {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -677,7 +595,7 @@ class _$ExitGame implements ExitGame {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -736,19 +654,10 @@ class _$ExitGame implements ExitGame {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$ExitGameToJson(
-      this,
-    );
-  }
 }
 
 abstract class ExitGame implements GameEvent {
   factory ExitGame() = _$ExitGame;
-
-  factory ExitGame.fromJson(Map<String, dynamic> json) = _$ExitGame.fromJson;
 }
 
 /// @nodoc
@@ -783,19 +692,12 @@ class __$$SubmitRoundCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$SubmitRound implements SubmitRound {
-  _$SubmitRound({required this.answer, final String? $type})
-      : $type = $type ?? 'submitRound';
 
-  factory _$SubmitRound.fromJson(Map<String, dynamic> json) =>
-      _$$SubmitRoundFromJson(json);
+class _$SubmitRound implements SubmitRound {
+  _$SubmitRound({required this.answer});
 
   @override
   final int answer;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
 
   @override
   String toString() {
@@ -810,7 +712,6 @@ class _$SubmitRound implements SubmitRound {
             (identical(other.answer, answer) || other.answer == answer));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, answer);
 
@@ -828,7 +729,7 @@ class _$SubmitRound implements SubmitRound {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -843,7 +744,7 @@ class _$SubmitRound implements SubmitRound {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -858,7 +759,7 @@ class _$SubmitRound implements SubmitRound {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -917,20 +818,10 @@ class _$SubmitRound implements SubmitRound {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$SubmitRoundToJson(
-      this,
-    );
-  }
 }
 
 abstract class SubmitRound implements GameEvent {
   factory SubmitRound({required final int answer}) = _$SubmitRound;
-
-  factory SubmitRound.fromJson(Map<String, dynamic> json) =
-      _$SubmitRound.fromJson;
 
   int get answer;
   @JsonKey(ignore: true)
@@ -944,7 +835,7 @@ abstract class _$$NextRoundCopyWith<$Res> {
           _$NextRound value, $Res Function(_$NextRound) then) =
       __$$NextRoundCopyWithImpl<$Res>;
   @useResult
-  $Res call({int timeLeft});
+  $Res call({int timeLeft, BuildContext context});
 }
 
 /// @nodoc
@@ -959,34 +850,34 @@ class __$$NextRoundCopyWithImpl<$Res>
   @override
   $Res call({
     Object? timeLeft = null,
+    Object? context = null,
   }) {
     return _then(_$NextRound(
       timeLeft: null == timeLeft
           ? _value.timeLeft
           : timeLeft // ignore: cast_nullable_to_non_nullable
               as int,
+      context: null == context
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$NextRound implements NextRound {
-  _$NextRound({required this.timeLeft, final String? $type})
-      : $type = $type ?? 'nextRound';
 
-  factory _$NextRound.fromJson(Map<String, dynamic> json) =>
-      _$$NextRoundFromJson(json);
+class _$NextRound implements NextRound {
+  _$NextRound({required this.timeLeft, required this.context});
 
   @override
   final int timeLeft;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'GameEvent.nextRound(timeLeft: $timeLeft)';
+    return 'GameEvent.nextRound(timeLeft: $timeLeft, context: $context)';
   }
 
   @override
@@ -995,12 +886,12 @@ class _$NextRound implements NextRound {
         (other.runtimeType == runtimeType &&
             other is _$NextRound &&
             (identical(other.timeLeft, timeLeft) ||
-                other.timeLeft == timeLeft));
+                other.timeLeft == timeLeft) &&
+            (identical(other.context, context) || other.context == context));
   }
 
-  @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, timeLeft);
+  int get hashCode => Object.hash(runtimeType, timeLeft, context);
 
   @JsonKey(ignore: true)
   @override
@@ -1016,11 +907,11 @@ class _$NextRound implements NextRound {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
-    return nextRound(timeLeft);
+    return nextRound(timeLeft, context);
   }
 
   @override
@@ -1031,11 +922,11 @@ class _$NextRound implements NextRound {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
-    return nextRound?.call(timeLeft);
+    return nextRound?.call(timeLeft, context);
   }
 
   @override
@@ -1046,13 +937,13 @@ class _$NextRound implements NextRound {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
   }) {
     if (nextRound != null) {
-      return nextRound(timeLeft);
+      return nextRound(timeLeft, context);
     }
     return orElse();
   }
@@ -1105,21 +996,15 @@ class _$NextRound implements NextRound {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NextRoundToJson(
-      this,
-    );
-  }
 }
 
 abstract class NextRound implements GameEvent {
-  factory NextRound({required final int timeLeft}) = _$NextRound;
-
-  factory NextRound.fromJson(Map<String, dynamic> json) = _$NextRound.fromJson;
+  factory NextRound(
+      {required final int timeLeft,
+      required final BuildContext context}) = _$NextRound;
 
   int get timeLeft;
+  BuildContext get context;
   @JsonKey(ignore: true)
   _$$NextRoundCopyWith<_$NextRound> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1142,15 +1027,9 @@ class __$$NoTimeLeftCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$NoTimeLeft implements NoTimeLeft {
-  _$NoTimeLeft({final String? $type}) : $type = $type ?? 'noTimeLeft';
-
-  factory _$NoTimeLeft.fromJson(Map<String, dynamic> json) =>
-      _$$NoTimeLeftFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  _$NoTimeLeft();
 
   @override
   String toString() {
@@ -1163,7 +1042,6 @@ class _$NoTimeLeft implements NoTimeLeft {
         (other.runtimeType == runtimeType && other is _$NoTimeLeft);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -1175,7 +1053,7 @@ class _$NoTimeLeft implements NoTimeLeft {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -1190,7 +1068,7 @@ class _$NoTimeLeft implements NoTimeLeft {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -1205,7 +1083,7 @@ class _$NoTimeLeft implements NoTimeLeft {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -1264,20 +1142,10 @@ class _$NoTimeLeft implements NoTimeLeft {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NoTimeLeftToJson(
-      this,
-    );
-  }
 }
 
 abstract class NoTimeLeft implements GameEvent {
   factory NoTimeLeft() = _$NoTimeLeft;
-
-  factory NoTimeLeft.fromJson(Map<String, dynamic> json) =
-      _$NoTimeLeft.fromJson;
 }
 
 /// @nodoc
@@ -1297,15 +1165,9 @@ class __$$NoLivesLeftCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$NoLivesLeft implements NoLivesLeft {
-  _$NoLivesLeft({final String? $type}) : $type = $type ?? 'noLivesLeft';
-
-  factory _$NoLivesLeft.fromJson(Map<String, dynamic> json) =>
-      _$$NoLivesLeftFromJson(json);
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
+  _$NoLivesLeft();
 
   @override
   String toString() {
@@ -1318,7 +1180,6 @@ class _$NoLivesLeft implements NoLivesLeft {
         (other.runtimeType == runtimeType && other is _$NoLivesLeft);
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -1330,7 +1191,7 @@ class _$NoLivesLeft implements NoLivesLeft {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft) nextRound,
+    required TResult Function(int timeLeft, BuildContext context) nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -1345,7 +1206,7 @@ class _$NoLivesLeft implements NoLivesLeft {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft)? nextRound,
+    TResult? Function(int timeLeft, BuildContext context)? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -1360,7 +1221,7 @@ class _$NoLivesLeft implements NoLivesLeft {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft)? nextRound,
+    TResult Function(int timeLeft, BuildContext context)? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -1419,18 +1280,8 @@ class _$NoLivesLeft implements NoLivesLeft {
     }
     return orElse();
   }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$NoLivesLeftToJson(
-      this,
-    );
-  }
 }
 
 abstract class NoLivesLeft implements GameEvent {
   factory NoLivesLeft() = _$NoLivesLeft;
-
-  factory NoLivesLeft.fromJson(Map<String, dynamic> json) =
-      _$NoLivesLeft.fromJson;
 }
