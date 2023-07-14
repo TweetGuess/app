@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tweetguess/core/bloc/game/game_event.dart';
+import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 
 import '../../core/bloc/game/game_bloc.dart';
 import '../../ui/text/countdown_text.dart';
@@ -88,9 +89,11 @@ class _CountdownState extends State<Countdown>
         context.read<GameBloc>().add(StartGame());
 
         Navigator.of(context).pushReplacement(
-          GameScreen.route(
-            countdownEnabled: false,
-            bloc: context.read<GameBloc>(),
+          GameEntryTransitionRoute(
+            page: GameScreen.page(
+              bloc: context.read<GameBloc>(),
+              countdownEnabled: false,
+            ),
           ),
         );
       }

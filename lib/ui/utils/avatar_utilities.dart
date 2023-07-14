@@ -3,15 +3,7 @@ import 'dart:math';
 import 'package:flutter/cupertino.dart';
 
 late Color bgColor;
-late Color element1Color;
-late double element1TranslateX;
-late double element1TranslateY;
-late double element1Scale;
-late double element1Rotate;
 late Color element2Color;
-late double element2TranslateX;
-late double element2TranslateY;
-late double element2Scale;
 
 List<Color> generateAvatarColors(String name, [List<Color>? colors]) {
   colors = [
@@ -22,24 +14,10 @@ List<Color> generateAvatarColors(String name, [List<Color>? colors]) {
     const Color(0xffC24C32)
   ];
 
-  const double boxSize = 80;
   final numFromName = getNumber(name);
   final range = colors.length;
-  int i = 0;
-  bgColor = getRandomColor(numFromName + i, colors, range);
-
-  i = 1;
-  element1Color = getRandomColor(numFromName + i, colors, range);
-  element1TranslateX = getUnit(numFromName * (i + 1), boxSize ~/ 10, 1);
-  element1TranslateY = getUnit(numFromName * (i + 1), boxSize ~/ 10, 2);
-  element1Scale = 1.2 + getUnit(numFromName * (i + 1), boxSize ~/ 20) / 10;
-  element1Rotate = getUnit(numFromName * (i + 1), 360, 1);
-
-  i = 2;
-  element2Color = getRandomColor(numFromName + i, colors, range);
-  element2TranslateX = getUnit(numFromName * (i + 1), boxSize ~/ 10, 1);
-  element2TranslateY = getUnit(numFromName * (i + 1), boxSize ~/ 10, 2);
-  element2Scale = 1.2 + getUnit(numFromName * (i + 1), boxSize ~/ 20) / 10;
+  bgColor = getRandomColor(numFromName + 1, colors, range);
+  element2Color = getRandomColor(numFromName + 2, colors, range);
 
   return [bgColor, element2Color];
 }

@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import '../../core/bloc/game/utils/const.dart';
 
 class GameTimer extends StatefulWidget {
-  const GameTimer({super.key});
+  const GameTimer({super.key, this.onFinished, this.countdownTimerKey});
+
+  final Function()? onFinished;
+  final GlobalKey<CircularCountDownTimerState>? countdownTimerKey;
 
   @override
   State<GameTimer> createState() => _GameTimerState();
@@ -68,6 +71,8 @@ class _GameTimerState extends State<GameTimer>
       animation: _controller,
       builder: (context, child) {
         return CircularCountDownTimer(
+          key: widget.countdownTimerKey,
+          onComplete: widget.onFinished,
           width: 50,
           height: 50,
           textStyle: const TextStyle(

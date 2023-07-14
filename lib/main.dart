@@ -12,6 +12,7 @@ import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/utils/shared_preferences.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/themes.dart';
+import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 import 'package:tweetguess/widgets/home.dart';
 import 'package:tweetguess/widgets/intro.dart';
 import 'package:tweetguess/widgets/profile.dart';
@@ -66,6 +67,14 @@ class _TweetGuessState extends State<TweetGuess> {
 
   @override
   Widget build(BuildContext context) {
+    var routes = {
+      '/': (context) {
+        return finishedIntro ? const HomeScreen() : const IntroScreen();
+      },
+      '/settings': (context) => const SettingsPage(),
+      'profile': (context) => const ProfilePage()
+    };
+
     return MultiBlocProvider(
       providers: [BlocProvider<UserBloc>(create: (_) => GetIt.I<UserBloc>())],
       child: ResponsiveSizer(
@@ -83,11 +92,17 @@ class _TweetGuessState extends State<TweetGuess> {
             themeMode: ThemeMode.system,
             initialRoute: "/",
             builder: DevicePreview.appBuilder,
-            routes: {
-              '/': (context) =>
-                  finishedIntro ? const HomeScreen() : const IntroScreen(),
-              '/settings': (context) => const SettingsPage(),
-              'profile': (context) => const ProfilePage()
+            onGenerateRoute: (settings) {
+              switch (settings.name) {
+                case "/":
+                  {
+                    return CircularTransitionRoute(page: routes['/']!(context));
+                  }
+                default:
+                  return MaterialPageRoute(
+                    builder: (context) => routes[settings.name]!(context),
+                  );
+              }
             },
           );
         },

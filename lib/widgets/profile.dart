@@ -19,11 +19,16 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  late List<Color> colors;
+  @override
+  void initState() {
+    super.initState();
+    colors = generateAvatarColors(context.read<UserBloc>().state.username);
+  }
+
   @override
   Widget build(BuildContext context) {
     final userBloc = context.watch<UserBloc>();
-
-    var colors = generateAvatarColors(userBloc.state.username);
 
     var scrollController = ScrollController();
 
