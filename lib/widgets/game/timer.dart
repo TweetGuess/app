@@ -67,25 +67,28 @@ class _GameTimerState extends State<GameTimer>
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: _controller,
-      builder: (context, child) {
-        return CircularCountDownTimer(
-          key: widget.countdownTimerKey,
-          onComplete: widget.onFinished,
-          width: 50,
-          height: 50,
-          textStyle: const TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
-            fontFamily: "Pixeboy",
-          ),
-          autoStart: true,
-          ringColor: _colorAnimation.value!.withOpacity(0.3),
-          fillColor: _colorAnimation.value ?? Colors.red,
-          duration: GameConstants.TIME_PER_ROUND,
-        );
-      },
+    return Padding(
+      padding: const EdgeInsets.all(5),
+      child: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) {
+          return CircularCountDownTimer(
+            key: widget.countdownTimerKey,
+            onComplete: widget.onFinished,
+            width: 50,
+            height: 50,
+            textStyle: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+              fontFamily: "Pixeboy",
+            ),
+            autoStart: true,
+            ringColor: _colorAnimation.value!.withOpacity(0.3),
+            fillColor: _colorAnimation.value ?? Colors.red,
+            duration: GameConstants.TIME_PER_ROUND,
+          );
+        },
+      ),
     );
   }
 }

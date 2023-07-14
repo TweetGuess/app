@@ -1,9 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/game/game_event.dart';
+import 'package:tweetguess/core/bloc/game/utils/const.dart';
+import 'package:tweetguess/core/utils/app_bar.dart';
 import 'package:tweetguess/ui/components/primary_button.dart';
 import 'package:tweetguess/widgets/game/countdown.dart';
 import 'package:tweetguess/widgets/game/timer.dart';
@@ -19,6 +22,7 @@ class GameScreen extends StatefulWidget {
   State<GameScreen> createState() => _GameScreenState();
 
   // TODO: Maybe add a round parameter to set condition for when the BlocBuilder should listen?
+  // Have another Route so we can keep the RouteSettings
   static Route route({
     bool countdownEnabled = true,
     GameBloc? bloc,
@@ -27,85 +31,167 @@ class GameScreen extends StatefulWidget {
     return CircularTransitionRoute(
       page: BlocProvider<GameBloc>.value(
         value: bloc ?? GameBloc(),
-        child: (countdownEnabled ? const Countdown() : const GameScreen()),
+        child: (countdownEnabled
+            ? const Countdown()
+            : GameScreen(key: UniqueKey())),
       ),
       settings: const RouteSettings(name: "/game"),
+    );
+  }
+
+  static Widget page({
+    GameBloc? bloc,
+    bool countdownEnabled = true,
+  }) {
+    return BlocProvider<GameBloc>.value(
+      value: bloc ?? GameBloc(),
+      child:
+          (countdownEnabled ? const Countdown() : GameScreen(key: UniqueKey())),
     );
   }
 }
 
 class _GameScreenState extends State<GameScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text(
-          "TweetGuess",
-        ),
-        centerTitle: true,
-        actions: const [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [],
-            ),
+  final gameTimerKey = GlobalKey<CircularCountDownTimerState>();
+  final _gameScoreNotifier = ValueNotifier<int?>(null);
+
+  Future<dynamic> _onWillPopCallback(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Are you sure?'),
+        content: const Text('Do you want to exit the Game'),
+        actions: <Widget>[
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: const Text('No'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed("/");
+            },
+            child: const Text('Yes'),
           ),
         ],
       ),
-      body: BlocConsumer<GameBloc, GameState>(
-        listener: (context, state) {
-          state.whenOrNull(
-            roundInProgress: (game, inProgressState) {
-              if (inProgressState != null) {
-                switch (inProgressState) {
-                  case RoundWrongAnswer(selectedAnswer: int answerInd):
-                    {
-                      var buttonState =
-                          game.currentRound.answerPossibilities[answerInd].$1;
-                      buttonState.currentState?.lightUpRed();
-                    }
+    );
+  }
 
-                  case RoundRightAnswer(selectedAnswer: int answerInd):
-                    {
-                      var buttonState =
-                          game.currentRound.answerPossibilities[answerInd].$1;
-                      buttonState.currentState?.lightUpGreen();
-                    }
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () async {
+        return (await _onWillPopCallback(context)) ?? false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          title: const Text(
+            "TweetGuess",
+          ),
+          centerTitle: true,
+          actions: const [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [],
+              ),
+            ),
+          ],
+        ).toHero("game"),
+        body: BlocConsumer<GameBloc, GameState>(
+          listener: (context, state) {
+            state.whenOrNull(
+              roundInProgress: (game, inProgressState) async {
+                if (inProgressState != null) {
+                  switch (inProgressState) {
+                    case RoundWrongAnswer(selectedAnswer: int answerInd):
+                      {
+                        var buttonState =
+                            game.currentRound.answerPossibilities[answerInd].$1;
+                        buttonState.currentState?.lightUpRed();
 
-                  default:
-                    break;
+                        break;
+                      }
+
+                    case RoundFinished():
+                      {
+                        switch (inProgressState) {
+                          case RoundRightAnswer(selectedAnswer: int answerInd):
+                            {
+                              var buttonState = game.currentRound
+                                  .answerPossibilities[answerInd].$1;
+                              buttonState.currentState?.lightUpGreen();
+
+                              // Kick off game score animation & pause timer
+                              gameTimerKey.currentState?.countDownController
+                                  ?.pause();
+                              _gameScoreNotifier.value = game.points +
+                                  GameConstants.TIME_PER_ROUND -
+                                  int.parse(
+                                    gameTimerKey.currentState?.time ?? '15',
+                                  );
+
+                              break;
+                            }
+
+                          default:
+                            {
+                              break;
+                            }
+                        }
+
+                        Future.delayed(const Duration(milliseconds: 1000), () {
+                          // then kick off next round
+                          context.read<GameBloc>().add(
+                                GameEvent.nextRound(
+                                  context: context,
+                                  timeLeft: GameConstants.TIME_PER_ROUND -
+                                      int.parse(
+                                        gameTimerKey.currentState?.time ?? '15',
+                                      ),
+                                ),
+                              );
+                        });
+                      }
+
+                    default:
+                      break;
+                  }
                 }
-              }
-            },
-          );
-        },
-        builder: (context, parentState) {
-          return parentState.map(
-            initial: (gameInitial) {
-              return const CircularProgressIndicator();
-            },
-            roundInProgress: (gameInProgress) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10)
-                    .copyWith(bottom: 20),
-                child: Column(
-                  children: [
-                    _gameBar(gameInProgress),
-                    const Gap(20),
-                    Flexible(child: _tweetContent(context, gameInProgress)),
-                    const Gap(20),
-                    Flexible(
-                      child: _answerButtons(context, gameInProgress),
-                    ),
-                  ],
-                ),
-              );
-            },
-            terminal: (value) => const Text("LOL"),
-          );
-        },
+              },
+              terminal: (game, event) {
+                // TODO: Logic for popping page with nice Summary page (regarding all points and shi)
+              },
+            );
+          },
+          builder: (context, parentState) {
+            return parentState.map(
+              initial: (gameInitial) {
+                return const CircularProgressIndicator();
+              },
+              roundInProgress: (gameInProgress) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10)
+                      .copyWith(bottom: 20),
+                  child: Column(
+                    children: [
+                      _gameBar(gameInProgress),
+                      const Gap(20),
+                      Flexible(child: _tweetContent(context, gameInProgress)),
+                      const Gap(20),
+                      Flexible(
+                        child: _answerButtons(context, gameInProgress),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              terminal: (value) => const Text("LOL"),
+            );
+          },
+        ),
       ),
     );
   }
@@ -183,7 +269,7 @@ class _GameScreenState extends State<GameScreen> {
   ) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(10),
       ),
       padding: const EdgeInsets.all(20),
@@ -196,18 +282,32 @@ class _GameScreenState extends State<GameScreen> {
   SizedBox _gameBar(GameRoundInProgress value) {
     return SizedBox(
       height: 10.h,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          const Spacer(),
-          Container(
-            alignment: Alignment.center,
-            child: const GameTimer(),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: Container(
+                alignment: Alignment.centerLeft,
+                child: GameTimer(
+                  countdownTimerKey: gameTimerKey,
+                  onFinished: () {
+                    context.read<GameBloc>().add(GameEvent.noTimeLeft());
+                  },
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 1.h),
+              child: GameScore(
+                context: context,
+                value: value,
+                scoreNotifier: _gameScoreNotifier,
+              ),
+            ),
+            Expanded(
               child: Align(
                 alignment: Alignment.centerRight,
                 child: SizedBox(
@@ -241,6 +341,70 @@ class _GameScreenState extends State<GameScreen> {
                     ],
                   ),
                 ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class GameScore extends StatelessWidget {
+  const GameScore({
+    Key? key,
+    required this.context,
+    required this.value,
+    required this.scoreNotifier,
+  }) : super(key: key);
+
+  final BuildContext context;
+  final GameRoundInProgress value;
+  final ValueNotifier<int?> scoreNotifier;
+
+  @override
+  Widget build(BuildContext context) {
+    final score = scoreNotifier.value ?? value.game.points;
+
+    return Container(
+      padding: const EdgeInsets.all(10),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.primary,
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(width: 40),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: TweenAnimationBuilder<int>(
+              tween: IntTween(begin: value.game.points, end: score),
+              // Hardcoded Values, check Delay before we transition new scren
+              duration: const Duration(milliseconds: 500),
+              builder: (context, value, child) {
+                return AutoSizeText(
+                  '$value',
+                  minFontSize: 30,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Pixeboy",
+                    color: Colors.white,
+                  ),
+                );
+              },
+            ),
+          ),
+          Container(
+            width: 40,
+            alignment: Alignment.centerRight,
+            child: const AutoSizeText(
+              'pts',
+              minFontSize: 10,
+              style: TextStyle(
+                fontFamily: "Pixeboy",
+                color: Colors.white,
               ),
             ),
           ),

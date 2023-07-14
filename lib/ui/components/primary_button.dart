@@ -22,7 +22,7 @@ class UIPrimaryButtonState extends State<UIPrimaryButton> {
     return AnimatedContainer(
       duration: duration,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primary,
+        color: Theme.of(context).colorScheme.primaryContainer,
         borderRadius: BorderRadius.circular(10),
       ).copyWith(color: animationColor),
       padding: const EdgeInsets.all(10),
