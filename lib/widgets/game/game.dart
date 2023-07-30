@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/game/game_event.dart';
-import 'package:tweetguess/core/bloc/game/utils/const.dart';
 import 'package:tweetguess/core/utils/app_bar.dart';
 import 'package:tweetguess/ui/components/primary_button.dart';
 import 'package:tweetguess/widgets/game/countdown.dart';
@@ -14,6 +13,7 @@ import 'package:tweetguess/widgets/game/timer.dart';
 import '../../core/bloc/game/game_bloc.dart';
 import '../../core/bloc/game/game_state.dart';
 import '../../ui/utils/routes/circular_transition_route.dart';
+import 'helper/wrapper.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({Key? key}) : super(key: key);
@@ -58,170 +58,77 @@ class _GameScreenState extends State<GameScreen> {
   /// Used to update game score after we get feedback on the answer
   final _gameScoreNotifier = ValueNotifier<int?>(null);
 
-  /// Used to disable taps during score count animation
-  var _ignoringTaps = false;
-
-  Future<dynamic> _onWillPopCallback(BuildContext context) async {
-    return await showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('Are you sure?'),
-        content: const Text('Do you want to exit the Game'),
-        actions: <Widget>[
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('No'),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed("/");
-            },
-            child: const Text('Yes'),
-          ),
-        ],
-      ),
-    );
+  @override
+  void initState() {
+    super.initState();
+    context.read<GameBloc>().init(
+          context,
+          gameScoreNotifier: _gameScoreNotifier,
+          gameTimerKey: gameTimerKey,
+        );
   }
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () async {
-        return !_ignoringTaps && (await _onWillPopCallback(context)) ?? false;
-      },
-      child: IgnorePointer(
-        ignoring: _ignoringTaps,
-        child: Scaffold(
-          appBar: AppBar(
-            automaticallyImplyLeading: false,
-            title: const Text(
-              "TweetGuess",
-            ),
-            centerTitle: true,
-            actions: const [
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [],
-                ),
-              ),
-            ],
-          ).toHero("game"),
-          body: BlocConsumer<GameBloc, GameState>(
-            listener: (context, state) {
-              state.whenOrNull(
-                roundInProgress: (game, inProgressState) async {
-                  if (inProgressState != null) {
-                    switch (inProgressState) {
-                      case RoundWrongAnswer(selectedAnswer: int answerInd):
-                        {
-                          var buttonState = game
-                              .currentRound.answerPossibilities[answerInd].$1;
-                          buttonState.currentState?.lightUpRed();
-
-                          break;
-                        }
-
-                      case RoundFinished():
-                        {
-                          // Ignore all taps, kick off game score animation & pause timer
-                          setState(() {
-                            _ignoringTaps = true;
-                          });
-
-                          switch (inProgressState) {
-                            case RoundRightAnswer(
-                                selectedAnswer: int answerInd
-                              ):
-                              {
-                                var buttonState = game.currentRound
-                                    .answerPossibilities[answerInd].$1;
-                                buttonState.currentState?.lightUpGreen();
-
-                                gameTimerKey.currentState?.countDownController
-                                    ?.pause();
-
-                                _gameScoreNotifier.value = game.points +
-                                    GameConstants.TIME_PER_ROUND -
-                                    int.parse(
-                                      gameTimerKey.currentState?.time ?? '15',
-                                    );
-
-                                break;
-                              }
-
-                            case RoundNoTimeLeft():
-                              {
-                                // Let all buttons light up red
-                                for (var possibility
-                                    in game.currentRound.answerPossibilities) {
-                                  possibility.$1.currentState?.lightUpRed();
-                                }
-                                break;
-                              }
-
-                            default:
-                              {
-                                break;
-                              }
-                          }
-
-                          Future.delayed(const Duration(milliseconds: 1000),
-                              () {
-                            // then kick off next round
-                            context.read<GameBloc>().add(
-                                  GameEvent.nextRound(
-                                    context: context,
-                                    timeLeft: GameConstants.TIME_PER_ROUND -
-                                        int.parse(
-                                          gameTimerKey.currentState?.time ??
-                                              '15',
-                                        ),
-                                  ),
-                                );
-                          });
-                        }
-
-                      default:
-                        break;
-                    }
-                  }
-                },
-                terminal: (game, event) {
-                  // TODO: Logic for popping page with nice Summary page (regarding all points and shi)
-                },
-              );
-            },
-            builder: (context, parentState) {
-              return parentState.map(
-                initial: (gameInitial) {
-                  return const CircularProgressIndicator();
-                },
-                roundInProgress: (gameInProgress) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10)
-                        .copyWith(bottom: 20),
-                    child: Column(
-                      children: [
-                        _gameBar(gameInProgress),
-                        const Gap(20),
-                        Flexible(child: _tweetContent(context, gameInProgress)),
-                        const Gap(20),
-                        Flexible(
-                          child: _answerButtons(context, gameInProgress),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                terminal: (value) => const Text("LOL"),
-              );
-            },
-          ),
+    return Scaffold(
+      appBar: _buildAppBar(),
+      body: GameWrapper(
+        controller: context.read<GameBloc>().gameController,
+        child: BlocBuilder<GameBloc, GameState>(
+          buildWhen: (previous, current) {
+            // Don't rebuild for terminal states, we are transitioning to the summary page
+            return current.mapOrNull(
+                  terminal: (value) => false,
+                ) ??
+                true;
+          },
+          builder: (context, parentState) {
+            return parentState.map(
+              initial: (gameInitial) {
+                return const CircularProgressIndicator();
+              },
+              roundInProgress: (gameInProgress) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10)
+                      .copyWith(bottom: 20),
+                  child: Column(
+                    children: [
+                      _gameBar(gameInProgress),
+                      const Gap(20),
+                      Flexible(child: _tweetContent(context, gameInProgress)),
+                      const Gap(20),
+                      Flexible(
+                        child: _answerButtons(context, gameInProgress),
+                      ),
+                    ],
+                  ),
+                );
+              },
+              terminal: (value) => const Text("This will be never shown"),
+            );
+          },
         ),
       ),
     );
+  }
+
+  PreferredSizeWidget _buildAppBar() {
+    return AppBar(
+      automaticallyImplyLeading: false,
+      title: const Text(
+        "TweetGuess",
+      ),
+      centerTitle: true,
+      actions: const [
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 10),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [],
+          ),
+        ),
+      ],
+    ).toHero("game");
   }
 
   Column _answerButtons(

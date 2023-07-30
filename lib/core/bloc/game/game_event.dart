@@ -5,7 +5,6 @@ part 'game_event.freezed.dart';
 
 @freezed
 sealed class GameEvent with _$GameEvent {
-  factory GameEvent() = _GameEvent;
   // Basic game operations
   factory GameEvent.startGame() = StartGame;
   factory GameEvent.pauseGame() = PauseGame;

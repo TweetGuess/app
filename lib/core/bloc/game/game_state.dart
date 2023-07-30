@@ -11,16 +11,16 @@ sealed class GameState with _$GameState {
   factory GameState.initial() = GameInitial;
 
   factory GameState.roundInProgress(
-    Game game, [
-    GameInProgressState? inProgressState,
-  ]) = GameRoundInProgress;
+    Game game,
+  ) = GameRoundInProgress;
 
   // Passing the event that led to the game ending
   factory GameState.terminal(Game game, GameEvent event) = GameTerminal;
 }
 
 /*
-  Helper State Class for more fine-grained state-processing
+  Helper State Class for more fine-grained state-processing (in regards to game effects)
+  /// Effectively for propagating Game-Related Events to the UI
 */
 
 sealed class GameInProgressState {}

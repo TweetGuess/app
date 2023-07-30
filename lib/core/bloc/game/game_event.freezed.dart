@@ -17,8 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$GameEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
@@ -29,8 +28,7 @@ mixin _$GameEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
@@ -41,8 +39,7 @@ mixin _$GameEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
@@ -54,8 +51,7 @@ mixin _$GameEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
@@ -66,8 +62,7 @@ mixin _$GameEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
@@ -78,8 +73,7 @@ mixin _$GameEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
@@ -107,144 +101,6 @@ class _$GameEventCopyWithImpl<$Res, $Val extends GameEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$_GameEventCopyWith<$Res> {
-  factory _$$_GameEventCopyWith(
-          _$_GameEvent value, $Res Function(_$_GameEvent) then) =
-      __$$_GameEventCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_GameEventCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$_GameEvent>
-    implements _$$_GameEventCopyWith<$Res> {
-  __$$_GameEventCopyWithImpl(
-      _$_GameEvent _value, $Res Function(_$_GameEvent) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_GameEvent implements _GameEvent {
-  _$_GameEvent();
-
-  @override
-  String toString() {
-    return 'GameEvent()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_GameEvent);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
-    required TResult Function() startGame,
-    required TResult Function() pauseGame,
-    required TResult Function() exitGame,
-    required TResult Function(int answer) submitRound,
-    required TResult Function(int timeLeft, BuildContext context) nextRound,
-    required TResult Function() noTimeLeft,
-    required TResult Function() noLivesLeft,
-  }) {
-    return $default();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
-    TResult? Function()? startGame,
-    TResult? Function()? pauseGame,
-    TResult? Function()? exitGame,
-    TResult? Function(int answer)? submitRound,
-    TResult? Function(int timeLeft, BuildContext context)? nextRound,
-    TResult? Function()? noTimeLeft,
-    TResult? Function()? noLivesLeft,
-  }) {
-    return $default?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
-    TResult Function()? startGame,
-    TResult Function()? pauseGame,
-    TResult Function()? exitGame,
-    TResult Function(int answer)? submitRound,
-    TResult Function(int timeLeft, BuildContext context)? nextRound,
-    TResult Function()? noTimeLeft,
-    TResult Function()? noLivesLeft,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
-    required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pauseGame,
-    required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
-    required TResult Function(NoTimeLeft value) noTimeLeft,
-    required TResult Function(NoLivesLeft value) noLivesLeft,
-  }) {
-    return $default(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
-    TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pauseGame,
-    TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
-    TResult? Function(NoTimeLeft value)? noTimeLeft,
-    TResult? Function(NoLivesLeft value)? noLivesLeft,
-  }) {
-    return $default?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
-    TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pauseGame,
-    TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
-    TResult Function(NoTimeLeft value)? noTimeLeft,
-    TResult Function(NoLivesLeft value)? noLivesLeft,
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _GameEvent implements GameEvent {
-  factory _GameEvent() = _$_GameEvent;
 }
 
 /// @nodoc
@@ -284,8 +140,7 @@ class _$StartGame implements StartGame {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
@@ -299,8 +154,7 @@ class _$StartGame implements StartGame {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
@@ -314,8 +168,7 @@ class _$StartGame implements StartGame {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
@@ -333,8 +186,7 @@ class _$StartGame implements StartGame {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
@@ -348,8 +200,7 @@ class _$StartGame implements StartGame {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
@@ -363,8 +214,7 @@ class _$StartGame implements StartGame {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
@@ -422,8 +272,7 @@ class _$PauseGame implements PauseGame {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
@@ -437,8 +286,7 @@ class _$PauseGame implements PauseGame {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
@@ -452,8 +300,7 @@ class _$PauseGame implements PauseGame {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
@@ -471,8 +318,7 @@ class _$PauseGame implements PauseGame {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
@@ -486,8 +332,7 @@ class _$PauseGame implements PauseGame {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
@@ -501,8 +346,7 @@ class _$PauseGame implements PauseGame {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
@@ -559,8 +403,7 @@ class _$ExitGame implements ExitGame {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
@@ -574,8 +417,7 @@ class _$ExitGame implements ExitGame {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
@@ -589,8 +431,7 @@ class _$ExitGame implements ExitGame {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
@@ -608,8 +449,7 @@ class _$ExitGame implements ExitGame {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
@@ -623,8 +463,7 @@ class _$ExitGame implements ExitGame {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
@@ -638,8 +477,7 @@ class _$ExitGame implements ExitGame {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
@@ -723,8 +561,7 @@ class _$SubmitRound implements SubmitRound {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
@@ -738,8 +575,7 @@ class _$SubmitRound implements SubmitRound {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
@@ -753,8 +589,7 @@ class _$SubmitRound implements SubmitRound {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
@@ -772,8 +607,7 @@ class _$SubmitRound implements SubmitRound {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
@@ -787,8 +621,7 @@ class _$SubmitRound implements SubmitRound {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
@@ -802,8 +635,7 @@ class _$SubmitRound implements SubmitRound {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
@@ -901,8 +733,7 @@ class _$NextRound implements NextRound {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
@@ -916,8 +747,7 @@ class _$NextRound implements NextRound {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
@@ -931,8 +761,7 @@ class _$NextRound implements NextRound {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
@@ -950,8 +779,7 @@ class _$NextRound implements NextRound {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
@@ -965,8 +793,7 @@ class _$NextRound implements NextRound {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
@@ -980,8 +807,7 @@ class _$NextRound implements NextRound {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
@@ -1047,8 +873,7 @@ class _$NoTimeLeft implements NoTimeLeft {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
@@ -1062,8 +887,7 @@ class _$NoTimeLeft implements NoTimeLeft {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
@@ -1077,8 +901,7 @@ class _$NoTimeLeft implements NoTimeLeft {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
@@ -1096,8 +919,7 @@ class _$NoTimeLeft implements NoTimeLeft {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
@@ -1111,8 +933,7 @@ class _$NoTimeLeft implements NoTimeLeft {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
@@ -1126,8 +947,7 @@ class _$NoTimeLeft implements NoTimeLeft {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
@@ -1185,8 +1005,7 @@ class _$NoLivesLeft implements NoLivesLeft {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function() $default, {
+  TResult when<TResult extends Object?>({
     required TResult Function() startGame,
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
@@ -1200,8 +1019,7 @@ class _$NoLivesLeft implements NoLivesLeft {
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function()? $default, {
+  TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? startGame,
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
@@ -1215,8 +1033,7 @@ class _$NoLivesLeft implements NoLivesLeft {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function()? $default, {
+  TResult maybeWhen<TResult extends Object?>({
     TResult Function()? startGame,
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
@@ -1234,8 +1051,7 @@ class _$NoLivesLeft implements NoLivesLeft {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameEvent value) $default, {
+  TResult map<TResult extends Object?>({
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
@@ -1249,8 +1065,7 @@ class _$NoLivesLeft implements NoLivesLeft {
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameEvent value)? $default, {
+  TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
@@ -1264,8 +1079,7 @@ class _$NoLivesLeft implements NoLivesLeft {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameEvent value)? $default, {
+  TResult maybeMap<TResult extends Object?>({
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
