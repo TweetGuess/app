@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/observers/navigator.dart';
 import '../transitions/helper.dart';
 
 class CircularTransitionRoute extends PageRouteBuilder {
@@ -65,12 +66,17 @@ class GameEntryTransitionRoute extends PageRouteBuilder {
                 offset,
               );
             } else {
-              return TransitionHelper.slideRightTransition(
-                context,
-                animation,
-                secondaryAnimation,
-                child,
-              );
+              // What looks without sense makes sense as we only want the transition to happen when we exit the game
+              if (AppNavObserver.navStack.last.name != "/game/overview") {
+                return TransitionHelper.slideRightTransition(
+                  context,
+                  animation,
+                  secondaryAnimation,
+                  child,
+                );
+              } else {
+                return child;
+              }
             }
           },
           transitionDuration:
