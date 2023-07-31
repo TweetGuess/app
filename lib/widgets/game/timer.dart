@@ -74,6 +74,7 @@ class _GameTimerState extends State<GameTimer>
         builder: (context, child) {
           return CircularCountDownTimer(
             key: widget.countdownTimerKey,
+            isReverse: true,
             onComplete: widget.onFinished,
             width: 50,
             height: 50,
