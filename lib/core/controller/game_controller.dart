@@ -6,8 +6,12 @@ import '../bloc/game/models/game.dart';
 import '../bloc/game/models/round.dart';
 
 abstract class GameController {
+  GameController(this.context);
+
   /// Used to disable taps during score count animation
   final ValueNotifier<bool> ignoringTapsNotifier = ValueNotifier(false);
+
+  late BuildContext context;
 
   void pauseGame() {}
 
@@ -24,5 +28,9 @@ abstract class GameController {
     Game game,
     Round currentRound,
     Round nextRound,
+  ) {}
+
+  void transitionToOverviewExit(
+    Game game,
   ) {}
 }

@@ -16,7 +16,6 @@ sealed class GameEvent with _$GameEvent {
   }) = SubmitRound;
   factory GameEvent.nextRound({
     required int timeLeft,
-    required BuildContext context,
   }) = NextRound;
   factory GameEvent.noTimeLeft() = NoTimeLeft;
   factory GameEvent.noLivesLeft() = NoLivesLeft;
