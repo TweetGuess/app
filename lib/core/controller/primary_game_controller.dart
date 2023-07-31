@@ -34,6 +34,11 @@ class PrimaryGameController extends GameController {
   }
 
   @override
+  void resumeGame() {
+    gameTimerKey.currentState?.countDownController?.resume();
+  }
+
+  @override
   void handleRoundFinished(
     RoundFinished inProgressState,
     Game game,

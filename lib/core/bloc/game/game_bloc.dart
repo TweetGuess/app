@@ -125,7 +125,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
                 ),
               );
             } else {
-              emit(GameState.terminal(game, event));
+              add(GameEvent.exitGame());
             }
           },
           noLivesLeft: () {
@@ -146,13 +146,15 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       roundInProgress: (game) {
         if (event is StartGame) {
           if (game.isPaused) {
-            emit(GameState.roundInProgress(game.copyWith(isPaused: false)));
+            gameController.resumeGame();
           }
         } else if (event is PauseGame) {
           emit(GameState.roundInProgress(game.copyWith(isPaused: true)));
+
+          gameController.pauseGame();
         } else if (event is ExitGame) {
           gameController.transitionToOverviewExit(game);
-          
+
           emit(GameState.terminal(game, event));
         }
       },

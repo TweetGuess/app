@@ -17,6 +17,8 @@ class _GameTimerState extends State<GameTimer>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Color?> _colorAnimation;
+  late CountDownController _countDownController;
+  double colorAnimationValue = 0;
 
   @override
   void initState() {
@@ -27,6 +29,17 @@ class _GameTimerState extends State<GameTimer>
       vsync: this,
       duration: const Duration(seconds: GameConstants.TIME_PER_ROUND),
     );
+
+    _countDownController = CountDownController();
+
+    _countDownController.isPaused.addListener(() {
+      if (_countDownController.isPaused.value) {
+        colorAnimationValue = _controller.value;
+        _controller.stop();
+      } else {
+        _controller.forward(from: colorAnimationValue);
+      }
+    });
 
     // Initialize the color animation
     _colorAnimation = TweenSequence<Color?>(
@@ -76,6 +89,7 @@ class _GameTimerState extends State<GameTimer>
             key: widget.countdownTimerKey,
             isReverse: true,
             onComplete: widget.onFinished,
+            controller: _countDownController,
             width: 50,
             height: 50,
             textStyle: const TextStyle(

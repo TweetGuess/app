@@ -41,6 +41,7 @@ class GameWrapper extends StatelessWidget {
   Future<bool> _onWillPopCallback(BuildContext context) async {
     return await showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) => AlertDialog(
         title: const Text('Are you sure?'),
         content: const Text('Do you want to exit the Game'),

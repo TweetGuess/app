@@ -15,6 +15,8 @@ abstract class GameController {
 
   void pauseGame() {}
 
+  void resumeGame() {}
+
   void handleWrongAnswer(Game game, int answerInd) {}
 
   void handleRoundFinished(
