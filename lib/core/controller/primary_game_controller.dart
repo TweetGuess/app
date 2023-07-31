@@ -4,8 +4,11 @@ import 'package:tweetguess/core/bloc/game/game_state.dart';
 import 'package:tweetguess/core/bloc/game/models/game.dart';
 import 'package:tweetguess/ui/components/primary_button.dart';
 
+import '../../ui/utils/routes/game_transitions.dart';
+import '../../widgets/game/game.dart';
 import '../bloc/game/game_bloc.dart';
 import '../bloc/game/game_event.dart';
+import '../bloc/game/models/round.dart';
 import '../bloc/game/utils/const.dart';
 import 'game_controller.dart';
 
@@ -90,5 +93,31 @@ class PrimaryGameController extends GameController {
   void handleWrongAnswer(Game game, int answerInd) {
     var buttonState = game.currentRound.answerPossibilities[answerInd].$1;
     buttonState.currentState?.lightUpRed();
+  }
+
+  @override
+  void transitionToNextRound(
+    NextRound event,
+    Game game,
+    Round currentRound,
+    Round nextRound,
+  ) {
+    // Activate transition to next round
+    Navigator.of(event.context).pushReplacement(
+      NextRoundTransition(
+        page: GameScreen.page(
+          bloc: GameBloc(
+            GameState.roundInProgress(
+              game.copyWith(
+                points: game.points + event.timeLeft,
+                pastRounds: [...game.pastRounds, currentRound],
+                currentRound: nextRound,
+              ),
+            ),
+          ),
+          countdownEnabled: false,
+        ),
+      ),
+    );
   }
 }

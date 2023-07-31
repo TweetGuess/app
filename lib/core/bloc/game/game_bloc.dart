@@ -7,8 +7,6 @@ import 'package:tweetguess/core/bloc/game/game_state.dart';
 import 'package:tweetguess/core/bloc/game/utils/game.dart';
 import 'package:tweetguess/core/controller/primary_game_controller.dart';
 
-import '../../../ui/utils/routes/game_transitions.dart';
-import '../../../widgets/game/game.dart';
 import '../../controller/game_controller.dart';
 import 'game_event.dart';
 import 'models/game.dart';
@@ -81,22 +79,11 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         var nextRound =
             GameUtils.generateRound([...game.pastRounds, currentRound]);
 
-        // Activate transition to next round
-        Navigator.of(event.context).pushReplacement(
-          NextRoundTransition(
-            page: GameScreen.page(
-              bloc: GameBloc(
-                GameState.roundInProgress(
-                  game.copyWith(
-                    points: game.points + event.timeLeft,
-                    pastRounds: [...game.pastRounds, currentRound],
-                    currentRound: nextRound,
-                  ),
-                ),
-              ),
-              countdownEnabled: false,
-            ),
-          ),
+        gameController.transitionToNextRound(
+          event,
+          game,
+          currentRound,
+          nextRound,
         );
 
         close();
