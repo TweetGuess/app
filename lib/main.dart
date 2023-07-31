@@ -18,6 +18,8 @@ import 'package:tweetguess/widgets/intro.dart';
 import 'package:tweetguess/widgets/profile.dart';
 import 'package:tweetguess/widgets/settings.dart';
 
+import 'core/observers/navigator.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -91,6 +93,9 @@ class _TweetGuessState extends State<TweetGuess> {
             supportedLocales: context.supportedLocales,
             themeMode: ThemeMode.system,
             initialRoute: "/",
+            navigatorObservers: [
+              AppNavObserver()
+            ],
             builder: DevicePreview.appBuilder,
             onGenerateRoute: (settings) {
               switch (settings.name) {
