@@ -15,20 +15,23 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   late GameController gameController;
 
   GameBloc([GameState? initial]) : super(initial ?? GameState.initial()) {
-    on<StartGame>(handleGameStart);
-    on<PauseGame>(handlePauseGame);
-    on<ExitGame>(handleExitGame);
-    on<NextRound>(handleNextRound);
+    // Handle game state changes
+    on<StartGame>(handleGameState);
+    on<PauseGame>(handleGameState);
+    on<ExitGame>(handleGameState);
 
-    /// In-Progress Game Events
+    // Handle game events
     on<NoTimeLeft>(handleGameEvent);
     on<NoLivesLeft>(handleGameEvent);
 
+    // Handle round changes
+    on<NextRound>(handleNextRound);
     on<SubmitRound>(handleSubmitRound);
   }
 
-  // To initialize the GameController
-  void init(
+  /// Mainly to initialize the GameController in every round
+  /// Might be able to optimize this using only constant Key's and ValueNotifiers.
+  void initRound(
     BuildContext context, {
     required GlobalKey<CircularCountDownTimerState> gameTimerKey,
     required ValueNotifier<int?> gameScoreNotifier,
@@ -51,22 +54,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         if (game.isPaused) {
           emit(GameState.roundInProgress(game.copyWith(isPaused: false)));
         }
-      },
-    );
-  }
-
-  void handlePauseGame(PauseGame event, Emitter<GameState> emit) {
-    state.whenOrNull(
-      roundInProgress: (game) {
-        emit(GameState.roundInProgress(game.copyWith(isPaused: true)));
-      },
-    );
-  }
-
-  FutureOr<void> handleExitGame(ExitGame event, Emitter<GameState> emit) {
-    state.whenOrNull(
-      roundInProgress: (game) {
-        emit(GameState.terminal(game, event));
       },
     );
   }
@@ -95,27 +82,25 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     state.whenOrNull(
       roundInProgress: (game) {
         if (game.currentRound.rightAnswer == event.answer) {
-          emit(
-            GameState.roundInProgress(
-              game,
-            ),
-          );
-
           gameController.handleRoundFinished(
             RoundRightAnswer(selectedAnswer: event.answer),
             game,
             event.answer,
           );
-        } else {
           emit(
             GameState.roundInProgress(
               game,
             ),
           );
-
+        } else {
           gameController.handleWrongAnswer(
             game,
             event.answer,
+          );
+          emit(
+            GameState.roundInProgress(
+              game,
+            ),
           );
         }
       },
@@ -141,6 +126,27 @@ class GameBloc extends Bloc<GameEvent, GameState> {
             emit(GameState.terminal(game, event));
           },
         );
+      },
+    );
+  }
+
+  FutureOr<void> handleGameState(GameEvent event, Emitter<GameState> emit) {
+    state.whenOrNull(
+      initial: () {
+        if (event is StartGame) {
+          emit(GameState.roundInProgress(Game()));
+        }
+      },
+      roundInProgress: (game) {
+        if (event is StartGame) {
+          if (game.isPaused) {
+            emit(GameState.roundInProgress(game.copyWith(isPaused: false)));
+          }
+        } else if (event is PauseGame) {
+          emit(GameState.roundInProgress(game.copyWith(isPaused: true)));
+        } else if (event is ExitGame) {
+          emit(GameState.terminal(game, event));
+        }
       },
     );
   }

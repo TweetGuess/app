@@ -61,7 +61,8 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void initState() {
     super.initState();
-    context.read<GameBloc>().init(
+
+    context.read<GameBloc>().initRound(
           context,
           gameScoreNotifier: _gameScoreNotifier,
           gameTimerKey: gameTimerKey,
@@ -238,7 +239,7 @@ class _GameScreenState extends State<GameScreen> {
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: GameScore(
                 context: context,
-                value: value,
+                roundInProgress: value,
                 scoreNotifier: _gameScoreNotifier,
               ),
             ),
@@ -289,18 +290,16 @@ class GameScore extends StatelessWidget {
   const GameScore({
     Key? key,
     required this.context,
-    required this.value,
+    required this.roundInProgress,
     required this.scoreNotifier,
   }) : super(key: key);
 
   final BuildContext context;
-  final GameRoundInProgress value;
+  final GameRoundInProgress roundInProgress;
   final ValueNotifier<int?> scoreNotifier;
 
   @override
   Widget build(BuildContext context) {
-    final score = scoreNotifier.value ?? value.game.points;
-
     return Container(
       padding: const EdgeInsets.all(10),
       alignment: Alignment.center,
@@ -314,19 +313,27 @@ class GameScore extends StatelessWidget {
           Container(width: 40),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child: TweenAnimationBuilder<int>(
-              tween: IntTween(begin: value.game.points, end: score),
-              // Hardcoded Values, check Delay before we transition new scren
-              duration: const Duration(milliseconds: 500),
-              builder: (context, value, child) {
-                return AutoSizeText(
-                  '$value',
-                  minFontSize: 30,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Pixeboy",
-                    color: Colors.white,
+            child: ValueListenableBuilder(
+              valueListenable: scoreNotifier,
+              builder: (context, score, child) {
+                return TweenAnimationBuilder<int>(
+                  tween: IntTween(
+                    begin: roundInProgress.game.points,
+                    end: score ?? roundInProgress.game.points,
                   ),
+                  // Hardcoded Values, check Delay before we transition new scren
+                  duration: const Duration(milliseconds: 500),
+                  builder: (context, value, child) {
+                    return AutoSizeText(
+                      '$value',
+                      minFontSize: 30,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Pixeboy",
+                        color: Colors.white,
+                      ),
+                    );
+                  },
                 );
               },
             ),
