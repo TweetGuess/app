@@ -15,7 +15,7 @@ sealed class GameEvent with _$GameEvent {
     required int answer,
   }) = SubmitRound;
   factory GameEvent.nextRound({
-    required int timeLeft,
+    required int pointDifference,
   }) = NextRound;
   factory GameEvent.noTimeLeft() = NoTimeLeft;
   factory GameEvent.noLivesLeft() = NoLivesLeft;

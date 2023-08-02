@@ -25,21 +25,21 @@ sealed class GameState with _$GameState {
 
 sealed class GameInProgressState {}
 
-class RoundWrongAnswer extends GameInProgressState {
+/* 
+  RoundFinished - (Sub-)States
+*/
+sealed class RoundFinished extends GameInProgressState {}
+
+class RoundRightAnswer extends RoundFinished {
+  RoundRightAnswer();
+}
+
+class RoundWrongAnswer extends RoundFinished {
   RoundWrongAnswer({
     required this.selectedAnswer,
   });
 
   final int selectedAnswer;
-}
-
-/* 
-  RoundFinished - (Sub-)States
-*/
-class RoundFinished extends GameInProgressState {}
-
-class RoundRightAnswer extends RoundFinished {
-  RoundRightAnswer();
 }
 
 class RoundNoTimeLeft extends RoundFinished {

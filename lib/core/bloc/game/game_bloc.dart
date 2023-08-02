@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tweetguess/core/bloc/game/game_state.dart';
 import 'package:tweetguess/core/bloc/game/utils/game.dart';
 import 'package:tweetguess/core/controller/primary_game_controller.dart';
+import 'package:tweetguess/ui/extensions/number.dart';
 
 import '../../controller/game_controller.dart';
 import 'game_event.dart';
@@ -68,9 +69,13 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
         gameController.transitionToNextRound(
           event,
-          game,
-          currentRound,
-          nextRound,
+          GameState.roundInProgress(
+            game.copyWith(
+              points: (game.points + event.pointDifference).toScore(),
+              pastRounds: [...game.pastRounds, currentRound],
+              currentRound: nextRound,
+            ),
+          ),
         );
 
         close();
@@ -95,10 +100,9 @@ class GameBloc extends Bloc<GameEvent, GameState> {
             ),
           );
         } else {
-          // TODO: Next round and let green button show up for a bit
-          gameController.handleWrongAnswer(
+          gameController.handleRoundFinished(
+            RoundWrongAnswer(selectedAnswer: event.answer),
             game,
-            event.answer,
           );
 
           emit(
@@ -127,7 +131,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
               add(
                 GameEvent.nextRound(
-                  timeLeft: 0,
+                  pointDifference: 0,
                 ),
               );
             } else {

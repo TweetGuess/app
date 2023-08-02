@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../bloc/game/game_event.dart';
 import '../bloc/game/game_state.dart';
 import '../bloc/game/models/game.dart';
-import '../bloc/game/models/round.dart';
 
 abstract class GameController {
   GameController(this.context);
@@ -17,8 +16,6 @@ abstract class GameController {
 
   void resumeGame() {}
 
-  void handleWrongAnswer(Game game, int answerInd) {}
-
   void handleRoundFinished(
     RoundFinished inProgressState,
     Game game,
@@ -26,9 +23,7 @@ abstract class GameController {
 
   void transitionToNextRound(
     NextRound event,
-    Game game,
-    Round currentRound,
-    Round nextRound,
+    GameState state,
   ) {}
 
   void transitionToOverviewExit(
