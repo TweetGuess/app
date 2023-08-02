@@ -39,11 +39,7 @@ class RoundWrongAnswer extends GameInProgressState {
 class RoundFinished extends GameInProgressState {}
 
 class RoundRightAnswer extends RoundFinished {
-  RoundRightAnswer({
-    required this.selectedAnswer,
-  });
-
-  final int selectedAnswer;
+  RoundRightAnswer();
 }
 
 class RoundNoTimeLeft extends RoundFinished {

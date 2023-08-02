@@ -83,11 +83,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       roundInProgress: (game) {
         if (game.currentRound.rightAnswer == event.answer) {
           gameController.handleRoundFinished(
-            RoundRightAnswer(selectedAnswer: event.answer),
+            RoundRightAnswer(),
             game,
-            event.answer,
           );
-          
+
           emit(
             GameState.roundInProgress(
               game.copyWith(

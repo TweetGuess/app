@@ -42,14 +42,14 @@ class PrimaryGameController extends GameController {
   void handleRoundFinished(
     RoundFinished inProgressState,
     Game game,
-    int answerInd,
   ) {
     ignoringTapsNotifier.value = true;
 
     switch (inProgressState) {
-      case RoundRightAnswer(selectedAnswer: int answerInd):
+      case RoundRightAnswer():
         {
-          var buttonState = game.currentRound.answerPossibilities[answerInd].$1;
+          var buttonState = game.currentRound
+              .answerPossibilities[game.currentRound.rightAnswer].$1;
           buttonState.currentState?.lightUpGreen();
 
           gameTimerKey.currentState?.countDownController?.pause();

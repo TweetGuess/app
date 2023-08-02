@@ -22,7 +22,6 @@ abstract class GameController {
   void handleRoundFinished(
     RoundFinished inProgressState,
     Game game,
-    int answerInd,
   ) {}
 
   void transitionToNextRound(
