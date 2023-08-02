@@ -2,7 +2,7 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:tweetguess/core/bloc/game/game_state.dart';
 import 'package:tweetguess/core/bloc/game/models/game.dart';
-import 'package:tweetguess/ui/components/primary_button.dart';
+import 'package:tweetguess/ui/components/primary_game_button.dart';
 
 import '../../ui/utils/routes/next_round_transition_route.dart';
 import '../../widgets/game/game.dart';

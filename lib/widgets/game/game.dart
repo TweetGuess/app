@@ -6,12 +6,13 @@ import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/game/game_event.dart';
 import 'package:tweetguess/core/utils/app_bar.dart';
-import 'package:tweetguess/ui/components/primary_button.dart';
+import 'package:tweetguess/ui/components/primary_game_button.dart';
 import 'package:tweetguess/widgets/game/countdown.dart';
 import 'package:tweetguess/widgets/game/timer.dart';
 
 import '../../core/bloc/game/game_bloc.dart';
 import '../../core/bloc/game/game_state.dart';
+import '../../ui/components/primary_container.dart';
 import '../../ui/utils/routes/circular_transition_route.dart';
 import 'helper/wrapper.dart';
 
@@ -183,12 +184,12 @@ class _GameScreenState extends State<GameScreen> {
     return layout..removeLast();
   }
 
-  UIPrimaryButton _buildAnswerButton(
+  UIPrimaryGameButton _buildAnswerButton(
     BuildContext context,
     GameRoundInProgress gameInProgress,
     int i,
   ) {
-    return UIPrimaryButton(
+    return UIPrimaryGameButton(
       onTap: () =>
           context.read<GameBloc>().add(GameEvent.submitRound(answer: i)),
       key: gameInProgress.game.currentRound.answerPossibilities[i].$1,
@@ -196,19 +197,12 @@ class _GameScreenState extends State<GameScreen> {
     );
   }
 
-  Container _tweetContent(
+  PrimaryContainer _tweetContent(
     BuildContext context,
     GameRoundInProgress gameInProgress,
   ) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      padding: const EdgeInsets.all(20),
-      child: Center(
-        child: Text(gameInProgress.game.currentRound.content),
-      ),
+    return PrimaryContainer(
+      child: Text(gameInProgress.game.currentRound.content),
     );
   }
 
