@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'game_event.freezed.dart';
@@ -14,9 +13,7 @@ sealed class GameEvent with _$GameEvent {
   factory GameEvent.submitRound({
     required int answer,
   }) = SubmitRound;
-  factory GameEvent.nextRound({
-    required int pointDifference,
-  }) = NextRound;
+  factory GameEvent.nextRound() = NextRound;
   factory GameEvent.noTimeLeft() = NoTimeLeft;
   factory GameEvent.noLivesLeft() = NoLivesLeft;
 }

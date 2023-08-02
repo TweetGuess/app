@@ -4,9 +4,9 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tweetguess/core/bloc/game/game_state.dart';
+import 'package:tweetguess/core/bloc/game/utils/const.dart';
 import 'package:tweetguess/core/bloc/game/utils/game.dart';
 import 'package:tweetguess/core/controller/primary_game_controller.dart';
-import 'package:tweetguess/ui/extensions/number.dart';
 
 import '../../controller/game_controller.dart';
 import 'game_event.dart';
@@ -71,7 +71,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
           event,
           GameState.roundInProgress(
             game.copyWith(
-              points: (game.points + event.pointDifference).toScore(),
               pastRounds: [...game.pastRounds, currentRound],
               currentRound: nextRound,
             ),
@@ -86,33 +85,36 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   void handleSubmitRound(SubmitRound event, Emitter<GameState> emit) {
     state.whenOrNull(
       roundInProgress: (game) {
+        var answeredRight = false;
+
         if (game.currentRound.rightAnswer == event.answer) {
           gameController.handleRoundFinished(
             RoundRightAnswer(),
             game,
           );
 
-          emit(
-            GameState.roundInProgress(
-              game.copyWith(
-                currentRound: game.currentRound.copyWith(answeredRight: true),
-              ),
-            ),
-          );
+          answeredRight = true;
         } else {
           gameController.handleRoundFinished(
             RoundWrongAnswer(selectedAnswer: event.answer),
             game,
           );
-
-          emit(
-            GameState.roundInProgress(
-              game.copyWith(
-                currentRound: game.currentRound.copyWith(answeredRight: false),
-              ),
-            ),
-          );
         }
+        emit(
+          GameState.roundInProgress(
+            game.copyWith(
+              currentRound:
+                  game.currentRound.copyWith(answeredRight: answeredRight),
+              points: game.points +
+                  (answeredRight
+                      ? int.parse(
+                          (gameController.gameTimerKey.currentState?.time ??
+                              '15'),
+                        )
+                      : GameConstants.MINUS_POINTS),
+            ),
+          ),
+        );
       },
     );
   }
@@ -130,9 +132,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
               );
 
               add(
-                GameEvent.nextRound(
-                  pointDifference: 0,
-                ),
+                GameEvent.nextRound(),
               );
             } else {
               add(GameEvent.exitGame());

@@ -112,13 +112,27 @@ class _Statistics extends StatelessWidget {
   }
 
   double _calculateAccuracy(Game game) {
-    //! TODO: Implement
-    return 0.1;
+    var allAnswers = [...game.pastRounds, game.currentRound];
+    var rightAnswers =
+        allAnswers.where((answer) => answer.answeredRight ?? false).length;
+
+    return rightAnswers / allAnswers.length;
   }
 
   num _calculateLongestStreak(Game game) {
-    //! TODO: Implement
-    return 420;
+    var currentStreak = 0;
+    var longestStreak = 0;
+    for (var round in [...game.pastRounds, game.currentRound]) {
+      if (round.answeredRight ?? false) {
+        currentStreak++;
+        if (currentStreak > longestStreak) {
+          longestStreak = currentStreak;
+        }
+      } else {
+        currentStreak = 0;
+      }
+    }
+    return longestStreak;
   }
 }
 

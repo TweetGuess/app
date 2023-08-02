@@ -1,4 +1,3 @@
-import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:tweetguess/core/bloc/game/game_state.dart';
 import 'package:tweetguess/core/bloc/game/models/game.dart';
@@ -16,16 +15,10 @@ import 'game_controller.dart';
 class PrimaryGameController extends GameController {
   PrimaryGameController(
     BuildContext context, {
-    required this.gameTimerKey,
-    required this.gameScoreNotifier,
+    required super.gameTimerKey,
+    required super.gameScoreNotifier,
     required this.bloc,
   }) : super(context);
-
-  /// Used to access the TimerController to pause, resume & stop the timer
-  GlobalKey<CircularCountDownTimerState> gameTimerKey;
-
-  /// Used to update game score after we get feedback on the answer
-  final ValueNotifier<int?> gameScoreNotifier;
 
   final GameBloc bloc;
 
@@ -80,7 +73,8 @@ class PrimaryGameController extends GameController {
 
           gameTimerKey.currentState?.countDownController?.pause();
 
-          gameScoreNotifier.value = (game.points + GameConstants.MINUS_POINTS).toScore();
+          gameScoreNotifier.value =
+              (game.points + GameConstants.MINUS_POINTS).toScore();
 
           break;
         }
@@ -96,15 +90,8 @@ class PrimaryGameController extends GameController {
     }
 
     Future.delayed(const Duration(milliseconds: 1000), () {
-      // then kick off next round
       bloc.add(
-        GameEvent.nextRound(
-          pointDifference: inProgressState is RoundRightAnswer
-              ? int.parse(
-                  (gameTimerKey.currentState?.time ?? '15'),
-                )
-              : GameConstants.MINUS_POINTS,
-        ),
+        GameEvent.nextRound(),
       );
     });
   }
