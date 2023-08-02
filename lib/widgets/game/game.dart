@@ -183,19 +183,16 @@ class _GameScreenState extends State<GameScreen> {
     return layout..removeLast();
   }
 
-  GestureDetector _buildAnswerButton(
+  UIPrimaryButton _buildAnswerButton(
     BuildContext context,
     GameRoundInProgress gameInProgress,
     int i,
   ) {
-    return GestureDetector(
-      onTap: () {
-        context.read<GameBloc>().add(GameEvent.submitRound(answer: i));
-      },
-      child: UIPrimaryButton(
-        key: gameInProgress.game.currentRound.answerPossibilities[i].$1,
-        text: gameInProgress.game.currentRound.answerPossibilities[i].$2.$1,
-      ),
+    return UIPrimaryButton(
+      onTap: () =>
+          context.read<GameBloc>().add(GameEvent.submitRound(answer: i)),
+      key: gameInProgress.game.currentRound.answerPossibilities[i].$1,
+      text: gameInProgress.game.currentRound.answerPossibilities[i].$2.$1,
     );
   }
 

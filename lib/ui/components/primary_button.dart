@@ -3,11 +3,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:tweetguess/ui/components/primary_container.dart';
 
 class UIPrimaryButton extends StatefulWidget {
-  const UIPrimaryButton({super.key, required this.text});
+  const UIPrimaryButton({super.key, required this.text, this.onTap});
 
   final String text;
+  final Function()? onTap;
 
   @override
   State<UIPrimaryButton> createState() => UIPrimaryButtonState();
@@ -19,16 +21,17 @@ class UIPrimaryButtonState extends State<UIPrimaryButton> {
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedContainer(
-      duration: duration,
-      decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.primaryContainer,
-        borderRadius: BorderRadius.circular(10),
-      ).copyWith(color: animationColor),
-      padding: const EdgeInsets.all(10),
-      child: Center(
-        child: Text(
-          widget.text,
+    return GestureDetector(
+      onTap: widget.onTap,
+      child: AnimatedContainer(
+        duration: duration,
+        decoration: PrimaryContainer.decoration(context)
+            .copyWith(color: animationColor),
+        padding: const EdgeInsets.all(10),
+        child: Center(
+          child: Text(
+            widget.text,
+          ),
         ),
       ),
     );
