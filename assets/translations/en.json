@@ -6,5 +6,14 @@
     "gamemodes": {
       "global": "Global Mode"
     }
+  },
+  "game" : {
+    "summary": {
+      "headline": {
+        "low_points": "Holy shit.\nLet's pretend that never happened.",
+        "mid_points": "That's mid.",
+        "high_points": "Sheesh, you know your politicians!"
+      }
+    }
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../ui/components/primary_button.dart';
+import '../../../../ui/components/primary_game_button.dart';
 import '../../../utils/tweet_service.dart';
 import '../models/round.dart';
 
@@ -14,7 +14,7 @@ class GameUtils {
         TweetService.getRandomAuthors([(rndmTweet.name, rndmTweet.handle)]);
 
     var answerPossibilities = rndmAuthors
-        .map((e) => (GlobalKey<UIPrimaryButtonState>(), e))
+        .map((e) => (GlobalKey<UIPrimaryGameButtonState>(), e))
         .toList()
       ..shuffle();
     // TODO: Sensible Data - prolly needs some post processing of tweet data (the API costs money by now amk)
