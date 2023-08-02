@@ -23,6 +23,7 @@ mixin _$Round {
 
   /// The right answer is given here by the index
   int get rightAnswer => throw _privateConstructorUsedError;
+  bool? get answeredRight => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RoundCopyWith<Round> get copyWith => throw _privateConstructorUsedError;
@@ -38,7 +39,8 @@ abstract class $RoundCopyWith<$Res> {
       String content,
       List<(GlobalKey<UIPrimaryGameButtonState>, (String, String))>
           answerPossibilities,
-      int rightAnswer});
+      int rightAnswer,
+      bool? answeredRight});
 }
 
 /// @nodoc
@@ -58,6 +60,7 @@ class _$RoundCopyWithImpl<$Res, $Val extends Round>
     Object? content = null,
     Object? answerPossibilities = null,
     Object? rightAnswer = null,
+    Object? answeredRight = freezed,
   }) {
     return _then(_value.copyWith(
       tweetId: null == tweetId
@@ -76,6 +79,10 @@ class _$RoundCopyWithImpl<$Res, $Val extends Round>
           ? _value.rightAnswer
           : rightAnswer // ignore: cast_nullable_to_non_nullable
               as int,
+      answeredRight: freezed == answeredRight
+          ? _value.answeredRight
+          : answeredRight // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 }
@@ -91,7 +98,8 @@ abstract class _$$_RoundCopyWith<$Res> implements $RoundCopyWith<$Res> {
       String content,
       List<(GlobalKey<UIPrimaryGameButtonState>, (String, String))>
           answerPossibilities,
-      int rightAnswer});
+      int rightAnswer,
+      bool? answeredRight});
 }
 
 /// @nodoc
@@ -107,6 +115,7 @@ class __$$_RoundCopyWithImpl<$Res> extends _$RoundCopyWithImpl<$Res, _$_Round>
     Object? content = null,
     Object? answerPossibilities = null,
     Object? rightAnswer = null,
+    Object? answeredRight = freezed,
   }) {
     return _then(_$_Round(
       tweetId: null == tweetId
@@ -125,6 +134,10 @@ class __$$_RoundCopyWithImpl<$Res> extends _$RoundCopyWithImpl<$Res, _$_Round>
           ? _value.rightAnswer
           : rightAnswer // ignore: cast_nullable_to_non_nullable
               as int,
+      answeredRight: freezed == answeredRight
+          ? _value.answeredRight
+          : answeredRight // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -138,7 +151,8 @@ class _$_Round implements _Round {
       required final List<
               (GlobalKey<UIPrimaryGameButtonState>, (String, String))>
           answerPossibilities,
-      required this.rightAnswer})
+      required this.rightAnswer,
+      this.answeredRight})
       : _answerPossibilities = answerPossibilities;
 
   @override
@@ -159,10 +173,12 @@ class _$_Round implements _Round {
   /// The right answer is given here by the index
   @override
   final int rightAnswer;
+  @override
+  final bool? answeredRight;
 
   @override
   String toString() {
-    return 'Round(tweetId: $tweetId, content: $content, answerPossibilities: $answerPossibilities, rightAnswer: $rightAnswer)';
+    return 'Round(tweetId: $tweetId, content: $content, answerPossibilities: $answerPossibilities, rightAnswer: $rightAnswer, answeredRight: $answeredRight)';
   }
 
   @override
@@ -175,12 +191,19 @@ class _$_Round implements _Round {
             const DeepCollectionEquality()
                 .equals(other._answerPossibilities, _answerPossibilities) &&
             (identical(other.rightAnswer, rightAnswer) ||
-                other.rightAnswer == rightAnswer));
+                other.rightAnswer == rightAnswer) &&
+            (identical(other.answeredRight, answeredRight) ||
+                other.answeredRight == answeredRight));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, tweetId, content,
-      const DeepCollectionEquality().hash(_answerPossibilities), rightAnswer);
+  int get hashCode => Object.hash(
+      runtimeType,
+      tweetId,
+      content,
+      const DeepCollectionEquality().hash(_answerPossibilities),
+      rightAnswer,
+      answeredRight);
 
   @JsonKey(ignore: true)
   @override
@@ -196,7 +219,8 @@ abstract class _Round implements Round {
       required final List<
               (GlobalKey<UIPrimaryGameButtonState>, (String, String))>
           answerPossibilities,
-      required final int rightAnswer}) = _$_Round;
+      required final int rightAnswer,
+      final bool? answeredRight}) = _$_Round;
 
   @override
   String get tweetId;
@@ -209,6 +233,8 @@ abstract class _Round implements Round {
 
   /// The right answer is given here by the index
   int get rightAnswer;
+  @override
+  bool? get answeredRight;
   @override
   @JsonKey(ignore: true)
   _$$_RoundCopyWith<_$_Round> get copyWith =>

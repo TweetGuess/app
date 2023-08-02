@@ -87,19 +87,26 @@ class GameBloc extends Bloc<GameEvent, GameState> {
             game,
             event.answer,
           );
+          
           emit(
             GameState.roundInProgress(
-              game,
+              game.copyWith(
+                currentRound: game.currentRound.copyWith(answeredRight: true),
+              ),
             ),
           );
         } else {
+          // TODO: Next round and let green button show up for a bit
           gameController.handleWrongAnswer(
             game,
             event.answer,
           );
+
           emit(
             GameState.roundInProgress(
-              game,
+              game.copyWith(
+                currentRound: game.currentRound.copyWith(answeredRight: false),
+              ),
             ),
           );
         }
