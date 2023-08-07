@@ -1,9 +1,9 @@
 // ignore_for_file: unused_element
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:tweetguess/core/bloc/game/models/round.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/models/round.dart';
 
-import '../utils/const.dart';
+import '../../../../../core/utils/const.dart';
 import '../utils/game.dart';
 
 part 'game.freezed.dart';

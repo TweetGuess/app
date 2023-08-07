@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../ui/components/primary_game_button.dart';
-import '../../../utils/tweet_service.dart';
+import '../../../../../core/utils/tweet_service.dart';
+import '../../../../../ui/components/primary_game_button.dart';
 import '../models/round.dart';
+
 
 class GameUtils {
   static Round generateRound([List<Round>? pastRounds]) {

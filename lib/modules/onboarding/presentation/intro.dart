@@ -4,7 +4,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:tweetguess/core/utils/shared_preferences.dart';
 
-import 'home.dart';
+import '../../home/presentation/home.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({Key? key}) : super(key: key);

@@ -3,13 +3,13 @@ import 'dart:async';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tweetguess/core/bloc/game/game_state.dart';
-import 'package:tweetguess/core/bloc/game/utils/const.dart';
-import 'package:tweetguess/core/bloc/game/utils/game.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
+import 'package:tweetguess/core/utils/const.dart';
 import 'package:tweetguess/core/controller/primary_game_controller.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/utils/game.dart';
 import 'package:tweetguess/ui/extensions/number.dart';
 
-import '../../controller/game_controller.dart';
+import '../../../../core/controller/game_controller.dart';
 import 'game_event.dart';
 import 'models/game.dart';
 

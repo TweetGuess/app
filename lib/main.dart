@@ -13,10 +13,10 @@ import 'package:tweetguess/core/utils/shared_preferences.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/themes.dart';
 import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
-import 'package:tweetguess/widgets/home.dart';
-import 'package:tweetguess/widgets/intro.dart';
-import 'package:tweetguess/widgets/profile.dart';
-import 'package:tweetguess/widgets/settings.dart';
+import 'package:tweetguess/modules/home/presentation/home.dart';
+import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
+import 'package:tweetguess/modules/profile/presentation/profile.dart';
+import 'package:tweetguess/modules/settings/presentation/settings.dart';
 
 import 'core/observers/navigator.dart';
 

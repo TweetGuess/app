@@ -7,12 +7,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tweetguess/core/bloc/game/game_bloc.dart';
-import 'package:tweetguess/widgets/profile.dart';
-import 'package:tweetguess/widgets/settings.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
+import 'package:tweetguess/modules/profile/presentation/profile.dart';
+import 'package:tweetguess/modules/settings/presentation/settings.dart';
 
-import '../ui/utils/routes/circular_transition_route.dart';
-import 'game/game.dart';
+import '../../../ui/utils/routes/circular_transition_route.dart';
+import '../../game/presentation/game.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

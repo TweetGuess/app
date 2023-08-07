@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tweetguess/core/bloc/game/game_event.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/game_event.dart';
 import 'package:tweetguess/ui/extensions/app_bar.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
-import 'package:tweetguess/widgets/game/countdown.dart';
-import 'package:tweetguess/widgets/game/timer.dart';
+import 'package:tweetguess/modules/game/presentation/widgets/countdown.dart';
+import 'package:tweetguess/modules/game/presentation/widgets/timer.dart';
 
-import '../../core/bloc/game/game_bloc.dart';
-import '../../core/bloc/game/game_state.dart';
-import '../../ui/components/primary_container.dart';
-import '../../ui/utils/routes/circular_transition_route.dart';
-import 'helper/wrapper.dart';
+import 'bloc/game_bloc.dart';
+import 'bloc/game_state.dart';
+import '../../../ui/components/primary_container.dart';
+import '../../../ui/utils/routes/circular_transition_route.dart';
+import 'widgets/helper/wrapper.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({Key? key}) : super(key: key);

@@ -5,10 +5,10 @@ import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/ui/components/primary_container.dart';
 
-import '../../core/bloc/game/models/game.dart';
-import '../../ui/components/primary_button.dart';
-import '../../ui/utils/routes/circular_transition_route.dart';
-import 'game.dart';
+import '../bloc/models/game.dart';
+import '../../../../ui/components/primary_button.dart';
+import '../../../../ui/utils/routes/circular_transition_route.dart';
+import '../game.dart';
 
 class OverviewExitScreen extends StatelessWidget {
   const OverviewExitScreen({super.key, required this.game});

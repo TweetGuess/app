@@ -9,7 +9,7 @@ import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/ui/components/draggable_scaffold.dart';
 import 'package:tweetguess/ui/utils/avatar_utilities.dart';
 
-import '../ui/components/infotile.dart';
+import '../../../ui/components/infotile.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
