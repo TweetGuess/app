@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/game/game_event.dart';
-import 'package:tweetguess/core/utils/app_bar.dart';
+import 'package:tweetguess/ui/extensions/app_bar.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
 import 'package:tweetguess/widgets/game/countdown.dart';
 import 'package:tweetguess/widgets/game/timer.dart';

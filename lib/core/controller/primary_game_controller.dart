@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tweetguess/core/bloc/game/game_state.dart';
 import 'package:tweetguess/core/bloc/game/models/game.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
@@ -68,6 +69,8 @@ class PrimaryGameController extends GameController {
               var rightButtonState = game.currentRound
                   .answerPossibilities[game.currentRound.rightAnswer].$1;
               rightButtonState.currentState?.lightUpGreen();
+
+              HapticFeedback.lightImpact();
             },
           );
 

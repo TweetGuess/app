@@ -5,6 +5,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:tweetguess/ui/components/primary_container.dart';
 
+import 'haptic_gesture_detector.dart';
+
 class UIPrimaryGameButton extends StatefulWidget {
   const UIPrimaryGameButton({
     super.key,
@@ -25,7 +27,8 @@ class UIPrimaryGameButtonState extends State<UIPrimaryGameButton> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return HapticGestureDetector(
+      feedback: HapticFeedbackType.mediumImpact,
       onTap: widget.onTap,
       child: AnimatedContainer(
         duration: duration,
