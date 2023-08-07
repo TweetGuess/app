@@ -221,6 +221,7 @@ class _GameScreenState extends State<GameScreen> {
                 child: GameTimer(
                   countdownTimerKey: gameTimerKey,
                   onFinished: () {
+                    // TODO: Change to emit wrong answer!
                     context.read<GameBloc>().add(GameEvent.noTimeLeft());
                   },
                 ),

@@ -41,7 +41,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     required GlobalKey<CircularCountDownTimerState> gameTimerKey,
     required ValueNotifier<int?> gameScoreNotifier,
   }) {
-    // TODO: Add injection 
+    // TODO: Add injection
     gameController = PrimaryGameController(
       context,
       gameScoreNotifier: gameScoreNotifier,
@@ -71,17 +71,21 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         var nextRound =
             GameUtils.generateRound([...game.pastRounds, currentRound]);
 
-        gameController.transitionToNextRound(
-          event,
-          GameState.roundInProgress(
-            game.copyWith(
-              pastRounds: [...game.pastRounds, currentRound],
-              currentRound: nextRound,
+        if (game.lives == 0) {
+          add(GameEvent.exitGame());
+        } else {
+          gameController.transitionToNextRound(
+            event,
+            GameState.roundInProgress(
+              game.copyWith(
+                pastRounds: [...game.pastRounds, currentRound],
+                currentRound: nextRound,
+              ),
             ),
-          ),
-        );
+          );
 
-        close();
+          close();
+        }
       },
     );
   }
@@ -106,17 +110,26 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
           answeredRight = true;
         } else {
-          gameController.handleRoundFinished(
-            RoundWrongAnswer(selectedAnswer: event.answer),
-            game,
-          );
+          if (event.answer == GameConstants.NO_TIME_LEFT_EVENT) {
+            gameController.handleRoundFinished(
+              RoundNoTimeLeft(),
+              game,
+            );
+          } else {
+            gameController.handleRoundFinished(
+              RoundWrongAnswer(selectedAnswer: event.answer),
+              game,
+            );
+          }
         }
+
         emit(
           GameState.roundInProgress(
             game.copyWith(
               currentRound:
                   game.currentRound.copyWith(answeredRight: answeredRight),
               points: _calculatePointsForNextRound(game, answeredRight),
+              lives: !answeredRight ? game.lives - 1 : game.lives,
             ),
           ),
         );
@@ -139,15 +152,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       roundInProgress: (game) {
         event.whenOrNull(
           noTimeLeft: () {
-            _subtractLive(
-              game,
-              emit,
-              postCallBack: () {
-                add(
-                  GameEvent.nextRound(),
-                );
-              },
-            );
+            add(GameEvent.submitRound(answer: -1));
           },
           noLivesLeft: () {
             add(GameEvent.exitGame());
@@ -155,24 +160,6 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         );
       },
     );
-  }
-
-  void _subtractLive(
-    Game game,
-    Emitter<GameState> emit, {
-    Function? postCallBack,
-  }) {
-    if (game.lives - 1 > 0) {
-      emit(
-        GameState.roundInProgress(
-          game.copyWith(lives: game.lives - 1),
-        ),
-      );
-
-      postCallBack?.call();
-    } else {
-      add(GameEvent.exitGame());
-    }
   }
 
   FutureOr<void> handleGameState(GameEvent event, Emitter<GameState> emit) {
@@ -194,7 +181,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         } else if (event is ExitGame) {
           gameController.transitionToOverviewExit(game);
 
-          emit(GameState.terminal(game, event));
+          close();
         }
       },
     );
