@@ -28,7 +28,7 @@ class UIPrimaryGameButtonState extends State<UIPrimaryGameButton> {
   @override
   Widget build(BuildContext context) {
     return HapticGestureDetector(
-      feedback: HapticFeedbackType.mediumImpact,
+      feedback: HapticFeedbackType.selectionClick,
       onTap: widget.onTap,
       child: AnimatedContainer(
         duration: duration,
