@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:streaming_shared_preferences/streaming_shared_preferences.dart';
-import 'package:uuid/uuid.dart';
 
 class SharedPrefs {
   static StreamingSharedPreferences? _sharedPrefs;
@@ -23,7 +20,7 @@ class SharedPrefs {
     _sharedPrefs!.setBool("finishedIntro", loggedIn);
   }
 
-  clearSettings(){
+  clearSettings() {
     _sharedPrefs!.clear();
   }
 }
