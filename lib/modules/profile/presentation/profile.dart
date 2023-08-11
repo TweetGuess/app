@@ -34,103 +34,179 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return DraggableScaffold(
       scrollController: scrollController,
-      bodyChild: ListView(
-        physics: const NeverScrollableScrollPhysics(),
-        children: [
-          const Gap(20),
-          SizedBox(
-            height: 45.h,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              mainAxisSize: MainAxisSize.max,
+      bodyChild: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 18),
+        child: ListView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+              child: AutoSizeText(
+                "All Time Statistics",
+                minFontSize: 20,
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ),
+            const Gap(20),
+            Row(
               children: [
-                const Gap(18),
                 Flexible(
-                  fit: FlexFit.tight,
-                  child: Column(
-                    key: ValueKey(userBloc.state.username),
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(
-                        child: InfoTile(
-                          isGradient: true,
-                          gradientColors: colors,
-                          data:
-                              '${userBloc.state.statistics.accuracyOfGuesses}',
-                          title: "Accuracy of Guesses",
-                        ),
-                      ),
-                      const Gap(18),
-                      Expanded(
-                        child: InfoTile(
-                          isGradient: true,
-                          gradientColors: colors,
-                          data: '${userBloc.state.statistics.longestStreak}',
-                          title: "Longest Streak",
-                        ),
-                      )
-                    ],
+                  child: InfoTile(
+                    isGradient: true,
+                    gradientColors: colors,
+                    data: '${(userBloc.state.statistics.gamesPlayed)}',
+                    title: "Games Played",
+                    icon: Icons.gamepad_outlined,
                   ),
                 ),
-                const Gap(18),
+                const Gap(10),
                 Flexible(
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: InfoTile(
-                          isGradient: true,
-                          gradientColors: colors,
-                          data: '${userBloc.state.statistics.roundsPlayed}',
-                          title: "Rounds Played",
-                        ),
-                      ),
-                    ],
+                  child: InfoTile(
+                    isGradient: true,
+                    gradientColors: colors,
+                    data: '${userBloc.state.statistics.roundsPlayed}',
+                    title: "Rounds Played",
+                    icon: Icons.history,
                   ),
-                ),
-                const Gap(18),
+                )
               ],
             ),
-          ),
-          const Gap(270),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ColorFiltered(
-                // Grayscale Matrix that doesn't affect transparent bits
-                colorFilter: const ColorFilter.matrix(<double>[
-                  0.2126,
-                  0.7152,
-                  0.0722,
-                  0,
-                  0,
-                  0.2126,
-                  0.7152,
-                  0.0722,
-                  0,
-                  0,
-                  0.2126,
-                  0.7152,
-                  0.0722,
-                  0,
-                  0,
-                  0,
-                  0,
-                  0,
-                  1,
-                  0,
-                ]),
-                child: Image.asset(
-                  "assets/icons/mario.png",
-                  height: 50,
-                ),
+            const Gap(10),
+            SizedBox(
+              height: 17.h,
+              child: Row(
+                children: [
+                  Flexible(
+                    child: InfoTile(
+                      isGradient: true,
+                      gradientColors: colors,
+                      data: '${(userBloc.state.statistics.gamesPlayed)}',
+                      title: "All-time Point Count",
+                      icon: Icons.score,
+                    ),
+                  ),
+                  const Gap(10),
+                  Flexible(
+                    child: Opacity(
+                      opacity: 0.5,
+                      child: InfoTile(
+                        isGradient: true,
+                        gradientColors: colors,
+                        data: '...',
+                        title: "Coming Soon",
+                        icon: Icons.hourglass_empty,
+                      ),
+                    ),
+                  )
+                ],
               ),
-              const Gap(10),
-              const AutoSizeText("More to come soon!"),
-              const Gap(16),
-            ],
-          )
-        ],
+            ),
+            const Gap(30),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+              child: AutoSizeText(
+                "More interesting stuff...",
+                minFontSize: 20,
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+            ),
+            const Gap(10),
+            SizedBox(
+              height: 45.h,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Flexible(
+                    fit: FlexFit.tight,
+                    child: Column(
+                      key: ValueKey(userBloc.state.username),
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Expanded(
+                          child: InfoTile(
+                            isGradient: true,
+                            gradientColors: colors,
+                            data:
+                                '${(userBloc.state.statistics.accuracyOfGuesses * 100).toInt()} %',
+                            title: "Accuracy of Guesses",
+                            icon: Icons.check,
+                          ),
+                        ),
+                        const Gap(18),
+                        Expanded(
+                          child: InfoTile(
+                            isGradient: true,
+                            gradientColors: colors,
+                            data: '${userBloc.state.statistics.longestStreak}',
+                            title: "Longest Streak",
+                            icon: Icons.trending_up,
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  const Gap(18),
+                  Flexible(
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: InfoTile(
+                            isGradient: true,
+                            gradientColors: colors,
+                            data:
+                                '${userBloc.state.statistics.roundsPlayed / userBloc.state.statistics.gamesPlayed}',
+                            title: "Avg. Rounds Per Game",
+                            icon: Icons.av_timer,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const Gap(270),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ColorFiltered(
+                  // Grayscale Matrix that doesn't affect transparent bits
+                  colorFilter: const ColorFilter.matrix(<double>[
+                    0.2126,
+                    0.7152,
+                    0.0722,
+                    0,
+                    0,
+                    0.2126,
+                    0.7152,
+                    0.0722,
+                    0,
+                    0,
+                    0.2126,
+                    0.7152,
+                    0.0722,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                  ]),
+                  child: Image.asset(
+                    "assets/icons/mario.png",
+                    height: 50,
+                  ),
+                ),
+                const Gap(10),
+                const AutoSizeText("More to come soon!"),
+                const Gap(16),
+              ],
+            )
+          ],
+        ),
       ),
       title: const Text(
         "Profile",

@@ -94,10 +94,12 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
   }
 
   double _calculateAverageAccuracy(int totalGamesPlayed, double accuracy) {
-    return ((state.statistics.accuracyOfGuesses * (totalGamesPlayed - 1) +
-                accuracy) ~/
-            totalGamesPlayed)
-        .toDouble();
+    return ((((state.statistics.accuracyOfGuesses * (totalGamesPlayed - 1) +
+                        accuracy) /
+                    totalGamesPlayed) *
+                100)
+            .toInt() /
+        100);
   }
 
   FutureOr<void> _handleResetStats(
