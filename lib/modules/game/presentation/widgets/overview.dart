@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:tweetguess/ui/components/primary_container.dart';
 
 import '../bloc/models/game.dart';
@@ -95,44 +96,20 @@ class _Statistics extends StatelessWidget {
             Expanded(
               child: _StatisticTile(
                 title: "Accuracy",
-                value: "${(_calculateAccuracy(game) * 100).toInt()} %",
+                value: "${(game.accuracy * 100).toInt()} %",
               ),
             ),
             const Gap(20),
             Expanded(
               child: _StatisticTile(
                 title: "Longest Streak",
-                value: _calculateLongestStreak(game).toString(),
+                value: game.longestStreak.toString(),
               ),
             )
           ],
         ),
       ],
     );
-  }
-
-  double _calculateAccuracy(Game game) {
-    var allAnswers = [...game.pastRounds, game.currentRound];
-    var rightAnswers =
-        allAnswers.where((answer) => answer.answeredRight ?? false).length;
-
-    return rightAnswers / allAnswers.length;
-  }
-
-  num _calculateLongestStreak(Game game) {
-    var currentStreak = 0;
-    var longestStreak = 0;
-    for (var round in [...game.pastRounds, game.currentRound]) {
-      if (round.answeredRight ?? false) {
-        currentStreak++;
-        if (currentStreak > longestStreak) {
-          longestStreak = currentStreak;
-        }
-      } else {
-        currentStreak = 0;
-      }
-    }
-    return longestStreak;
   }
 }
 

@@ -20,8 +20,9 @@ UserStatistics _$UserStatisticsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserStatistics {
+  int get pointsEarned => throw _privateConstructorUsedError;
   int get roundsPlayed => throw _privateConstructorUsedError;
-  int get accuracyOfGuesses => throw _privateConstructorUsedError;
+  double get accuracyOfGuesses => throw _privateConstructorUsedError;
   int get longestStreak => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +37,11 @@ abstract class $UserStatisticsCopyWith<$Res> {
           UserStatistics value, $Res Function(UserStatistics) then) =
       _$UserStatisticsCopyWithImpl<$Res, UserStatistics>;
   @useResult
-  $Res call({int roundsPlayed, int accuracyOfGuesses, int longestStreak});
+  $Res call(
+      {int pointsEarned,
+      int roundsPlayed,
+      double accuracyOfGuesses,
+      int longestStreak});
 }
 
 /// @nodoc
@@ -52,11 +57,16 @@ class _$UserStatisticsCopyWithImpl<$Res, $Val extends UserStatistics>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? pointsEarned = null,
     Object? roundsPlayed = null,
     Object? accuracyOfGuesses = null,
     Object? longestStreak = null,
   }) {
     return _then(_value.copyWith(
+      pointsEarned: null == pointsEarned
+          ? _value.pointsEarned
+          : pointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
       roundsPlayed: null == roundsPlayed
           ? _value.roundsPlayed
           : roundsPlayed // ignore: cast_nullable_to_non_nullable
@@ -64,7 +74,7 @@ class _$UserStatisticsCopyWithImpl<$Res, $Val extends UserStatistics>
       accuracyOfGuesses: null == accuracyOfGuesses
           ? _value.accuracyOfGuesses
           : accuracyOfGuesses // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       longestStreak: null == longestStreak
           ? _value.longestStreak
           : longestStreak // ignore: cast_nullable_to_non_nullable
@@ -81,7 +91,11 @@ abstract class _$$_UserStatisticsCopyWith<$Res>
       __$$_UserStatisticsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int roundsPlayed, int accuracyOfGuesses, int longestStreak});
+  $Res call(
+      {int pointsEarned,
+      int roundsPlayed,
+      double accuracyOfGuesses,
+      int longestStreak});
 }
 
 /// @nodoc
@@ -95,11 +109,16 @@ class __$$_UserStatisticsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? pointsEarned = null,
     Object? roundsPlayed = null,
     Object? accuracyOfGuesses = null,
     Object? longestStreak = null,
   }) {
     return _then(_$_UserStatistics(
+      null == pointsEarned
+          ? _value.pointsEarned
+          : pointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
       null == roundsPlayed
           ? _value.roundsPlayed
           : roundsPlayed // ignore: cast_nullable_to_non_nullable
@@ -107,7 +126,7 @@ class __$$_UserStatisticsCopyWithImpl<$Res>
       null == accuracyOfGuesses
           ? _value.accuracyOfGuesses
           : accuracyOfGuesses // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       null == longestStreak
           ? _value.longestStreak
           : longestStreak // ignore: cast_nullable_to_non_nullable
@@ -120,7 +139,8 @@ class __$$_UserStatisticsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserStatistics implements _UserStatistics {
   _$_UserStatistics(
-      [this.roundsPlayed = 0,
+      [this.pointsEarned = 0,
+      this.roundsPlayed = 0,
       this.accuracyOfGuesses = 0,
       this.longestStreak = 0]);
 
@@ -129,17 +149,20 @@ class _$_UserStatistics implements _UserStatistics {
 
   @override
   @JsonKey()
+  final int pointsEarned;
+  @override
+  @JsonKey()
   final int roundsPlayed;
   @override
   @JsonKey()
-  final int accuracyOfGuesses;
+  final double accuracyOfGuesses;
   @override
   @JsonKey()
   final int longestStreak;
 
   @override
   String toString() {
-    return 'UserStatistics(roundsPlayed: $roundsPlayed, accuracyOfGuesses: $accuracyOfGuesses, longestStreak: $longestStreak)';
+    return 'UserStatistics(pointsEarned: $pointsEarned, roundsPlayed: $roundsPlayed, accuracyOfGuesses: $accuracyOfGuesses, longestStreak: $longestStreak)';
   }
 
   @override
@@ -147,6 +170,8 @@ class _$_UserStatistics implements _UserStatistics {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_UserStatistics &&
+            (identical(other.pointsEarned, pointsEarned) ||
+                other.pointsEarned == pointsEarned) &&
             (identical(other.roundsPlayed, roundsPlayed) ||
                 other.roundsPlayed == roundsPlayed) &&
             (identical(other.accuracyOfGuesses, accuracyOfGuesses) ||
@@ -157,8 +182,8 @@ class _$_UserStatistics implements _UserStatistics {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, roundsPlayed, accuracyOfGuesses, longestStreak);
+  int get hashCode => Object.hash(runtimeType, pointsEarned, roundsPlayed,
+      accuracyOfGuesses, longestStreak);
 
   @JsonKey(ignore: true)
   @override
@@ -176,17 +201,20 @@ class _$_UserStatistics implements _UserStatistics {
 
 abstract class _UserStatistics implements UserStatistics {
   factory _UserStatistics(
-      [final int roundsPlayed,
-      final int accuracyOfGuesses,
+      [final int pointsEarned,
+      final int roundsPlayed,
+      final double accuracyOfGuesses,
       final int longestStreak]) = _$_UserStatistics;
 
   factory _UserStatistics.fromJson(Map<String, dynamic> json) =
       _$_UserStatistics.fromJson;
 
   @override
+  int get pointsEarned;
+  @override
   int get roundsPlayed;
   @override
-  int get accuracyOfGuesses;
+  double get accuracyOfGuesses;
   @override
   int get longestStreak;
   @override
