@@ -11,6 +11,7 @@ sealed class UserEvent {}
 class UserUpdateStats extends UserEvent with _$UserUpdateStats {
   factory UserUpdateStats({
     required final int pointsEarned,
+    required final int gamesPlayed,
     required final int roundsPlayed,
     required final double accuracyOfGuesses,
     required final int longestStreak,

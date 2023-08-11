@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UserUpdateStats {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int pointsEarned, int roundsPlayed,
+    TResult Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)
         $default, {
     required TResult Function(Game game) fromGame,
@@ -26,7 +26,7 @@ mixin _$UserUpdateStats {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int pointsEarned, int roundsPlayed,
+    TResult? Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)?
         $default, {
     TResult? Function(Game game)? fromGame,
@@ -34,7 +34,7 @@ mixin _$UserUpdateStats {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int pointsEarned, int roundsPlayed,
+    TResult Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)?
         $default, {
     TResult Function(Game game)? fromGame,
@@ -88,6 +88,7 @@ abstract class _$$_UserUpdateStatsCopyWith<$Res> {
   @useResult
   $Res call(
       {int pointsEarned,
+      int gamesPlayed,
       int roundsPlayed,
       double accuracyOfGuesses,
       int longestStreak});
@@ -105,6 +106,7 @@ class __$$_UserUpdateStatsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? pointsEarned = null,
+    Object? gamesPlayed = null,
     Object? roundsPlayed = null,
     Object? accuracyOfGuesses = null,
     Object? longestStreak = null,
@@ -113,6 +115,10 @@ class __$$_UserUpdateStatsCopyWithImpl<$Res>
       pointsEarned: null == pointsEarned
           ? _value.pointsEarned
           : pointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
+      gamesPlayed: null == gamesPlayed
+          ? _value.gamesPlayed
+          : gamesPlayed // ignore: cast_nullable_to_non_nullable
               as int,
       roundsPlayed: null == roundsPlayed
           ? _value.roundsPlayed
@@ -135,12 +141,15 @@ class __$$_UserUpdateStatsCopyWithImpl<$Res>
 class _$_UserUpdateStats implements _UserUpdateStats {
   _$_UserUpdateStats(
       {required this.pointsEarned,
+      required this.gamesPlayed,
       required this.roundsPlayed,
       required this.accuracyOfGuesses,
       required this.longestStreak});
 
   @override
   final int pointsEarned;
+  @override
+  final int gamesPlayed;
   @override
   final int roundsPlayed;
   @override
@@ -150,7 +159,7 @@ class _$_UserUpdateStats implements _UserUpdateStats {
 
   @override
   String toString() {
-    return 'UserUpdateStats(pointsEarned: $pointsEarned, roundsPlayed: $roundsPlayed, accuracyOfGuesses: $accuracyOfGuesses, longestStreak: $longestStreak)';
+    return 'UserUpdateStats(pointsEarned: $pointsEarned, gamesPlayed: $gamesPlayed, roundsPlayed: $roundsPlayed, accuracyOfGuesses: $accuracyOfGuesses, longestStreak: $longestStreak)';
   }
 
   @override
@@ -160,6 +169,8 @@ class _$_UserUpdateStats implements _UserUpdateStats {
             other is _$_UserUpdateStats &&
             (identical(other.pointsEarned, pointsEarned) ||
                 other.pointsEarned == pointsEarned) &&
+            (identical(other.gamesPlayed, gamesPlayed) ||
+                other.gamesPlayed == gamesPlayed) &&
             (identical(other.roundsPlayed, roundsPlayed) ||
                 other.roundsPlayed == roundsPlayed) &&
             (identical(other.accuracyOfGuesses, accuracyOfGuesses) ||
@@ -169,8 +180,8 @@ class _$_UserUpdateStats implements _UserUpdateStats {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, pointsEarned, roundsPlayed,
-      accuracyOfGuesses, longestStreak);
+  int get hashCode => Object.hash(runtimeType, pointsEarned, gamesPlayed,
+      roundsPlayed, accuracyOfGuesses, longestStreak);
 
   @JsonKey(ignore: true)
   @override
@@ -181,39 +192,39 @@ class _$_UserUpdateStats implements _UserUpdateStats {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int pointsEarned, int roundsPlayed,
+    TResult Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)
         $default, {
     required TResult Function(Game game) fromGame,
   }) {
-    return $default(
-        pointsEarned, roundsPlayed, accuracyOfGuesses, longestStreak);
+    return $default(pointsEarned, gamesPlayed, roundsPlayed, accuracyOfGuesses,
+        longestStreak);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int pointsEarned, int roundsPlayed,
+    TResult? Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)?
         $default, {
     TResult? Function(Game game)? fromGame,
   }) {
-    return $default?.call(
-        pointsEarned, roundsPlayed, accuracyOfGuesses, longestStreak);
+    return $default?.call(pointsEarned, gamesPlayed, roundsPlayed,
+        accuracyOfGuesses, longestStreak);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int pointsEarned, int roundsPlayed,
+    TResult Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)?
         $default, {
     TResult Function(Game game)? fromGame,
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(
-          pointsEarned, roundsPlayed, accuracyOfGuesses, longestStreak);
+      return $default(pointsEarned, gamesPlayed, roundsPlayed,
+          accuracyOfGuesses, longestStreak);
     }
     return orElse();
   }
@@ -253,11 +264,13 @@ class _$_UserUpdateStats implements _UserUpdateStats {
 abstract class _UserUpdateStats implements UserUpdateStats {
   factory _UserUpdateStats(
       {required final int pointsEarned,
+      required final int gamesPlayed,
       required final int roundsPlayed,
       required final double accuracyOfGuesses,
       required final int longestStreak}) = _$_UserUpdateStats;
 
   int get pointsEarned;
+  int get gamesPlayed;
   int get roundsPlayed;
   double get accuracyOfGuesses;
   int get longestStreak;
@@ -340,7 +353,7 @@ class _$_FromRounds implements _FromRounds {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(int pointsEarned, int roundsPlayed,
+    TResult Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)
         $default, {
     required TResult Function(Game game) fromGame,
@@ -351,7 +364,7 @@ class _$_FromRounds implements _FromRounds {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int pointsEarned, int roundsPlayed,
+    TResult? Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)?
         $default, {
     TResult? Function(Game game)? fromGame,
@@ -362,7 +375,7 @@ class _$_FromRounds implements _FromRounds {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int pointsEarned, int roundsPlayed,
+    TResult Function(int pointsEarned, int gamesPlayed, int roundsPlayed,
             double accuracyOfGuesses, int longestStreak)?
         $default, {
     TResult Function(Game game)? fromGame,

@@ -49,36 +49,41 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
     emit(
       state.copyWith(
         statistics: event.when<UserStatistics>(
-          (pointsEarned, roundsPlayed, accuracyOfGuesses, longestStreak) {
+          (
+            pointsEarned,
+            gamesPlayed,
+            roundsPlayed,
+            accuracyOfGuesses,
+            longestStreak,
+          ) {
+            var totalGamesPlayed = state.statistics.gamesPlayed + gamesPlayed;
             final newStats = state.statistics.copyWith(
               pointsEarned: pointsEarned + state.statistics.pointsEarned,
-              accuracyOfGuesses:
-                  (((state.statistics.accuracyOfGuesses + accuracyOfGuesses) /
-                              2) *
-                          100)
-                      .toInt()
-                      .toDouble(),
+              accuracyOfGuesses: _calculateAverageAccuracy(
+                totalGamesPlayed,
+                accuracyOfGuesses,
+              ),
               longestStreak: longestStreak > state.statistics.longestStreak
                   ? longestStreak
                   : state.statistics.longestStreak,
               roundsPlayed: state.statistics.roundsPlayed + roundsPlayed,
+              gamesPlayed: totalGamesPlayed,
             );
 
             return newStats;
           },
           fromGame: (game) {
+            var totalGamesPlayed = state.statistics.gamesPlayed + 1;
             final newStats = state.statistics.copyWith(
               pointsEarned: game.points + state.statistics.pointsEarned,
               accuracyOfGuesses:
-                  (((state.statistics.accuracyOfGuesses + game.accuracy) / 2) *
-                          100)
-                      .toInt()
-                      .toDouble(),
+                  _calculateAverageAccuracy(totalGamesPlayed, game.accuracy),
               longestStreak: game.longestStreak > state.statistics.longestStreak
                   ? game.longestStreak.toInt()
                   : state.statistics.longestStreak,
               roundsPlayed: state.statistics.roundsPlayed +
                   [...game.pastRounds, game.currentRound].length,
+              gamesPlayed: totalGamesPlayed,
             );
 
             return newStats;
@@ -86,6 +91,13 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
         ),
       ),
     );
+  }
+
+  double _calculateAverageAccuracy(int totalGamesPlayed, double accuracy) {
+    return ((state.statistics.accuracyOfGuesses * (totalGamesPlayed - 1) +
+                accuracy) ~/
+            totalGamesPlayed)
+        .toDouble();
   }
 
   FutureOr<void> _handleResetStats(

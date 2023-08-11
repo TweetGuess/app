@@ -21,6 +21,7 @@ UserStatistics _$UserStatisticsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UserStatistics {
   int get pointsEarned => throw _privateConstructorUsedError;
+  int get gamesPlayed => throw _privateConstructorUsedError;
   int get roundsPlayed => throw _privateConstructorUsedError;
   double get accuracyOfGuesses => throw _privateConstructorUsedError;
   int get longestStreak => throw _privateConstructorUsedError;
@@ -39,6 +40,7 @@ abstract class $UserStatisticsCopyWith<$Res> {
   @useResult
   $Res call(
       {int pointsEarned,
+      int gamesPlayed,
       int roundsPlayed,
       double accuracyOfGuesses,
       int longestStreak});
@@ -58,6 +60,7 @@ class _$UserStatisticsCopyWithImpl<$Res, $Val extends UserStatistics>
   @override
   $Res call({
     Object? pointsEarned = null,
+    Object? gamesPlayed = null,
     Object? roundsPlayed = null,
     Object? accuracyOfGuesses = null,
     Object? longestStreak = null,
@@ -66,6 +69,10 @@ class _$UserStatisticsCopyWithImpl<$Res, $Val extends UserStatistics>
       pointsEarned: null == pointsEarned
           ? _value.pointsEarned
           : pointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
+      gamesPlayed: null == gamesPlayed
+          ? _value.gamesPlayed
+          : gamesPlayed // ignore: cast_nullable_to_non_nullable
               as int,
       roundsPlayed: null == roundsPlayed
           ? _value.roundsPlayed
@@ -93,6 +100,7 @@ abstract class _$$_UserStatisticsCopyWith<$Res>
   @useResult
   $Res call(
       {int pointsEarned,
+      int gamesPlayed,
       int roundsPlayed,
       double accuracyOfGuesses,
       int longestStreak});
@@ -110,6 +118,7 @@ class __$$_UserStatisticsCopyWithImpl<$Res>
   @override
   $Res call({
     Object? pointsEarned = null,
+    Object? gamesPlayed = null,
     Object? roundsPlayed = null,
     Object? accuracyOfGuesses = null,
     Object? longestStreak = null,
@@ -118,6 +127,10 @@ class __$$_UserStatisticsCopyWithImpl<$Res>
       null == pointsEarned
           ? _value.pointsEarned
           : pointsEarned // ignore: cast_nullable_to_non_nullable
+              as int,
+      null == gamesPlayed
+          ? _value.gamesPlayed
+          : gamesPlayed // ignore: cast_nullable_to_non_nullable
               as int,
       null == roundsPlayed
           ? _value.roundsPlayed
@@ -140,6 +153,7 @@ class __$$_UserStatisticsCopyWithImpl<$Res>
 class _$_UserStatistics implements _UserStatistics {
   _$_UserStatistics(
       [this.pointsEarned = 0,
+      this.gamesPlayed = 0,
       this.roundsPlayed = 0,
       this.accuracyOfGuesses = 0,
       this.longestStreak = 0]);
@@ -152,6 +166,9 @@ class _$_UserStatistics implements _UserStatistics {
   final int pointsEarned;
   @override
   @JsonKey()
+  final int gamesPlayed;
+  @override
+  @JsonKey()
   final int roundsPlayed;
   @override
   @JsonKey()
@@ -162,7 +179,7 @@ class _$_UserStatistics implements _UserStatistics {
 
   @override
   String toString() {
-    return 'UserStatistics(pointsEarned: $pointsEarned, roundsPlayed: $roundsPlayed, accuracyOfGuesses: $accuracyOfGuesses, longestStreak: $longestStreak)';
+    return 'UserStatistics(pointsEarned: $pointsEarned, gamesPlayed: $gamesPlayed, roundsPlayed: $roundsPlayed, accuracyOfGuesses: $accuracyOfGuesses, longestStreak: $longestStreak)';
   }
 
   @override
@@ -172,6 +189,8 @@ class _$_UserStatistics implements _UserStatistics {
             other is _$_UserStatistics &&
             (identical(other.pointsEarned, pointsEarned) ||
                 other.pointsEarned == pointsEarned) &&
+            (identical(other.gamesPlayed, gamesPlayed) ||
+                other.gamesPlayed == gamesPlayed) &&
             (identical(other.roundsPlayed, roundsPlayed) ||
                 other.roundsPlayed == roundsPlayed) &&
             (identical(other.accuracyOfGuesses, accuracyOfGuesses) ||
@@ -182,8 +201,8 @@ class _$_UserStatistics implements _UserStatistics {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, pointsEarned, roundsPlayed,
-      accuracyOfGuesses, longestStreak);
+  int get hashCode => Object.hash(runtimeType, pointsEarned, gamesPlayed,
+      roundsPlayed, accuracyOfGuesses, longestStreak);
 
   @JsonKey(ignore: true)
   @override
@@ -202,6 +221,7 @@ class _$_UserStatistics implements _UserStatistics {
 abstract class _UserStatistics implements UserStatistics {
   factory _UserStatistics(
       [final int pointsEarned,
+      final int gamesPlayed,
       final int roundsPlayed,
       final double accuracyOfGuesses,
       final int longestStreak]) = _$_UserStatistics;
@@ -211,6 +231,8 @@ abstract class _UserStatistics implements UserStatistics {
 
   @override
   int get pointsEarned;
+  @override
+  int get gamesPlayed;
   @override
   int get roundsPlayed;
   @override

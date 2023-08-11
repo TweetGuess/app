@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
-import 'package:tweetguess/core/utils/const.dart';
+import 'package:get_it/get_it.dart';
+import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/controller/primary_game_controller.dart';
+import 'package:tweetguess/core/utils/const.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/utils/game.dart';
 import 'package:tweetguess/ui/extensions/number.dart';
 
@@ -179,11 +182,18 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
           gameController.pauseGame();
         } else if (event is ExitGame) {
-          gameController.transitionToOverviewExit(game);
+          _handleGameEnd(game);
 
           close();
         }
       },
     );
+  }
+
+  void _handleGameEnd(Game game) {
+    // Update Stats
+    GetIt.I<UserBloc>().add(UserUpdateStats.fromGame(game: game));
+
+    gameController.transitionToOverviewExit(game);
   }
 }
