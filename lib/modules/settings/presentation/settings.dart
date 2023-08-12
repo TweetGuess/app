@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:tweetguess/core/bloc/user/user_bloc.dart';
-import 'package:tweetguess/core/bloc/user/user_event.dart';
+import 'package:tweetguess/modules/settings/widgets/section_header.dart';
+
+import '../../../ui/components/settings_tile.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
@@ -13,26 +13,51 @@ class SettingsPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: const Text("Settings"),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: ListView(
         children: [
-          ListTile(
-            title: const Text('Reset Statistics'),
-            onTap: () {
-              GetIt.I<UserBloc>().add(UserResetStats());
-            },
+          const SectionHeader(
+            title: "General",
           ),
-          ListTile(
-            title: const Text('Change App Appearance'),
-            onTap: () {
-              // TODO: Implement change app appearance functionality
-            },
+          UISettingsTile(
+            icon: Icons.color_lens_outlined,
+            title: "App Appearance",
+            subtitle: "Dark",
+            onPressed: () {},
+            iconTint: Colors.blue,
           ),
-          ListTile(
-            title: const Text('Change App Language'),
-            onTap: () {
-              // TODO: Implement change app language functionality
-            },
+          UISettingsTile(
+            icon: Icons.language_outlined,
+            title: "App Language",
+            subtitle: "English",
+            onPressed: () {},
+            iconTint: Colors.blue,
+          ),
+          const SectionHeader(
+            title: "Account",
+          ),
+          UISettingsTile(
+            icon: Icons.refresh_outlined,
+            title: "Reset Statistics",
+            subtitle: "Dark",
+            onPressed: () {},
+            iconTint: Colors.red,
+          ),
+          const SectionHeader(
+            title: "More",
+          ),
+          UISettingsTile(
+            icon: Icons.feedback_outlined,
+            title: "Feedback",
+            subtitle: "Yo",
+            onPressed: () {},
+            iconTint: Colors.yellowAccent,
+          ),
+          UISettingsTile(
+            icon: Icons.info_outlined,
+            title: "About",
+            subtitle: "Yo",
+            onPressed: () {},
+            iconTint: Colors.yellowAccent,
           ),
         ],
       ),
