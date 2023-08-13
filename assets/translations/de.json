@@ -1,5 +1,15 @@
 {
-  "global": {},
+  "global": {
+    "yes": "Ja",
+    "no": "Nein",
+    "done": "Fertig",
+    "save": "Speichern"
+  },
+  "languages": {
+    "german": "Deutsch",
+    "english": "Englisch",
+    "auto": "System"
+  },
   "mainpage": {
     "startgame-button": "SPIELEN",
     "header": "Bereit\nfür die Challenge?",
@@ -8,24 +18,85 @@
     }
   },
   "game": {
-    "summary": {
+    "overview": {
+      "statistics": {
+        "points": "Punkte",
+        "rounds": "Runden",
+        "accuracy": "Genauigkeit",
+        "longest_streak": "Längster Streak"
+      },
+      "cta-buttons": {
+        "play_again": "Nochmal spielen",
+        "exit_game": "Beenden"
+      },
       "headline": {
         "low_points": "Ein Satz mit X, das war wohl nix",
         "mid_points": "Gut, aber geht noch besser",
         "high_points": "Wow, du bist ein richtiger Politik-Kenner!"
       }
+    },
+    "exit-dialog": {
+      "title": "Bist du dir sicher?",
+      "content": "Willst du das spiel verlassen?"
     }
   },
-  "overview": {
+  "onboarding": {
+    "page1": {
+      "title": "Willkommen zu TweetGuess!",
+      "body": "Du glaubst, du kannst den Autor eines Tweets allein anhand seines Inhalts erraten?\nBei TweetGuess kannst du zeigen, ob du unsere Politiker kennst & dich gleichzeitig politisch mit ihren Aussagen auseinandersetzen sowie lernen fragwürdigen Content stärker zu hinterfragen."
+    }
+  },
+  "profile": {
     "statistics": {
-      "points": "Punkte",
-      "rounds": "Runden",
-      "accuracy": "Genauigkeit",
-      "longest_streak": "Längster Streak"
+      "all_time_stats": "All Time Statistiken",
+      "games": "Spiele gespielt",
+      "rounds": "Runden gespielt",
+      "all_time_points": "All Time Punkteanzahl",
+      "coming_soon": "Coming Soon",
+      "advanced": "Mehr interessante Stats...",
+      "accuracy": "Genauigkeit des Erratens",
+      "longest_streak": "Längster Streak.",
+      "avg_rounds": "Durchschn. Runden Pro Spiel",
+      "more_to_come": "Bald mehr"
+    }
+  },
+  "settings": {
+    "name": "Einstellungen",
+    "general": {
+      "title": "Allgemein",
+      "appearance": {
+        "title": "App-Theme",
+        "options": {
+          "dark": "Dunkel",
+          "light": "Hell",
+          "auto": "System"
+        }
+      },
+      "lang": {
+        "title": "App-Sprache"
+      }
     },
-    "cta-buttons": {
-      "play_again": "Nochmal spielen",
-      "exit_game": "Beenden"
+    "account": {
+      "title": "Account",
+      "reset_stats": {
+        "title": "Statistiken zurücksetzen",
+        "sub": "Oh hell naw.",
+        "dialog": {
+          "title": "Bist du dir sicher?",
+          "body": "Willst du deine Statistiken wirklich zurücksetzen?"
+        }
+      }
+    },
+    "more": {
+      "title": "Mehr",
+      "feedback": {
+        "title": "Feedback",
+        "sub": "Feedback is the breakfast of champions."
+      },
+      "about": {
+        "title": "Über",
+        "sub": "TweetGuess"
+      }
     }
   }
 }

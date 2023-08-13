@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_boring_avatars/flutter_boring_avatars.dart';
@@ -39,12 +40,13 @@ class _ProfilePageState extends State<ProfilePage> {
         child: ListView(
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
               child: AutoSizeText(
-                "All Time Statistics",
+                "profile.statistics.all_time_stats".tr(),
                 minFontSize: 20,
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: const TextStyle(fontWeight: FontWeight.w600),
               ),
             ),
             const Gap(20),
@@ -55,7 +57,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     isGradient: true,
                     gradientColors: colors,
                     data: '${(userBloc.state.statistics.gamesPlayed)}',
-                    title: "Games Played",
+                    title: "profile.statistics.games".tr(),
                     icon: Icons.gamepad_outlined,
                   ),
                 ),
@@ -65,7 +67,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     isGradient: true,
                     gradientColors: colors,
                     data: '${userBloc.state.statistics.roundsPlayed}',
-                    title: "Rounds Played",
+                    title: "profile.statistics.rounds".tr(),
                     icon: Icons.history,
                   ),
                 )
@@ -81,7 +83,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       isGradient: true,
                       gradientColors: colors,
                       data: '${(userBloc.state.statistics.gamesPlayed)}',
-                      title: "All-time Point Count",
+                      title: "profile.statistics.all_time_points".tr(),
                       icon: Icons.score,
                     ),
                   ),
@@ -93,7 +95,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         isGradient: true,
                         gradientColors: colors,
                         data: '...',
-                        title: "Coming Soon",
+                        title: "profile.statistics.coming_soon".tr(),
                         icon: Icons.hourglass_empty,
                       ),
                     ),
@@ -102,12 +104,13 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const Gap(30),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
               child: AutoSizeText(
-                "More interesting stuff...",
+                "profile.statistics.advanced".tr(),
                 minFontSize: 20,
-                style: TextStyle(fontWeight: FontWeight.w600),
+                style: const TextStyle(fontWeight: FontWeight.w600),
               ),
             ),
             const Gap(10),
@@ -129,7 +132,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             gradientColors: colors,
                             data:
                                 '${(userBloc.state.statistics.accuracyOfGuesses * 100).toInt()} %',
-                            title: "Accuracy of Guesses",
+                            title: "profile.statistics.accuracy".tr(),
                             icon: Icons.check,
                           ),
                         ),
@@ -139,7 +142,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             isGradient: true,
                             gradientColors: colors,
                             data: '${userBloc.state.statistics.longestStreak}',
-                            title: "Longest Streak",
+                            title: "profile.statistics.longest_streak".tr(),
                             icon: Icons.trending_up,
                           ),
                         )
@@ -156,7 +159,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             gradientColors: colors,
                             data:
                                 '${userBloc.state.statistics.roundsPlayed / userBloc.state.statistics.gamesPlayed}',
-                            title: "Avg. Rounds Per Game",
+                            title: "profile.statistics.avg_rounds".tr(),
                             icon: Icons.av_timer,
                           ),
                         ),
@@ -201,7 +204,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 const Gap(10),
-                const AutoSizeText("More to come soon!"),
+                AutoSizeText("profile.statistics.more_to_come".tr()),
                 const Gap(16),
               ],
             )

@@ -1,4 +1,5 @@
 import 'package:animated_widgets/widgets/translation_animated.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:page_transition/page_transition.dart';
@@ -24,12 +25,10 @@ class _IntroScreenState extends State<IntroScreen> {
       }),
     );
 
-    // TODO: Translate text into English
     List<PageViewModel> listPagesViewModel = [
       PageViewModel(
-        title: "Willkommen zu TweetGuess!",
-        body:
-            "Den Autor eines Tweets anhand des Inhalts erraten... Einfach, oder?\nBei TweetGuess kannst du zeigen, ob du unsere Politiker kennst & dich gleichzeitig politisch mit ihren Aussagen auseinandersetzen sowie lernen fragwürdigen Content stärker zu hinterfragen. ",
+        title: "onboarding.page1.title".tr(),
+        body: "onboarding.page1.body".tr(),
         decoration: PageDecoration(
           imageFlex: 7,
           bodyFlex: 6,
@@ -57,7 +56,10 @@ class _IntroScreenState extends State<IntroScreen> {
 
     return IntroductionScreen(
       pages: listPagesViewModel,
-      done: const Text("Done", style: TextStyle(fontWeight: FontWeight.w600)),
+      done: Text(
+        "global.done".tr(),
+        style: const TextStyle(fontWeight: FontWeight.w600),
+      ),
       next: const Icon(Icons.arrow_forward),
       onDone: () {
         Navigator.pushReplacement(

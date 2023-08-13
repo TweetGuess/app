@@ -1,9 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/controller/game_controller.dart';
 import '../../bloc/game_bloc.dart';
 import '../../bloc/game_event.dart';
-import '../../../../../core/controller/game_controller.dart';
 
 class GameWrapper extends StatelessWidget {
   final GameController controller;
@@ -43,18 +44,18 @@ class GameWrapper extends StatelessWidget {
       context: context,
       barrierDismissible: false,
       builder: (context) => AlertDialog(
-        title: const Text('Are you sure?'),
-        content: const Text('Do you want to exit the Game'),
+        title: Text('game.exit-dialog.title'.tr()),
+        content: Text('game.exit-dialog.content'.tr()),
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('No'),
+            child: Text("global.no".tr()),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(context).pop(true);
             },
-            child: const Text('Yes'),
+            child: Text("global.yes".tr()),
           ),
         ],
       ),

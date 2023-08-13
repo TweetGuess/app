@@ -1,5 +1,15 @@
 {
-  "global": {},
+  "global": {
+    "yes": "Yes",
+    "no": "No",
+    "done": "Done",
+    "save": "Save"
+  },
+  "languages": {
+    "german": "German",
+    "english": "English",
+    "auto": "System"
+  },
   "mainpage": {
     "startgame-button": "START GAME",
     "header": "Ready\nfor the Challenge?",
@@ -23,6 +33,69 @@
         "low_points": "Holy shit.\nLet's pretend that never happened.",
         "mid_points": "That's mid.",
         "high_points": "Sheesh, you know your politicians!"
+      }
+    },
+    "exit-dialog": {
+      "title": "Are you sure",
+      "content": "Do you want to exit the Game?"
+    }
+  },
+  "onboarding": {
+    "page1": {
+      "title": "Welcome to TweetGuess!",
+      "body": "You think you can guess the author of a tweet just by its content? \nAt TweetGuess, you can show whether you know our politicians & at the same time deal with their statements politically as well as learn to question questionable content more strongly."
+    }
+  },
+  "profile": {
+    "statistics": {
+      "all_time_stats": "All Time Statistics",
+      "games": "Games Played",
+      "rounds": "Rounds Played",
+      "all_time_points": "All Time Point Count",
+      "coming_soon": "Coming Soon",
+      "advanced": "More interesting stuff...",
+      "accuracy": "Accuracy of Guesses",
+      "longest_streak": "Longest Streak.",
+      "avg_rounds": "Avg. Rounds Per Game",
+      "more_to_come": "More to come soon!"
+    }
+  },
+  "settings": {
+    "name": "Settings",
+    "general": {
+      "title": "General",
+      "appearance": {
+        "title": "App Appearance",
+        "options": {
+          "dark": "Dark",
+          "light": "Light",
+          "auto": "System"
+        }
+      },
+      "lang": {
+        "title": "App Language"
+      }
+    },
+    "account": {
+      "title": "Account",
+      "reset_stats": {
+        "title": "Reset Statistics",
+        "sub": "Oh hell naw.",
+        "dialog": {
+          "title": "Are you sure",
+          "body": "Do you want to reset your stats?"
+        }
+      }
+    },
+    "more": {
+      "title": "More",
+      "feedback": {
+        "title": "Feedback",
+        "sub": "Feedback is the breakfast of champions."
+      },
+      "about": {
+        "title": "About",
+        "sub": "TweetGuess"
       }
     }
   }

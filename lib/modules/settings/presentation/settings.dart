@@ -22,16 +22,16 @@ class SettingsPage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
-        title: const Text("Settings"),
+        title: Text("settings.name".tr()),
       ),
       body: ListView(
         children: [
-          const SectionHeader(
-            title: "General",
+          SectionHeader(
+            title: "settings.general.name".tr(),
           ),
           UISettingsTile(
             icon: Icons.color_lens_outlined,
-            title: "App Appearance",
+            title: "settings.general.appearance.title".tr(),
             subtitle: context
                 .read<UserBloc>()
                 .userSettings
@@ -52,7 +52,7 @@ class SettingsPage extends StatelessWidget {
           ),
           UISettingsTile(
             icon: Icons.language_outlined,
-            title: "App Language",
+            title: "settings.general.lang.title".tr(),
             subtitle: context.read<UserBloc>().userSettings.language.langName,
             onPressed: () {
               showModalBottomSheet(
@@ -66,30 +66,31 @@ class SettingsPage extends StatelessWidget {
             },
             iconTint: Colors.blue,
           ),
-          const SectionHeader(
-            title: "Account",
+          SectionHeader(
+            title: "settings.account.title".tr(),
           ),
           UISettingsTile(
             icon: Icons.refresh_outlined,
-            title: "Reset Statistics",
-            subtitle: "Oh no no no",
+            title: "settings.account.reset_stats.title".tr(),
+            subtitle: "settings.account.reset_stats.sub".tr(),
             onPressed: () {
               showDialog(
                 context: context,
                 barrierDismissible: false,
                 builder: (context) => AlertDialog(
-                  title: const Text('Are you sure?'),
-                  content: const Text('Do you want to reset your Stats?'),
+                  title: Text("settings.account.reset_stats.dialog.title".tr()),
+                  content:
+                      Text("settings.account.reset_stats.dialog.body".tr()),
                   actions: <Widget>[
                     TextButton(
                       onPressed: () => Navigator.of(context).pop(false),
-                      child: const Text('No'),
+                      child: Text("global.no".tr()),
                     ),
                     TextButton(
                       onPressed: () {
                         GetIt.I<UserBloc>().add(UserResetStats());
                       },
-                      child: const Text('Yes'),
+                      child: Text("global.yes".tr()),
                     ),
                   ],
                 ),
@@ -97,20 +98,20 @@ class SettingsPage extends StatelessWidget {
             },
             iconTint: Colors.red,
           ),
-          const SectionHeader(
-            title: "More",
+          SectionHeader(
+            title: "settings.more.title".tr(),
           ),
           UISettingsTile(
             icon: Icons.feedback_outlined,
-            title: "Feedback",
-            subtitle: "Let me know what you think!",
+            title: "settings.more.feedback.title".tr(),
+            subtitle: "settings.more.feedback.sub".tr(),
             onPressed: () {},
             iconTint: Colors.yellowAccent,
           ),
           UISettingsTile(
             icon: Icons.info_outlined,
-            title: "About",
-            subtitle: "TweetGuess",
+            title: "settings.more.about.title".tr(),
+            subtitle: "settings.more.about.sub".tr(),
             onPressed: () {},
             iconTint: Colors.yellowAccent,
           ),
@@ -138,7 +139,7 @@ class _ThemeSelectionWidgetState extends State<_ThemeSelectionWidget> {
       mainAxisSize: MainAxisSize.min,
       children: [
         RadioListTile(
-          title: const Text("Light"),
+          title: Text("settings.general.appearance.options.light".tr()),
           value: ThemeMode.light,
           groupValue: _selectedTheme,
           onChanged: (value) {
@@ -148,7 +149,7 @@ class _ThemeSelectionWidgetState extends State<_ThemeSelectionWidget> {
           },
         ),
         RadioListTile(
-          title: const Text("Dark"),
+          title: Text("settings.general.appearance.options.dark".tr()),
           value: ThemeMode.dark,
           groupValue: _selectedTheme,
           onChanged: (value) {
@@ -158,7 +159,7 @@ class _ThemeSelectionWidgetState extends State<_ThemeSelectionWidget> {
           },
         ),
         RadioListTile(
-          title: const Text("System Default"),
+          title: Text("settings.general.appearance.options.auto".tr()),
           value: ThemeMode.system,
           groupValue: _selectedTheme,
           onChanged: (value) {
@@ -179,7 +180,7 @@ class _ThemeSelectionWidgetState extends State<_ThemeSelectionWidget> {
               Navigator.of(context).pop();
             }
           },
-          child: const Text("Save"),
+          child: Text("global.save".tr()),
         ),
       ],
     );
@@ -231,7 +232,7 @@ class _LangSelectionWidgetState extends State<_LangSelectionWidget> {
               Navigator.of(context).pop();
             }
           },
-          child: const Text("Save"),
+          child: Text("global.save".tr()),
         ),
       ],
     );
