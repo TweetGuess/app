@@ -1,9 +1,12 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
+import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/modules/settings/widgets/section_header.dart';
+import 'package:tweetguess/ui/components/primary_bottom_sheet.dart';
 
 import '../../../ui/components/settings_tile.dart';
 
@@ -28,36 +31,18 @@ class SettingsPage extends StatelessWidget {
           UISettingsTile(
             icon: Icons.color_lens_outlined,
             title: "App Appearance",
-            subtitle: "Dark",
+            subtitle: context
+                .read<UserBloc>()
+                .userSettings
+                .appearance
+                .name
+                .capitalize,
             onPressed: () {
               showModalBottomSheet(
                 context: context,
                 builder: (context) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: colorScheme.surface,
-                      borderRadius:
-                          const BorderRadius.vertical(top: Radius.circular(16)),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 48,
-                            height: 4,
-                            decoration: BoxDecoration(
-                              color: colorScheme.onSurface.withOpacity(0.3),
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                          const ThemeSelectionWidget(),
-                        ],
-                      ),
-                    ),
+                  return const UIPrimaryBottomSheet(
+                    child: _ThemeSelectionWidget(),
                   );
                 },
               );
@@ -67,8 +52,17 @@ class SettingsPage extends StatelessWidget {
           UISettingsTile(
             icon: Icons.language_outlined,
             title: "App Language",
-            subtitle: "English",
-            onPressed: () {},
+            subtitle: context.read<UserBloc>().userSettings.language.langName,
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                builder: (context) {
+                  return const UIPrimaryBottomSheet(
+                    child: _LangSelectionWidget(),
+                  );
+                },
+              );
+            },
             iconTint: Colors.blue,
           ),
           const SectionHeader(
@@ -125,14 +119,14 @@ class SettingsPage extends StatelessWidget {
   }
 }
 
-class ThemeSelectionWidget extends StatefulWidget {
-  const ThemeSelectionWidget({super.key});
+class _ThemeSelectionWidget extends StatefulWidget {
+  const _ThemeSelectionWidget();
 
   @override
   _ThemeSelectionWidgetState createState() => _ThemeSelectionWidgetState();
 }
 
-class _ThemeSelectionWidgetState extends State<ThemeSelectionWidget> {
+class _ThemeSelectionWidgetState extends State<_ThemeSelectionWidget> {
   ThemeMode? _selectedTheme;
 
   @override
@@ -178,6 +172,56 @@ class _ThemeSelectionWidgetState extends State<ThemeSelectionWidget> {
             context.read<UserBloc>().add(
                   UserSetAppearance(
                     appearance: _selectedTheme ?? ThemeMode.system,
+                  ),
+                );
+            if (mounted) {
+              Navigator.of(context).pop();
+            }
+          },
+          child: const Text("Save"),
+        ),
+      ],
+    );
+  }
+}
+
+class _LangSelectionWidget extends StatefulWidget {
+  const _LangSelectionWidget();
+
+  @override
+  _LangSelectionWidgetState createState() => _LangSelectionWidgetState();
+}
+
+class _LangSelectionWidgetState extends State<_LangSelectionWidget> {
+  AppLanguage? _selectedTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    _selectedTheme ??= context.read<UserBloc>().state.settings.language;
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        ...AppLanguage.values.map(
+          (e) {
+            return RadioListTile(
+              title: Text(e.langName),
+              value: e,
+              groupValue: _selectedTheme,
+              onChanged: (value) {
+                setState(() {
+                  _selectedTheme = value;
+                });
+              },
+            );
+          },
+        ),
+        const SizedBox(height: 16),
+        ElevatedButton(
+          onPressed: () {
+            context.read<UserBloc>().add(
+                  UserSetLanguage(
+                    newLanguage: _selectedTheme ?? AppLanguage.system,
                   ),
                 );
             if (mounted) {

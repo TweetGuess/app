@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../data/models/user/settings.dart';
+import '../../data/models/user/settings/settings.dart';
 import '../../data/models/user/statistics.dart';
 
 part 'user_state.freezed.dart';

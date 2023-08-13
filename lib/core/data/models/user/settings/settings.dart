@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'settings.freezed.dart';
-part 'settings.g.dart';
+import 'language.dart';
+
+part '../settings.freezed.dart';
+part '../settings.g.dart';
 
 @freezed
 class UserSettings with _$UserSettings {
@@ -15,4 +17,5 @@ class UserSettings with _$UserSettings {
       _$UserSettingsFromJson(json);
 }
 
-enum AppLanguage { de, en, system }
+
+

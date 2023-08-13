@@ -5,7 +5,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/bloc/user/user_state.dart';
-import 'package:tweetguess/core/data/models/user/settings.dart';
+import 'package:tweetguess/core/data/models/user/settings/settings.dart';
 import 'package:tweetguess/core/data/models/user/statistics.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:unique_name_generator/unique_name_generator.dart';
