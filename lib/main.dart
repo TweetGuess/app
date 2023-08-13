@@ -78,7 +78,7 @@ class _TweetGuessState extends State<TweetGuess> {
         return finishedIntro ? const HomeScreen() : const IntroScreen();
       },
       '/settings': (context) => const SettingsPage(),
-      'profile': (context) => const ProfilePage()
+      '/profile': (context) => const ProfilePage()
     };
 
     return MultiBlocProvider(
