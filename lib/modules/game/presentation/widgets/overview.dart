@@ -6,9 +6,9 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:tweetguess/ui/components/primary_container.dart';
 
-import '../bloc/models/game.dart';
 import '../../../../ui/components/primary_button.dart';
 import '../../../../ui/utils/routes/circular_transition_route.dart';
+import '../bloc/models/game.dart';
 import '../game.dart';
 
 class OverviewExitScreen extends StatelessWidget {
@@ -47,7 +47,7 @@ class OverviewExitScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const _HeadLine(),
+              const _HeadLine(game: game),
               const Spacer(),
               _Statistics(game: game),
               const Spacer(),
@@ -182,12 +182,14 @@ class _CTAButtons extends StatelessWidget {
 }
 
 class _HeadLine extends StatelessWidget {
-  const _HeadLine();
+  const _HeadLine({required this.game});
+
+  final Game game;
 
   @override
   Widget build(BuildContext context) {
     return AutoSizeText(
-      'game.summary.headline.low_points'.tr(),
+      _getAppropriateHeadline(game.points),
       minFontSize: 35,
       textAlign: TextAlign.center,
       style: const TextStyle(
@@ -195,5 +197,15 @@ class _HeadLine extends StatelessWidget {
         fontFamily: "Pixeboy",
       ),
     );
+  }
+
+  String _getAppropriateHeadline(num points) {
+    if (points > 100) {
+      return 'game.summary.headline.high_points'.tr();
+    } else if (points > 50) {
+      return 'game.summary.headline.mid_points'.tr();
+    } else {
+      return 'game.summary.headline.low_points'.tr();
+    }
   }
 }
