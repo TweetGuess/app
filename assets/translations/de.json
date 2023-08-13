@@ -1,0 +1,19 @@
+{
+  "global": {},
+  "mainpage": {
+    "startgame-button": "SPIELEN",
+    "header": "Bereit\nfür die Challenge?",
+    "gamemodes": {
+      "global": "Globaler Modus"
+    }
+  },
+  "game": {
+    "summary": {
+      "headline": {
+        "low_points": "Ein Satz mit X, das war wohl nix",
+        "mid_points": "Gut, aber geht noch besser",
+        "high_points": "Wow, du bist ein richtiger Politik-Kenner!"
+      }
+    }
+  }
+}

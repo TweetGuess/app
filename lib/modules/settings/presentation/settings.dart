@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -219,6 +220,8 @@ class _LangSelectionWidgetState extends State<_LangSelectionWidget> {
         const SizedBox(height: 16),
         ElevatedButton(
           onPressed: () {
+            // Also update language directly
+            context.setLocale(_selectedTheme!.getLocale()!);
             context.read<UserBloc>().add(
                   UserSetLanguage(
                     newLanguage: _selectedTheme ?? AppLanguage.system,

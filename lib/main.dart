@@ -39,27 +39,18 @@ void main() async {
 
   runApp(
     DevicePreview(
-      builder: (context) => EasyLocalization(
-        supportedLocales: const [Locale('en')],
-        path: 'assets/translations',
-        fallbackLocale: const Locale('en'),
-        startLocale: _getLocale(),
-        child: const TweetGuess(),
-      ),
+      builder: (context) {
+        return EasyLocalization(
+          supportedLocales: const [Locale('en'), Locale('de')],
+          path: 'assets/translations',
+          fallbackLocale: const Locale('en'),
+          startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
+          child: const TweetGuess(),
+        );
+      },
       enabled: !kReleaseMode,
     ),
   );
-}
-
-Locale? _getLocale() {
-  switch (GetIt.I<UserBloc>().state.settings.language) {
-    case AppLanguage.de:
-      return const Locale('de');
-    case AppLanguage.en:
-      return const Locale('en');
-    case AppLanguage.system:
-      return null;
-  }
 }
 
 void setupGetIt() {
@@ -94,7 +85,7 @@ class _TweetGuessState extends State<TweetGuess> {
       providers: [BlocProvider<UserBloc>(create: (_) => GetIt.I<UserBloc>())],
       child: ResponsiveSizer(
         builder: (context, orientation, screenType) {
-          context.watch<UserBloc>();
+          var userBloc = context.watch<UserBloc>();
 
           return MaterialApp(
             title: 'TweetGuess',
@@ -102,12 +93,11 @@ class _TweetGuessState extends State<TweetGuess> {
             // ignore: deprecated_member_use
             useInheritedMediaQuery: true,
             darkTheme: darkThemeData(),
-
-            locale: DevicePreview.locale(context),
+            locale: context.locale,
             navigatorKey: TweetGuess.globalKey,
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
-            themeMode: context.read<UserBloc>().userSettings.appearance,
+            themeMode: userBloc.userSettings.appearance,
             initialRoute: "/",
             navigatorObservers: [AppNavObserver()],
             builder: DevicePreview.appBuilder,
