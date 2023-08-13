@@ -5,6 +5,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/bloc/user/user_state.dart';
+import 'package:tweetguess/core/data/models/user/settings.dart';
 import 'package:tweetguess/core/data/models/user/statistics.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:unique_name_generator/unique_name_generator.dart';
@@ -19,10 +20,13 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
               separator: '',
             ).generate(),
             statistics: UserStatistics(),
+            settings: UserSettings(),
           ),
         ) {
     on<UserUpdateStats>(_handleUpdateStats);
     on<UserResetStats>(_handleResetStats);
+    on<UserSetAppearance>(_handleSetAppearance);
+    on<UserSetLanguage>(_handleSetLanguage);
   }
 
   @override
@@ -45,6 +49,8 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
     throw UnimplementedError();
   }
 
+  UserSettings get userSettings => state.settings;
+
   void _handleUpdateStats(UserUpdateStats event, Emitter<UserState> emit) {
     emit(
       state.copyWith(
@@ -59,9 +65,10 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
             var totalGamesPlayed = state.statistics.gamesPlayed + gamesPlayed;
             final newStats = state.statistics.copyWith(
               pointsEarned: pointsEarned + state.statistics.pointsEarned,
-              accuracyOfGuesses: _calculateAverageAccuracy(
+              accuracyOfGuesses: calculateAverageAccuracy(
                 totalGamesPlayed,
                 accuracyOfGuesses,
+                state,
               ),
               longestStreak: longestStreak > state.statistics.longestStreak
                   ? longestStreak
@@ -76,8 +83,11 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
             var totalGamesPlayed = state.statistics.gamesPlayed + 1;
             final newStats = state.statistics.copyWith(
               pointsEarned: game.points + state.statistics.pointsEarned,
-              accuracyOfGuesses:
-                  _calculateAverageAccuracy(totalGamesPlayed, game.accuracy),
+              accuracyOfGuesses: calculateAverageAccuracy(
+                totalGamesPlayed,
+                game.accuracy,
+                state,
+              ),
               longestStreak: game.longestStreak > state.statistics.longestStreak
                   ? game.longestStreak.toInt()
                   : state.statistics.longestStreak,
@@ -93,19 +103,32 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
     );
   }
 
-  double _calculateAverageAccuracy(int totalGamesPlayed, double accuracy) {
-    return ((((state.statistics.accuracyOfGuesses * (totalGamesPlayed - 1) +
-                        accuracy) /
-                    totalGamesPlayed) *
-                100)
-            .toInt() /
-        100);
-  }
-
   FutureOr<void> _handleResetStats(
     UserResetStats event,
     Emitter<UserState> emit,
   ) {
     emit(state.copyWith(statistics: UserStatistics()));
+  }
+
+  FutureOr<void> _handleSetLanguage(
+    UserSetLanguage event,
+    Emitter<UserState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        settings: state.settings.copyWith(language: event.newLanguage),
+      ),
+    );
+  }
+
+  FutureOr<void> _handleSetAppearance(
+    UserSetAppearance event,
+    Emitter<UserState> emit,
+  ) {
+    emit(
+      state.copyWith(
+        settings: state.settings.copyWith(appearance: event.appearance),
+      ),
+    );
   }
 }

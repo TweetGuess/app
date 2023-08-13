@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tweetguess/core/data/models/user/settings.dart';
 
 import '../../../modules/game/presentation/bloc/models/game.dart';
-import '../../../modules/game/presentation/bloc/models/round.dart';
 
 part 'user_event.freezed.dart';
 
@@ -25,4 +26,16 @@ class UserUpdateStats extends UserEvent with _$UserUpdateStats {
 @freezed
 class UserResetStats extends UserEvent with _$UserResetStats {
   factory UserResetStats() = _UserResetStats;
+}
+
+@freezed
+class UserSetLanguage extends UserEvent with _$UserSetLanguage {
+  factory UserSetLanguage({required AppLanguage newLanguage}) =
+      _UserSetLanguage;
+}
+
+@freezed
+class UserSetAppearance extends UserEvent with _$UserSetAppearance {
+  factory UserSetAppearance({required ThemeMode appearance}) =
+      _UserSetAppearance;
 }

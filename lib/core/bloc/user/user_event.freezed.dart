@@ -488,3 +488,242 @@ class _$_UserResetStats implements _UserResetStats {
 abstract class _UserResetStats implements UserResetStats {
   factory _UserResetStats() = _$_UserResetStats;
 }
+
+/// @nodoc
+mixin _$UserSetLanguage {
+  AppLanguage get newLanguage => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UserSetLanguageCopyWith<UserSetLanguage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserSetLanguageCopyWith<$Res> {
+  factory $UserSetLanguageCopyWith(
+          UserSetLanguage value, $Res Function(UserSetLanguage) then) =
+      _$UserSetLanguageCopyWithImpl<$Res, UserSetLanguage>;
+  @useResult
+  $Res call({AppLanguage newLanguage});
+}
+
+/// @nodoc
+class _$UserSetLanguageCopyWithImpl<$Res, $Val extends UserSetLanguage>
+    implements $UserSetLanguageCopyWith<$Res> {
+  _$UserSetLanguageCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newLanguage = null,
+  }) {
+    return _then(_value.copyWith(
+      newLanguage: null == newLanguage
+          ? _value.newLanguage
+          : newLanguage // ignore: cast_nullable_to_non_nullable
+              as AppLanguage,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_UserSetLanguageCopyWith<$Res>
+    implements $UserSetLanguageCopyWith<$Res> {
+  factory _$$_UserSetLanguageCopyWith(
+          _$_UserSetLanguage value, $Res Function(_$_UserSetLanguage) then) =
+      __$$_UserSetLanguageCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({AppLanguage newLanguage});
+}
+
+/// @nodoc
+class __$$_UserSetLanguageCopyWithImpl<$Res>
+    extends _$UserSetLanguageCopyWithImpl<$Res, _$_UserSetLanguage>
+    implements _$$_UserSetLanguageCopyWith<$Res> {
+  __$$_UserSetLanguageCopyWithImpl(
+      _$_UserSetLanguage _value, $Res Function(_$_UserSetLanguage) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? newLanguage = null,
+  }) {
+    return _then(_$_UserSetLanguage(
+      newLanguage: null == newLanguage
+          ? _value.newLanguage
+          : newLanguage // ignore: cast_nullable_to_non_nullable
+              as AppLanguage,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UserSetLanguage implements _UserSetLanguage {
+  _$_UserSetLanguage({required this.newLanguage});
+
+  @override
+  final AppLanguage newLanguage;
+
+  @override
+  String toString() {
+    return 'UserSetLanguage(newLanguage: $newLanguage)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UserSetLanguage &&
+            (identical(other.newLanguage, newLanguage) ||
+                other.newLanguage == newLanguage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, newLanguage);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UserSetLanguageCopyWith<_$_UserSetLanguage> get copyWith =>
+      __$$_UserSetLanguageCopyWithImpl<_$_UserSetLanguage>(this, _$identity);
+}
+
+abstract class _UserSetLanguage implements UserSetLanguage {
+  factory _UserSetLanguage({required final AppLanguage newLanguage}) =
+      _$_UserSetLanguage;
+
+  @override
+  AppLanguage get newLanguage;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UserSetLanguageCopyWith<_$_UserSetLanguage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+mixin _$UserSetAppearance {
+  ThemeMode get appearance => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UserSetAppearanceCopyWith<UserSetAppearance> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserSetAppearanceCopyWith<$Res> {
+  factory $UserSetAppearanceCopyWith(
+          UserSetAppearance value, $Res Function(UserSetAppearance) then) =
+      _$UserSetAppearanceCopyWithImpl<$Res, UserSetAppearance>;
+  @useResult
+  $Res call({ThemeMode appearance});
+}
+
+/// @nodoc
+class _$UserSetAppearanceCopyWithImpl<$Res, $Val extends UserSetAppearance>
+    implements $UserSetAppearanceCopyWith<$Res> {
+  _$UserSetAppearanceCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? appearance = null,
+  }) {
+    return _then(_value.copyWith(
+      appearance: null == appearance
+          ? _value.appearance
+          : appearance // ignore: cast_nullable_to_non_nullable
+              as ThemeMode,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$_UserSetAppearanceCopyWith<$Res>
+    implements $UserSetAppearanceCopyWith<$Res> {
+  factory _$$_UserSetAppearanceCopyWith(_$_UserSetAppearance value,
+          $Res Function(_$_UserSetAppearance) then) =
+      __$$_UserSetAppearanceCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({ThemeMode appearance});
+}
+
+/// @nodoc
+class __$$_UserSetAppearanceCopyWithImpl<$Res>
+    extends _$UserSetAppearanceCopyWithImpl<$Res, _$_UserSetAppearance>
+    implements _$$_UserSetAppearanceCopyWith<$Res> {
+  __$$_UserSetAppearanceCopyWithImpl(
+      _$_UserSetAppearance _value, $Res Function(_$_UserSetAppearance) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? appearance = null,
+  }) {
+    return _then(_$_UserSetAppearance(
+      appearance: null == appearance
+          ? _value.appearance
+          : appearance // ignore: cast_nullable_to_non_nullable
+              as ThemeMode,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UserSetAppearance implements _UserSetAppearance {
+  _$_UserSetAppearance({required this.appearance});
+
+  @override
+  final ThemeMode appearance;
+
+  @override
+  String toString() {
+    return 'UserSetAppearance(appearance: $appearance)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UserSetAppearance &&
+            (identical(other.appearance, appearance) ||
+                other.appearance == appearance));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, appearance);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UserSetAppearanceCopyWith<_$_UserSetAppearance> get copyWith =>
+      __$$_UserSetAppearanceCopyWithImpl<_$_UserSetAppearance>(
+          this, _$identity);
+}
+
+abstract class _UserSetAppearance implements UserSetAppearance {
+  factory _UserSetAppearance({required final ThemeMode appearance}) =
+      _$_UserSetAppearance;
+
+  @override
+  ThemeMode get appearance;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UserSetAppearanceCopyWith<_$_UserSetAppearance> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -9,14 +9,15 @@ import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/data/models/user/settings.dart';
 import 'package:tweetguess/core/utils/shared_preferences.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
-import 'package:tweetguess/themes.dart';
-import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
 import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
 import 'package:tweetguess/modules/profile/presentation/profile.dart';
 import 'package:tweetguess/modules/settings/presentation/settings.dart';
+import 'package:tweetguess/themes.dart';
+import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 
 import 'core/observers/navigator.dart';
 
@@ -42,11 +43,23 @@ void main() async {
         supportedLocales: const [Locale('en')],
         path: 'assets/translations',
         fallbackLocale: const Locale('en'),
+        startLocale: _getLocale(),
         child: const TweetGuess(),
       ),
       enabled: !kReleaseMode,
     ),
   );
+}
+
+Locale? _getLocale() {
+  switch (GetIt.I<UserBloc>().state.settings.language) {
+    case AppLanguage.de:
+      return const Locale('de');
+    case AppLanguage.en:
+      return const Locale('en');
+    case AppLanguage.system:
+      return null;
+  }
 }
 
 void setupGetIt() {
@@ -81,21 +94,22 @@ class _TweetGuessState extends State<TweetGuess> {
       providers: [BlocProvider<UserBloc>(create: (_) => GetIt.I<UserBloc>())],
       child: ResponsiveSizer(
         builder: (context, orientation, screenType) {
+          context.watch<UserBloc>();
+
           return MaterialApp(
             title: 'TweetGuess',
             theme: lightThemeData(),
             // ignore: deprecated_member_use
             useInheritedMediaQuery: true,
             darkTheme: darkThemeData(),
+
             locale: DevicePreview.locale(context),
             navigatorKey: TweetGuess.globalKey,
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
-            themeMode: ThemeMode.system,
+            themeMode: context.read<UserBloc>().userSettings.appearance,
             initialRoute: "/",
-            navigatorObservers: [
-              AppNavObserver()
-            ],
+            navigatorObservers: [AppNavObserver()],
             builder: DevicePreview.appBuilder,
             onGenerateRoute: (settings) {
               switch (settings.name) {
