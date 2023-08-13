@@ -15,5 +15,17 @@
         "high_points": "Wow, du bist ein richtiger Politik-Kenner!"
       }
     }
+  },
+  "overview": {
+    "statistics": {
+      "points": "Punkte",
+      "rounds": "Runden",
+      "accuracy": "Genauigkeit",
+      "longest_streak": "Längster Streak"
+    },
+    "cta-buttons": {
+      "play_again": "Nochmal spielen",
+      "exit_game": "Beenden"
+    }
   }
 }

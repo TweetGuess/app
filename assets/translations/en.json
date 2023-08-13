@@ -7,8 +7,18 @@
       "global": "Global Mode"
     }
   },
-  "game" : {
-    "summary": {
+  "game": {
+    "overview": {
+      "statistics": {
+        "points": "Points",
+        "rounds": "Rounds",
+        "accuracy": "Accuracy",
+        "longest_streak": "Longest Streak"
+      },
+      "cta-buttons": {
+        "play_again": "Play again",
+        "exit_game": "Exit"
+      },
       "headline": {
         "low_points": "Holy shit.\nLet's pretend that never happened.",
         "mid_points": "That's mid.",

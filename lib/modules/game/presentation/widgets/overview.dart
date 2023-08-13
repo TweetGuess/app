@@ -47,7 +47,7 @@ class OverviewExitScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const _HeadLine(game: game),
+              _HeadLine(game: game),
               const Spacer(),
               _Statistics(game: game),
               const Spacer(),
@@ -76,14 +76,14 @@ class _Statistics extends StatelessWidget {
           children: [
             Expanded(
               child: _StatisticTile(
-                title: "Points",
+                title: "game.overview.statistics.points".tr(),
                 value: game.points.toString(),
               ),
             ),
             const Gap(20),
             Expanded(
               child: _StatisticTile(
-                title: "Rounds",
+                title: "game.overview.statistics.rounds".tr(),
                 value: game.pastRounds.length.toString(),
               ),
             )
@@ -95,14 +95,14 @@ class _Statistics extends StatelessWidget {
           children: [
             Expanded(
               child: _StatisticTile(
-                title: "Accuracy",
+                title: "game.overview.statistics.accuracy".tr(),
                 value: "${(game.accuracy * 100).toInt()} %",
               ),
             ),
             const Gap(20),
             Expanded(
               child: _StatisticTile(
-                title: "Longest Streak",
+                title: "game.overview.statistics.longest_streak".tr(),
                 value: game.longestStreak.toString(),
               ),
             )
@@ -161,7 +161,7 @@ class _CTAButtons extends StatelessWidget {
         Expanded(
           child: UIPrimaryButton(
             height: 50,
-            text: "Play again",
+            text: "game.overview.cta-buttons.play_again".tr(),
             onTap: () =>
                 Navigator.of(context).pushReplacement(GameScreen.route()),
           ),
@@ -170,7 +170,7 @@ class _CTAButtons extends StatelessWidget {
         Expanded(
           child: UIPrimaryButton(
             height: 50,
-            text: "Exit",
+            text: "game.overview.cta-buttons.exit_game".tr(),
             onTap: () {
               Navigator.of(context).pop();
             },
@@ -201,11 +201,11 @@ class _HeadLine extends StatelessWidget {
 
   String _getAppropriateHeadline(num points) {
     if (points > 100) {
-      return 'game.summary.headline.high_points'.tr();
+      return 'game.overview.headline.high_points'.tr();
     } else if (points > 50) {
-      return 'game.summary.headline.mid_points'.tr();
+      return 'game.overview.headline.mid_points'.tr();
     } else {
-      return 'game.summary.headline.low_points'.tr();
+      return 'game.overview.headline.low_points'.tr();
     }
   }
 }
