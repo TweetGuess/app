@@ -1,5 +1,4 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -8,6 +7,7 @@ import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/modules/settings/widgets/section_header.dart';
 import 'package:tweetguess/ui/components/primary_bottom_sheet.dart';
+import 'package:tweetguess/ui/extensions/theme_mode.dart';
 
 import '../../../ui/components/settings_tile.dart';
 
@@ -27,17 +27,12 @@ class SettingsPage extends StatelessWidget {
       body: ListView(
         children: [
           SectionHeader(
-            title: "settings.general.name".tr(),
+            title: "settings.general.title".tr(),
           ),
           UISettingsTile(
             icon: Icons.color_lens_outlined,
             title: "settings.general.appearance.title".tr(),
-            subtitle: context
-                .read<UserBloc>()
-                .userSettings
-                .appearance
-                .name
-                .capitalize,
+            subtitle: context.read<UserBloc>().userSettings.appearance.langName,
             onPressed: () {
               showModalBottomSheet(
                 context: context,
