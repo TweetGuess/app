@@ -22,6 +22,7 @@ ThemeData lightThemeData() {
       blendOnLevel: 10,
       blendOnColors: false,
     ),
+
     fontFamily: GoogleFonts.lato().fontFamily,
     useMaterial3ErrorColors: true,
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
@@ -32,6 +33,9 @@ ThemeData lightThemeData() {
   );
 
   theme = theme.copyWith(
+    radioTheme: theme.radioTheme.copyWith(
+      visualDensity: VisualDensity.compact,
+    ),
     appBarTheme: theme.appBarTheme.copyWith(
       centerTitle: true,
       titleTextStyle: theme.textTheme.bodyMedium!.merge(
@@ -73,6 +77,9 @@ ThemeData darkThemeData() {
   );
 
   theme = theme.copyWith(
+    radioTheme: theme.radioTheme.copyWith(
+      visualDensity: VisualDensity.compact,
+    ),
     appBarTheme: theme.appBarTheme.copyWith(
       centerTitle: true,
       titleTextStyle: const TextStyle(

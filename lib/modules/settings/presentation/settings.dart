@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
@@ -16,8 +17,6 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -34,14 +33,7 @@ class SettingsPage extends StatelessWidget {
             title: "settings.general.appearance.title".tr(),
             subtitle: context.read<UserBloc>().userSettings.appearance.langName,
             onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return const UIPrimaryBottomSheet(
-                    child: _ThemeSelectionWidget(),
-                  );
-                },
-              );
+              _showThemeSelectionBS(context);
             },
             iconTint: Colors.blue,
           ),
@@ -50,14 +42,7 @@ class SettingsPage extends StatelessWidget {
             title: "settings.general.lang.title".tr(),
             subtitle: context.read<UserBloc>().userSettings.language.langName,
             onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                builder: (context) {
-                  return const UIPrimaryBottomSheet(
-                    child: _LangSelectionWidget(),
-                  );
-                },
-              );
+              _showLanguageSelectionBS(context);
             },
             iconTint: Colors.blue,
           ),
@@ -72,23 +57,7 @@ class SettingsPage extends StatelessWidget {
               showDialog(
                 context: context,
                 barrierDismissible: false,
-                builder: (context) => AlertDialog(
-                  title: Text("settings.account.reset_stats.dialog.title".tr()),
-                  content:
-                      Text("settings.account.reset_stats.dialog.body".tr()),
-                  actions: <Widget>[
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(false),
-                      child: Text("global.no".tr()),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        GetIt.I<UserBloc>().add(UserResetStats());
-                      },
-                      child: Text("global.yes".tr()),
-                    ),
-                  ],
-                ),
+                builder: (context) => _showResetStatsDialogue(context),
               );
             },
             iconTint: Colors.red,
@@ -114,6 +83,47 @@ class SettingsPage extends StatelessWidget {
       ),
     );
   }
+
+  Future<dynamic> _showThemeSelectionBS(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return const UIPrimaryBottomSheet(
+          child: _ThemeSelectionWidget(),
+        );
+      },
+    );
+  }
+
+  Future<dynamic> _showLanguageSelectionBS(BuildContext context) {
+    return showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return const UIPrimaryBottomSheet(
+          child: _LangSelectionWidget(),
+        );
+      },
+    );
+  }
+
+  AlertDialog _showResetStatsDialogue(BuildContext context) {
+    return AlertDialog(
+      title: Text("settings.account.reset_stats.dialog.title".tr()),
+      content: Text("settings.account.reset_stats.dialog.body".tr()),
+      actions: <Widget>[
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          child: Text("global.no".tr()),
+        ),
+        TextButton(
+          onPressed: () {
+            GetIt.I<UserBloc>().add(UserResetStats());
+          },
+          child: Text("global.yes".tr()),
+        ),
+      ],
+    );
+  }
 }
 
 class _ThemeSelectionWidget extends StatefulWidget {
@@ -133,6 +143,11 @@ class _ThemeSelectionWidgetState extends State<_ThemeSelectionWidget> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Text(
+          "settings.general.appearance.title".tr(),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+        const Gap(10),
         RadioListTile(
           title: Text("settings.general.appearance.options.light".tr()),
           value: ThemeMode.light,
@@ -199,6 +214,10 @@ class _LangSelectionWidgetState extends State<_LangSelectionWidget> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
+        Text(
+          "settings.general.lang.title".tr(),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
         ...AppLanguage.values.map(
           (e) {
             return RadioListTile(
