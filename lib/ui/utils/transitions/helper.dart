@@ -36,8 +36,6 @@ class TransitionHelper {
     );
   }
 
-  
-
   static Function(
     BuildContext,
     Animation<double>,

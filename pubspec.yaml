@@ -64,6 +64,7 @@ dependencies:
   device_preview: ^1.1.0
   easy_localization: ^3.0.1
   flutter_boring_avatars: ^1.0.1
+  cached_network_image: ^3.3.0
   gap: ^3.0.0
   circular_countdown_timer:
     git:
@@ -108,6 +109,7 @@ flutter:
     - assets/fonts/
     - assets/images/
     - assets/translations/
+    - assets/tweets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

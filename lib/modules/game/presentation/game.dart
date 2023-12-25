@@ -1,19 +1,22 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tweetguess/core/utils/tweet_service.dart';
+import 'package:tweetguess/models/interface_tweet.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_event.dart';
-import 'package:tweetguess/ui/extensions/app_bar.dart';
-import 'package:tweetguess/ui/components/primary_game_button.dart';
 import 'package:tweetguess/modules/game/presentation/widgets/countdown.dart';
 import 'package:tweetguess/modules/game/presentation/widgets/timer.dart';
+import 'package:tweetguess/ui/components/primary_game_button.dart';
+import 'package:tweetguess/ui/extensions/app_bar.dart';
 
-import 'bloc/game_bloc.dart';
-import 'bloc/game_state.dart';
 import '../../../ui/components/primary_container.dart';
 import '../../../ui/utils/routes/circular_transition_route.dart';
+import 'bloc/game_bloc.dart';
+import 'bloc/game_state.dart';
 import 'widgets/helper/wrapper.dart';
 
 class GameScreen extends StatefulWidget {
@@ -201,8 +204,28 @@ class _GameScreenState extends State<GameScreen> {
     BuildContext context,
     GameRoundInProgress gameInProgress,
   ) {
+    var media =
+        TweetService.getTweetById(gameInProgress.game.currentRound.tweetId)!
+            .getMedia();
+
     return PrimaryContainer(
-      child: Text(gameInProgress.game.currentRound.content),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(gameInProgress.game.currentRound.content),
+          if (media != null &&
+              media.any((element) => element.type != "video")) ...[
+            const Gap(20),
+            CachedNetworkImage(
+              imageUrl: media
+                  .where((element) => element.type != "video")
+                  .firstOrNull!
+                  .url!,
+              height: 100,
+            )
+          ]
+        ],
+      ),
     );
   }
 

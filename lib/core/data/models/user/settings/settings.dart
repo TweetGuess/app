@@ -16,6 +16,3 @@ class UserSettings with _$UserSettings {
   factory UserSettings.fromJson(Map<String, dynamic> json) =>
       _$UserSettingsFromJson(json);
 }
-
-
-

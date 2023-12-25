@@ -1,3 +1,6 @@
+import 'package:tweetguess/models/retwitt/media.dart';
+import 'package:tweetguess/models/retwitt/tweet.dart';
+
 abstract class ITweet {
   ITweet({
     required this.authorName,
@@ -10,4 +13,14 @@ abstract class ITweet {
   String authorHandle;
   String tweetId;
   String text;
+}
+
+extension ITweetHelper on ITweet {
+  List<Media>? getMedia() {
+    if (this is Tweet) {
+      return (this as Tweet).media;
+    }
+    
+    return null;
+  }
 }
