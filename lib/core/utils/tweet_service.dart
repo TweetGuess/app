@@ -50,6 +50,14 @@ class TweetService {
     return _tweets;
   }
 
+  static ITweet? getTweetById(String id) {
+    try {
+      return _tweets.firstWhere((element) => element.tweetId == id);
+    } catch (_) {
+      return null;
+    }
+  }
+
   static ITweet getUnusedTweet(List<String> usedTweets) {
     if (_tweets.isEmpty) {
       throw Exception("Tweets are not initialized yet!");
