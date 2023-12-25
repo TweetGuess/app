@@ -1,5 +1,28 @@
 [
   {
+    "id": "1739270167710842997",
+    "createdAt": "Mon Dec 25 13:01:36 +0000 2023",
+    "media": [
+      {
+        "url": "https://pbs.twimg.com/media/GCMg_9DW4AEThrl.jpg",
+        "type": "photo"
+      }
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "From our family to yours:. Merry Christmas, America. ",
+    "tweetBy": {
+      "fullName": "President Biden",
+      "id": "1349149096909668363",
+      "profileImage": "https://pbs.twimg.com/profile_images/1380530524779859970/TfwVAbyX_normal.jpg",
+      "userName": "POTUS",
+      "description": "46th President of the United States, husband to @FLOTUS, proud dad & pop. Tweets may be archived: https://t.co/HDhBZBkKpU Text me: (302) 404-0880"
+    }
+  },
+  {
     "id": "1739084936731091183",
     "createdAt": "Mon Dec 25 00:45:34 +0000 2023",
     "media": [
@@ -13,7 +36,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "‘Twas the night before Christmas, and all through the White House. https://t.co/bBFhYVqwUr.",
+    "fullText": "‘Twas the night before Christmas, and all through the White House. ",
     "tweetBy": {
       "fullName": "President Biden",
       "id": "1349149096909668363",
@@ -34,11 +57,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "NoradSanta"
-      ]
+      "mentionedUsers": ["NoradSanta"]
     },
-    "fullText": "This Christmas Eve, Jill and I got to speak with some excited young Americans who happened to be very curious about the whereabouts of one Santa Claus. Thankfully, @NoradSanta confirmed that St. Nick is on his way! https://t.co/tgVts99GZJ.",
+    "fullText": "This Christmas Eve, Jill and I got to speak with some excited young Americans who happened to be very curious about the whereabouts of one Santa Claus. Thankfully, @NoradSanta confirmed that St. Nick is on his way! ",
     "tweetBy": {
       "fullName": "President Biden",
       "id": "1349149096909668363",
@@ -78,7 +99,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "Willow Biden, the Official White House Ornament Inspector. https://t.co/QHHbVIOhGj.",
+    "fullText": "Willow Biden, the Official White House Ornament Inspector. ",
     "tweetBy": {
       "fullName": "President Biden",
       "id": "1349149096909668363",
@@ -169,7 +190,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "I’m working towards a future where every American can turn on the faucet and drink clean water. My bipartisan infrastructure law and small businesses like Hero Plumbing will take us there. https://t.co/aLsNcq9Mvy.",
+    "fullText": "I’m working towards a future where every American can turn on the faucet and drink clean water. My bipartisan infrastructure law and small businesses like Hero Plumbing will take us there. ",
     "tweetBy": {
       "fullName": "President Biden",
       "id": "1349149096909668363",
@@ -209,7 +230,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "Jill and I had the honor of spending the afternoon at Children's National Hospital reading with some of the strongest kids and parents there are. Our hearts are with them this Christmas. https://t.co/Y8agyZSxXS.",
+    "fullText": "Jill and I had the honor of spending the afternoon at Children's National Hospital reading with some of the strongest kids and parents there are. Our hearts are with them this Christmas. ",
     "tweetBy": {
       "fullName": "President Biden",
       "id": "1349149096909668363",
@@ -232,7 +253,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "Ready for St. Nick. https://t.co/HpW5OURkqF.",
+    "fullText": "Ready for St. Nick. ",
     "tweetBy": {
       "fullName": "President Biden",
       "id": "1349149096909668363",
@@ -320,12 +341,10 @@
     ],
     "entities": {
       "hashtags": [],
-      "urls": [
-        "http://DONALDJTRUMP.COM"
-      ],
+      "urls": ["http://DONALDJTRUMP.COM"],
       "mentionedUsers": []
     },
-    "fullText": "https://t.co/MlIKklPSJT https://t.co/Mcbf2xozsY.",
+    "fullText": " ",
     "tweetBy": {
       "fullName": "Donald J. Trump",
       "id": "25073877",
@@ -382,7 +401,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "https://t.co/csX07ZVWGe.",
+    "fullText": "",
     "tweetBy": {
       "fullName": "Donald J. Trump",
       "id": "25073877",
@@ -435,7 +454,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "https://t.co/izItBeFE6G.",
+    "fullText": "",
     "tweetBy": {
       "fullName": "Donald J. Trump",
       "id": "25073877",
@@ -450,9 +469,7 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "sendavidperdue"
-      ]
+      "mentionedUsers": ["sendavidperdue"]
     },
     "fullText": "These scoundrels are only toying with the @sendavidperdue (a great guy) vote. Just didn’t want to announce quite yet. They’ve got as many ballots as are necessary. Rigged Election!.",
     "tweetBy": {
@@ -571,55 +588,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "Mike_Pence"
-      ]
+      "mentionedUsers": ["Mike_Pence"]
     },
     "fullText": "If Vice President @Mike_Pence comes through for us, we will win the Presidency. Many States want to decertify the mistake they made in certifying incorrect &amp; even fraudulent numbers in a process  NOT approved by their State Legislatures (which it must be). Mike can send it back!.",
-    "tweetBy": {
-      "fullName": "Donald J. Trump",
-      "id": "25073877",
-      "profileImage": "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_normal.jpg",
-      "userName": "realDonaldTrump",
-      "description": "45th President of the United States of America🇺🇸"
-    }
-  },
-  {
-    "id": "1346694740968878080",
-    "createdAt": "Wed Jan 06 05:47:01 +0000 2021",
-    "media": [
-      {
-        "url": "https://video.twimg.com/ext_tw_video/1346584798442229762/pu/vid/1280x720/Qy0x2VU4HVlBBOm0.mp4?tag=10",
-        "type": "video"
-      }
-    ],
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "DanScavino"
-      ]
-    },
-    "fullText": "RT @DanScavino: 🔊WOW! We hear you from the West Wing—THANK YOU❤️🇺🇸🦅 https://t.co/onytmaJUhp.",
-    "tweetBy": {
-      "fullName": "Donald J. Trump",
-      "id": "25073877",
-      "profileImage": "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_normal.jpg",
-      "userName": "realDonaldTrump",
-      "description": "45th President of the United States of America🇺🇸"
-    }
-  },
-  {
-    "id": "1346694608877740032",
-    "createdAt": "Wed Jan 06 05:46:29 +0000 2021",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "christina_bobb"
-      ]
-    },
-    "fullText": "RT @christina_bobb: Pennsylvania is going to Trump. The legislators have spoken.",
     "tweetBy": {
       "fullName": "Donald J. Trump",
       "id": "25073877",
@@ -646,60 +617,324 @@
     }
   },
   {
-    "id": "1346687404778921985",
-    "createdAt": "Wed Jan 06 05:17:52 +0000 2021",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "TomiLahren"
-      ]
-    },
-    "fullText": "RT @TomiLahren: I wonder when the water main is gonna burst in Georgia. .",
-    "tweetBy": {
-      "fullName": "Donald J. Trump",
-      "id": "25073877",
-      "profileImage": "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_normal.jpg",
-      "userName": "realDonaldTrump",
-      "description": "45th President of the United States of America🇺🇸"
-    }
-  },
-  {
-    "id": "1346687368812785664",
-    "createdAt": "Wed Jan 06 05:17:43 +0000 2021",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "TomiLahren"
-      ]
-    },
-    "fullText": "RT @TomiLahren: Democrats scrounging up votes from mystical places again. .",
-    "tweetBy": {
-      "fullName": "Donald J. Trump",
-      "id": "25073877",
-      "profileImage": "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_normal.jpg",
-      "userName": "realDonaldTrump",
-      "description": "45th President of the United States of America🇺🇸"
-    }
-  },
-  {
-    "id": "1739087504286892523",
-    "createdAt": "Mon Dec 25 00:55:46 +0000 2023",
+    "id": "1738959568800018779",
+    "createdAt": "Sun Dec 24 16:27:24 +0000 2023",
     "media": [
       {
-        "url": "https://pbs.twimg.com/media/GCJuulOWsAEJgpZ.jpg",
+        "url": "https://video.twimg.com/amplify_video/1738687868350976000/vid/avc1/1280x720/2wGf5H59P49Xn_8G.mp4?tag=14",
+        "type": "video"
+      }
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": ["http://tinyurl.com/bdhueuad"],
+      "mentionedUsers": []
+    },
+    "fullText": "Merry Christmas, everyone! I hope your holidays are filled with good cheer and great company. However you’re celebrating, my family and I are sending you our warmest wishes.  ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738959523572826383",
+    "createdAt": "Sun Dec 24 16:27:13 +0000 2023",
+    "media": [
+      {
+        "url": "https://video.twimg.com/amplify_video/1738687852655824896/vid/avc1/1280x720/DMFR6-W4lB8mFlpL.mp4?tag=14",
+        "type": "video"
+      }
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": ["http://tinyurl.com/4j47ecrp"],
+      "mentionedUsers": []
+    },
+    "fullText": "Joyeux Noël à tous! Je vous souhaite des Fêtes remplies de bonne humeur et de bonne compagnie. Quelle que soit la manière dont vous célébrez, ma famille et moi vous adressons nos vœux les plus chaleureux.  ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738652338376573333",
+    "createdAt": "Sat Dec 23 20:06:34 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "mentionedUsers": ["CanadianForces"]
+    },
+    "fullText": "To our @CanadianForces members: Thank you. Your service and sacrifice have not gone unnoticed. Whether you’re spending your holidays with your loved ones, or are serving across the country, or are deployed beyond our borders, we’re keeping you and your families in our thoughts.",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738652308760613169",
+    "createdAt": "Sat Dec 23 20:06:27 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "mentionedUsers": ["ForcesCanada"]
+    },
+    "fullText": "Aux membres de nos @ForcesCanada : Merci. Votre service et vos sacrifices ne passent pas inaperçus. Que vous soyez avec vos proches ou que vous serviez ailleurs au pays ou hors de nos frontières, vous et vos familles êtes dans nos pensées.",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738602900639699132",
+    "createdAt": "Sat Dec 23 16:50:07 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": ["https://youtu.be/9CueFQd0EKQ"],
+      "mentionedUsers": ["TerryDiMonte"]
+    },
+    "fullText": "Housing, climate change, the economy, social media, Taylor Swift. nothing was off the table (and everything was on the record) when @TerryDiMonte and I got together. Terry, my friend, I’m so glad we could keep this tradition going this year. ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738602845031498014",
+    "createdAt": "Sat Dec 23 16:49:54 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": ["https://youtu.be/9CueFQd0EKQ"],
+      "mentionedUsers": ["TerryDiMonte"]
+    },
+    "fullText": "Logement, climat, économie, médias sociaux, Taylor Swift. tous les sujets étaient permis (et pouvaient être rapportés au public) avec @TerryDiMonte. Terry, cher ami, je suis vraiment heureux qu’on ait pu perpétuer cette tradition encore cette année. ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738348582241964109",
+    "createdAt": "Fri Dec 22 23:59:33 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": ["http://Canada.ca/Dental"],
+      "mentionedUsers": []
+    },
+    "fullText": "With our new Canadian Dental Care Plan, we’re making dental care more affordable and more accessible. Applications open this month, starting with seniors who are 87 and older – and we’ll continue to expand eligibility throughout 2024. More details here: ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738348536121401372",
+    "createdAt": "Fri Dec 22 23:59:22 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": ["http://Canada.ca/Dentaire"],
+      "mentionedUsers": []
+    },
+    "fullText": "Avec le nouveau Régime canadien de soins dentaires, les soins dentaires sont plus abordables et accessibles. Nous accueillons demandes ce mois-ci, d’abord pour les gens de 87 ans et plus, et nous élargirons l’admissibilité jusqu’en 2024. Détails : ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738320659069980916",
+    "createdAt": "Fri Dec 22 22:08:36 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        "http://www.pm.gc.ca/en/news/readouts/2023/12/22/prime-minister-justin-trudeau-speaks-foreign-secretary-united-kingdom"
+      ],
+      "mentionedUsers": ["David_Cameron"]
+    },
+    "fullText": "I spoke with @David_Cameron today. I congratulated him on his new role – and we discussed the conflict between Israel and Hamas, and Russia’s war against Ukraine. Canada and the UK are committed to addressing these and other foreign policy issues together. ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738320633153442222",
+    "createdAt": "Fri Dec 22 22:08:30 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        "http://www.pm.gc.ca/fr/nouvelles/comptes-rendus/2023/12/22/premier-ministre-justin-trudeau-sentretient-secretaire-detat"
+      ],
+      "mentionedUsers": ["David_Cameron"]
+    },
+    "fullText": "J’ai félicité @David_Cameron pour son nouveau poste aujourd’hui, et nous avons discuté du conflit entre Israël et le Hamas et de la guerre de la Russie contre l’Ukraine. Le Canada et le R.-U. comptent aborder ces dossiers de politique étrangère ensemble. ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738313852134027640",
+    "createdAt": "Fri Dec 22 21:41:33 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "mentionedUsers": ["gantzbe"]
+    },
+    "fullText": "When @GantzBe and I spoke today, I reiterated Canada’s support for Israel’s right to defend itself in accordance with international law. I also stressed the importance of protecting civilians, and ensuring safe and unimpeded access to humanitarian aid for civilians in Gaza.",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738313853954379890",
+    "createdAt": "Fri Dec 22 21:41:33 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        "http://www.pm.gc.ca/en/news/readouts/2023/12/22/prime-minister-justin-trudeau-speaks-israel-war-cabinet-member-minister"
+      ],
+      "mentionedUsers": []
+    },
+    "fullText": "I expressed support for urgent efforts toward a sustainable ceasefire, underscoring that this cannot be one-sided – Hamas must stop using civilians as human shields, lay down its arms, and can play no role in the future governance of Gaza. More here: ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738313812678180923",
+    "createdAt": "Fri Dec 22 21:41:23 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "mentionedUsers": ["gantzbe"]
+    },
+    "fullText": "En m’entretenant avec @GantzBe aujourd’hui, j’ai réitéré l’appui du Canada au droit d’Israël de se défendre conformément au droit international. J’ai aussi souligné l’importance de protéger les civils et d’assurer l’accès sans entraves de l’aide humanitaire aux civils à Gaza.",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738313814272008341",
+    "createdAt": "Fri Dec 22 21:41:24 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        "http://www.pm.gc.ca/fr/nouvelles/comptes-rendus/2023/12/22/premier-ministre-justin-trudeau-sentretient-ministre-benny"
+      ],
+      "mentionedUsers": []
+    },
+    "fullText": "J’ai dit appuyer les efforts urgents en vue d’un cessez-le-feu durable, précisant qu’il ne peut être unilatéral: le Hamas doit cesser d’utiliser les civils comme boucliers, déposer les armes et ne jouer aucun rôle dans la gouvernance de Gaza. Détails : ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738026254152962185",
+    "createdAt": "Fri Dec 22 02:38:44 +0000 2023",
+    "media": [
+      {
+        "url": "https://video.twimg.com/amplify_video/1738022858113040384/vid/avc1/1280x720/LRrCQPDpgUVEvbDL.mp4?tag=14",
+        "type": "video"
+      }
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": ["http://tinyurl.com/k2r6zbbc"],
+      "mentionedUsers": []
+    },
+    "fullText": "We’re working with municipalities. We’re signing ambitious agreements. And we’re building more homes – faster. More here on how we’re making progress with the Housing Accelerator Fund and today’s announcement with Toronto:  ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1738026216488108462",
+    "createdAt": "Fri Dec 22 02:38:35 +0000 2023",
+    "media": [
+      {
+        "url": "https://video.twimg.com/amplify_video/1738022846931034112/vid/avc1/1280x720/sIhrI9GXNQVltPl8.mp4?tag=14",
+        "type": "video"
+      }
+    ],
+    "entities": {
+      "hashtags": [],
+      "urls": ["http://tinyurl.com/d32ekk3b"],
+      "mentionedUsers": []
+    },
+    "fullText": "On travaille avec les municipalités. On signe des ententes ambitieuses. Et on bâtit plus de logements, plus rapidement. Détails sur les progrès réalisés grâce au Fonds pour accélérer la construction de logements et sur l’annonce d’aujourd’hui avec Toronto:  ",
+    "tweetBy": {
+      "fullName": "Justin Trudeau",
+      "id": "14260960",
+      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
+      "userName": "JustinTrudeau",
+      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+    }
+  },
+  {
+    "id": "1739315167664480391",
+    "createdAt": "Mon Dec 25 16:00:25 +0000 2023",
+    "media": [
+      {
+        "url": "https://pbs.twimg.com/media/GCNJ6PBW0AAepB9.jpg",
         "type": "photo"
       }
     ],
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "VP"
-      ]
+      "mentionedUsers": []
     },
-    "fullText": "RT @VP: Wishing everyone a happy holiday season. https://t.co/iE7UDDLlV6.",
+    "fullText": "Christmas is a time to come together with our loved ones and celebrate our favorite traditions. From our family to yours, we wish you a merry Christmas! ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -722,27 +957,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "There’s no greater gift than spending the holidays with loved ones. From our family to yours, we wish you a safe and happy holiday season. https://t.co/mWmbeP9zZ2.",
-    "tweetBy": {
-      "fullName": "Kamala Harris",
-      "id": "30354991",
-      "profileImage": "https://pbs.twimg.com/profile_images/1592241313700782081/T2pTYU8d_normal.jpg",
-      "userName": "KamalaHarris",
-      "description": "Fighting for the people. Wife, Momala, Auntie. She/her. Official account is @VP."
-    }
-  },
-  {
-    "id": "1739002269964656993",
-    "createdAt": "Sun Dec 24 19:17:04 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "VP",
-        "JHudShow"
-      ]
-    },
-    "fullText": "RT @VP: Christmas is one of my favorite holidays. Doug and I were thrilled to speak with Jeremiah from @JHudShow about our family tradition….",
+    "fullText": "There’s no greater gift than spending the holidays with loved ones. From our family to yours, we wish you a safe and happy holiday season. ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -765,7 +980,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "May your holiday season be filled with good food and celebrations with loved ones. https://t.co/rlMpyrzAvE.",
+    "fullText": "May your holiday season be filled with good food and celebrations with loved ones. ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -788,7 +1003,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "This year, during our nationwide college tour, I met with over 15,000 young leaders who are on the frontlines of the fight for our fundamental freedoms. It is because of them, I know our future is bright. https://t.co/LxgsWD7g8N.",
+    "fullText": "This year, during our nationwide college tour, I met with over 15,000 young leaders who are on the frontlines of the fight for our fundamental freedoms. It is because of them, I know our future is bright. ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -832,25 +1047,6 @@
     }
   },
   {
-    "id": "1737933361958576170",
-    "createdAt": "Thu Dec 21 20:29:37 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "VP"
-      ]
-    },
-    "fullText": "RT @VP: The magic of the holiday season is found in joy. If you want to see what that looks like, watch these talented young leaders. https….",
-    "tweetBy": {
-      "fullName": "Kamala Harris",
-      "id": "30354991",
-      "profileImage": "https://pbs.twimg.com/profile_images/1592241313700782081/T2pTYU8d_normal.jpg",
-      "userName": "KamalaHarris",
-      "description": "Fighting for the people. Wife, Momala, Auntie. She/her. Official account is @VP."
-    }
-  },
-  {
     "id": "1737862579559579781",
     "createdAt": "Thu Dec 21 15:48:21 +0000 2023",
     "media": [
@@ -864,7 +1060,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "While Democrats want to ban assault weapons, extremist MAGA Republicans try to ban books. https://t.co/hOazxpnOWy.",
+    "fullText": "While Democrats want to ban assault weapons, extremist MAGA Republicans try to ban books. ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -887,7 +1083,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "Over 14 million new jobs created. https://t.co/riiKZ3JbzG.",
+    "fullText": "Over 14 million new jobs created. ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -914,25 +1110,6 @@
     }
   },
   {
-    "id": "1737577206337986834",
-    "createdAt": "Wed Dec 20 20:54:23 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "VP"
-      ]
-    },
-    "fullText": "RT @VP: Today, as Chair of the National Space Council, I convened the first Council meeting focused on international space partnerships.",
-    "tweetBy": {
-      "fullName": "Kamala Harris",
-      "id": "30354991",
-      "profileImage": "https://pbs.twimg.com/profile_images/1592241313700782081/T2pTYU8d_normal.jpg",
-      "userName": "KamalaHarris",
-      "description": "Fighting for the people. Wife, Momala, Auntie. She/her. Official account is @VP."
-    }
-  },
-  {
     "id": "1737571124899172568",
     "createdAt": "Wed Dec 20 20:30:13 +0000 2023",
     "media": [
@@ -946,7 +1123,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "42 states, and D.C., have expanded Medicaid coverage for postpartum care from 2 months to 12 months. I look forward to the remaining states answering my call to help address the maternal health crisis. https://t.co/73wmB5HGuC.",
+    "fullText": "42 states, and D.C., have expanded Medicaid coverage for postpartum care from 2 months to 12 months. I look forward to the remaining states answering my call to help address the maternal health crisis. ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -969,32 +1146,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "Zero Republicans in Congress voted for the Inflation Reduction Act. Curious that some members of Congress who voted “no” are still touting its results! https://t.co/brOAC0Bb4C.",
-    "tweetBy": {
-      "fullName": "Kamala Harris",
-      "id": "30354991",
-      "profileImage": "https://pbs.twimg.com/profile_images/1592241313700782081/T2pTYU8d_normal.jpg",
-      "userName": "KamalaHarris",
-      "description": "Fighting for the people. Wife, Momala, Auntie. She/her. Official account is @VP."
-    }
-  },
-  {
-    "id": "1737461908943360274",
-    "createdAt": "Wed Dec 20 13:16:14 +0000 2023",
-    "media": [
-      {
-        "url": "https://video.twimg.com/amplify_video/1737326898533863424/vid/avc1/1920x1080/Rf3jKY50cA6rCBvJ.mp4?tag=16",
-        "type": "video"
-      }
-    ],
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "VP"
-      ]
-    },
-    "fullText": "RT @VP: Women should have the freedom to make decisions about their own bodies. https://t.co/ru0qHDHQJW.",
+    "fullText": "Zero Republicans in Congress voted for the Inflation Reduction Act. Curious that some members of Congress who voted “no” are still touting its results! ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -1017,7 +1169,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "It’s always a pleasure being in Georgia. https://t.co/MhxF6ue9uT.",
+    "fullText": "It’s always a pleasure being in Georgia. ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -1032,30 +1184,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "JoeBiden"
-      ]
+      "mentionedUsers": ["JoeBiden"]
     },
     "fullText": "Our foundational freedoms are on the line as extremist so-called “leaders” work to ban abortion, endanger women's lives, and criminalize doctors. President @JoeBiden and I will continue to fight for the right of every woman to make decisions about her own body.",
-    "tweetBy": {
-      "fullName": "Kamala Harris",
-      "id": "30354991",
-      "profileImage": "https://pbs.twimg.com/profile_images/1592241313700782081/T2pTYU8d_normal.jpg",
-      "userName": "KamalaHarris",
-      "description": "Fighting for the people. Wife, Momala, Auntie. She/her. Official account is @VP."
-    }
-  },
-  {
-    "id": "1737121145235591366",
-    "createdAt": "Tue Dec 19 14:42:09 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "VP"
-      ]
-    },
-    "fullText": "RT @VP: Across our nation, there is a full-on attack on a woman's fundamental freedom to make decisions about her own body. In the new yea….",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -1069,12 +1200,10 @@
     "createdAt": "Mon Dec 18 23:30:03 +0000 2023",
     "entities": {
       "hashtags": [],
-      "urls": [
-        "http://GetInternet.gov"
-      ],
+      "urls": ["http://GetInternet.gov"],
       "mentionedUsers": []
     },
-    "fullText": "Our Bipartisan Infrastructure Law is bringing affordable, high-speed internet to every corner of our country. Join 22 million American households in saving up to $75 a month→ https://t.co/bEw5uQEwfb.",
+    "fullText": "Our Bipartisan Infrastructure Law is bringing affordable, high-speed internet to every corner of our country. Join 22 million American households in saving up to $75 a month→ ",
     "tweetBy": {
       "fullName": "Kamala Harris",
       "id": "30354991",
@@ -1084,440 +1213,26 @@
     }
   },
   {
-    "id": "1736826668113617113",
-    "createdAt": "Mon Dec 18 19:12:01 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "JoeBiden"
-      ]
-    },
-    "fullText": "President @JoeBiden and I fought for $132 billion in student loan forgiveness for over 3.6 million Americans—and we’re fighting hard to deliver more relief to student loan borrowers.",
-    "tweetBy": {
-      "fullName": "Kamala Harris",
-      "id": "30354991",
-      "profileImage": "https://pbs.twimg.com/profile_images/1592241313700782081/T2pTYU8d_normal.jpg",
-      "userName": "KamalaHarris",
-      "description": "Fighting for the people. Wife, Momala, Auntie. She/her. Official account is @VP."
-    }
-  },
-  {
-    "id": "1739109309043130747",
-    "createdAt": "Mon Dec 25 02:22:25 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "RCAF_ARC"
-      ]
-    },
-    "fullText": "RT @RCAF_ARC: BREAKING NEWS: According to our NORAD Radars and Satellites, Santa🎅 has been spotted approaching Canada! He should be here ve….",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1739109299635224731",
-    "createdAt": "Mon Dec 25 02:22:22 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "ARC_RCAF"
-      ]
-    },
-    "fullText": "RT @ARC_RCAF: DERNIÈRE HEURE : Selon nos radars et satellites du NORAD, le père Noël 🎅a été repéré alors qu'il s'approchait du Canada! Il d….",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738959568800018779",
-    "createdAt": "Sun Dec 24 16:27:24 +0000 2023",
+    "id": "1739302702893670712",
+    "createdAt": "Mon Dec 25 15:10:53 +0000 2023",
     "media": [
       {
-        "url": "https://video.twimg.com/amplify_video/1738687868350976000/vid/avc1/1280x720/2wGf5H59P49Xn_8G.mp4?tag=14",
-        "type": "video"
-      }
-    ],
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://tinyurl.com/bdhueuad"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "Merry Christmas, everyone! I hope your holidays are filled with good cheer and great company. However you’re celebrating, my family and I are sending you our warmest wishes. https://t.co/Mvn2tkwVLf https://t.co/plQzdyf2m1.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738959523572826383",
-    "createdAt": "Sun Dec 24 16:27:13 +0000 2023",
-    "media": [
-      {
-        "url": "https://video.twimg.com/amplify_video/1738687852655824896/vid/avc1/1280x720/DMFR6-W4lB8mFlpL.mp4?tag=14",
-        "type": "video"
-      }
-    ],
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://tinyurl.com/4j47ecrp"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "Joyeux Noël à tous! Je vous souhaite des Fêtes remplies de bonne humeur et de bonne compagnie. Quelle que soit la manière dont vous célébrez, ma famille et moi vous adressons nos vœux les plus chaleureux. https://t.co/ara0aKvxkU https://t.co/RiuC3jlzKj.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738652338376573333",
-    "createdAt": "Sat Dec 23 20:06:34 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "CanadianForces"
-      ]
-    },
-    "fullText": "To our @CanadianForces members: Thank you. Your service and sacrifice have not gone unnoticed. Whether you’re spending your holidays with your loved ones, or are serving across the country, or are deployed beyond our borders, we’re keeping you and your families in our thoughts.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738652308760613169",
-    "createdAt": "Sat Dec 23 20:06:27 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "ForcesCanada"
-      ]
-    },
-    "fullText": "Aux membres de nos @ForcesCanada : Merci. Votre service et vos sacrifices ne passent pas inaperçus. Que vous soyez avec vos proches ou que vous serviez ailleurs au pays ou hors de nos frontières, vous et vos familles êtes dans nos pensées.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738602900639699132",
-    "createdAt": "Sat Dec 23 16:50:07 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "https://youtu.be/9CueFQd0EKQ"
-      ],
-      "mentionedUsers": [
-        "TerryDiMonte"
-      ]
-    },
-    "fullText": "Housing, climate change, the economy, social media, Taylor Swift. nothing was off the table (and everything was on the record) when @TerryDiMonte and I got together. Terry, my friend, I’m so glad we could keep this tradition going this year. https://t.co/jTBlOxHdLJ.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738602845031498014",
-    "createdAt": "Sat Dec 23 16:49:54 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "https://youtu.be/9CueFQd0EKQ"
-      ],
-      "mentionedUsers": [
-        "TerryDiMonte"
-      ]
-    },
-    "fullText": "Logement, climat, économie, médias sociaux, Taylor Swift. tous les sujets étaient permis (et pouvaient être rapportés au public) avec @TerryDiMonte. Terry, cher ami, je suis vraiment heureux qu’on ait pu perpétuer cette tradition encore cette année. https://t.co/jTBlOxHdLJ.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738348582241964109",
-    "createdAt": "Fri Dec 22 23:59:33 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://Canada.ca/Dental"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "With our new Canadian Dental Care Plan, we’re making dental care more affordable and more accessible. Applications open this month, starting with seniors who are 87 and older – and we’ll continue to expand eligibility throughout 2024. More details here: https://t.co/HfkQnkvVMY.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738348536121401372",
-    "createdAt": "Fri Dec 22 23:59:22 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://Canada.ca/Dentaire"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "Avec le nouveau Régime canadien de soins dentaires, les soins dentaires sont plus abordables et accessibles. Nous accueillons demandes ce mois-ci, d’abord pour les gens de 87 ans et plus, et nous élargirons l’admissibilité jusqu’en 2024. Détails : https://t.co/lv9vKLbcT1.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738320659069980916",
-    "createdAt": "Fri Dec 22 22:08:36 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://www.pm.gc.ca/en/news/readouts/2023/12/22/prime-minister-justin-trudeau-speaks-foreign-secretary-united-kingdom"
-      ],
-      "mentionedUsers": [
-        "David_Cameron"
-      ]
-    },
-    "fullText": "I spoke with @David_Cameron today. I congratulated him on his new role – and we discussed the conflict between Israel and Hamas, and Russia’s war against Ukraine. Canada and the UK are committed to addressing these and other foreign policy issues together. https://t.co/FcQ6LcHGAu.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738320633153442222",
-    "createdAt": "Fri Dec 22 22:08:30 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://www.pm.gc.ca/fr/nouvelles/comptes-rendus/2023/12/22/premier-ministre-justin-trudeau-sentretient-secretaire-detat"
-      ],
-      "mentionedUsers": [
-        "David_Cameron"
-      ]
-    },
-    "fullText": "J’ai félicité @David_Cameron pour son nouveau poste aujourd’hui, et nous avons discuté du conflit entre Israël et le Hamas et de la guerre de la Russie contre l’Ukraine. Le Canada et le R.-U. comptent aborder ces dossiers de politique étrangère ensemble. https://t.co/2yVOLDjTQ7.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738313852134027640",
-    "createdAt": "Fri Dec 22 21:41:33 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "gantzbe"
-      ]
-    },
-    "fullText": "When @GantzBe and I spoke today, I reiterated Canada’s support for Israel’s right to defend itself in accordance with international law. I also stressed the importance of protecting civilians, and ensuring safe and unimpeded access to humanitarian aid for civilians in Gaza.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738313853954379890",
-    "createdAt": "Fri Dec 22 21:41:33 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://www.pm.gc.ca/en/news/readouts/2023/12/22/prime-minister-justin-trudeau-speaks-israel-war-cabinet-member-minister"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "I expressed support for urgent efforts toward a sustainable ceasefire, underscoring that this cannot be one-sided – Hamas must stop using civilians as human shields, lay down its arms, and can play no role in the future governance of Gaza. More here: https://t.co/XbiE89zyIP.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738313812678180923",
-    "createdAt": "Fri Dec 22 21:41:23 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "gantzbe"
-      ]
-    },
-    "fullText": "En m’entretenant avec @GantzBe aujourd’hui, j’ai réitéré l’appui du Canada au droit d’Israël de se défendre conformément au droit international. J’ai aussi souligné l’importance de protéger les civils et d’assurer l’accès sans entraves de l’aide humanitaire aux civils à Gaza.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738313814272008341",
-    "createdAt": "Fri Dec 22 21:41:24 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://www.pm.gc.ca/fr/nouvelles/comptes-rendus/2023/12/22/premier-ministre-justin-trudeau-sentretient-ministre-benny"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "J’ai dit appuyer les efforts urgents en vue d’un cessez-le-feu durable, précisant qu’il ne peut être unilatéral: le Hamas doit cesser d’utiliser les civils comme boucliers, déposer les armes et ne jouer aucun rôle dans la gouvernance de Gaza. Détails : https://t.co/0CKAV2cMWK.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738227510218010745",
-    "createdAt": "Fri Dec 22 15:58:27 +0000 2023",
-    "media": [
-      {
-        "url": "https://video.twimg.com/ext_tw_video/1738223977959477248/pu/vid/avc1/1280x720/Wfz1Y1UW0Z4gItd9.mp4?tag=12",
+        "url": "https://video.twimg.com/amplify_video/1738956664110280704/vid/avc1/1280x720/2E6jxb7SXIb_ImuQ.mp4?tag=14",
         "type": "video"
       }
     ],
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "pablorodriguez"
-      ]
-    },
-    "fullText": "RT @pablorodriguez: Santa Claus is cleared to fly over Canadian airspace🎅🏼 Tell the kids, he’s on his way! https://t.co/CoMkv1crmF.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738227476848095336",
-    "createdAt": "Fri Dec 22 15:58:19 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "pablorodriguez"
-      ]
-    },
-    "fullText": "RT @pablorodriguez: Le Père Noël est autorisé à survoler l’espace aérien du Canada 🎅🏼 Dites aux enfants qu’il s’en vient bientôt! https://t….",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738026254152962185",
-    "createdAt": "Fri Dec 22 02:38:44 +0000 2023",
-    "media": [
-      {
-        "url": "https://video.twimg.com/amplify_video/1738022858113040384/vid/avc1/1280x720/LRrCQPDpgUVEvbDL.mp4?tag=14",
-        "type": "video"
-      }
-    ],
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://tinyurl.com/k2r6zbbc"
-      ],
       "mentionedUsers": []
     },
-    "fullText": "We’re working with municipalities. We’re signing ambitious agreements. And we’re building more homes – faster. More here on how we’re making progress with the Housing Accelerator Fund and today’s announcement with Toronto: https://t.co/0ZihDRrqhp https://t.co/GMCFpRq7r9.",
+    "fullText": "This year has tested us in many ways, but Christmas is a reminder of the power of community to keep us together even in difficult times. Wishing you all a peaceful holiday. ",
     "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
-    }
-  },
-  {
-    "id": "1738026216488108462",
-    "createdAt": "Fri Dec 22 02:38:35 +0000 2023",
-    "media": [
-      {
-        "url": "https://video.twimg.com/amplify_video/1738022846931034112/vid/avc1/1280x720/sIhrI9GXNQVltPl8.mp4?tag=14",
-        "type": "video"
-      }
-    ],
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://tinyurl.com/d32ekk3b"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "On travaille avec les municipalités. On signe des ententes ambitieuses. Et on bâtit plus de logements, plus rapidement. Détails sur les progrès réalisés grâce au Fonds pour accélérer la construction de logements et sur l’annonce d’aujourd’hui avec Toronto: https://t.co/3S2p5f1Vwr https://t.co/hEQKCDz7wP.",
-    "tweetBy": {
-      "fullName": "Justin Trudeau",
-      "id": "14260960",
-      "profileImage": "https://pbs.twimg.com/profile_images/1426938479909421056/QpI3TSNn_normal.jpg",
-      "userName": "JustinTrudeau",
-      "description": "Father, @liberal_party Leader, 23rd Prime Minister of Canada. | Papa, chef du @parti_liberal, 23e premier ministre du Canada."
+      "fullName": "Barack Obama",
+      "id": "813286",
+      "profileImage": "https://pbs.twimg.com/profile_images/1329647526807543809/2SGvnHYV_normal.jpg",
+      "userName": "BarackObama",
+      "description": "Dad, husband, President, citizen."
     }
   },
   {
@@ -1534,7 +1249,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "As I usually do during this time of year, I wanted to share my favorite books, movies, and music of 2023. First up, here are the books I've enjoyed reading. If you’re looking for a new book over the holidays, give one of them a try. And if you can, shop at an independent… https://t.co/cvMeeth6l9.",
+    "fullText": "As I usually do during this time of year, I wanted to share my favorite books, movies, and music of 2023. First up, here are the books I've enjoyed reading. If you’re looking for a new book over the holidays, give one of them a try. And if you can, shop at an independent… ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1554,7 +1269,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "We’re seeing record ACA enrollment by Americans for the third year in a row. More than 15.3 million people have signed up — and you can join them. Go to https://t.co/ob1Ynof0dL to sign up before January 16. https://t.co/CSVHYcYEj8.",
+    "fullText": "We’re seeing record ACA enrollment by Americans for the third year in a row. More than 15.3 million people have signed up — and you can join them. Go to  to sign up before January 16. ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1592,11 +1307,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "HGMedia"
-      ]
+      "mentionedUsers": ["HGMedia"]
     },
-    "fullText": "Rustin – the latest film from @HGMedia – celebrates the life and legacy of Bayard Rustin, a giant of the civil rights movement and the architect of the 1963 March on Washington. Check out his story today on Netflix. https://t.co/OSusAiUouu.",
+    "fullText": "Rustin – the latest film from @HGMedia – celebrates the life and legacy of Bayard Rustin, a giant of the civil rights movement and the architect of the 1963 March on Washington. Check out his story today on Netflix. ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1617,11 +1330,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "ObamaFoundation"
-      ]
+      "mentionedUsers": ["ObamaFoundation"]
     },
-    "fullText": "At our @ObamaFoundation Democracy Forum, we brought together hundreds of leaders from around the world to talk about how we can create a more inclusive and sustainable economy that works for everyone. Take a look: https://t.co/8gSyrvWXG9.",
+    "fullText": "At our @ObamaFoundation Democracy Forum, we brought together hundreds of leaders from around the world to talk about how we can create a more inclusive and sustainable economy that works for everyone. Take a look: ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1671,11 +1382,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "girlsalliance"
-      ]
+      "mentionedUsers": ["girlsalliance"]
     },
-    "fullText": "In Chicago, I got to spend time with grassroots leaders from our @GirlsAlliance Network who are learning from each other and finding new ways to create even more opportunities for girls in this city that we love. I also had the chance to hear more about the work that folks in… https://t.co/IOPGQ6I9s6.",
+    "fullText": "In Chicago, I got to spend time with grassroots leaders from our @GirlsAlliance Network who are learning from each other and finding new ways to create even more opportunities for girls in this city that we love. I also had the chance to hear more about the work that folks in… ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1695,14 +1404,10 @@
     ],
     "entities": {
       "hashtags": [],
-      "urls": [
-        "http://go.crooked.com/PSAObama2023"
-      ],
-      "mentionedUsers": [
-        "PodSaveAmerica"
-      ]
+      "urls": ["http://go.crooked.com/PSAObama2023"],
+      "mentionedUsers": ["PodSaveAmerica"]
     },
-    "fullText": "Last week, I sat down with some old friends at @PodSaveAmerica to reflect on the 15th anniversary of the 2008 election, the work our Obama alumni are doing, and the state of our democracy. Check out our conversation: https://t.co/KLJgPz5S8T https://t.co/mLvSGCdDzT.",
+    "fullText": "Last week, I sat down with some old friends at @PodSaveAmerica to reflect on the 15th anniversary of the 2008 election, the work our Obama alumni are doing, and the state of our democracy. Check out our conversation:  ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1723,34 +1428,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "HGMedia",
-        "JonBatiste",
-        "suleikajaouad"
-      ]
+      "mentionedUsers": ["HGMedia", "JonBatiste", "suleikajaouad"]
     },
-    "fullText": "American Symphony, a film from @HGMedia, is directed by the talented Matthew Heineman and follows the journey of @JonBatiste and @SuleikaJaouad. It’s an intimate portrait of the healing power of art and love through personal success and private struggles. I hope you’ll check it… https://t.co/HB5RWfxJhT.",
-    "tweetBy": {
-      "fullName": "Barack Obama",
-      "id": "813286",
-      "profileImage": "https://pbs.twimg.com/profile_images/1329647526807543809/2SGvnHYV_normal.jpg",
-      "userName": "BarackObama",
-      "description": "Dad, husband, President, citizen."
-    }
-  },
-  {
-    "id": "1722702377378082967",
-    "createdAt": "Thu Nov 09 19:47:07 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "http://HealthCare.gov"
-      ],
-      "mentionedUsers": [
-        "POTUS"
-      ]
-    },
-    "fullText": "RT @POTUS: In the first week of Open Enrollment, 1.6 million people have signed up for a plan at https://t.co/gRX1fGFEzj, including 301,000….",
+    "fullText": "American Symphony, a film from @HGMedia, is directed by the talented Matthew Heineman and follows the journey of @JonBatiste and @SuleikaJaouad. It’s an intimate portrait of the healing power of art and love through personal success and private struggles. I hope you’ll check it… ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1773,7 +1453,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "I recently went on the Decoder Podcast to talk about how the Biden-Harris Administration is working to take advantage of the opportunities and minimize the risks of artificial intelligence—and the ways the next generation of AI professionals can help shape the future. Listen now… https://t.co/Jm8tHMUrdl.",
+    "fullText": "I recently went on the Decoder Podcast to talk about how the Biden-Harris Administration is working to take advantage of the opportunities and minimize the risks of artificial intelligence—and the ways the next generation of AI professionals can help shape the future. Listen now… ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1822,10 +1502,7 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "gabeamo",
-        "PhilforVirginia"
-      ]
+      "mentionedUsers": ["gabeamo", "PhilforVirginia"]
     },
     "fullText": "I’m also proud of all the Obama-Biden alumni running for office. Last night, @GabeAmo became Rhode Island’s first Black representative, and @PhilforVirginia joined Virginia's House of Delegates. As we head into 2024, let’s keep organizing, keep voting, and keep making our….",
     "tweetBy": {
@@ -1841,12 +1518,10 @@
     "createdAt": "Tue Nov 07 17:46:30 +0000 2023",
     "entities": {
       "hashtags": [],
-      "urls": [
-        "http://IWillVote.com"
-      ],
+      "urls": ["http://IWillVote.com"],
       "mentionedUsers": []
     },
-    "fullText": "This Election Day, progress is on the ballot. Make sure to vote today—find your polling location at https://t.co/NKXRGNgbZX, then reach out to your friends, family, and everyone you know and remind them to vote, too.",
+    "fullText": "This Election Day, progress is on the ballot. Make sure to vote today—find your polling location at  then reach out to your friends, family, and everyone you know and remind them to vote, too.",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1866,12 +1541,10 @@
     ],
     "entities": {
       "hashtags": [],
-      "urls": [
-        "http://IWillVote.com/VA"
-      ],
+      "urls": ["http://IWillVote.com/VA"],
       "mentionedUsers": []
     },
-    "fullText": "Progress in Virginia is at stake in this election—and there's no time to waste. Every single seat in the Virginia General Assembly will be on the ballot tomorrow, November 7th, so make a plan to vote and find your polling place at https://t.co/vsawTNmQkZ. https://t.co/Dqhh1FmH6o.",
+    "fullText": "Progress in Virginia is at stake in this election—and there's no time to waste. Every single seat in the Virginia General Assembly will be on the ballot tomorrow, November 7th, so make a plan to vote and find your polling place at  ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1892,30 +1565,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "POTUS"
-      ]
+      "mentionedUsers": ["POTUS"]
     },
-    "fullText": "For eight years, @POTUS and I worked to deliver change for the American people. I couldn’t have asked for a better Vice President and friend — and we’ll always be thankful to all the campaign staff and Administration alumni who helped bring that progress to folks across the… https://t.co/MmLLTV8EB8.",
-    "tweetBy": {
-      "fullName": "Barack Obama",
-      "id": "813286",
-      "profileImage": "https://pbs.twimg.com/profile_images/1329647526807543809/2SGvnHYV_normal.jpg",
-      "userName": "BarackObama",
-      "description": "Dad, husband, President, citizen."
-    }
-  },
-  {
-    "id": "1720943828738183412",
-    "createdAt": "Sat Nov 04 23:19:17 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "MichelleObama"
-      ]
-    },
-    "fullText": "RT @MichelleObama: To all our Obama alumni who joined Barack and me in Chicago, as well as all those who couldn’t make it, I just want to s….",
+    "fullText": "For eight years, @POTUS and I worked to deliver change for the American people. I couldn’t have asked for a better Vice President and friend — and we’ll always be thankful to all the campaign staff and Administration alumni who helped bring that progress to folks across the… ",
     "tweetBy": {
       "fullName": "Barack Obama",
       "id": "813286",
@@ -1934,7 +1586,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "This year the trade union movement has proven once again that when workers stand together in the pursuit of economic justice, they can achieve what was once thought impossible. Solidarity forever!. https://t.co/rKx1PWC6Zs.",
+    "fullText": "This year the trade union movement has proven once again that when workers stand together in the pursuit of economic justice, they can achieve what was once thought impossible. Solidarity forever!. ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -1953,7 +1605,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "Congratulations to the FIOM and FIM-CISL unions — this is a step in the right direction for Lamborghini. With exploding technology and increased worker productivity, it’s time we move all workers toward a four-day work week. https://t.co/AaqjAASnpA.",
+    "fullText": "Congratulations to the FIOM and FIM-CISL unions — this is a step in the right direction for Lamborghini. With exploding technology and increased worker productivity, it’s time we move all workers toward a four-day work week. ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -1976,7 +1628,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "It is outrageous that right-wing judges and politicians in Texas and across the country are risking women's health and safety by denying their right to abortion and other reproductive health care. We must continue the fight to once again make abortion legal and safe. https://t.co/KRyNnjEeV0.",
+    "fullText": "It is outrageous that right-wing judges and politicians in Texas and across the country are risking women's health and safety by denying their right to abortion and other reproductive health care. We must continue the fight to once again make abortion legal and safe. ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2020,27 +1672,6 @@
     }
   },
   {
-    "id": "1735759735268257858",
-    "createdAt": "Fri Dec 15 20:32:24 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "https://www.usatoday.com/story/opinion/2023/12/14/diabetes-obesity-epidemic-america-corporations-ads-kids/71884221007/?https://opinion.usatoday.com"
-      ],
-      "mentionedUsers": [
-        "usatodayopinion"
-      ]
-    },
-    "fullText": "RT @usatodayopinion: Bernie Sanders: We can't allow the food and beverage industry to destroy our kids' health https://t.co/IIF2lSCx9X.",
-    "tweetBy": {
-      "fullName": "Bernie Sanders",
-      "id": "216776631",
-      "profileImage": "https://pbs.twimg.com/profile_images/1097820307388334080/9ddg5F6v_normal.png",
-      "userName": "BernieSanders",
-      "description": "U.S. Senator for Vermont. Not me, us."
-    }
-  },
-  {
     "id": "1735415016084386024",
     "createdAt": "Thu Dec 14 21:42:36 +0000 2023",
     "media": [
@@ -2054,28 +1685,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "If Ascension can afford to pay its CEO over $13 million in compensation after raking in $6.4 billion in revenue, it can afford to treat its health care workers in Kansas &amp; Texas with respect. Not lock them out for 4 days after launching a 1-day strike to improve patient safety. https://t.co/Wco7q9bT9R.",
-    "tweetBy": {
-      "fullName": "Bernie Sanders",
-      "id": "216776631",
-      "profileImage": "https://pbs.twimg.com/profile_images/1097820307388334080/9ddg5F6v_normal.png",
-      "userName": "BernieSanders",
-      "description": "U.S. Senator for Vermont. Not me, us."
-    }
-  },
-  {
-    "id": "1734332454284964035",
-    "createdAt": "Mon Dec 11 22:00:54 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "https://twitter.com/i/broadcasts/1djGXNzQebNxZ"
-      ],
-      "mentionedUsers": [
-        "UAW"
-      ]
-    },
-    "fullText": "RT @UAW: UAW President Shawn Fain Update 12/11/23 https://t.co/WHqKMPgkKL.",
+    "fullText": "If Ascension can afford to pay its CEO over $13 million in compensation after raking in $6.4 billion in revenue, it can afford to treat its health care workers in Kansas &amp; Texas with respect. Not lock them out for 4 days after launching a 1-day strike to improve patient safety. ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2098,7 +1708,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "The United States must do everything it can to put pressure on Netanyahu’s right-wing extremist government to end this disastrous military approach, which is causing such horrific damage to human life in Palestine. https://t.co/eTXu3iRSkF.",
+    "fullText": "The United States must do everything it can to put pressure on Netanyahu’s right-wing extremist government to end this disastrous military approach, which is causing such horrific damage to human life in Palestine. ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2113,9 +1723,7 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "AIPAC"
-      ]
+      "mentionedUsers": ["AIPAC"]
     },
     "fullText": ".@AIPAC is a right-wing organization that supports extremist Republican election-denier candidates. Now, they want to spend $100 million to defeat Progressives. Whether AIPAC likes it or not, the U.S. must not give a blank check to Netanyahu’s horrific war policies.",
     "tweetBy": {
@@ -2170,7 +1778,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "I believe that it would be irresponsible for us to provide an additional $10.1 billion in unconditional military aid that will allow the Netanyahu government to continue its current offensive military approach. https://t.co/8oTwZA5WL6.",
+    "fullText": "I believe that it would be irresponsible for us to provide an additional $10.1 billion in unconditional military aid that will allow the Netanyahu government to continue its current offensive military approach. ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2193,7 +1801,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "Change is coming. The question is: What kind of change will it be? Will it be a Trump authoritarian change which divides us up based on the color of our skin or where we were born. Or one that brings us together to achieve economic &amp; social justice and a world of human decency. https://t.co/XZB0d9dAae.",
+    "fullText": "Change is coming. The question is: What kind of change will it be? Will it be a Trump authoritarian change which divides us up based on the color of our skin or where we were born. Or one that brings us together to achieve economic &amp; social justice and a world of human decency. ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2212,7 +1820,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "Read the full op-ed here: https://t.co/swYaJ9p5Qc.",
+    "fullText": "Read the full op-ed here: ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2235,7 +1843,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "Let me congratulate the UAW for its new organizing campaign to unionize 150,000 US workers at non-union auto plants owned by companies like Tesla, Nissan, Toyota and BMW. We cannot expand and strengthen the middle class without a vibrant, strong and growing trade union movement. https://t.co/GtzImindQv.",
+    "fullText": "Let me congratulate the UAW for its new organizing campaign to unionize 150,000 US workers at non-union auto plants owned by companies like Tesla, Nissan, Toyota and BMW. We cannot expand and strengthen the middle class without a vibrant, strong and growing trade union movement. ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2254,7 +1862,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "Full story here: https://t.co/dB2qbDTMVI.",
+    "fullText": "Full story here: ",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2290,7 +1898,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "https://t.co/Q4NpgRfbJ7.",
+    "fullText": "",
     "tweetBy": {
       "fullName": "Bernie Sanders",
       "id": "216776631",
@@ -2411,7 +2019,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "There is  only one way to end the legal blockade on Rwanda - and that is to do exactly what this piece proposes - and do it NOW. If you want to know what the government of 2019 -2022 would have done, here is your answer. It’s the only way. https://t.co/yxckzaDZfO.",
+    "fullText": "There is  only one way to end the legal blockade on Rwanda - and that is to do exactly what this piece proposes - and do it NOW. If you want to know what the government of 2019 -2022 would have done, here is your answer. It’s the only way. ",
     "tweetBy": {
       "fullName": "Boris Johnson",
       "id": "3131144855",
@@ -2451,7 +2059,7 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "Let us remember https://t.co/oHZ9NaY6Px.",
+    "fullText": "Let us remember ",
     "tweetBy": {
       "fullName": "Boris Johnson",
       "id": "3131144855",
@@ -2484,30 +2092,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "Isaac_Herzog"
-      ]
+      "mentionedUsers": ["Isaac_Herzog"]
     },
-    "fullText": "Yesterday I visited the sites of the horrendous October 7 massacres by Hamas in which 1400 innocent Israeli civilians were murdered in cold blood - many of them raped, tortured or burned alive. I saw @Isaac_Herzog to express my condolences and met British-Israeli reservists and… https://t.co/JuAMU9NUd6.",
-    "tweetBy": {
-      "fullName": "Boris Johnson",
-      "id": "3131144855",
-      "profileImage": "https://pbs.twimg.com/profile_images/1678440881890680832/ootyWocq_normal.jpg",
-      "userName": "BorisJohnson",
-      "description": "Former Prime Minister of the United Kingdom."
-    }
-  },
-  {
-    "id": "1717976582654943472",
-    "createdAt": "Fri Oct 27 18:48:30 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "MailOnline"
-      ]
-    },
-    "fullText": "RT @MailOnline: BORIS JOHNSON: A blinding flash, a father dying in front of his sons, and a video that proves Israel is fighting for surviv….",
+    "fullText": "Yesterday I visited the sites of the horrendous October 7 massacres by Hamas in which 1400 innocent Israeli civilians were murdered in cold blood - many of them raped, tortured or burned alive. I saw @Isaac_Herzog to express my condolences and met British-Israeli reservists and… ",
     "tweetBy": {
       "fullName": "Boris Johnson",
       "id": "3131144855",
@@ -2556,9 +2143,7 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "idualliance"
-      ]
+      "mentionedUsers": ["idualliance"]
     },
     "fullText": "I’m thrilled to join the @IDUalliance advisory board, promoting conservative democratic values around the world.",
     "tweetBy": {
@@ -2581,11 +2166,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "Tsihanouskaya"
-      ]
+      "mentionedUsers": ["Tsihanouskaya"]
     },
-    "fullText": "I’m supporting @Tsihanouskaya’s campaign to raise awareness of political prisoners in Belarus. I've agreed to sponsor her jailed husband, Siarhei Tsikhanouski. With 1,500+ political prisoners in Belarus, I urge others to join me in this act of solidarity. I stand with the brave… https://t.co/FaHY54o9E6.",
+    "fullText": "I’m supporting @Tsihanouskaya’s campaign to raise awareness of political prisoners in Belarus. I've agreed to sponsor her jailed husband, Siarhei Tsikhanouski. With 1,500+ political prisoners in Belarus, I urge others to join me in this act of solidarity. I stand with the brave… ",
     "tweetBy": {
       "fullName": "Boris Johnson",
       "id": "3131144855",
@@ -2638,7 +2221,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "Why aren't we giving Ukraine what it needs?. https://t.co/DvsFbzkF1k.",
+    "fullText": "Why aren't we giving Ukraine what it needs?. ",
     "tweetBy": {
       "fullName": "Boris Johnson",
       "id": "3131144855",
@@ -2671,11 +2254,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "PinchukFund"
-      ]
+      "mentionedUsers": ["PinchukFund"]
     },
-    "fullText": "Last week I visited two @pinchukfund Recovery Centres in Ukraine. It was humbling to meet the brave soldiers undergoing rehabilitation treatment there. Their sacrifice reminds us of the importance of a Ukrainian victory. Slava Ukraini 🇺🇦 https://t.co/Tu7w3pSvh2.",
+    "fullText": "Last week I visited two @pinchukfund Recovery Centres in Ukraine. It was humbling to meet the brave soldiers undergoing rehabilitation treatment there. Their sacrifice reminds us of the importance of a Ukrainian victory. Slava Ukraini 🇺🇦 ",
     "tweetBy": {
       "fullName": "Boris Johnson",
       "id": "3131144855",
@@ -2704,11 +2285,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "AndriySadovyi"
-      ]
+      "mentionedUsers": ["AndriySadovyi"]
     },
-    "fullText": "I joined the Mayor of Lviv @andriysadovyi to pay tribute to the fallen at Mars Fields. These brave soldiers paid the ultimate sacrifice to defend their country. Slava Ukraini 🇺🇦 https://t.co/26oPf9zsjX.",
+    "fullText": "I joined the Mayor of Lviv @andriysadovyi to pay tribute to the fallen at Mars Fields. These brave soldiers paid the ultimate sacrifice to defend their country. Slava Ukraini 🇺🇦 ",
     "tweetBy": {
       "fullName": "Boris Johnson",
       "id": "3131144855",
@@ -2748,7 +2327,24 @@
       "urls": [],
       "mentionedUsers": []
     },
-    "fullText": "We’ve won some big victories for working families in Massachusetts and across the country, but there’s a lot more to do. So today I’m making it official: I’m running for re-election to keep up the fight. https://t.co/ebG3vJCot3.",
+    "fullText": "We’ve won some big victories for working families in Massachusetts and across the country, but there’s a lot more to do. So today I’m making it official: I’m running for re-election to keep up the fight. ",
+    "tweetBy": {
+      "fullName": "Elizabeth Warren",
+      "id": "357606935",
+      "profileImage": "https://pbs.twimg.com/profile_images/1640305909179068417/wUvC5bjd_normal.jpg",
+      "userName": "ewarren",
+      "description": "U.S. Senator, former teacher. Wife, mom (Amelia, Alex, Bailey, @CFPB), grandmother, and Okie. She/her. Official campaign account."
+    }
+  },
+  {
+    "id": "1739299238075367720",
+    "createdAt": "Mon Dec 25 14:57:07 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "Merry Christmas to everyone celebrating today! Remember: If you need something crowd-pleasing to put on the TV, you can’t go wrong with It’s A Wonderful Life. It features Bailey’s namesake—a decent, determined community banker who saw the best in people.",
     "tweetBy": {
       "fullName": "Elizabeth Warren",
       "id": "357606935",
@@ -3005,7 +2601,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "Long wait times. Inaccurate payment histories. Miscalculated bill amounts. Student loan servicers have created significant problems for borrowers—and we need answers about how they’re going to make things right: https://t.co/xjfdi23JRk.",
+    "fullText": "Long wait times. Inaccurate payment histories. Miscalculated bill amounts. Student loan servicers have created significant problems for borrowers—and we need answers about how they’re going to make things right: ",
     "tweetBy": {
       "fullName": "Elizabeth Warren",
       "id": "357606935",
@@ -3083,493 +2679,6 @@
     }
   },
   {
-    "id": "1735841172340244488",
-    "createdAt": "Sat Dec 16 01:56:00 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "https://ewar.ren/qi1"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "It makes a real difference when the people in the halls of power reflect the diversity of the people they serve. I’m glad that Boston families have such a powerhouse group fighting for them. https://t.co/j6spMl0SWM.",
-    "tweetBy": {
-      "fullName": "Elizabeth Warren",
-      "id": "357606935",
-      "profileImage": "https://pbs.twimg.com/profile_images/1640305909179068417/wUvC5bjd_normal.jpg",
-      "userName": "ewarren",
-      "description": "U.S. Senator, former teacher. Wife, mom (Amelia, Alex, Bailey, @CFPB), grandmother, and Okie. She/her. Official campaign account."
-    }
-  },
-  {
-    "id": "1460159146720997377",
-    "createdAt": "Mon Nov 15 08:14:03 +0000 2021",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": []
-    },
-    "fullText": "A reminder: the people in power don’t need conferences, treaties or agreements to start taking real climate action. They can start today. When enough people come together then change will come and we can achieve almost anything. So instead of looking for hope - start creating it.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1738250916992614690",
-    "createdAt": "Fri Dec 22 17:31:28 +0000 2023",
-    "entities": {
-      "hashtags": [
-        "MarchAgainstBalochGenocide"
-      ],
-      "urls": [],
-      "mentionedUsers": [
-        "MahrangBaloch_"
-      ]
-    },
-    "fullText": "Climate justice activists all over the world stand in solidarity with @MahrangBaloch_ and other peaceful protesters who have been detained, tortured and disrupted by Islamabad police for protesting against human rights abuses in Balochistan. #MarchAgainstBalochGenocide.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1738146473303261548",
-    "createdAt": "Fri Dec 22 10:36:27 +0000 2023",
-    "media": [
-      {
-        "url": "https://pbs.twimg.com/media/GB8jAE-XIAAsmko.jpg",
-        "type": "photo"
-      }
-    ],
-    "entities": {
-      "hashtags": [
-        "FridaysForFuture",
-        "ClimateStrike"
-      ],
-      "urls": [],
-      "mentionedUsers": []
-    },
-    "fullText": "Climate strike week 279. #FridaysForFuture #ClimateStrike https://t.co/OAfOn6wPf6.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1737605788661936316",
-    "createdAt": "Wed Dec 20 22:47:57 +0000 2023",
-    "media": [
-      {
-        "url": "https://pbs.twimg.com/media/GBwBW1uaMAEN8yN.jpg",
-        "type": "photo"
-      }
-    ],
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "EliotJacobson"
-      ]
-    },
-    "fullText": "RT @EliotJacobson: Widespread record temperatures 20C (36F) above average throughout the Northern hemisphere. https://t.co/z0Bw4TN5gV.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1737605256266252641",
-    "createdAt": "Wed Dec 20 22:45:50 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "BaluchistanTime"
-      ]
-    },
-    "fullText": "RT @BaluchistanTime: Several Baloch activists have sustained injuries after Islamabad police used batons to disrupt their protest for the r….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1736318766617620865",
-    "createdAt": "Sun Dec 17 09:33:47 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "ZLabe"
-      ]
-    },
-    "fullText": "RT @ZLabe: Uh, temperatures over the last three months in the Northern Hemisphere surpassed the previous record by about 0.5°C!. Data from….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1735630503863062802",
-    "createdAt": "Fri Dec 15 11:58:53 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": []
-    },
-    "fullText": "Phasing out fossil fuels is a bare minimum. We need drastic immediate emission cuts and binding commitments from the largest contributors of the climate crisis to finance loss and damages, adaptation and a just transition in the most affected areas. 2/3.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1735630505662394608",
-    "createdAt": "Fri Dec 15 11:58:53 +0000 2023",
-    "entities": {
-      "hashtags": [
-        "FridaysForFuture",
-        "ClimateStrike"
-      ],
-      "urls": [],
-      "mentionedUsers": []
-    },
-    "fullText": "We cannot talk about climate action without addressing the root causes of this crisis and without having MAPA in the room. Let’s call this COP out for what it is - another betrayal and a stab in the back. #FridaysForFuture #ClimateStrike .3/3.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1735630500595732879",
-    "createdAt": "Fri Dec 15 11:58:52 +0000 2023",
-    "media": [
-      {
-        "url": "https://pbs.twimg.com/media/GBYyvLGWEAAbj3v.jpg",
-        "type": "photo"
-      }
-    ],
-    "entities": {
-      "hashtags": [
-        "COP28"
-      ],
-      "urls": [],
-      "mentionedUsers": []
-    },
-    "fullText": "Climate strike week 278. The final outcome of #COP28 is not a “historic win”, it is yet another example of extremely vague and watered down texts full of loopholes that in no way is even close to being sufficient for staying within the 1,5° limit and ensure climate justice. 1/3🧵 https://t.co/w6lZ5VOLSd.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1734922076761272612",
-    "createdAt": "Wed Dec 13 13:03:51 +0000 2023",
-    "entities": {
-      "hashtags": [
-        "COP28"
-      ],
-      "urls": [],
-      "mentionedUsers": [
-        "GeorgeMonbiot"
-      ]
-    },
-    "fullText": "RT @GeorgeMonbiot: No, Sultan Al Jaber, the #COP28 deal is not an \"historic achievement\". It is yet another historic failure. One step furt….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1734533997697302604",
-    "createdAt": "Tue Dec 12 11:21:45 +0000 2023",
-    "entities": {
-      "hashtags": [
-        "COP28"
-      ],
-      "urls": [],
-      "mentionedUsers": [
-        "DrSimEvans"
-      ]
-    },
-    "fullText": "RT @DrSimEvans: #COP28 stocktake draft reax…. Marshall Isl \"we did not come here to sign our death warrant…What we have seen today is unacc….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1733086868982411301",
-    "createdAt": "Fri Dec 08 11:31:23 +0000 2023",
-    "media": [
-      {
-        "url": "https://pbs.twimg.com/media/GA0pUXmXgAA8y1R.jpg",
-        "type": "photo"
-      }
-    ],
-    "entities": {
-      "hashtags": [
-        "COP28",
-        "FridaysForFuture",
-        "ClimateStrike",
-        "PollutersOut"
-      ],
-      "urls": [],
-      "mentionedUsers": []
-    },
-    "fullText": "Climate strike week 277. People all over the world are now protesting to demand climate justice from #COP28 currently taking place in Dubai. We need the fossil fuel lobbyists out of climate negotiations, and no more empty promises!.#FridaysForFuture #ClimateStrike #PollutersOut https://t.co/ISUAiTCSYk.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1732099661651910882",
-    "createdAt": "Tue Dec 05 18:08:34 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "ZLabe",
-        "NOAA"
-      ]
-    },
-    "fullText": "RT @ZLabe: Last month set another new climate record - warmest November global sea surface temperature 📈. Data available from @NOAA ERSSTv5….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1731936152972570633",
-    "createdAt": "Tue Dec 05 07:18:51 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [
-        "https://www.theguardian.com/commentisfree/2023/dec/05/gaza-climate-justice-human-rights-greta-thunberg"
-      ],
-      "mentionedUsers": []
-    },
-    "fullText": "The death rate in Gaza is at a historic high, with thousands of children killed in just a few weeks. Demanding an end to this inexcusable violence is a question of basic humanity. Silence is complicity. You cannot be silent in an unfolding genocide. https://t.co/Az5O7ZKYU5.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1730520366513000881",
-    "createdAt": "Fri Dec 01 09:33:01 +0000 2023",
-    "media": [
-      {
-        "url": "https://pbs.twimg.com/media/GAQLGTEWAAAQD6o.jpg",
-        "type": "photo"
-      }
-    ],
-    "entities": {
-      "hashtags": [
-        "FridaysForFuture",
-        "ClimateStrike"
-      ],
-      "urls": [],
-      "mentionedUsers": []
-    },
-    "fullText": "Climate strike week 276. We need real climate action now! #FridaysForFuture #ClimateStrike https://t.co/pSPCFEIyAS.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1729755982077571195",
-    "createdAt": "Wed Nov 29 06:55:38 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "FFF_Sweden"
-      ]
-    },
-    "fullText": "RT @FFF_Sweden: Members of the Europe Parliament we urge you to vote through the strongest law possible, as nature restoration obligations….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1729563938705092941",
-    "createdAt": "Tue Nov 28 18:12:31 +0000 2023",
-    "entities": {
-      "hashtags": [
-        "FrackingHell"
-      ],
-      "urls": [],
-      "mentionedUsers": [
-        "MMMoneyMatter"
-      ]
-    },
-    "fullText": "RT @MMMoneyMatter: Ever wondered what your pension gets up to when you’re not looking?​. Meet Oblivia Coalmine 🔥​. #FrackingHell https://t.….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1729425917208862934",
-    "createdAt": "Tue Nov 28 09:04:04 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "BBCJustinR"
-      ]
-    },
-    "fullText": "RT @BBCJustinR: My story is pretty straightforward - the UAE planned to use the COP28 climate talks to make oil deals. https://t.co/zK7dky….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1729400385347940759",
-    "createdAt": "Tue Nov 28 07:22:37 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "DrSimEvans"
-      ]
-    },
-    "fullText": "RT @DrSimEvans: V proud to finally share this new analysis. Revealed: How colonial rule radically shifts historical responsibility for clim….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1727976543819911349",
-    "createdAt": "Fri Nov 24 09:04:46 +0000 2023",
-    "media": [
-      {
-        "url": "https://pbs.twimg.com/media/F_sBgTHWAAA0NdK.jpg",
-        "type": "photo"
-      }
-    ],
-    "entities": {
-      "hashtags": [
-        "FridaysForFuture",
-        "ClimateStrike"
-      ],
-      "urls": [],
-      "mentionedUsers": []
-    },
-    "fullText": "Climate strike week 275. #FridaysForFuture #ClimateStrike https://t.co/pc67yqSF16.",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1727262798898741304",
-    "createdAt": "Wed Nov 22 09:48:36 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "Peters_Glen"
-      ]
-    },
-    "fullText": "RT @Peters_Glen: Global GHG emissions reached a record high of 57.4 GtCO2e in 2022, growing by 1.2%. This rate is slightly above the avera….",
-    "tweetBy": {
-      "fullName": "Greta Thunberg",
-      "id": "1006419421244678144",
-      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
-      "userName": "GretaThunberg",
-      "description": "Autistic climate justice activist Born at 375 ppm"
-    }
-  },
-  {
-    "id": "1737145551844491499",
-    "createdAt": "Tue Dec 19 16:19:08 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "ClintonGlobal",
-        "reviewjournal",
-        "HillaryClinton"
-      ]
-    },
-    "fullText": "RT @ClintonGlobal: “It’s a tragedy for every single person — and it has to be addressed.”. READ: @reviewjournal covers @HillaryClinton's tr….",
-    "tweetBy": {
-      "fullName": "Hillary Clinton",
-      "id": "1339835893",
-      "profileImage": "https://pbs.twimg.com/profile_images/1291192333199958017/SvH8J8_P_normal.jpg",
-      "userName": "HillaryClinton",
-      "description": "2016 Democratic Nominee, SecState, Senator, hair icon. Mom, Wife, Grandma x3, lawyer, advocate, fan of walks in the woods & standing up for our democracy."
-    }
-  },
-  {
     "id": "1736803372542701642",
     "createdAt": "Mon Dec 18 17:39:26 +0000 2023",
     "entities": {
@@ -3636,7 +2745,7 @@
       ],
       "mentionedUsers": []
     },
-    "fullText": "I'm so sorry to hear of the passing of my friend Dr. Gao Yaojie, who faced house arrest and exile from China after exposing a blood transfusion program that spread HIV/AIDS. She was simply one of the bravest people I've ever known. https://t.co/OPANFEomeb https://t.co/Kd20yXln3a.",
+    "fullText": "I'm so sorry to hear of the passing of my friend Dr. Gao Yaojie, who faced house arrest and exile from China after exposing a blood transfusion program that spread HIV/AIDS. She was simply one of the bravest people I've ever known.  ",
     "tweetBy": {
       "fullName": "Hillary Clinton",
       "id": "1339835893",
@@ -3653,52 +2762,9 @@
       "urls": [
         "https://medium.com/@HillaryClinton/human-rights-are-universal-c628f3d797d5"
       ],
-      "mentionedUsers": [
-        "mbachelet",
-        "MaEllenSirleaf"
-      ]
+      "mentionedUsers": ["mbachelet", "MaEllenSirleaf"]
     },
-    "fullText": "The UN Declaration of Human Rights turns 75 today. It took monumental effort to create the declaration in the aftermath of World War II. In 2023, it's more essential than ever. Read my new piece with @mbachelet, Allida Black, and @MaEllenSirleaf. https://t.co/UW0CIWRaER.",
-    "tweetBy": {
-      "fullName": "Hillary Clinton",
-      "id": "1339835893",
-      "profileImage": "https://pbs.twimg.com/profile_images/1291192333199958017/SvH8J8_P_normal.jpg",
-      "userName": "HillaryClinton",
-      "description": "2016 Democratic Nominee, SecState, Senator, hair icon. Mom, Wife, Grandma x3, lawyer, advocate, fan of walks in the woods & standing up for our democracy."
-    }
-  },
-  {
-    "id": "1732439393963557223",
-    "createdAt": "Wed Dec 06 16:38:33 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "SuffsMusical"
-      ]
-    },
-    "fullText": "RT @SuffsMusical: Your first look and listen at SUFFS is here! Watch a special, stripped-down performance of the musical’s new finale “Keep….",
-    "tweetBy": {
-      "fullName": "Hillary Clinton",
-      "id": "1339835893",
-      "profileImage": "https://pbs.twimg.com/profile_images/1291192333199958017/SvH8J8_P_normal.jpg",
-      "userName": "HillaryClinton",
-      "description": "2016 Democratic Nominee, SecState, Senator, hair icon. Mom, Wife, Grandma x3, lawyer, advocate, fan of walks in the woods & standing up for our democracy."
-    }
-  },
-  {
-    "id": "1732047834734817342",
-    "createdAt": "Tue Dec 05 14:42:38 +0000 2023",
-    "entities": {
-      "hashtags": [
-        "climate"
-      ],
-      "urls": [],
-      "mentionedUsers": [
-        "andersen_inger"
-      ]
-    },
-    "fullText": "RT @andersen_inger: Power is not given, it is taken. Women have #climate solutions &amp; yet they do not have a seat at the table. This has to….",
+    "fullText": "The UN Declaration of Human Rights turns 75 today. It took monumental effort to create the declaration in the aftermath of World War II. In 2023, it's more essential than ever. Read my new piece with @mbachelet, Allida Black, and @MaEllenSirleaf. ",
     "tweetBy": {
       "fullName": "Hillary Clinton",
       "id": "1339835893",
@@ -3713,31 +2779,9 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "leniomyrivili"
-      ]
+      "mentionedUsers": ["leniomyrivili"]
     },
     "fullText": "This is such an important point from @leniomyrivili. Climate-driven extreme heat doesn't just affect \"the planet.\" It affects our way of life.",
-    "tweetBy": {
-      "fullName": "Hillary Clinton",
-      "id": "1339835893",
-      "profileImage": "https://pbs.twimg.com/profile_images/1291192333199958017/SvH8J8_P_normal.jpg",
-      "userName": "HillaryClinton",
-      "description": "2016 Democratic Nominee, SecState, Senator, hair icon. Mom, Wife, Grandma x3, lawyer, advocate, fan of walks in the woods & standing up for our democracy."
-    }
-  },
-  {
-    "id": "1732022061751533682",
-    "createdAt": "Tue Dec 05 13:00:13 +0000 2023",
-    "entities": {
-      "hashtags": [],
-      "urls": [],
-      "mentionedUsers": [
-        "AtlanticCouncil",
-        "HillaryClinton"
-      ]
-    },
-    "fullText": "RT @AtlanticCouncil: “Extreme heat has to be viewed as one of the most dangerous results of the changing climate,” said @HillaryClinton tod….",
     "tweetBy": {
       "fullName": "Hillary Clinton",
       "id": "1339835893",
@@ -3752,9 +2796,7 @@
     "entities": {
       "hashtags": [],
       "urls": [],
-      "mentionedUsers": [
-        "ClimateEnvoy"
-      ]
+      "mentionedUsers": ["ClimateEnvoy"]
     },
     "fullText": "And thank you for your continued leadership on this most urgent of issues, @ClimateEnvoy!.",
     "tweetBy": {
@@ -3769,21 +2811,224 @@
     "id": "1731396108889317704",
     "createdAt": "Sun Dec 03 19:32:54 +0000 2023",
     "entities": {
-      "hashtags": [
-        "COP28"
-      ],
-      "urls": [
-        "https://twitter.com/ArshtRock/status/1730949158343696783"
-      ],
+      "hashtags": ["COP28"],
+      "urls": ["https://twitter.com/ArshtRock/status/1730949158343696783"],
       "mentionedUsers": []
     },
-    "fullText": "You can watch the full #COP28 event here: https://t.co/3PoEZFaizm.",
+    "fullText": "You can watch the full #COP28 event here: ",
     "tweetBy": {
       "fullName": "Hillary Clinton",
       "id": "1339835893",
       "profileImage": "https://pbs.twimg.com/profile_images/1291192333199958017/SvH8J8_P_normal.jpg",
       "userName": "HillaryClinton",
       "description": "2016 Democratic Nominee, SecState, Senator, hair icon. Mom, Wife, Grandma x3, lawyer, advocate, fan of walks in the woods & standing up for our democracy."
+    }
+  },
+  {
+    "id": "1460159146720997377",
+    "createdAt": "Mon Nov 15 08:14:03 +0000 2021",
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "A reminder: the people in power don’t need conferences, treaties or agreements to start taking real climate action. They can start today. When enough people come together then change will come and we can achieve almost anything. So instead of looking for hope - start creating it.",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1738250916992614690",
+    "createdAt": "Fri Dec 22 17:31:28 +0000 2023",
+    "entities": {
+      "hashtags": ["MarchAgainstBalochGenocide"],
+      "urls": [],
+      "mentionedUsers": ["MahrangBaloch_"]
+    },
+    "fullText": "Climate justice activists all over the world stand in solidarity with @MahrangBaloch_ and other peaceful protesters who have been detained, tortured and disrupted by Islamabad police for protesting against human rights abuses in Balochistan. #MarchAgainstBalochGenocide.",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1738146473303261548",
+    "createdAt": "Fri Dec 22 10:36:27 +0000 2023",
+    "media": [
+      {
+        "url": "https://pbs.twimg.com/media/GB8jAE-XIAAsmko.jpg",
+        "type": "photo"
+      }
+    ],
+    "entities": {
+      "hashtags": ["FridaysForFuture", "ClimateStrike"],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "Climate strike week 279. #FridaysForFuture #ClimateStrike ",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1735630503863062802",
+    "createdAt": "Fri Dec 15 11:58:53 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "Phasing out fossil fuels is a bare minimum. We need drastic immediate emission cuts and binding commitments from the largest contributors of the climate crisis to finance loss and damages, adaptation and a just transition in the most affected areas. 2/3.",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1735630505662394608",
+    "createdAt": "Fri Dec 15 11:58:53 +0000 2023",
+    "entities": {
+      "hashtags": ["FridaysForFuture", "ClimateStrike"],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "We cannot talk about climate action without addressing the root causes of this crisis and without having MAPA in the room. Let’s call this COP out for what it is - another betrayal and a stab in the back. #FridaysForFuture #ClimateStrike .3/3.",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1735630500595732879",
+    "createdAt": "Fri Dec 15 11:58:52 +0000 2023",
+    "media": [
+      {
+        "url": "https://pbs.twimg.com/media/GBYyvLGWEAAbj3v.jpg",
+        "type": "photo"
+      }
+    ],
+    "entities": {
+      "hashtags": ["COP28"],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "Climate strike week 278. The final outcome of #COP28 is not a “historic win”, it is yet another example of extremely vague and watered down texts full of loopholes that in no way is even close to being sufficient for staying within the 1,5° limit and ensure climate justice. 1/3🧵 ",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1733086868982411301",
+    "createdAt": "Fri Dec 08 11:31:23 +0000 2023",
+    "media": [
+      {
+        "url": "https://pbs.twimg.com/media/GA0pUXmXgAA8y1R.jpg",
+        "type": "photo"
+      }
+    ],
+    "entities": {
+      "hashtags": [
+        "COP28",
+        "FridaysForFuture",
+        "ClimateStrike",
+        "PollutersOut"
+      ],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "Climate strike week 277. People all over the world are now protesting to demand climate justice from #COP28 currently taking place in Dubai. We need the fossil fuel lobbyists out of climate negotiations, and no more empty promises!.#FridaysForFuture #ClimateStrike #PollutersOut ",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1731936152972570633",
+    "createdAt": "Tue Dec 05 07:18:51 +0000 2023",
+    "entities": {
+      "hashtags": [],
+      "urls": [
+        "https://www.theguardian.com/commentisfree/2023/dec/05/gaza-climate-justice-human-rights-greta-thunberg"
+      ],
+      "mentionedUsers": []
+    },
+    "fullText": "The death rate in Gaza is at a historic high, with thousands of children killed in just a few weeks. Demanding an end to this inexcusable violence is a question of basic humanity. Silence is complicity. You cannot be silent in an unfolding genocide. ",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1730520366513000881",
+    "createdAt": "Fri Dec 01 09:33:01 +0000 2023",
+    "media": [
+      {
+        "url": "https://pbs.twimg.com/media/GAQLGTEWAAAQD6o.jpg",
+        "type": "photo"
+      }
+    ],
+    "entities": {
+      "hashtags": ["FridaysForFuture", "ClimateStrike"],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "Climate strike week 276. We need real climate action now! #FridaysForFuture #ClimateStrike ",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
+    }
+  },
+  {
+    "id": "1727976543819911349",
+    "createdAt": "Fri Nov 24 09:04:46 +0000 2023",
+    "media": [
+      {
+        "url": "https://pbs.twimg.com/media/F_sBgTHWAAA0NdK.jpg",
+        "type": "photo"
+      }
+    ],
+    "entities": {
+      "hashtags": ["FridaysForFuture", "ClimateStrike"],
+      "urls": [],
+      "mentionedUsers": []
+    },
+    "fullText": "Climate strike week 275. #FridaysForFuture #ClimateStrike ",
+    "tweetBy": {
+      "fullName": "Greta Thunberg",
+      "id": "1006419421244678144",
+      "profileImage": "https://pbs.twimg.com/profile_images/1459213153301053442/rL5hhpAI_normal.jpg",
+      "userName": "GretaThunberg",
+      "description": "Autistic climate justice activist Born at 375 ppm"
     }
   }
 ]
