@@ -7,10 +7,10 @@ class Id {
   String toString() => 'Id(oid: $oid)';
 
   factory Id.fromJson(Map<String, dynamic> json) => Id(
-    oid: json['\$oid'] as String?,
-  );
+        oid: json['\$oid'] as String?,
+      );
 
   Map<String, dynamic> toJson() => {
-    '$oid': oid,
-  };
+        '$oid': oid,
+      };
 }

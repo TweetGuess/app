@@ -4,13 +4,15 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:tweetguess/core/utils/list.dart';
-import 'package:tweetguess/models/Tweet.dart';
+
+import '../../models/interface_tweet.dart';
+import '../../models/retwitt/tweet.dart';
 
 class TweetService {
-  static List<Tweet> _tweets = [];
+  static List<ITweet> _tweets = [];
   static bool finished = false;
 
-  static Future<List<Tweet>> parseTweetsJson(String file) async {
+  static Future<List<ITweet>> parseTweetsJson(String file) async {
     return List<Map<String, dynamic>>.from(jsonDecode(file))
         .map((Map<String, dynamic> json) {
       final tempTweet = Tweet.fromJson(json);
@@ -20,7 +22,7 @@ class TweetService {
 
   static Future<bool> loadTweets() async {
     if (_tweets.isEmpty) {
-      var file = await rootBundle.loadString("assets/tweets.json");
+      var file = await rootBundle.loadString("assets/tweets/tweets23.json");
 
       _tweets = await compute(parseTweetsJson, file);
 
@@ -42,13 +44,13 @@ class TweetService {
     return completer.future;
   }
 
-  static Future<List<Tweet>> getTweets() async {
+  static Future<List<ITweet>> getTweets() async {
     await _waitUntilDone();
 
     return _tweets;
   }
 
-  static Tweet getUnusedTweet(List<String> usedTweets) {
+  static ITweet getUnusedTweet(List<String> usedTweets) {
     if (_tweets.isEmpty) {
       throw Exception("Tweets are not initialized yet!");
     }
@@ -75,10 +77,10 @@ class TweetService {
       var randomTweet = _tweets.randomElement();
 
       if (!filter.any(
-            (e) => e.$2 == randomTweet.handle,
+            (e) => e.$2 == randomTweet.authorHandle,
           ) &&
-          !res.any((element) => element.$1 == randomTweet.name)) {
-        res.add((randomTweet.name, randomTweet.handle));
+          !res.any((element) => element.$1 == randomTweet.authorName)) {
+        res.add((randomTweet.authorName, randomTweet.authorHandle));
       } else {
         i--;
       }

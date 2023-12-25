@@ -6,7 +6,8 @@ import '../../modules/game/presentation/bloc/game_state.dart';
 import '../../modules/game/presentation/bloc/models/game.dart';
 
 abstract class GameController {
-  GameController(this.context, {required this.gameScoreNotifier, required this.gameTimerKey});
+  GameController(this.context,
+      {required this.gameScoreNotifier, required this.gameTimerKey});
 
   /// Used to disable taps during score count animation
   final ValueNotifier<bool> ignoringTapsNotifier = ValueNotifier(false);
@@ -16,9 +17,8 @@ abstract class GameController {
 
   /// Used to update game score after we get feedback on the answer
   final ValueNotifier<int?> gameScoreNotifier;
-  
-  late BuildContext context;
 
+  late BuildContext context;
 
   void pauseGame() {}
 
