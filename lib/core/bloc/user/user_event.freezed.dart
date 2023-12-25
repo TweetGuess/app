@@ -727,3 +727,143 @@ abstract class _UserSetAppearance implements UserSetAppearance {
   _$$_UserSetAppearanceCopyWith<_$_UserSetAppearance> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+mixin _$UserUpdateGameplaySettings {
+  GameplaySettings get gameplaySettings => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UserUpdateGameplaySettingsCopyWith<UserUpdateGameplaySettings>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UserUpdateGameplaySettingsCopyWith<$Res> {
+  factory $UserUpdateGameplaySettingsCopyWith(UserUpdateGameplaySettings value,
+          $Res Function(UserUpdateGameplaySettings) then) =
+      _$UserUpdateGameplaySettingsCopyWithImpl<$Res,
+          UserUpdateGameplaySettings>;
+  @useResult
+  $Res call({GameplaySettings gameplaySettings});
+
+  $GameplaySettingsCopyWith<$Res> get gameplaySettings;
+}
+
+/// @nodoc
+class _$UserUpdateGameplaySettingsCopyWithImpl<$Res,
+        $Val extends UserUpdateGameplaySettings>
+    implements $UserUpdateGameplaySettingsCopyWith<$Res> {
+  _$UserUpdateGameplaySettingsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? gameplaySettings = null,
+  }) {
+    return _then(_value.copyWith(
+      gameplaySettings: null == gameplaySettings
+          ? _value.gameplaySettings
+          : gameplaySettings // ignore: cast_nullable_to_non_nullable
+              as GameplaySettings,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameplaySettingsCopyWith<$Res> get gameplaySettings {
+    return $GameplaySettingsCopyWith<$Res>(_value.gameplaySettings, (value) {
+      return _then(_value.copyWith(gameplaySettings: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_UserUpdateGameplaySettingsCopyWith<$Res>
+    implements $UserUpdateGameplaySettingsCopyWith<$Res> {
+  factory _$$_UserUpdateGameplaySettingsCopyWith(
+          _$_UserUpdateGameplaySettings value,
+          $Res Function(_$_UserUpdateGameplaySettings) then) =
+      __$$_UserUpdateGameplaySettingsCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({GameplaySettings gameplaySettings});
+
+  @override
+  $GameplaySettingsCopyWith<$Res> get gameplaySettings;
+}
+
+/// @nodoc
+class __$$_UserUpdateGameplaySettingsCopyWithImpl<$Res>
+    extends _$UserUpdateGameplaySettingsCopyWithImpl<$Res,
+        _$_UserUpdateGameplaySettings>
+    implements _$$_UserUpdateGameplaySettingsCopyWith<$Res> {
+  __$$_UserUpdateGameplaySettingsCopyWithImpl(
+      _$_UserUpdateGameplaySettings _value,
+      $Res Function(_$_UserUpdateGameplaySettings) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? gameplaySettings = null,
+  }) {
+    return _then(_$_UserUpdateGameplaySettings(
+      gameplaySettings: null == gameplaySettings
+          ? _value.gameplaySettings
+          : gameplaySettings // ignore: cast_nullable_to_non_nullable
+              as GameplaySettings,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UserUpdateGameplaySettings implements _UserUpdateGameplaySettings {
+  _$_UserUpdateGameplaySettings({required this.gameplaySettings});
+
+  @override
+  final GameplaySettings gameplaySettings;
+
+  @override
+  String toString() {
+    return 'UserUpdateGameplaySettings(gameplaySettings: $gameplaySettings)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UserUpdateGameplaySettings &&
+            (identical(other.gameplaySettings, gameplaySettings) ||
+                other.gameplaySettings == gameplaySettings));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, gameplaySettings);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_UserUpdateGameplaySettingsCopyWith<_$_UserUpdateGameplaySettings>
+      get copyWith => __$$_UserUpdateGameplaySettingsCopyWithImpl<
+          _$_UserUpdateGameplaySettings>(this, _$identity);
+}
+
+abstract class _UserUpdateGameplaySettings
+    implements UserUpdateGameplaySettings {
+  factory _UserUpdateGameplaySettings(
+          {required final GameplaySettings gameplaySettings}) =
+      _$_UserUpdateGameplaySettings;
+
+  @override
+  GameplaySettings get gameplaySettings;
+  @override
+  @JsonKey(ignore: true)
+  _$$_UserUpdateGameplaySettingsCopyWith<_$_UserUpdateGameplaySettings>
+      get copyWith => throw _privateConstructorUsedError;
+}

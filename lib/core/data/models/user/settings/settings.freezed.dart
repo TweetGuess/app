@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'settings/settings.dart';
+part of 'settings.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -22,6 +22,7 @@ UserSettings _$UserSettingsFromJson(Map<String, dynamic> json) {
 mixin _$UserSettings {
   ThemeMode get appearance => throw _privateConstructorUsedError;
   AppLanguage get language => throw _privateConstructorUsedError;
+  GameplaySettings get gameplaySettings => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,12 @@ abstract class $UserSettingsCopyWith<$Res> {
           UserSettings value, $Res Function(UserSettings) then) =
       _$UserSettingsCopyWithImpl<$Res, UserSettings>;
   @useResult
-  $Res call({ThemeMode appearance, AppLanguage language});
+  $Res call(
+      {ThemeMode appearance,
+      AppLanguage language,
+      GameplaySettings gameplaySettings});
+
+  $GameplaySettingsCopyWith<$Res> get gameplaySettings;
 }
 
 /// @nodoc
@@ -53,6 +59,7 @@ class _$UserSettingsCopyWithImpl<$Res, $Val extends UserSettings>
   $Res call({
     Object? appearance = null,
     Object? language = null,
+    Object? gameplaySettings = null,
   }) {
     return _then(_value.copyWith(
       appearance: null == appearance
@@ -63,7 +70,19 @@ class _$UserSettingsCopyWithImpl<$Res, $Val extends UserSettings>
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as AppLanguage,
+      gameplaySettings: null == gameplaySettings
+          ? _value.gameplaySettings
+          : gameplaySettings // ignore: cast_nullable_to_non_nullable
+              as GameplaySettings,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GameplaySettingsCopyWith<$Res> get gameplaySettings {
+    return $GameplaySettingsCopyWith<$Res>(_value.gameplaySettings, (value) {
+      return _then(_value.copyWith(gameplaySettings: value) as $Val);
+    });
   }
 }
 
@@ -75,7 +94,13 @@ abstract class _$$_UserSettingsCopyWith<$Res>
       __$$_UserSettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ThemeMode appearance, AppLanguage language});
+  $Res call(
+      {ThemeMode appearance,
+      AppLanguage language,
+      GameplaySettings gameplaySettings});
+
+  @override
+  $GameplaySettingsCopyWith<$Res> get gameplaySettings;
 }
 
 /// @nodoc
@@ -91,6 +116,7 @@ class __$$_UserSettingsCopyWithImpl<$Res>
   $Res call({
     Object? appearance = null,
     Object? language = null,
+    Object? gameplaySettings = null,
   }) {
     return _then(_$_UserSettings(
       appearance: null == appearance
@@ -101,6 +127,10 @@ class __$$_UserSettingsCopyWithImpl<$Res>
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as AppLanguage,
+      gameplaySettings: null == gameplaySettings
+          ? _value.gameplaySettings
+          : gameplaySettings // ignore: cast_nullable_to_non_nullable
+              as GameplaySettings,
     ));
   }
 }
@@ -109,7 +139,9 @@ class __$$_UserSettingsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserSettings implements _UserSettings {
   _$_UserSettings(
-      {this.appearance = ThemeMode.system, this.language = AppLanguage.system});
+      {this.appearance = ThemeMode.system,
+      this.language = AppLanguage.system,
+      this.gameplaySettings = const GameplaySettings()});
 
   factory _$_UserSettings.fromJson(Map<String, dynamic> json) =>
       _$$_UserSettingsFromJson(json);
@@ -120,10 +152,13 @@ class _$_UserSettings implements _UserSettings {
   @override
   @JsonKey()
   final AppLanguage language;
+  @override
+  @JsonKey()
+  final GameplaySettings gameplaySettings;
 
   @override
   String toString() {
-    return 'UserSettings(appearance: $appearance, language: $language)';
+    return 'UserSettings(appearance: $appearance, language: $language, gameplaySettings: $gameplaySettings)';
   }
 
   @override
@@ -134,12 +169,15 @@ class _$_UserSettings implements _UserSettings {
             (identical(other.appearance, appearance) ||
                 other.appearance == appearance) &&
             (identical(other.language, language) ||
-                other.language == language));
+                other.language == language) &&
+            (identical(other.gameplaySettings, gameplaySettings) ||
+                other.gameplaySettings == gameplaySettings));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, appearance, language);
+  int get hashCode =>
+      Object.hash(runtimeType, appearance, language, gameplaySettings);
 
   @JsonKey(ignore: true)
   @override
@@ -158,7 +196,8 @@ class _$_UserSettings implements _UserSettings {
 abstract class _UserSettings implements UserSettings {
   factory _UserSettings(
       {final ThemeMode appearance,
-      final AppLanguage language}) = _$_UserSettings;
+      final AppLanguage language,
+      final GameplaySettings gameplaySettings}) = _$_UserSettings;
 
   factory _UserSettings.fromJson(Map<String, dynamic> json) =
       _$_UserSettings.fromJson;
@@ -167,6 +206,8 @@ abstract class _UserSettings implements UserSettings {
   ThemeMode get appearance;
   @override
   AppLanguage get language;
+  @override
+  GameplaySettings get gameplaySettings;
   @override
   @JsonKey(ignore: true)
   _$$_UserSettingsCopyWith<_$_UserSettings> get copyWith =>

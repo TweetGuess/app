@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tweetguess/core/data/models/user/settings/gameplay.dart';
 
 import '../../../modules/game/presentation/bloc/models/game.dart';
 import '../../data/models/user/settings/language.dart';
@@ -38,4 +39,10 @@ class UserSetLanguage extends UserEvent with _$UserSetLanguage {
 class UserSetAppearance extends UserEvent with _$UserSetAppearance {
   factory UserSetAppearance({required ThemeMode appearance}) =
       _UserSetAppearance;
+}
+
+@freezed
+class UserUpdateGameplaySettings extends UserEvent with _$UserUpdateGameplaySettings {
+  factory UserUpdateGameplaySettings({required GameplaySettings gameplaySettings}) =
+      _UserUpdateGameplaySettings;
 }

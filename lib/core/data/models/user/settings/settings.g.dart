@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'settings/settings.dart';
+part of 'settings.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -12,12 +12,17 @@ _$_UserSettings _$$_UserSettingsFromJson(Map<String, dynamic> json) =>
           ThemeMode.system,
       language: $enumDecodeNullable(_$AppLanguageEnumMap, json['language']) ??
           AppLanguage.system,
+      gameplaySettings: json['gameplaySettings'] == null
+          ? const GameplaySettings()
+          : GameplaySettings.fromJson(
+              json['gameplaySettings'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_UserSettingsToJson(_$_UserSettings instance) =>
     <String, dynamic>{
       'appearance': _$ThemeModeEnumMap[instance.appearance]!,
       'language': _$AppLanguageEnumMap[instance.language]!,
+      'gameplaySettings': instance.gameplaySettings,
     };
 
 const _$ThemeModeEnumMap = {

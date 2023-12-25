@@ -27,6 +27,7 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
     on<UserResetStats>(_handleResetStats);
     on<UserSetAppearance>(_handleSetAppearance);
     on<UserSetLanguage>(_handleSetLanguage);
+    on<UserUpdateGameplaySettings>(_handleUpdateGameplaySettings);
   }
 
   @override
@@ -130,5 +131,12 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
         settings: state.settings.copyWith(appearance: event.appearance),
       ),
     );
+  }
+
+  FutureOr<void> _handleUpdateGameplaySettings(
+    UserUpdateGameplaySettings event,
+    Emitter<UserState> emit,
+  ) {
+    emit(state.copyWith.settings(gameplaySettings: event.gameplaySettings));
   }
 }
