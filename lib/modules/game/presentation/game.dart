@@ -216,12 +216,15 @@ class _GameScreenState extends State<GameScreen> {
           if (media != null &&
               media.any((element) => element.type != "video")) ...[
             const Gap(20),
-            CachedNetworkImage(
-              imageUrl: media
-                  .where((element) => element.type != "video")
-                  .firstOrNull!
-                  .url!,
-              height: 100,
+            Expanded(
+              child: CachedNetworkImage(
+                imageUrl: media
+                    .where((element) => element.type != "video")
+                    .firstOrNull!
+                    .url!,
+                placeholder: (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
+              ),
             )
           ]
         ],

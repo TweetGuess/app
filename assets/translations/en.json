@@ -76,6 +76,13 @@
         "title": "App Language"
       }
     },
+    "gameplay": {
+      "title": "Gameplay",
+      "enable_images": {
+        "title": "Show images in tweets",
+        "sub": "Images can give you more hints, and make the game easier."
+      }
+    },
     "account": {
       "title": "Account",
       "reset_stats": {

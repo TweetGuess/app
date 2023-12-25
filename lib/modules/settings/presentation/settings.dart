@@ -8,15 +8,18 @@ import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/modules/settings/widgets/section_header.dart';
 import 'package:tweetguess/ui/components/primary_bottom_sheet.dart';
+import 'package:tweetguess/ui/components/settings/settings_toggle.dart';
 import 'package:tweetguess/ui/extensions/theme_mode.dart';
 
-import '../../../ui/components/settings_tile.dart';
+import '../../../ui/components/settings/settings_tile.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final userBloc = context.watch<UserBloc>();
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -31,7 +34,7 @@ class SettingsPage extends StatelessWidget {
           UISettingsTile(
             icon: Icons.color_lens_outlined,
             title: "settings.general.appearance.title".tr(),
-            subtitle: context.read<UserBloc>().userSettings.appearance.langName,
+            subtitle: userBloc.userSettings.appearance.langName,
             onPressed: () {
               _showThemeSelectionBS(context);
             },
@@ -40,7 +43,7 @@ class SettingsPage extends StatelessWidget {
           UISettingsTile(
             icon: Icons.language_outlined,
             title: "settings.general.lang.title".tr(),
-            subtitle: context.read<UserBloc>().userSettings.language.langName,
+            subtitle: userBloc.userSettings.language.langName,
             onPressed: () {
               _showLanguageSelectionBS(context);
             },
@@ -61,6 +64,25 @@ class SettingsPage extends StatelessWidget {
               );
             },
             iconTint: Colors.red,
+          ),
+          SectionHeader(
+            title: "settings.gameplay.title".tr(),
+          ),
+          UISettingsToggle(
+            icon: Icons.image,
+            title: "settings.gameplay.enable_images.title".tr(),
+            subtitle: "settings.gameplay.enable_images.sub".tr(),
+            onPressed: (value) {
+              context.read<UserBloc>().add(
+                    UserUpdateGameplaySettings(
+                      gameplaySettings: userBloc.userSettings.gameplaySettings
+                          .copyWith(enableImagesInTweets: value),
+                    ),
+                  );
+            },
+            iconTint: Colors.brown,
+            initialValue:
+                userBloc.userSettings.gameplaySettings.enableImagesInTweets,
           ),
           SectionHeader(
             title: "settings.more.title".tr(),

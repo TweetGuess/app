@@ -76,6 +76,13 @@
         "title": "App-Sprache"
       }
     },
+    "gameplay": {
+      "title": "Gameplay",
+      "enable_images": {
+        "title": "Bilder von Tweets anzeigen",
+        "sub": "Bilder können das Gameplay erleichtern als weiteren Hinweis auf den Autor."
+      }
+    },
     "account": {
       "title": "Account",
       "reset_stats": {
