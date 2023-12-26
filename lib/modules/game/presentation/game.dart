@@ -6,13 +6,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/utils/date.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/models/interface_tweet.dart';
+import 'package:tweetguess/models/retwitt/media.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_event.dart';
 import 'package:tweetguess/modules/game/presentation/widgets/countdown.dart';
 import 'package:tweetguess/modules/game/presentation/widgets/timer.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
 import 'package:tweetguess/ui/extensions/app_bar.dart';
+import 'package:tweetguess/ui/extensions/color.dart';
 
 import '../../../ui/components/primary_container.dart';
 import '../../../ui/utils/routes/circular_transition_route.dart';
@@ -205,36 +208,69 @@ class _GameScreenState extends State<GameScreen> {
     BuildContext context,
     GameRoundInProgress gameInProgress,
   ) {
-    var media =
-        TweetService.getTweetById(gameInProgress.game.currentRound.tweetId)!
-            .getMedia();
+    var currentTweet =
+        TweetService.getTweetById(gameInProgress.game.currentRound.tweetId)!;
 
     return PrimaryContainer(
+      padding: const EdgeInsets.all(20).copyWith(bottom: 10),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(gameInProgress.game.currentRound.content),
-          if (context
-                  .read<UserBloc>()
-                  .userSettings
-                  .gameplaySettings
-                  .enableImagesInTweets &&
-              media != null &&
-              media.any((element) => element.type != "video")) ...[
-            const Gap(20),
-            Expanded(
-              child: CachedNetworkImage(
-                imageUrl: media
-                    .where((element) => element.type != "video")
-                    .firstOrNull!
-                    .url!,
-                placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
+          Expanded(
+            child: _buildInnerTweetContent(
+                gameInProgress, context, currentTweet.getMedia()),
+          ),
+          if (currentTweet.createdAt != null) ...[
+            const Gap(10),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                currentTweet.createdAt!.toDateTimeFormatMMMdY(),
+                style: TextStyle(
+                  fontFamily: "Pixeboy",
+                  fontWeight: FontWeight.w100,
+                  color: Theme.of(context)
+                      .textTheme
+                      .bodyMedium!
+                      .color!
+                      .lighten(0.6),
+                ),
               ),
             ),
           ],
         ],
       ),
+    );
+  }
+
+  Column _buildInnerTweetContent(
+    GameRoundInProgress gameInProgress,
+    BuildContext context,
+    List<Media>? media,
+  ) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(gameInProgress.game.currentRound.content),
+        if (context
+                .read<UserBloc>()
+                .userSettings
+                .gameplaySettings
+                .enableImagesInTweets &&
+            media != null &&
+            media.any((element) => element.type != "video")) ...[
+          const Gap(20),
+          Expanded(
+            child: CachedNetworkImage(
+              imageUrl: media
+                  .where((element) => element.type != "video")
+                  .firstOrNull!
+                  .url!,
+              placeholder: (context, url) =>
+                  const Center(child: CircularProgressIndicator()),
+            ),
+          ),
+        ],
+      ],
     );
   }
 
