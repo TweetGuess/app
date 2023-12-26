@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 
 class PrimaryContainer extends StatelessWidget {
   const PrimaryContainer(
-      {super.key, required this.child, this.backgroundColor, this.height});
+      {super.key, required this.child, this.backgroundColor, this.height, this.padding});
 
   final Widget child;
   final Color? backgroundColor;
   final double? height;
+  final EdgeInsetsGeometry? padding;
 
   static get decoration => (BuildContext context) {
         return BoxDecoration(
@@ -24,7 +25,7 @@ class PrimaryContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       height: height,
-      padding: const EdgeInsets.all(20),
+      padding: padding ?? const EdgeInsets.all(20),
       child: Center(
         child: child,
       ),
