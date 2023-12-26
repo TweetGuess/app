@@ -16,6 +16,8 @@ class Tweet implements ITweet {
   @override
   String text;
   List<dynamic>? links;
+  @override
+  DateTime? createdAt;
 
   Tweet({
     required this.dbId,

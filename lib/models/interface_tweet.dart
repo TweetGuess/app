@@ -7,12 +7,14 @@ abstract class ITweet {
     required this.authorHandle,
     required this.tweetId,
     required this.text,
+    this.createdAt,
   });
 
   String authorName;
   String authorHandle;
   String tweetId;
   String text;
+  DateTime? createdAt;
 }
 
 extension ITweetHelper on ITweet {
@@ -20,7 +22,7 @@ extension ITweetHelper on ITweet {
     if (this is Tweet) {
       return (this as Tweet).media;
     }
-    
+
     return null;
   }
 }

@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:easy_localization/easy_localization.dart';
 import 'package:tweetguess/models/interface_tweet.dart';
 
 import 'entities.dart';
@@ -18,7 +19,8 @@ class Tweet implements ITweet {
   @override
   String tweetId;
 
-  String? createdAt;
+  @override
+  DateTime? createdAt;
   TwitterUser? tweetBy;
   Entities? entities;
   String? quoted;
@@ -54,7 +56,10 @@ class Tweet implements ITweet {
 
   factory Tweet.fromJson(Map<String, dynamic> json) => Tweet(
         tweetId: json['id'],
-        createdAt: json['createdAt'] as String?,
+        createdAt: json['createdAt'] != null
+            ? DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy")
+                .parse(json['createdAt'])
+            : json['createdAt'],
         tweetBy: json['tweetBy'] == null
             ? null
             : TwitterUser.fromJson(json['tweetBy'] as Map<String, dynamic>),
