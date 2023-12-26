@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/models/interface_tweet.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_event.dart';
@@ -174,11 +175,11 @@ class _GameScreenState extends State<GameScreen> {
                   gameInProgress,
                   i * 2 + 1,
                 ),
-              )
+              ),
             ],
           ),
         ),
-        const Gap(10)
+        const Gap(10),
       ]) {
         layout.add(element);
       }
@@ -213,7 +214,12 @@ class _GameScreenState extends State<GameScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(gameInProgress.game.currentRound.content),
-          if (media != null &&
+          if (context
+                  .read<UserBloc>()
+                  .userSettings
+                  .gameplaySettings
+                  .enableImagesInTweets &&
+              media != null &&
               media.any((element) => element.type != "video")) ...[
             const Gap(20),
             Expanded(
@@ -225,8 +231,8 @@ class _GameScreenState extends State<GameScreen> {
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
               ),
-            )
-          ]
+            ),
+          ],
         ],
       ),
     );

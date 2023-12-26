@@ -70,7 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     title: "profile.statistics.rounds".tr(),
                     icon: Icons.history,
                   ),
-                )
+                ),
               ],
             ),
             const Gap(10),
@@ -99,7 +99,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         icon: Icons.hourglass_empty,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -145,7 +145,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             title: "profile.statistics.longest_streak".tr(),
                             icon: Icons.trending_up,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -157,8 +157,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           child: InfoTile(
                             isGradient: true,
                             gradientColors: colors,
-                            data:
-                                '${userBloc.state.statistics.roundsPlayed / userBloc.state.statistics.gamesPlayed}',
+                            data: (userBloc.state.statistics.roundsPlayed /
+                                    userBloc.state.statistics.gamesPlayed)
+                                .toStringAsFixed(1),
                             title: "profile.statistics.avg_rounds".tr(),
                             icon: Icons.av_timer,
                           ),
@@ -207,7 +208,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 AutoSizeText("profile.statistics.more_to_come".tr()),
                 const Gap(16),
               ],
-            )
+            ),
           ],
         ),
       ),
@@ -229,7 +230,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Color(0xff54a9ec),
                     Color(0xffD0E3EA),
                     Color(0xffFCF7E7),
-                    Color(0xffC24C32)
+                    Color(0xffC24C32),
                   ],
                   name: userBloc.state.username,
                 ),
@@ -252,7 +253,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     context: context,
                     builder: (context) => const _ChangeUsernameDialogue(),
                   ),
-                )
+                ),
               ],
             ),
           ],
