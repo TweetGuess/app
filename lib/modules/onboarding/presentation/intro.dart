@@ -1,9 +1,11 @@
 import 'package:animated_widgets/widgets/translation_animated.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:tweetguess/core/utils/shared_preferences.dart';
+import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/bloc/user/user_event.dart';
 
 import '../../home/presentation/home.dart';
 
@@ -46,12 +48,12 @@ class _IntroScreenState extends State<IntroScreen> {
               Offset(0, -400), // disabled value value
               Offset(0, -300),
               Offset(0, -200), //intermediate value
-              Offset(0, 0) //enabled value
+              Offset(0, 0), //enabled value
             ],
             child: Image.asset("assets/splash.png", height: 300.0),
           ),
         ),
-      )
+      ),
     ];
 
     return IntroductionScreen(
@@ -72,7 +74,10 @@ class _IntroScreenState extends State<IntroScreen> {
             child: const HomeScreen(),
           ),
         );
-        SharedPrefs().finishedIntro = true;
+
+        context
+            .read<UserBloc>()
+            .add(UserUpdateIntroStatus(finishedIntro: true));
       },
     );
   }

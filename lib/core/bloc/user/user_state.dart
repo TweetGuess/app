@@ -9,6 +9,7 @@ part 'user_state.g.dart';
 @freezed
 class UserState with _$UserState {
   factory UserState({
+    @Default(false) bool finishedIntro,
     required String username,
     required UserStatistics statistics,
     required UserSettings settings,

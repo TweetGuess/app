@@ -6,8 +6,8 @@ part of 'settings.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserSettings _$$_UserSettingsFromJson(Map<String, dynamic> json) =>
-    _$_UserSettings(
+_$UserSettingsImpl _$$UserSettingsImplFromJson(Map<String, dynamic> json) =>
+    _$UserSettingsImpl(
       appearance: $enumDecodeNullable(_$ThemeModeEnumMap, json['appearance']) ??
           ThemeMode.system,
       language: $enumDecodeNullable(_$AppLanguageEnumMap, json['language']) ??
@@ -18,7 +18,7 @@ _$_UserSettings _$$_UserSettingsFromJson(Map<String, dynamic> json) =>
               json['gameplaySettings'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_UserSettingsToJson(_$_UserSettings instance) =>
+Map<String, dynamic> _$$UserSettingsImplToJson(_$UserSettingsImpl instance) =>
     <String, dynamic>{
       'appearance': _$ThemeModeEnumMap[instance.appearance]!,
       'language': _$AppLanguageEnumMap[instance.language]!,

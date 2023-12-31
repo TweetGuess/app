@@ -87,11 +87,11 @@ class _$UserSettingsCopyWithImpl<$Res, $Val extends UserSettings>
 }
 
 /// @nodoc
-abstract class _$$_UserSettingsCopyWith<$Res>
+abstract class _$$UserSettingsImplCopyWith<$Res>
     implements $UserSettingsCopyWith<$Res> {
-  factory _$$_UserSettingsCopyWith(
-          _$_UserSettings value, $Res Function(_$_UserSettings) then) =
-      __$$_UserSettingsCopyWithImpl<$Res>;
+  factory _$$UserSettingsImplCopyWith(
+          _$UserSettingsImpl value, $Res Function(_$UserSettingsImpl) then) =
+      __$$UserSettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -104,11 +104,11 @@ abstract class _$$_UserSettingsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserSettingsCopyWithImpl<$Res>
-    extends _$UserSettingsCopyWithImpl<$Res, _$_UserSettings>
-    implements _$$_UserSettingsCopyWith<$Res> {
-  __$$_UserSettingsCopyWithImpl(
-      _$_UserSettings _value, $Res Function(_$_UserSettings) _then)
+class __$$UserSettingsImplCopyWithImpl<$Res>
+    extends _$UserSettingsCopyWithImpl<$Res, _$UserSettingsImpl>
+    implements _$$UserSettingsImplCopyWith<$Res> {
+  __$$UserSettingsImplCopyWithImpl(
+      _$UserSettingsImpl _value, $Res Function(_$UserSettingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_UserSettingsCopyWithImpl<$Res>
     Object? language = null,
     Object? gameplaySettings = null,
   }) {
-    return _then(_$_UserSettings(
+    return _then(_$UserSettingsImpl(
       appearance: null == appearance
           ? _value.appearance
           : appearance // ignore: cast_nullable_to_non_nullable
@@ -137,14 +137,14 @@ class __$$_UserSettingsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserSettings implements _UserSettings {
-  _$_UserSettings(
+class _$UserSettingsImpl implements _UserSettings {
+  _$UserSettingsImpl(
       {this.appearance = ThemeMode.system,
       this.language = AppLanguage.system,
       this.gameplaySettings = const GameplaySettings()});
 
-  factory _$_UserSettings.fromJson(Map<String, dynamic> json) =>
-      _$$_UserSettingsFromJson(json);
+  factory _$UserSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserSettingsImplFromJson(json);
 
   @override
   @JsonKey()
@@ -162,10 +162,10 @@ class _$_UserSettings implements _UserSettings {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserSettings &&
+            other is _$UserSettingsImpl &&
             (identical(other.appearance, appearance) ||
                 other.appearance == appearance) &&
             (identical(other.language, language) ||
@@ -182,12 +182,12 @@ class _$_UserSettings implements _UserSettings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserSettingsCopyWith<_$_UserSettings> get copyWith =>
-      __$$_UserSettingsCopyWithImpl<_$_UserSettings>(this, _$identity);
+  _$$UserSettingsImplCopyWith<_$UserSettingsImpl> get copyWith =>
+      __$$UserSettingsImplCopyWithImpl<_$UserSettingsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserSettingsToJson(
+    return _$$UserSettingsImplToJson(
       this,
     );
   }
@@ -197,10 +197,10 @@ abstract class _UserSettings implements UserSettings {
   factory _UserSettings(
       {final ThemeMode appearance,
       final AppLanguage language,
-      final GameplaySettings gameplaySettings}) = _$_UserSettings;
+      final GameplaySettings gameplaySettings}) = _$UserSettingsImpl;
 
   factory _UserSettings.fromJson(Map<String, dynamic> json) =
-      _$_UserSettings.fromJson;
+      _$UserSettingsImpl.fromJson;
 
   @override
   ThemeMode get appearance;
@@ -210,6 +210,6 @@ abstract class _UserSettings implements UserSettings {
   GameplaySettings get gameplaySettings;
   @override
   @JsonKey(ignore: true)
-  _$$_UserSettingsCopyWith<_$_UserSettings> get copyWith =>
+  _$$UserSettingsImplCopyWith<_$UserSettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

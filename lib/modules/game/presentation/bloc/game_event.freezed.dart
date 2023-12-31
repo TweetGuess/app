@@ -104,25 +104,25 @@ class _$GameEventCopyWithImpl<$Res, $Val extends GameEvent>
 }
 
 /// @nodoc
-abstract class _$$StartGameCopyWith<$Res> {
-  factory _$$StartGameCopyWith(
-          _$StartGame value, $Res Function(_$StartGame) then) =
-      __$$StartGameCopyWithImpl<$Res>;
+abstract class _$$StartGameImplCopyWith<$Res> {
+  factory _$$StartGameImplCopyWith(
+          _$StartGameImpl value, $Res Function(_$StartGameImpl) then) =
+      __$$StartGameImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$StartGameCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$StartGame>
-    implements _$$StartGameCopyWith<$Res> {
-  __$$StartGameCopyWithImpl(
-      _$StartGame _value, $Res Function(_$StartGame) _then)
+class __$$StartGameImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$StartGameImpl>
+    implements _$$StartGameImplCopyWith<$Res> {
+  __$$StartGameImplCopyWithImpl(
+      _$StartGameImpl _value, $Res Function(_$StartGameImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$StartGame implements StartGame {
-  _$StartGame();
+class _$StartGameImpl implements StartGame {
+  _$StartGameImpl();
 
   @override
   String toString() {
@@ -130,9 +130,9 @@ class _$StartGame implements StartGame {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartGame);
+        (other.runtimeType == runtimeType && other is _$StartGameImpl);
   }
 
   @override
@@ -232,29 +232,29 @@ class _$StartGame implements StartGame {
 }
 
 abstract class StartGame implements GameEvent {
-  factory StartGame() = _$StartGame;
+  factory StartGame() = _$StartGameImpl;
 }
 
 /// @nodoc
-abstract class _$$PauseGameCopyWith<$Res> {
-  factory _$$PauseGameCopyWith(
-          _$PauseGame value, $Res Function(_$PauseGame) then) =
-      __$$PauseGameCopyWithImpl<$Res>;
+abstract class _$$PauseGameImplCopyWith<$Res> {
+  factory _$$PauseGameImplCopyWith(
+          _$PauseGameImpl value, $Res Function(_$PauseGameImpl) then) =
+      __$$PauseGameImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PauseGameCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$PauseGame>
-    implements _$$PauseGameCopyWith<$Res> {
-  __$$PauseGameCopyWithImpl(
-      _$PauseGame _value, $Res Function(_$PauseGame) _then)
+class __$$PauseGameImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$PauseGameImpl>
+    implements _$$PauseGameImplCopyWith<$Res> {
+  __$$PauseGameImplCopyWithImpl(
+      _$PauseGameImpl _value, $Res Function(_$PauseGameImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PauseGame implements PauseGame {
-  _$PauseGame();
+class _$PauseGameImpl implements PauseGame {
+  _$PauseGameImpl();
 
   @override
   String toString() {
@@ -262,9 +262,9 @@ class _$PauseGame implements PauseGame {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PauseGame);
+        (other.runtimeType == runtimeType && other is _$PauseGameImpl);
   }
 
   @override
@@ -364,28 +364,29 @@ class _$PauseGame implements PauseGame {
 }
 
 abstract class PauseGame implements GameEvent {
-  factory PauseGame() = _$PauseGame;
+  factory PauseGame() = _$PauseGameImpl;
 }
 
 /// @nodoc
-abstract class _$$ExitGameCopyWith<$Res> {
-  factory _$$ExitGameCopyWith(
-          _$ExitGame value, $Res Function(_$ExitGame) then) =
-      __$$ExitGameCopyWithImpl<$Res>;
+abstract class _$$ExitGameImplCopyWith<$Res> {
+  factory _$$ExitGameImplCopyWith(
+          _$ExitGameImpl value, $Res Function(_$ExitGameImpl) then) =
+      __$$ExitGameImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ExitGameCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$ExitGame>
-    implements _$$ExitGameCopyWith<$Res> {
-  __$$ExitGameCopyWithImpl(_$ExitGame _value, $Res Function(_$ExitGame) _then)
+class __$$ExitGameImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$ExitGameImpl>
+    implements _$$ExitGameImplCopyWith<$Res> {
+  __$$ExitGameImplCopyWithImpl(
+      _$ExitGameImpl _value, $Res Function(_$ExitGameImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ExitGame implements ExitGame {
-  _$ExitGame();
+class _$ExitGameImpl implements ExitGame {
+  _$ExitGameImpl();
 
   @override
   String toString() {
@@ -393,9 +394,9 @@ class _$ExitGame implements ExitGame {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ExitGame);
+        (other.runtimeType == runtimeType && other is _$ExitGameImpl);
   }
 
   @override
@@ -495,24 +496,24 @@ class _$ExitGame implements ExitGame {
 }
 
 abstract class ExitGame implements GameEvent {
-  factory ExitGame() = _$ExitGame;
+  factory ExitGame() = _$ExitGameImpl;
 }
 
 /// @nodoc
-abstract class _$$SubmitRoundCopyWith<$Res> {
-  factory _$$SubmitRoundCopyWith(
-          _$SubmitRound value, $Res Function(_$SubmitRound) then) =
-      __$$SubmitRoundCopyWithImpl<$Res>;
+abstract class _$$SubmitRoundImplCopyWith<$Res> {
+  factory _$$SubmitRoundImplCopyWith(
+          _$SubmitRoundImpl value, $Res Function(_$SubmitRoundImpl) then) =
+      __$$SubmitRoundImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int answer});
 }
 
 /// @nodoc
-class __$$SubmitRoundCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$SubmitRound>
-    implements _$$SubmitRoundCopyWith<$Res> {
-  __$$SubmitRoundCopyWithImpl(
-      _$SubmitRound _value, $Res Function(_$SubmitRound) _then)
+class __$$SubmitRoundImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$SubmitRoundImpl>
+    implements _$$SubmitRoundImplCopyWith<$Res> {
+  __$$SubmitRoundImplCopyWithImpl(
+      _$SubmitRoundImpl _value, $Res Function(_$SubmitRoundImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -520,7 +521,7 @@ class __$$SubmitRoundCopyWithImpl<$Res>
   $Res call({
     Object? answer = null,
   }) {
-    return _then(_$SubmitRound(
+    return _then(_$SubmitRoundImpl(
       answer: null == answer
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
@@ -531,8 +532,8 @@ class __$$SubmitRoundCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SubmitRound implements SubmitRound {
-  _$SubmitRound({required this.answer});
+class _$SubmitRoundImpl implements SubmitRound {
+  _$SubmitRoundImpl({required this.answer});
 
   @override
   final int answer;
@@ -543,10 +544,10 @@ class _$SubmitRound implements SubmitRound {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubmitRound &&
+            other is _$SubmitRoundImpl &&
             (identical(other.answer, answer) || other.answer == answer));
   }
 
@@ -556,8 +557,8 @@ class _$SubmitRound implements SubmitRound {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SubmitRoundCopyWith<_$SubmitRound> get copyWith =>
-      __$$SubmitRoundCopyWithImpl<_$SubmitRound>(this, _$identity);
+  _$$SubmitRoundImplCopyWith<_$SubmitRoundImpl> get copyWith =>
+      __$$SubmitRoundImplCopyWithImpl<_$SubmitRoundImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -653,34 +654,34 @@ class _$SubmitRound implements SubmitRound {
 }
 
 abstract class SubmitRound implements GameEvent {
-  factory SubmitRound({required final int answer}) = _$SubmitRound;
+  factory SubmitRound({required final int answer}) = _$SubmitRoundImpl;
 
   int get answer;
   @JsonKey(ignore: true)
-  _$$SubmitRoundCopyWith<_$SubmitRound> get copyWith =>
+  _$$SubmitRoundImplCopyWith<_$SubmitRoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NextRoundCopyWith<$Res> {
-  factory _$$NextRoundCopyWith(
-          _$NextRound value, $Res Function(_$NextRound) then) =
-      __$$NextRoundCopyWithImpl<$Res>;
+abstract class _$$NextRoundImplCopyWith<$Res> {
+  factory _$$NextRoundImplCopyWith(
+          _$NextRoundImpl value, $Res Function(_$NextRoundImpl) then) =
+      __$$NextRoundImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NextRoundCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$NextRound>
-    implements _$$NextRoundCopyWith<$Res> {
-  __$$NextRoundCopyWithImpl(
-      _$NextRound _value, $Res Function(_$NextRound) _then)
+class __$$NextRoundImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$NextRoundImpl>
+    implements _$$NextRoundImplCopyWith<$Res> {
+  __$$NextRoundImplCopyWithImpl(
+      _$NextRoundImpl _value, $Res Function(_$NextRoundImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NextRound implements NextRound {
-  _$NextRound();
+class _$NextRoundImpl implements NextRound {
+  _$NextRoundImpl();
 
   @override
   String toString() {
@@ -688,9 +689,9 @@ class _$NextRound implements NextRound {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NextRound);
+        (other.runtimeType == runtimeType && other is _$NextRoundImpl);
   }
 
   @override
@@ -790,29 +791,29 @@ class _$NextRound implements NextRound {
 }
 
 abstract class NextRound implements GameEvent {
-  factory NextRound() = _$NextRound;
+  factory NextRound() = _$NextRoundImpl;
 }
 
 /// @nodoc
-abstract class _$$NoTimeLeftCopyWith<$Res> {
-  factory _$$NoTimeLeftCopyWith(
-          _$NoTimeLeft value, $Res Function(_$NoTimeLeft) then) =
-      __$$NoTimeLeftCopyWithImpl<$Res>;
+abstract class _$$NoTimeLeftImplCopyWith<$Res> {
+  factory _$$NoTimeLeftImplCopyWith(
+          _$NoTimeLeftImpl value, $Res Function(_$NoTimeLeftImpl) then) =
+      __$$NoTimeLeftImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NoTimeLeftCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$NoTimeLeft>
-    implements _$$NoTimeLeftCopyWith<$Res> {
-  __$$NoTimeLeftCopyWithImpl(
-      _$NoTimeLeft _value, $Res Function(_$NoTimeLeft) _then)
+class __$$NoTimeLeftImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$NoTimeLeftImpl>
+    implements _$$NoTimeLeftImplCopyWith<$Res> {
+  __$$NoTimeLeftImplCopyWithImpl(
+      _$NoTimeLeftImpl _value, $Res Function(_$NoTimeLeftImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NoTimeLeft implements NoTimeLeft {
-  _$NoTimeLeft();
+class _$NoTimeLeftImpl implements NoTimeLeft {
+  _$NoTimeLeftImpl();
 
   @override
   String toString() {
@@ -820,9 +821,9 @@ class _$NoTimeLeft implements NoTimeLeft {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NoTimeLeft);
+        (other.runtimeType == runtimeType && other is _$NoTimeLeftImpl);
   }
 
   @override
@@ -922,29 +923,29 @@ class _$NoTimeLeft implements NoTimeLeft {
 }
 
 abstract class NoTimeLeft implements GameEvent {
-  factory NoTimeLeft() = _$NoTimeLeft;
+  factory NoTimeLeft() = _$NoTimeLeftImpl;
 }
 
 /// @nodoc
-abstract class _$$NoLivesLeftCopyWith<$Res> {
-  factory _$$NoLivesLeftCopyWith(
-          _$NoLivesLeft value, $Res Function(_$NoLivesLeft) then) =
-      __$$NoLivesLeftCopyWithImpl<$Res>;
+abstract class _$$NoLivesLeftImplCopyWith<$Res> {
+  factory _$$NoLivesLeftImplCopyWith(
+          _$NoLivesLeftImpl value, $Res Function(_$NoLivesLeftImpl) then) =
+      __$$NoLivesLeftImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NoLivesLeftCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$NoLivesLeft>
-    implements _$$NoLivesLeftCopyWith<$Res> {
-  __$$NoLivesLeftCopyWithImpl(
-      _$NoLivesLeft _value, $Res Function(_$NoLivesLeft) _then)
+class __$$NoLivesLeftImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$NoLivesLeftImpl>
+    implements _$$NoLivesLeftImplCopyWith<$Res> {
+  __$$NoLivesLeftImplCopyWithImpl(
+      _$NoLivesLeftImpl _value, $Res Function(_$NoLivesLeftImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NoLivesLeft implements NoLivesLeft {
-  _$NoLivesLeft();
+class _$NoLivesLeftImpl implements NoLivesLeft {
+  _$NoLivesLeftImpl();
 
   @override
   String toString() {
@@ -952,9 +953,9 @@ class _$NoLivesLeft implements NoLivesLeft {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NoLivesLeft);
+        (other.runtimeType == runtimeType && other is _$NoLivesLeftImpl);
   }
 
   @override
@@ -1054,5 +1055,5 @@ class _$NoLivesLeft implements NoLivesLeft {
 }
 
 abstract class NoLivesLeft implements GameEvent {
-  factory NoLivesLeft() = _$NoLivesLeft;
+  factory NoLivesLeft() = _$NoLivesLeftImpl;
 }

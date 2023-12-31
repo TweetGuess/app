@@ -62,22 +62,22 @@ class _$GameplaySettingsCopyWithImpl<$Res, $Val extends GameplaySettings>
 }
 
 /// @nodoc
-abstract class _$$_GameplaySettingsCopyWith<$Res>
+abstract class _$$GameplaySettingsImplCopyWith<$Res>
     implements $GameplaySettingsCopyWith<$Res> {
-  factory _$$_GameplaySettingsCopyWith(
-          _$_GameplaySettings value, $Res Function(_$_GameplaySettings) then) =
-      __$$_GameplaySettingsCopyWithImpl<$Res>;
+  factory _$$GameplaySettingsImplCopyWith(_$GameplaySettingsImpl value,
+          $Res Function(_$GameplaySettingsImpl) then) =
+      __$$GameplaySettingsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({dynamic enableImagesInTweets});
 }
 
 /// @nodoc
-class __$$_GameplaySettingsCopyWithImpl<$Res>
-    extends _$GameplaySettingsCopyWithImpl<$Res, _$_GameplaySettings>
-    implements _$$_GameplaySettingsCopyWith<$Res> {
-  __$$_GameplaySettingsCopyWithImpl(
-      _$_GameplaySettings _value, $Res Function(_$_GameplaySettings) _then)
+class __$$GameplaySettingsImplCopyWithImpl<$Res>
+    extends _$GameplaySettingsCopyWithImpl<$Res, _$GameplaySettingsImpl>
+    implements _$$GameplaySettingsImplCopyWith<$Res> {
+  __$$GameplaySettingsImplCopyWithImpl(_$GameplaySettingsImpl _value,
+      $Res Function(_$GameplaySettingsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_GameplaySettingsCopyWithImpl<$Res>
   $Res call({
     Object? enableImagesInTweets = freezed,
   }) {
-    return _then(_$_GameplaySettings(
+    return _then(_$GameplaySettingsImpl(
       enableImagesInTweets: freezed == enableImagesInTweets
           ? _value.enableImagesInTweets!
           : enableImagesInTweets,
@@ -95,11 +95,11 @@ class __$$_GameplaySettingsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GameplaySettings implements _GameplaySettings {
-  const _$_GameplaySettings({this.enableImagesInTweets = true});
+class _$GameplaySettingsImpl implements _GameplaySettings {
+  const _$GameplaySettingsImpl({this.enableImagesInTweets = true});
 
-  factory _$_GameplaySettings.fromJson(Map<String, dynamic> json) =>
-      _$$_GameplaySettingsFromJson(json);
+  factory _$GameplaySettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GameplaySettingsImplFromJson(json);
 
   @override
   @JsonKey()
@@ -111,10 +111,10 @@ class _$_GameplaySettings implements _GameplaySettings {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GameplaySettings &&
+            other is _$GameplaySettingsImpl &&
             const DeepCollectionEquality()
                 .equals(other.enableImagesInTweets, enableImagesInTweets));
   }
@@ -127,12 +127,13 @@ class _$_GameplaySettings implements _GameplaySettings {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GameplaySettingsCopyWith<_$_GameplaySettings> get copyWith =>
-      __$$_GameplaySettingsCopyWithImpl<_$_GameplaySettings>(this, _$identity);
+  _$$GameplaySettingsImplCopyWith<_$GameplaySettingsImpl> get copyWith =>
+      __$$GameplaySettingsImplCopyWithImpl<_$GameplaySettingsImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GameplaySettingsToJson(
+    return _$$GameplaySettingsImplToJson(
       this,
     );
   }
@@ -140,15 +141,15 @@ class _$_GameplaySettings implements _GameplaySettings {
 
 abstract class _GameplaySettings implements GameplaySettings {
   const factory _GameplaySettings({final dynamic enableImagesInTweets}) =
-      _$_GameplaySettings;
+      _$GameplaySettingsImpl;
 
   factory _GameplaySettings.fromJson(Map<String, dynamic> json) =
-      _$_GameplaySettings.fromJson;
+      _$GameplaySettingsImpl.fromJson;
 
   @override
   dynamic get enableImagesInTweets;
   @override
   @JsonKey(ignore: true)
-  _$$_GameplaySettingsCopyWith<_$_GameplaySettings> get copyWith =>
+  _$$GameplaySettingsImplCopyWith<_$GameplaySettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

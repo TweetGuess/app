@@ -88,9 +88,10 @@ class _$RoundCopyWithImpl<$Res, $Val extends Round>
 }
 
 /// @nodoc
-abstract class _$$_RoundCopyWith<$Res> implements $RoundCopyWith<$Res> {
-  factory _$$_RoundCopyWith(_$_Round value, $Res Function(_$_Round) then) =
-      __$$_RoundCopyWithImpl<$Res>;
+abstract class _$$RoundImplCopyWith<$Res> implements $RoundCopyWith<$Res> {
+  factory _$$RoundImplCopyWith(
+          _$RoundImpl value, $Res Function(_$RoundImpl) then) =
+      __$$RoundImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -103,9 +104,11 @@ abstract class _$$_RoundCopyWith<$Res> implements $RoundCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_RoundCopyWithImpl<$Res> extends _$RoundCopyWithImpl<$Res, _$_Round>
-    implements _$$_RoundCopyWith<$Res> {
-  __$$_RoundCopyWithImpl(_$_Round _value, $Res Function(_$_Round) _then)
+class __$$RoundImplCopyWithImpl<$Res>
+    extends _$RoundCopyWithImpl<$Res, _$RoundImpl>
+    implements _$$RoundImplCopyWith<$Res> {
+  __$$RoundImplCopyWithImpl(
+      _$RoundImpl _value, $Res Function(_$RoundImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +120,7 @@ class __$$_RoundCopyWithImpl<$Res> extends _$RoundCopyWithImpl<$Res, _$_Round>
     Object? rightAnswer = null,
     Object? answeredRight = freezed,
   }) {
-    return _then(_$_Round(
+    return _then(_$RoundImpl(
       tweetId: null == tweetId
           ? _value.tweetId
           : tweetId // ignore: cast_nullable_to_non_nullable
@@ -144,8 +147,8 @@ class __$$_RoundCopyWithImpl<$Res> extends _$RoundCopyWithImpl<$Res, _$_Round>
 
 /// @nodoc
 
-class _$_Round implements _Round {
-  _$_Round(
+class _$RoundImpl implements _Round {
+  _$RoundImpl(
       {required this.tweetId,
       required this.content,
       required final List<
@@ -182,10 +185,10 @@ class _$_Round implements _Round {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Round &&
+            other is _$RoundImpl &&
             (identical(other.tweetId, tweetId) || other.tweetId == tweetId) &&
             (identical(other.content, content) || other.content == content) &&
             const DeepCollectionEquality()
@@ -208,8 +211,8 @@ class _$_Round implements _Round {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RoundCopyWith<_$_Round> get copyWith =>
-      __$$_RoundCopyWithImpl<_$_Round>(this, _$identity);
+  _$$RoundImplCopyWith<_$RoundImpl> get copyWith =>
+      __$$RoundImplCopyWithImpl<_$RoundImpl>(this, _$identity);
 }
 
 abstract class _Round implements Round {
@@ -220,7 +223,7 @@ abstract class _Round implements Round {
               (GlobalKey<UIPrimaryGameButtonState>, (String, String))>
           answerPossibilities,
       required final int rightAnswer,
-      final bool? answeredRight}) = _$_Round;
+      final bool? answeredRight}) = _$RoundImpl;
 
   @override
   String get tweetId;
@@ -237,6 +240,6 @@ abstract class _Round implements Round {
   bool? get answeredRight;
   @override
   @JsonKey(ignore: true)
-  _$$_RoundCopyWith<_$_Round> get copyWith =>
+  _$$RoundImplCopyWith<_$RoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

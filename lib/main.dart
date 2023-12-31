@@ -9,7 +9,6 @@ import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
-import 'package:tweetguess/core/utils/shared_preferences.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
 import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
@@ -32,7 +31,6 @@ void main() async {
     storageDirectory: await getTemporaryDirectory(),
   );
 
-  await SharedPrefs().init();
   await TweetService.loadTweets();
 
   setupGetIt();
@@ -69,17 +67,17 @@ class TweetGuess extends StatefulWidget {
 }
 
 class _TweetGuessState extends State<TweetGuess> {
-  var finishedIntro = SharedPrefs().finishedIntro;
-
   @override
   Widget build(BuildContext context) {
     // TODO: Refactor declarative route usage
     var routes = {
       '/': (context) {
-        return finishedIntro ? const HomeScreen() : const IntroScreen();
+        return GetIt.I<UserBloc>().state.finishedIntro
+            ? const HomeScreen()
+            : const IntroScreen();
       },
       '/settings': (context) => const SettingsPage(),
-      '/profile': (context) => const ProfilePage()
+      '/profile': (context) => const ProfilePage(),
     };
 
     return MultiBlocProvider(

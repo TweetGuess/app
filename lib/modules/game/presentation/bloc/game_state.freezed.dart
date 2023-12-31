@@ -80,25 +80,25 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
 }
 
 /// @nodoc
-abstract class _$$GameInitialCopyWith<$Res> {
-  factory _$$GameInitialCopyWith(
-          _$GameInitial value, $Res Function(_$GameInitial) then) =
-      __$$GameInitialCopyWithImpl<$Res>;
+abstract class _$$GameInitialImplCopyWith<$Res> {
+  factory _$$GameInitialImplCopyWith(
+          _$GameInitialImpl value, $Res Function(_$GameInitialImpl) then) =
+      __$$GameInitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GameInitialCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$GameInitial>
-    implements _$$GameInitialCopyWith<$Res> {
-  __$$GameInitialCopyWithImpl(
-      _$GameInitial _value, $Res Function(_$GameInitial) _then)
+class __$$GameInitialImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$GameInitialImpl>
+    implements _$$GameInitialImplCopyWith<$Res> {
+  __$$GameInitialImplCopyWithImpl(
+      _$GameInitialImpl _value, $Res Function(_$GameInitialImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$GameInitial extends GameInitial {
-  _$GameInitial() : super._();
+class _$GameInitialImpl extends GameInitial {
+  _$GameInitialImpl() : super._();
 
   @override
   String toString() {
@@ -106,9 +106,9 @@ class _$GameInitial extends GameInitial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$GameInitial);
+        (other.runtimeType == runtimeType && other is _$GameInitialImpl);
   }
 
   @override
@@ -184,15 +184,15 @@ class _$GameInitial extends GameInitial {
 }
 
 abstract class GameInitial extends GameState {
-  factory GameInitial() = _$GameInitial;
+  factory GameInitial() = _$GameInitialImpl;
   GameInitial._() : super._();
 }
 
 /// @nodoc
-abstract class _$$GameRoundInProgressCopyWith<$Res> {
-  factory _$$GameRoundInProgressCopyWith(_$GameRoundInProgress value,
-          $Res Function(_$GameRoundInProgress) then) =
-      __$$GameRoundInProgressCopyWithImpl<$Res>;
+abstract class _$$GameRoundInProgressImplCopyWith<$Res> {
+  factory _$$GameRoundInProgressImplCopyWith(_$GameRoundInProgressImpl value,
+          $Res Function(_$GameRoundInProgressImpl) then) =
+      __$$GameRoundInProgressImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Game game});
 
@@ -200,11 +200,11 @@ abstract class _$$GameRoundInProgressCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$GameRoundInProgressCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$GameRoundInProgress>
-    implements _$$GameRoundInProgressCopyWith<$Res> {
-  __$$GameRoundInProgressCopyWithImpl(
-      _$GameRoundInProgress _value, $Res Function(_$GameRoundInProgress) _then)
+class __$$GameRoundInProgressImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$GameRoundInProgressImpl>
+    implements _$$GameRoundInProgressImplCopyWith<$Res> {
+  __$$GameRoundInProgressImplCopyWithImpl(_$GameRoundInProgressImpl _value,
+      $Res Function(_$GameRoundInProgressImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -212,7 +212,7 @@ class __$$GameRoundInProgressCopyWithImpl<$Res>
   $Res call({
     Object? game = null,
   }) {
-    return _then(_$GameRoundInProgress(
+    return _then(_$GameRoundInProgressImpl(
       null == game
           ? _value.game
           : game // ignore: cast_nullable_to_non_nullable
@@ -231,8 +231,8 @@ class __$$GameRoundInProgressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GameRoundInProgress extends GameRoundInProgress {
-  _$GameRoundInProgress(this.game) : super._();
+class _$GameRoundInProgressImpl extends GameRoundInProgress {
+  _$GameRoundInProgressImpl(this.game) : super._();
 
   @override
   final Game game;
@@ -243,10 +243,10 @@ class _$GameRoundInProgress extends GameRoundInProgress {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GameRoundInProgress &&
+            other is _$GameRoundInProgressImpl &&
             (identical(other.game, game) || other.game == game));
   }
 
@@ -256,8 +256,8 @@ class _$GameRoundInProgress extends GameRoundInProgress {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GameRoundInProgressCopyWith<_$GameRoundInProgress> get copyWith =>
-      __$$GameRoundInProgressCopyWithImpl<_$GameRoundInProgress>(
+  _$$GameRoundInProgressImplCopyWith<_$GameRoundInProgressImpl> get copyWith =>
+      __$$GameRoundInProgressImplCopyWithImpl<_$GameRoundInProgressImpl>(
           this, _$identity);
 
   @override
@@ -330,20 +330,20 @@ class _$GameRoundInProgress extends GameRoundInProgress {
 }
 
 abstract class GameRoundInProgress extends GameState {
-  factory GameRoundInProgress(final Game game) = _$GameRoundInProgress;
+  factory GameRoundInProgress(final Game game) = _$GameRoundInProgressImpl;
   GameRoundInProgress._() : super._();
 
   Game get game;
   @JsonKey(ignore: true)
-  _$$GameRoundInProgressCopyWith<_$GameRoundInProgress> get copyWith =>
+  _$$GameRoundInProgressImplCopyWith<_$GameRoundInProgressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GameTerminalCopyWith<$Res> {
-  factory _$$GameTerminalCopyWith(
-          _$GameTerminal value, $Res Function(_$GameTerminal) then) =
-      __$$GameTerminalCopyWithImpl<$Res>;
+abstract class _$$GameTerminalImplCopyWith<$Res> {
+  factory _$$GameTerminalImplCopyWith(
+          _$GameTerminalImpl value, $Res Function(_$GameTerminalImpl) then) =
+      __$$GameTerminalImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Game game, GameEvent event});
 
@@ -352,11 +352,11 @@ abstract class _$$GameTerminalCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$GameTerminalCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$GameTerminal>
-    implements _$$GameTerminalCopyWith<$Res> {
-  __$$GameTerminalCopyWithImpl(
-      _$GameTerminal _value, $Res Function(_$GameTerminal) _then)
+class __$$GameTerminalImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$GameTerminalImpl>
+    implements _$$GameTerminalImplCopyWith<$Res> {
+  __$$GameTerminalImplCopyWithImpl(
+      _$GameTerminalImpl _value, $Res Function(_$GameTerminalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -365,7 +365,7 @@ class __$$GameTerminalCopyWithImpl<$Res>
     Object? game = null,
     Object? event = null,
   }) {
-    return _then(_$GameTerminal(
+    return _then(_$GameTerminalImpl(
       null == game
           ? _value.game
           : game // ignore: cast_nullable_to_non_nullable
@@ -396,8 +396,8 @@ class __$$GameTerminalCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GameTerminal extends GameTerminal {
-  _$GameTerminal(this.game, this.event) : super._();
+class _$GameTerminalImpl extends GameTerminal {
+  _$GameTerminalImpl(this.game, this.event) : super._();
 
   @override
   final Game game;
@@ -410,10 +410,10 @@ class _$GameTerminal extends GameTerminal {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GameTerminal &&
+            other is _$GameTerminalImpl &&
             (identical(other.game, game) || other.game == game) &&
             (identical(other.event, event) || other.event == event));
   }
@@ -424,8 +424,8 @@ class _$GameTerminal extends GameTerminal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GameTerminalCopyWith<_$GameTerminal> get copyWith =>
-      __$$GameTerminalCopyWithImpl<_$GameTerminal>(this, _$identity);
+  _$$GameTerminalImplCopyWith<_$GameTerminalImpl> get copyWith =>
+      __$$GameTerminalImplCopyWithImpl<_$GameTerminalImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -497,12 +497,13 @@ class _$GameTerminal extends GameTerminal {
 }
 
 abstract class GameTerminal extends GameState {
-  factory GameTerminal(final Game game, final GameEvent event) = _$GameTerminal;
+  factory GameTerminal(final Game game, final GameEvent event) =
+      _$GameTerminalImpl;
   GameTerminal._() : super._();
 
   Game get game;
   GameEvent get event;
   @JsonKey(ignore: true)
-  _$$GameTerminalCopyWith<_$GameTerminal> get copyWith =>
+  _$$GameTerminalImplCopyWith<_$GameTerminalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

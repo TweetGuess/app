@@ -6,12 +6,14 @@ part of 'gameplay.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_GameplaySettings _$$_GameplaySettingsFromJson(Map<String, dynamic> json) =>
-    _$_GameplaySettings(
+_$GameplaySettingsImpl _$$GameplaySettingsImplFromJson(
+        Map<String, dynamic> json) =>
+    _$GameplaySettingsImpl(
       enableImagesInTweets: json['enableImagesInTweets'] ?? true,
     );
 
-Map<String, dynamic> _$$_GameplaySettingsToJson(_$_GameplaySettings instance) =>
+Map<String, dynamic> _$$GameplaySettingsImplToJson(
+        _$GameplaySettingsImpl instance) =>
     <String, dynamic>{
       'enableImagesInTweets': instance.enableImagesInTweets,
     };

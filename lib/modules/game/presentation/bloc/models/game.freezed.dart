@@ -94,9 +94,10 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
 }
 
 /// @nodoc
-abstract class _$$_GameCopyWith<$Res> implements $GameCopyWith<$Res> {
-  factory _$$_GameCopyWith(_$_Game value, $Res Function(_$_Game) then) =
-      __$$_GameCopyWithImpl<$Res>;
+abstract class _$$GameImplCopyWith<$Res> implements $GameCopyWith<$Res> {
+  factory _$$GameImplCopyWith(
+          _$GameImpl value, $Res Function(_$GameImpl) then) =
+      __$$GameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,9 +112,10 @@ abstract class _$$_GameCopyWith<$Res> implements $GameCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
-    implements _$$_GameCopyWith<$Res> {
-  __$$_GameCopyWithImpl(_$_Game _value, $Res Function(_$_Game) _then)
+class __$$GameImplCopyWithImpl<$Res>
+    extends _$GameCopyWithImpl<$Res, _$GameImpl>
+    implements _$$GameImplCopyWith<$Res> {
+  __$$GameImplCopyWithImpl(_$GameImpl _value, $Res Function(_$GameImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +127,7 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
     Object? isPaused = null,
     Object? currentRound = null,
   }) {
-    return _then(_$_Game(
+    return _then(_$GameImpl(
       points: null == points
           ? _value.points
           : points // ignore: cast_nullable_to_non_nullable
@@ -152,8 +154,8 @@ class __$$_GameCopyWithImpl<$Res> extends _$GameCopyWithImpl<$Res, _$_Game>
 
 /// @nodoc
 
-class _$_Game implements _Game {
-  _$_Game(
+class _$GameImpl implements _Game {
+  _$GameImpl(
       {this.points = 0,
       final List<Round> pastRounds = const [],
       this.lives = GameConstants.MAX_LIVES,
@@ -188,10 +190,10 @@ class _$_Game implements _Game {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Game &&
+            other is _$GameImpl &&
             (identical(other.points, points) || other.points == points) &&
             const DeepCollectionEquality()
                 .equals(other._pastRounds, _pastRounds) &&
@@ -214,8 +216,8 @@ class _$_Game implements _Game {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GameCopyWith<_$_Game> get copyWith =>
-      __$$_GameCopyWithImpl<_$_Game>(this, _$identity);
+  _$$GameImplCopyWith<_$GameImpl> get copyWith =>
+      __$$GameImplCopyWithImpl<_$GameImpl>(this, _$identity);
 }
 
 abstract class _Game implements Game {
@@ -224,7 +226,7 @@ abstract class _Game implements Game {
       final List<Round> pastRounds,
       final int lives,
       final bool isPaused,
-      required final Round currentRound}) = _$_Game;
+      required final Round currentRound}) = _$GameImpl;
 
   @override
   int get points;
@@ -238,5 +240,6 @@ abstract class _Game implements Game {
   Round get currentRound;
   @override
   @JsonKey(ignore: true)
-  _$$_GameCopyWith<_$_Game> get copyWith => throw _privateConstructorUsedError;
+  _$$GameImplCopyWith<_$GameImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -46,7 +46,6 @@ dependencies:
   #    path: dio_retry
   #    ref: null-safety-migration
   # flutter_bcrypt: ^1.0.6
-  streaming_shared_preferences: ^2.0.0
   flutter_oss_licenses: ^2.0.1
   flutter_localizations:
     sdk: flutter

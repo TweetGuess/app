@@ -20,6 +20,7 @@ UserState _$UserStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserState {
+  bool get finishedIntro => throw _privateConstructorUsedError;
   String get username => throw _privateConstructorUsedError;
   UserStatistics get statistics => throw _privateConstructorUsedError;
   UserSettings get settings => throw _privateConstructorUsedError;
@@ -36,7 +37,10 @@ abstract class $UserStateCopyWith<$Res> {
       _$UserStateCopyWithImpl<$Res, UserState>;
   @useResult
   $Res call(
-      {String username, UserStatistics statistics, UserSettings settings});
+      {bool finishedIntro,
+      String username,
+      UserStatistics statistics,
+      UserSettings settings});
 
   $UserStatisticsCopyWith<$Res> get statistics;
   $UserSettingsCopyWith<$Res> get settings;
@@ -55,11 +59,16 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? finishedIntro = null,
     Object? username = null,
     Object? statistics = null,
     Object? settings = null,
   }) {
     return _then(_value.copyWith(
+      finishedIntro: null == finishedIntro
+          ? _value.finishedIntro
+          : finishedIntro // ignore: cast_nullable_to_non_nullable
+              as bool,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -93,14 +102,18 @@ class _$UserStateCopyWithImpl<$Res, $Val extends UserState>
 }
 
 /// @nodoc
-abstract class _$$_UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
-  factory _$$_UserStateCopyWith(
-          _$_UserState value, $Res Function(_$_UserState) then) =
-      __$$_UserStateCopyWithImpl<$Res>;
+abstract class _$$UserStateImplCopyWith<$Res>
+    implements $UserStateCopyWith<$Res> {
+  factory _$$UserStateImplCopyWith(
+          _$UserStateImpl value, $Res Function(_$UserStateImpl) then) =
+      __$$UserStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String username, UserStatistics statistics, UserSettings settings});
+      {bool finishedIntro,
+      String username,
+      UserStatistics statistics,
+      UserSettings settings});
 
   @override
   $UserStatisticsCopyWith<$Res> get statistics;
@@ -109,21 +122,26 @@ abstract class _$$_UserStateCopyWith<$Res> implements $UserStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserStateCopyWithImpl<$Res>
-    extends _$UserStateCopyWithImpl<$Res, _$_UserState>
-    implements _$$_UserStateCopyWith<$Res> {
-  __$$_UserStateCopyWithImpl(
-      _$_UserState _value, $Res Function(_$_UserState) _then)
+class __$$UserStateImplCopyWithImpl<$Res>
+    extends _$UserStateCopyWithImpl<$Res, _$UserStateImpl>
+    implements _$$UserStateImplCopyWith<$Res> {
+  __$$UserStateImplCopyWithImpl(
+      _$UserStateImpl _value, $Res Function(_$UserStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? finishedIntro = null,
     Object? username = null,
     Object? statistics = null,
     Object? settings = null,
   }) {
-    return _then(_$_UserState(
+    return _then(_$UserStateImpl(
+      finishedIntro: null == finishedIntro
+          ? _value.finishedIntro
+          : finishedIntro // ignore: cast_nullable_to_non_nullable
+              as bool,
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -142,15 +160,19 @@ class __$$_UserStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserState implements _UserState {
-  _$_UserState(
-      {required this.username,
+class _$UserStateImpl implements _UserState {
+  _$UserStateImpl(
+      {this.finishedIntro = false,
+      required this.username,
       required this.statistics,
       required this.settings});
 
-  factory _$_UserState.fromJson(Map<String, dynamic> json) =>
-      _$$_UserStateFromJson(json);
+  factory _$UserStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UserStateImplFromJson(json);
 
+  @override
+  @JsonKey()
+  final bool finishedIntro;
   @override
   final String username;
   @override
@@ -160,14 +182,16 @@ class _$_UserState implements _UserState {
 
   @override
   String toString() {
-    return 'UserState(username: $username, statistics: $statistics, settings: $settings)';
+    return 'UserState(finishedIntro: $finishedIntro, username: $username, statistics: $statistics, settings: $settings)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserState &&
+            other is _$UserStateImpl &&
+            (identical(other.finishedIntro, finishedIntro) ||
+                other.finishedIntro == finishedIntro) &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.statistics, statistics) ||
@@ -178,17 +202,18 @@ class _$_UserState implements _UserState {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, username, statistics, settings);
+  int get hashCode =>
+      Object.hash(runtimeType, finishedIntro, username, statistics, settings);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_UserStateCopyWith<_$_UserState> get copyWith =>
-      __$$_UserStateCopyWithImpl<_$_UserState>(this, _$identity);
+  _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
+      __$$UserStateImplCopyWithImpl<_$UserStateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserStateToJson(
+    return _$$UserStateImplToJson(
       this,
     );
   }
@@ -196,13 +221,16 @@ class _$_UserState implements _UserState {
 
 abstract class _UserState implements UserState {
   factory _UserState(
-      {required final String username,
+      {final bool finishedIntro,
+      required final String username,
       required final UserStatistics statistics,
-      required final UserSettings settings}) = _$_UserState;
+      required final UserSettings settings}) = _$UserStateImpl;
 
   factory _UserState.fromJson(Map<String, dynamic> json) =
-      _$_UserState.fromJson;
+      _$UserStateImpl.fromJson;
 
+  @override
+  bool get finishedIntro;
   @override
   String get username;
   @override
@@ -211,6 +239,6 @@ abstract class _UserState implements UserState {
   UserSettings get settings;
   @override
   @JsonKey(ignore: true)
-  _$$_UserStateCopyWith<_$_UserState> get copyWith =>
+  _$$UserStateImplCopyWith<_$UserStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
