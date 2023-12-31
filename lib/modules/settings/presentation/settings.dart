@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
+import 'package:tweetguess/modules/settings/presentation/about.dart';
 import 'package:tweetguess/modules/settings/widgets/section_header.dart';
 import 'package:tweetguess/ui/components/primary_bottom_sheet.dart';
 import 'package:tweetguess/ui/components/settings/settings_toggle.dart';
@@ -28,6 +29,7 @@ class SettingsPage extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          // General Section
           SectionHeader(
             title: "settings.general.title".tr(),
           ),
@@ -49,6 +51,7 @@ class SettingsPage extends StatelessWidget {
             },
             iconTint: Colors.blue,
           ),
+          // Account settings
           SectionHeader(
             title: "settings.account.title".tr(),
           ),
@@ -65,6 +68,7 @@ class SettingsPage extends StatelessWidget {
             },
             iconTint: Colors.red,
           ),
+          // Gameplay Settings
           SectionHeader(
             title: "settings.gameplay.title".tr(),
           ),
@@ -84,6 +88,7 @@ class SettingsPage extends StatelessWidget {
             initialValue:
                 userBloc.userSettings.gameplaySettings.enableImagesInTweets,
           ),
+          // "More" Settings
           SectionHeader(
             title: "settings.more.title".tr(),
           ),
@@ -98,7 +103,9 @@ class SettingsPage extends StatelessWidget {
             icon: Icons.info_outlined,
             title: "settings.more.about.title".tr(),
             subtitle: "settings.more.about.sub".tr(),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, AboutScreen.route());
+            },
             iconTint: Colors.yellowAccent,
           ),
         ],
