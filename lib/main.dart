@@ -55,7 +55,7 @@ void main() async {
           child: const TweetGuess(),
         );
       },
-      enabled: !kReleaseMode,
+      enabled: !kReleaseMode || kIsWeb,
     ),
   );
 }
@@ -69,7 +69,7 @@ void setupGetIt() {
 class TweetGuess extends StatefulWidget {
   static GlobalKey<NavigatorState> globalKey = GlobalKey();
 
-  const TweetGuess({Key? key}) : super(key: key);
+  const TweetGuess({super.key});
 
   @override
   State<TweetGuess> createState() => _TweetGuessState();
@@ -119,10 +119,22 @@ class _TweetGuessState extends State<TweetGuess> {
                     );
                   }
                 default:
-                  return MaterialPageRoute(
-                    builder: (context) => routes[settings.name]!(context),
-                    settings: settings,
-                  );
+                  // Check if the route exists in your routes map
+                  if (routes.containsKey(settings.name)) {
+                    return MaterialPageRoute(
+                      builder: (context) => routes[settings.name]!(context),
+                      settings: settings,
+                    );
+                  } else {
+                    // If the route does not exist, redirect to a default route
+                    // This could be an error page or the home page as a fallback
+                    return MaterialPageRoute(
+                      builder: (context) => routes['/fallbackRoute']!(
+                        context,
+                      ), // Replace '/fallbackRoute' with your actual fallback route
+                      settings: settings,
+                    );
+                  }
               }
             },
           );
