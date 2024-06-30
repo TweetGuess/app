@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:easy_localization/easy_localization.dart';
@@ -26,7 +25,7 @@ extension NameX on AppLanguage {
       case AppLanguage.en:
         return const Locale('en');
       case AppLanguage.system:
-        return Locale(Platform.localeName.split("_")[0]);
+        return null;
     }
   }
 }

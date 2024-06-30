@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +10,7 @@ import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
 import 'package:tweetguess/modules/home/presentation/widgets/info_tooltip.dart';
 import 'package:tweetguess/modules/profile/presentation/profile.dart';
 import 'package:tweetguess/modules/settings/presentation/settings.dart';
+import 'package:universal_io/io.dart';
 
 import '../../../ui/utils/routes/circular_transition_route.dart';
 import '../../game/presentation/game.dart';
@@ -81,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         width: double.infinity,
                         child: _buildGamemodeTitle(),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -92,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: EdgeInsets.only(bottom: 8.h),
                   child: _buildStartGameButton(context),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -130,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }
@@ -168,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: CircleAvatar(
           radius: 55.0,
-          backgroundColor: Theme.of(context).colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           child: const Icon(Icons.person),
         ),
       ),
