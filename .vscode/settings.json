@@ -3,5 +3,5 @@
     "**/*.freezed.dart": true,
     "**/*.g.dart": true
   },
-  "dart.flutterSdkPath": ".fvm/flutter_sdk"
+  "dart.flutterSdkPath": ".fvm/versions/3.22.2"
 }
