@@ -44,6 +44,7 @@ void main() async {
 
   runApp(
     DevicePreview(
+      isToolbarVisible: kIsWeb ? false : true,
       builder: (context) {
         return EasyLocalization(
           supportedLocales: const [Locale('en'), Locale('de')],
@@ -112,7 +113,10 @@ class _TweetGuessState extends State<TweetGuess> {
               switch (settings.name) {
                 case "/":
                   {
-                    return CircularTransitionRoute(page: routes['/']!(context), settings: settings);
+                    return CircularTransitionRoute(
+                      page: routes['/']!(context),
+                      settings: settings,
+                    );
                   }
                 default:
                   return MaterialPageRoute(
