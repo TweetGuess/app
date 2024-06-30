@@ -54,7 +54,9 @@ dependencies:
   flex_color_scheme: ^7.1.0
   flutter_launcher_icons: ^0.13.1
   info_popup:
-    path: /Users/flawn/Documents/CodingVSCode/info_popup
+    git:
+      url: https://github.com/flawnn/custom_info_popup.git
+      ref: master
   responsive_sizer: ^3.1.1
   auto_size_text: ^3.0.0
   page_transition: ^2.0.9
