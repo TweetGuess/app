@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cached_network_image_platform_interface/cached_network_image_platform_interface.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,7 +25,7 @@ import 'bloc/game_state.dart';
 import 'widgets/helper/wrapper.dart';
 
 class GameScreen extends StatefulWidget {
-  const GameScreen({Key? key}) : super(key: key);
+  const GameScreen({super.key});
 
   @override
   State<GameScreen> createState() => _GameScreenState();
@@ -217,7 +218,10 @@ class _GameScreenState extends State<GameScreen> {
         children: [
           Expanded(
             child: _buildInnerTweetContent(
-                gameInProgress, context, currentTweet.getMedia()),
+              gameInProgress,
+              context,
+              currentTweet.getMedia(),
+            ),
           ),
           if (currentTweet.createdAt != null) ...[
             const Gap(10),
@@ -261,6 +265,7 @@ class _GameScreenState extends State<GameScreen> {
           const Gap(20),
           Expanded(
             child: CachedNetworkImage(
+              imageRenderMethodForWeb: ImageRenderMethodForWeb.HttpGet,
               imageUrl: media
                   .where((element) => element.type != "video")
                   .firstOrNull!
@@ -348,11 +353,11 @@ class _GameScreenState extends State<GameScreen> {
 
 class GameScore extends StatelessWidget {
   const GameScore({
-    Key? key,
+    super.key,
     required this.context,
     required this.roundInProgress,
     required this.scoreNotifier,
-  }) : super(key: key);
+  });
 
   final BuildContext context;
   final GameRoundInProgress roundInProgress;

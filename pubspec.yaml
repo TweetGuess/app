@@ -28,15 +28,13 @@ dependencies:
   sliver_tools: ^0.2.10
 
   # Diverse Utilities
-  google_fonts: ^4.0.4
+  google_fonts: ^6.2.1
   animations: ^2.0.1
-  http: ^0.13.3
-  connectivity_plus: ^4.0.0
+  http: ^1.2.1
   provider: ^6.0.4
   jwt_decode: ^0.3.1
   path_provider: ^2.0.1
-  uuid: ^3.0.4
-  restart_app: ^1.0.3
+  uuid: ^4.4.0
   introduction_screen: ^3.1.1
   animated_widgets: ^1.1.0
   # dio: ^4.0.0
@@ -46,13 +44,13 @@ dependencies:
   #    path: dio_retry
   #    ref: null-safety-migration
   # flutter_bcrypt: ^1.0.6
-  flutter_oss_licenses: ^2.0.1
+  flutter_oss_licenses: ^3.0.2
   flutter_localizations:
     sdk: flutter
 
   # UI Stuff
   flutter_native_splash: ^2.2.16
-  blur: ^3.1.0
+  blur: ^4.0.0
   flex_color_scheme: ^7.1.0
   flutter_launcher_icons: ^0.13.1
   info_popup:
@@ -64,7 +62,7 @@ dependencies:
   device_preview: ^1.1.0
   easy_localization: ^3.0.1
   flutter_boring_avatars: ^1.0.1
-  cached_network_image: ^3.3.0
+  cached_network_image: 3.3.0
   gap: ^3.0.0
   circular_countdown_timer:
     git:
@@ -80,7 +78,7 @@ dependencies:
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.1
   get_it: ^7.6.0
-  logger: ^1.3.0
+  logger: ^2.3.0
   unique_name_generator: ^1.0.0
 
   # Web Compat
@@ -91,9 +89,26 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.3.4
-  json_serializable: ^6.6.2
-  flutter_lints: ^2.0.1
-  mockito: ^5.4.1
+  json_serializable: ^6.8.0
+  flutter_lints: ^4.0.0
+
+dependency_overrides:
+  flutter_keyboard_visibility_web:
+    git:
+      url: https://github.com/raldhafiri/flutter_keyboard_visibility.git
+      ref: master
+      path: flutter_keyboard_visibility_web
+  hive:
+    git:
+      url: https://github.com/Rexios80/hive
+      ref: b3fda79b6a1801f6e72bf2f9cf0bd46f69e3ee9b
+      path: hive
+  hive_generator:
+    git:
+      url: https://github.com/Rexios80/hive
+      ref: b3fda79b6a1801f6e72bf2f9cf0bd46f69e3ee9b
+      path: hive_generator
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

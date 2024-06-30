@@ -7,7 +7,7 @@ class SlideRightTransition extends PageRouteBuilder {
     required this.page,
     Offset? offset,
     Duration? transitionDuration,
-    RouteSettings? settings,
+    super.settings,
   }) : super(
           pageBuilder: (
             BuildContext context,
@@ -30,6 +30,5 @@ class SlideRightTransition extends PageRouteBuilder {
           },
           transitionDuration:
               transitionDuration ?? const Duration(milliseconds: 600),
-          settings: settings,
         );
 }

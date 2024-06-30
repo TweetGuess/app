@@ -129,10 +129,9 @@ class _TweetGuessState extends State<TweetGuess> {
                     // If the route does not exist, redirect to a default route
                     // This could be an error page or the home page as a fallback
                     return MaterialPageRoute(
-                      builder: (context) => routes['/fallbackRoute']!(
+                      builder: (context) => routes['/']!(
                         context,
-                      ), // Replace '/fallbackRoute' with your actual fallback route
-                      settings: settings,
+                      ),
                     );
                   }
               }
