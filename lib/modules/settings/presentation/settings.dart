@@ -23,7 +23,6 @@ class SettingsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         forceMaterialTransparency: true,
         title: Text("settings.name".tr()),
       ),
