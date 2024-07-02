@@ -5,7 +5,7 @@ if cd flutter; then
 else 
     git clone https://github.com/flutter/flutter.git && 
     cd flutter && 
-    git checkout 3.22.0 && 
+    git checkout 3.22.2 && 
     cd ..
 fi && 
 ls && 
