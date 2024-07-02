@@ -163,9 +163,3 @@ flutter_icons:
   image_path_ios: "assets/icons/icon.png"
   adaptive_icon_background: "#54A9EC"
   adaptive_icon_foreground: "assets/icons/adaptive_icon_fg.png"
-
-flutter_intl:
-  main_locale: de
-  enabled: true
-  localizely:
-    project_id: 0b68056c-b0a0-472c-a56c-695128cfab2d

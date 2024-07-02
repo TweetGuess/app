@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -22,10 +21,6 @@ import 'core/data/models/user/settings/language.dart';
 import 'core/observers/navigator.dart';
 
 void main() async {
-  if (kIsWeb) {
-    initializeDateFormatting();
-  }
-
   WidgetsFlutterBinding.ensureInitialized();
 
   // EasyLocalization Setup
@@ -43,19 +38,19 @@ void main() async {
   setupGetIt();
 
   runApp(
-    DevicePreview(
-      isToolbarVisible: kIsWeb ? false : true,
-      builder: (context) {
-        return EasyLocalization(
-          supportedLocales: const [Locale('en'), Locale('de')],
-          path: 'assets/translations',
-          fallbackLocale: const Locale('en'),
-          useOnlyLangCode: true,
-          startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
-          child: const TweetGuess(),
-        );
-      },
-      enabled: !kReleaseMode || kIsWeb,
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('de')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      useOnlyLangCode: true,
+      startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
+      child: DevicePreview(
+        isToolbarVisible: kIsWeb ? false : true,
+        builder: (context) {
+          return const TweetGuess();
+        },
+        enabled: !kReleaseMode || kIsWeb,
+      ),
     ),
   );
 }
