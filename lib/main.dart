@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:intl/date_symbol_data_local.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
 import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
@@ -18,14 +18,9 @@ import 'package:tweetguess/modules/settings/presentation/settings.dart';
 import 'package:tweetguess/themes.dart';
 import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 
-import 'core/data/models/user/settings/language.dart';
 import 'core/observers/navigator.dart';
 
 void main() async {
-  if (kIsWeb) {
-    await initializeDateFormatting();
-  }
-
   WidgetsFlutterBinding.ensureInitialized();
 
   // EasyLocalization Setup
@@ -43,19 +38,19 @@ void main() async {
   setupGetIt();
 
   runApp(
-    EasyLocalization(
-      supportedLocales: const [Locale('en'), Locale('de')],
-      path: 'assets/translations',
-      fallbackLocale: const Locale('en'),
-      useOnlyLangCode: true,
-      startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
-      child: DevicePreview(
-        isToolbarVisible: kIsWeb ? false : true,
-        builder: (context) {
-          return const TweetGuess();
-        },
-        enabled: !kReleaseMode || kIsWeb,
-      ),
+    DevicePreview(
+      isToolbarVisible: kIsWeb ? false : true,
+      builder: (context) {
+        return EasyLocalization(
+          supportedLocales: const [Locale('en'), Locale('de')],
+          path: 'assets/translations',
+          fallbackLocale: const Locale('en'),
+          useOnlyLangCode: true,
+          startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
+          child: const TweetGuess(),
+        );
+      },
+      enabled: !kReleaseMode || kIsWeb,
     ),
   );
 }

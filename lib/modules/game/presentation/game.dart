@@ -228,7 +228,7 @@ class _GameScreenState extends State<GameScreen> {
             Align(
               alignment: Alignment.bottomLeft,
               child: Text(
-                currentTweet.createdAt!.toDateTimeFormatMMMdY(),
+                currentTweet.createdAt!.toDateTimeFormatMMMdY(context),
                 style: TextStyle(
                   fontFamily: "Pixeboy",
                   fontWeight: FontWeight.w100,
