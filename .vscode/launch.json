@@ -7,7 +7,7 @@
     {
       "name": "app",
       "request": "launch",
-      "type": "dart",
+      "type": "dart"
     },
     {
       "name": "app (profile mode)",
@@ -16,17 +16,23 @@
       "flutterMode": "profile"
     },
     {
+      "name": "Debug (as web server)",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--web-port=59005", "-d", "web-server"]
+    },
+    {
       "name": "app (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"
     },
-        {
-          "name": "app (release mode)",
-          "request": "launch",
-          "type": "dart",
-          
-          "flutterMode": "release"
-        }
+    {
+      "name": "app (release mode)",
+      "request": "launch",
+      "type": "dart",
+
+      "flutterMode": "release"
+    }
   ]
 }

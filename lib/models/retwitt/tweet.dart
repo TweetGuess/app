@@ -57,7 +57,7 @@ class Tweet implements ITweet {
   factory Tweet.fromJson(Map<String, dynamic> json) => Tweet(
         tweetId: json['id'],
         createdAt: json['createdAt'] != null
-            ? DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy")
+            ? DateFormat("EEE MMM dd HH:mm:ss '+0000' yyyy", 'en_US')
                 .parse(json['createdAt'])
             : json['createdAt'],
         tweetBy: json['tweetBy'] == null
