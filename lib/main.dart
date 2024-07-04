@@ -22,6 +22,22 @@ import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 import 'core/observers/navigator.dart';
 
 void main() async {
+  await SentryFlutter.init(
+    (options) {
+      options.dsn =
+          '***REMOVED***';
+      // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+      // We recommend adjusting this value in production.
+      options.tracesSampleRate = 1.0;
+      // The sampling rate for profiling is relative to tracesSampleRate
+      // Setting to 1.0 will profile 100% of sampled transactions:
+      options.profilesSampleRate = 1.0;
+    },
+    appRunner: () => _setupApp(),
+  );
+}
+
+void _setupApp() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   // EasyLocalization Setup
@@ -38,33 +54,20 @@ void main() async {
 
   setupGetIt();
 
-  await SentryFlutter.init(
-    (options) {
-      options.dsn =
-          '***REMOVED***';
-      // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
-      // We recommend adjusting this value in production.
-      options.tracesSampleRate = 1.0;
-      // The sampling rate for profiling is relative to tracesSampleRate
-      // Setting to 1.0 will profile 100% of sampled transactions:
-      options.profilesSampleRate = 1.0;
-    },
-    appRunner: () => runApp(
-      DevicePreview(
-        isToolbarVisible: kIsWeb ? false : true,
-        builder: (context) {
-          return EasyLocalization(
-            supportedLocales: const [Locale('en'), Locale('de')],
-            path: 'assets/translations',
-            fallbackLocale: const Locale('en'),
-            useOnlyLangCode: true,
-            startLocale:
-                GetIt.I<UserBloc>().state.settings.language.getLocale(),
-            child: const TweetGuess(),
-          );
-        },
-        enabled: !kReleaseMode || kIsWeb,
-      ),
+  runApp(
+    DevicePreview(
+      isToolbarVisible: kIsWeb ? false : true,
+      builder: (context) {
+        return EasyLocalization(
+          supportedLocales: const [Locale('en'), Locale('de')],
+          path: 'assets/translations',
+          fallbackLocale: const Locale('en'),
+          useOnlyLangCode: true,
+          startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
+          child: const TweetGuess(),
+        );
+      },
+      enabled: !kReleaseMode || kIsWeb,
     ),
   );
 }
