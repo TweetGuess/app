@@ -8,6 +8,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
@@ -37,20 +38,33 @@ void main() async {
 
   setupGetIt();
 
-  runApp(
-    DevicePreview(
-      isToolbarVisible: kIsWeb ? false : true,
-      builder: (context) {
-        return EasyLocalization(
-          supportedLocales: const [Locale('en'), Locale('de')],
-          path: 'assets/translations',
-          fallbackLocale: const Locale('en'),
-          useOnlyLangCode: true,
-          startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
-          child: const TweetGuess(),
-        );
-      },
-      enabled: !kReleaseMode || kIsWeb,
+  await SentryFlutter.init(
+    (options) {
+      options.dsn =
+          '***REMOVED***';
+      // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
+      // We recommend adjusting this value in production.
+      options.tracesSampleRate = 1.0;
+      // The sampling rate for profiling is relative to tracesSampleRate
+      // Setting to 1.0 will profile 100% of sampled transactions:
+      options.profilesSampleRate = 1.0;
+    },
+    appRunner: () => runApp(
+      DevicePreview(
+        isToolbarVisible: kIsWeb ? false : true,
+        builder: (context) {
+          return EasyLocalization(
+            supportedLocales: const [Locale('en'), Locale('de')],
+            path: 'assets/translations',
+            fallbackLocale: const Locale('en'),
+            useOnlyLangCode: true,
+            startLocale:
+                GetIt.I<UserBloc>().state.settings.language.getLocale(),
+            child: const TweetGuess(),
+          );
+        },
+        enabled: !kReleaseMode || kIsWeb,
+      ),
     ),
   );
 }
@@ -102,7 +116,10 @@ class _TweetGuessState extends State<TweetGuess> {
             supportedLocales: context.supportedLocales,
             themeMode: userBloc.userSettings.appearance,
             initialRoute: "/",
-            navigatorObservers: [AppNavObserver()],
+            navigatorObservers: [
+              AppNavObserver(),
+              SentryNavigatorObserver(),
+            ],
             builder: DevicePreview.appBuilder,
             onGenerateRoute: (settings) {
               switch (settings.name) {
