@@ -86,6 +86,9 @@ dependencies:
   # Web Compat
   universal_io: ^2.2.2
 
+  # Tracking
+  sentry_flutter: ^8.3.0
+
 dev_dependencies:
   build_runner: ^2.4.4
   flutter_test:
