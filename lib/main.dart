@@ -13,6 +13,8 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
+import 'package:tweetguess/core/firebase/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/firebase/analytics/default_analytics_controller.dart';
 import 'package:tweetguess/core/firebase/firebase_options.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
@@ -83,6 +85,9 @@ void setupGetIt() {
   // Global Logger Singleton
   GetIt.instance.registerSingleton<Logger>(Logger());
   GetIt.instance.registerSingleton<UserBloc>(UserBloc());
+  GetIt.instance.registerSingleton<AnalyticsController>(
+    DefaultAnalyticsController(analytics: FirebaseAnalytics.instance),
+  );
 }
 
 class TweetGuess extends StatefulWidget {

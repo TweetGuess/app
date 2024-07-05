@@ -7,6 +7,8 @@ import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/bloc/user/user_state.dart';
 import 'package:tweetguess/core/data/models/user/settings/settings.dart';
 import 'package:tweetguess/core/data/models/user/statistics.dart';
+import 'package:tweetguess/core/firebase/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/utils/get_it.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:unique_name_generator/unique_name_generator.dart';
 
@@ -145,6 +147,11 @@ class UserBloc extends HydratedBloc<UserEvent, UserState> {
     UserUpdateIntroStatus event,
     Emitter<UserState> emit,
   ) {
+    if (event.finishedIntro) {
+      // Firebase START ONBOARDING
+      getIt<AnalyticsController>().logEndOnboarding();
+    }
+
     emit(state.copyWith(finishedIntro: event.finishedIntro));
   }
 }
