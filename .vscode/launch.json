@@ -18,8 +18,9 @@
     {
       "name": "Debug (as web server)",
       "request": "launch",
+      "flutterMode": "debug",
       "type": "dart",
-      "args": ["--web-port=59005", "-d", "web-server"]
+      "args": ["--web-port=59005", "-d", "chrome"]
     },
     {
       "name": "app (release mode)",
