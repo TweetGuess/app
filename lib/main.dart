@@ -1,5 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +13,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
+import 'package:tweetguess/core/firebase/firebase_options.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
 import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
@@ -39,6 +42,10 @@ void main() async {
 
 void _setupApp() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // EasyLocalization Setup
   await EasyLocalization.ensureInitialized();
@@ -122,6 +129,7 @@ class _TweetGuessState extends State<TweetGuess> {
             navigatorObservers: [
               AppNavObserver(),
               SentryNavigatorObserver(),
+              FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
             ],
             builder: DevicePreview.appBuilder,
             onGenerateRoute: (settings) {
