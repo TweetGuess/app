@@ -116,7 +116,6 @@ dependency_overrides:
       ref: b3fda79b6a1801f6e72bf2f9cf0bd46f69e3ee9b
       path: hive_generator
 
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -161,10 +160,13 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
-flutter_icons:
+flutter_launcher_icons:
   android: true
   ios: true
   image_path_android: "assets/icons/icon.png"
   image_path_ios: "assets/icons/icon.png"
   adaptive_icon_background: "#54A9EC"
   adaptive_icon_foreground: "assets/icons/adaptive_icon_fg.png"
+  web:
+    generate: true
+    image_path: "assets/icons/icon.png"

@@ -1,11 +1,11 @@
 {
-    "name": "app",
-    "short_name": "app",
+    "name": "TweetGuess",
+    "short_name": "TweetGuess",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#2A79B7",
+    "theme_color": "#2A79B7",
+    "description": "Can you unmask tweets 280 characters at a time?",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
