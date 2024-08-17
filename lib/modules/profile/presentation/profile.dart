@@ -7,10 +7,13 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/utils/colors.dart';
 import 'package:tweetguess/ui/components/draggable_scaffold.dart';
 import 'package:tweetguess/ui/utils/avatar_utilities.dart';
 
 import '../../../ui/components/infotile.dart';
+
+part 'widgets/stats_tile.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -52,24 +55,20 @@ class _ProfilePageState extends State<ProfilePage> {
             const Gap(20),
             Row(
               children: [
-                Flexible(
-                  child: InfoTile(
-                    isGradient: true,
-                    gradientColors: colors,
-                    data: '${(userBloc.state.statistics.gamesPlayed)}',
-                    title: "profile.statistics.games".tr(),
-                    icon: Icons.gamepad_outlined,
-                  ),
+                // Total Games
+                _StatsTile(
+                  colors: colors,
+                  data: '${(userBloc.state.statistics.gamesPlayed)}',
+                  title: "profile.statistics.games".tr(),
+                  icon: Icons.gamepad_outlined,
                 ),
                 const Gap(10),
-                Flexible(
-                  child: InfoTile(
-                    isGradient: true,
-                    gradientColors: colors,
-                    data: '${userBloc.state.statistics.roundsPlayed}',
-                    title: "profile.statistics.rounds".tr(),
-                    icon: Icons.history,
-                  ),
+                // Total Rounds
+                _StatsTile(
+                  colors: colors,
+                  data: '${userBloc.state.statistics.roundsPlayed}',
+                  title: "profile.statistics.rounds".tr(),
+                  icon: Icons.history,
                 ),
               ],
             ),
@@ -78,16 +77,15 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 17.h,
               child: Row(
                 children: [
-                  Flexible(
-                    child: InfoTile(
-                      isGradient: true,
-                      gradientColors: colors,
-                      data: '${(userBloc.state.statistics.gamesPlayed)}',
-                      title: "profile.statistics.all_time_points".tr(),
-                      icon: Icons.score,
-                    ),
+                  // All time points
+                  _StatsTile(
+                    colors: colors,
+                    data: '${(userBloc.state.statistics.gamesPlayed)}',
+                    title: "profile.statistics.all_time_points".tr(),
+                    icon: Icons.score,
                   ),
                   const Gap(10),
+                  // "Coming soon"-tile
                   Flexible(
                     child: Opacity(
                       opacity: 0.5,
@@ -126,45 +124,32 @@ class _ProfilePageState extends State<ProfilePage> {
                       key: ValueKey(userBloc.state.username),
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Expanded(
-                          child: InfoTile(
-                            isGradient: true,
-                            gradientColors: colors,
-                            data:
-                                '${(userBloc.state.statistics.accuracyOfGuesses * 100).toInt()} %',
-                            title: "profile.statistics.accuracy".tr(),
-                            icon: Icons.check,
-                          ),
+                        _StatsTile(
+                          colors: colors,
+                          data:
+                              '${(userBloc.state.statistics.accuracyOfGuesses * 100).toInt()} %',
+                          title: "profile.statistics.accuracy".tr(),
+                          icon: Icons.check,
                         ),
                         const Gap(18),
-                        Expanded(
-                          child: InfoTile(
-                            isGradient: true,
-                            gradientColors: colors,
-                            data: '${userBloc.state.statistics.longestStreak}',
-                            title: "profile.statistics.longest_streak".tr(),
-                            icon: Icons.trending_up,
-                          ),
+                        _StatsTile(
+                          colors: colors,
+                          data: '${userBloc.state.statistics.longestStreak}',
+                          title: "profile.statistics.longest_streak".tr(),
+                          icon: Icons.trending_up,
                         ),
                       ],
                     ),
                   ),
                   const Gap(18),
                   Flexible(
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: InfoTile(
-                            isGradient: true,
-                            gradientColors: colors,
-                            data: (userBloc.state.statistics.roundsPlayed /
-                                    userBloc.state.statistics.gamesPlayed)
-                                .toStringAsFixed(1),
-                            title: "profile.statistics.avg_rounds".tr(),
-                            icon: Icons.av_timer,
-                          ),
-                        ),
-                      ],
+                    child: _StatsTile(
+                      colors: colors,
+                      data: (userBloc.state.statistics.roundsPlayed /
+                              userBloc.state.statistics.gamesPlayed)
+                          .toStringAsFixed(1),
+                      title: "profile.statistics.avg_rounds".tr(),
+                      icon: Icons.av_timer,
                     ),
                   ),
                 ],
@@ -177,28 +162,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 ColorFiltered(
                   // Grayscale Matrix that doesn't affect transparent bits
-                  colorFilter: const ColorFilter.matrix(<double>[
-                    0.2126,
-                    0.7152,
-                    0.0722,
-                    0,
-                    0,
-                    0.2126,
-                    0.7152,
-                    0.0722,
-                    0,
-                    0,
-                    0.2126,
-                    0.7152,
-                    0.0722,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    1,
-                    0,
-                  ]),
+                  colorFilter: ColorUtils.grayScaleMatrix,
                   child: Image.asset(
                     "assets/icons/mario.png",
                     height: 50,
