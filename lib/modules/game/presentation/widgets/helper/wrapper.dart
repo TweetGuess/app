@@ -2,7 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/controller/game_controller.dart';
+import '../../../controller/game_controller.dart';
 import '../../bloc/game_bloc.dart';
 import '../../bloc/game_event.dart';
 

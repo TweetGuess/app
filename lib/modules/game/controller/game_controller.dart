@@ -1,9 +1,9 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 
-import '../../modules/game/presentation/bloc/game_event.dart';
-import '../../modules/game/presentation/bloc/game_state.dart';
-import '../../modules/game/presentation/bloc/models/game.dart';
+import '../presentation/bloc/game_event.dart';
+import '../presentation/bloc/game_state.dart';
+import '../presentation/bloc/models/game.dart';
 
 abstract class GameController {
   GameController(this.context,

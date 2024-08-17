@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:tweetguess/core/firebase/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/utils/utils.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/models/game.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
 import 'package:tweetguess/ui/extensions/number.dart';
 
-import '../../modules/game/presentation/bloc/game_bloc.dart';
-import '../../modules/game/presentation/bloc/game_event.dart';
-import '../../modules/game/presentation/game.dart';
-import '../../modules/game/presentation/widgets/overview.dart';
-import '../../ui/utils/routes/next_round_transition_route.dart';
+import '../presentation/bloc/game_bloc.dart';
+import '../presentation/bloc/game_event.dart';
+import '../presentation/game.dart';
+import '../presentation/widgets/overview.dart';
+import '../../../ui/utils/routes/next_round_transition_route.dart';
 import 'game_controller.dart';
 
 class PrimaryGameController extends GameController {

@@ -1,4 +1,4 @@
-import 'package:tweetguess/core/firebase/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 
 class DefaultAnalyticsController extends AnalyticsController {
   DefaultAnalyticsController({
