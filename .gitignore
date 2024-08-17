@@ -1,3 +1,10 @@
+# TweetGuess Specific
+env/*
+!env/.env.example
+
+# Auto generated env file by Dart
+lib/core/environment/interface/app_env.g.dart
+
 # Miscellaneous
 *.class
 *.log
