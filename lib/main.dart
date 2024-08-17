@@ -30,7 +30,7 @@ void main() async {
   await SentryFlutter.init(
     (options) {
       options.dsn =
-          '***REMOVED***';
+          'https://d8a4f210df177b33f0558528f9b9cf04@o4507543784718336.ingest.de.sentry.io/4507543785963600';
       // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
       // We recommend adjusting this value in production.
       options.tracesSampleRate = 1.0;
