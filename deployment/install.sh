@@ -1,4 +1,5 @@
 #!/bin/bash
+# Install script for Flutter in CI/CD environment (like Vercel)
 
 if cd flutter; then 
     git pull && cd .. 
