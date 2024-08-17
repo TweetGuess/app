@@ -1,6 +1,7 @@
 # TweetGuess Specific
 env/*
 !env/.env.example
+firebase.json
 
 # Auto generated env file by Dart
 lib/core/environment/interface/app_env.g.dart
