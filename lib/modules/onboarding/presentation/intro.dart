@@ -7,7 +7,7 @@ import 'package:introduction_screen/introduction_screen.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
-import 'package:tweetguess/core/firebase/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/utils/utils.dart';
 
 import '../../home/presentation/home.dart';

@@ -8,11 +8,11 @@ part of 'statistics.dart';
 
 _$UserStatisticsImpl _$$UserStatisticsImplFromJson(Map<String, dynamic> json) =>
     _$UserStatisticsImpl(
-      json['pointsEarned'] as int? ?? 0,
-      json['gamesPlayed'] as int? ?? 0,
-      json['roundsPlayed'] as int? ?? 0,
+      (json['pointsEarned'] as num?)?.toInt() ?? 0,
+      (json['gamesPlayed'] as num?)?.toInt() ?? 0,
+      (json['roundsPlayed'] as num?)?.toInt() ?? 0,
       (json['accuracyOfGuesses'] as num?)?.toDouble() ?? 0,
-      json['longestStreak'] as int? ?? 0,
+      (json['longestStreak'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$$UserStatisticsImplToJson(

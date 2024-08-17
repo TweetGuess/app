@@ -12,9 +12,11 @@ import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/controller/analytics/default_analytics_controller.dart';
+import 'package:tweetguess/core/controller/analytics/null_analytics_controller.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
-import 'package:tweetguess/core/firebase/analytics/analytics_controller.dart';
-import 'package:tweetguess/core/firebase/analytics/default_analytics_controller.dart';
+import 'package:tweetguess/core/environment/interface/app_env.dart';
 import 'package:tweetguess/core/firebase/firebase_options.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
@@ -29,8 +31,8 @@ import 'core/observers/navigator.dart';
 void main() async {
   await SentryFlutter.init(
     (options) {
-      options.dsn =
-          'https://d8a4f210df177b33f0558528f9b9cf04@o4507543784718336.ingest.de.sentry.io/4507543785963600';
+      // TODO: Sensitive data - REMOVE
+      options.dsn = AppEnv().sentryDsn;
       // Set tracesSampleRate to 1.0 to capture 100% of transactions for performance monitoring.
       // We recommend adjusting this value in production.
       options.tracesSampleRate = 1.0;
@@ -82,11 +84,16 @@ void _setupApp() async {
 }
 
 void setupGetIt() {
+  // This is to allow reassignment of singletons (when e.g. disabling the analytics during runtime)
+  GetIt.instance.allowReassignment = true;
+
   // Global Logger Singleton
   GetIt.instance.registerSingleton<Logger>(Logger());
   GetIt.instance.registerSingleton<UserBloc>(UserBloc());
   GetIt.instance.registerSingleton<AnalyticsController>(
-    DefaultAnalyticsController(analytics: FirebaseAnalytics.instance),
+    AppEnv().enableAnalytics
+        ? DefaultAnalyticsController(analytics: FirebaseAnalytics.instance)
+        : NullAnalyticsController(analytics: FirebaseAnalytics.instance),
   );
 }
 
