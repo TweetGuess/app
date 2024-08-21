@@ -4,7 +4,7 @@ env/*
 firebase.json
 
 # Auto generated env file by Dart
-lib/core/environment/interface/app_env.g.dart
+lib/core/config/interface/app_env.g.dart
 
 # Miscellaneous
 *.class
