@@ -16,7 +16,7 @@ import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/controller/analytics/default_analytics_controller.dart';
 import 'package:tweetguess/core/controller/analytics/null_analytics_controller.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
-import 'package:tweetguess/core/environment/interface/app_env.dart';
+import 'package:tweetguess/core/config/interface/app_env.dart';
 import 'package:tweetguess/core/firebase/firebase_options.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
