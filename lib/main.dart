@@ -19,6 +19,7 @@ import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/core/config/interface/app_env.dart';
 import 'package:tweetguess/core/firebase/firebase_options.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
+import 'package:tweetguess/core/widgets/web_wrapper.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
 import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
 import 'package:tweetguess/modules/profile/presentation/profile.dart';
@@ -66,19 +67,21 @@ void _setupApp() async {
   setupGetIt();
 
   runApp(
-    DevicePreview(
-      isToolbarVisible: kIsWeb ? false : true,
-      builder: (context) {
-        return EasyLocalization(
-          supportedLocales: const [Locale('en'), Locale('de')],
-          path: 'assets/translations',
-          fallbackLocale: const Locale('en'),
-          useOnlyLangCode: true,
-          startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
-          child: const TweetGuess(),
-        );
-      },
-      enabled: !kReleaseMode || kIsWeb,
+    WebWrapper(
+      child: DevicePreview(
+        isToolbarVisible: kIsWeb ? false : true,
+        builder: (context) {
+          return EasyLocalization(
+            supportedLocales: const [Locale('en'), Locale('de')],
+            path: 'assets/translations',
+            fallbackLocale: const Locale('en'),
+            useOnlyLangCode: true,
+            startLocale: GetIt.I<UserBloc>().state.settings.language.getLocale(),
+            child: const TweetGuess(),
+          );
+        },
+        enabled: !kReleaseMode || kIsWeb,
+      ),
     ),
   );
 }
