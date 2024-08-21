@@ -5,8 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:tweetguess/core/utils/list.dart';
 
-import '../../models/interface_tweet.dart';
-import '../../models/retwitt/tweet.dart';
+import '../data/models/twitter/interface_tweet.dart';
+import '../data/models/twitter/retwitt/tweet.dart';
 
 class TweetService {
   static List<ITweet> _tweets = [];

@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:easy_localization/easy_localization.dart';
-import 'package:tweetguess/models/interface_tweet.dart';
+import 'package:tweetguess/core/data/models/twitter/interface_tweet.dart';
 
 import 'entities.dart';
 import 'media.dart';

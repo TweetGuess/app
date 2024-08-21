@@ -1,5 +1,5 @@
-import 'package:tweetguess/models/retwitt/media.dart';
-import 'package:tweetguess/models/retwitt/tweet.dart';
+import 'package:tweetguess/core/data/models/twitter/retwitt/media.dart';
+import 'package:tweetguess/core/data/models/twitter/retwitt/tweet.dart';
 
 abstract class ITweet {
   ITweet({
