@@ -22,8 +22,12 @@ GameplaySettings _$GameplaySettingsFromJson(Map<String, dynamic> json) {
 mixin _$GameplaySettings {
   dynamic get enableImagesInTweets => throw _privateConstructorUsedError;
 
+  /// Serializes this GameplaySettings to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GameplaySettingsCopyWith<GameplaySettings> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +51,8 @@ class _$GameplaySettingsCopyWithImpl<$Res, $Val extends GameplaySettings>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of GameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -80,6 +86,8 @@ class __$$GameplaySettingsImplCopyWithImpl<$Res>
       $Res Function(_$GameplaySettingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -119,12 +127,14 @@ class _$GameplaySettingsImpl implements _GameplaySettings {
                 .equals(other.enableImagesInTweets, enableImagesInTweets));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(enableImagesInTweets));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GameplaySettingsImplCopyWith<_$GameplaySettingsImpl> get copyWith =>
@@ -148,8 +158,11 @@ abstract class _GameplaySettings implements GameplaySettings {
 
   @override
   dynamic get enableImagesInTweets;
+
+  /// Create a copy of GameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GameplaySettingsImplCopyWith<_$GameplaySettingsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

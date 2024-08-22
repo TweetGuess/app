@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 
 class DefaultAnalyticsController extends AnalyticsController {
@@ -7,6 +9,7 @@ class DefaultAnalyticsController extends AnalyticsController {
 
   @override
   void logEndGame() async {
+    debugger();
     await analytics.logEvent(
       name: "end_game",
     );

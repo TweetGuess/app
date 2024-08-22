@@ -22,7 +22,9 @@ mixin _$Game {
   bool get isPaused => throw _privateConstructorUsedError;
   Round get currentRound => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Game
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $GameCopyWith<Game> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -51,6 +53,8 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Game
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -84,6 +88,8 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
     ) as $Val);
   }
 
+  /// Create a copy of Game
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $RoundCopyWith<$Res> get currentRound {
@@ -118,6 +124,8 @@ class __$$GameImplCopyWithImpl<$Res>
   __$$GameImplCopyWithImpl(_$GameImpl _value, $Res Function(_$GameImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Game
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -213,7 +221,9 @@ class _$GameImpl implements _Game {
       isPaused,
       currentRound);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Game
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GameImplCopyWith<_$GameImpl> get copyWith =>
@@ -238,8 +248,11 @@ abstract class _Game implements Game {
   bool get isPaused;
   @override
   Round get currentRound;
+
+  /// Create a copy of Game
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GameImplCopyWith<_$GameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

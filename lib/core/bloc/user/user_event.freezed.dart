@@ -78,6 +78,9 @@ class _$UserUpdateStatsCopyWithImpl<$Res, $Val extends UserUpdateStats>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of UserUpdateStats
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -102,6 +105,8 @@ class __$$UserUpdateStatsImplCopyWithImpl<$Res>
       _$UserUpdateStatsImpl _value, $Res Function(_$UserUpdateStatsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserUpdateStats
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -183,7 +188,9 @@ class _$UserUpdateStatsImpl implements _UserUpdateStats {
   int get hashCode => Object.hash(runtimeType, pointsEarned, gamesPlayed,
       roundsPlayed, accuracyOfGuesses, longestStreak);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserUpdateStats
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserUpdateStatsImplCopyWith<_$UserUpdateStatsImpl> get copyWith =>
@@ -275,7 +282,10 @@ abstract class _UserUpdateStats implements UserUpdateStats {
   int get roundsPlayed;
   double get accuracyOfGuesses;
   int get longestStreak;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserUpdateStats
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserUpdateStatsImplCopyWith<_$UserUpdateStatsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -299,6 +309,8 @@ class __$$FromRoundsImplCopyWithImpl<$Res>
       _$FromRoundsImpl _value, $Res Function(_$FromRoundsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserUpdateStats
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -312,6 +324,8 @@ class __$$FromRoundsImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of UserUpdateStats
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GameCopyWith<$Res> get game {
@@ -345,7 +359,9 @@ class _$FromRoundsImpl implements _FromRounds {
   @override
   int get hashCode => Object.hash(runtimeType, game);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserUpdateStats
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FromRoundsImplCopyWith<_$FromRoundsImpl> get copyWith =>
@@ -424,7 +440,10 @@ abstract class _FromRounds implements UserUpdateStats {
   factory _FromRounds({required final Game game}) = _$FromRoundsImpl;
 
   Game get game;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserUpdateStats
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FromRoundsImplCopyWith<_$FromRoundsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -448,6 +467,9 @@ class _$UserResetStatsCopyWithImpl<$Res, $Val extends UserResetStats>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of UserResetStats
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -464,6 +486,9 @@ class __$$UserResetStatsImplCopyWithImpl<$Res>
   __$$UserResetStatsImplCopyWithImpl(
       _$UserResetStatsImpl _value, $Res Function(_$UserResetStatsImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of UserResetStats
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -494,7 +519,9 @@ abstract class _UserResetStats implements UserResetStats {
 mixin _$UserSetLanguage {
   AppLanguage get newLanguage => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserSetLanguage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserSetLanguageCopyWith<UserSetLanguage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -518,6 +545,8 @@ class _$UserSetLanguageCopyWithImpl<$Res, $Val extends UserSetLanguage>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserSetLanguage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -551,6 +580,8 @@ class __$$UserSetLanguageImplCopyWithImpl<$Res>
       _$UserSetLanguageImpl _value, $Res Function(_$UserSetLanguageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserSetLanguage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -590,7 +621,9 @@ class _$UserSetLanguageImpl implements _UserSetLanguage {
   @override
   int get hashCode => Object.hash(runtimeType, newLanguage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserSetLanguage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserSetLanguageImplCopyWith<_$UserSetLanguageImpl> get copyWith =>
@@ -604,8 +637,11 @@ abstract class _UserSetLanguage implements UserSetLanguage {
 
   @override
   AppLanguage get newLanguage;
+
+  /// Create a copy of UserSetLanguage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserSetLanguageImplCopyWith<_$UserSetLanguageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -614,7 +650,9 @@ abstract class _UserSetLanguage implements UserSetLanguage {
 mixin _$UserSetAppearance {
   ThemeMode get appearance => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserSetAppearance
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserSetAppearanceCopyWith<UserSetAppearance> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -638,6 +676,8 @@ class _$UserSetAppearanceCopyWithImpl<$Res, $Val extends UserSetAppearance>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserSetAppearance
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -671,6 +711,8 @@ class __$$UserSetAppearanceImplCopyWithImpl<$Res>
       $Res Function(_$UserSetAppearanceImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserSetAppearance
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -710,7 +752,9 @@ class _$UserSetAppearanceImpl implements _UserSetAppearance {
   @override
   int get hashCode => Object.hash(runtimeType, appearance);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserSetAppearance
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserSetAppearanceImplCopyWith<_$UserSetAppearanceImpl> get copyWith =>
@@ -724,8 +768,11 @@ abstract class _UserSetAppearance implements UserSetAppearance {
 
   @override
   ThemeMode get appearance;
+
+  /// Create a copy of UserSetAppearance
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserSetAppearanceImplCopyWith<_$UserSetAppearanceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -734,7 +781,9 @@ abstract class _UserSetAppearance implements UserSetAppearance {
 mixin _$UserUpdateGameplaySettings {
   GameplaySettings get gameplaySettings => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserUpdateGameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserUpdateGameplaySettingsCopyWith<UserUpdateGameplaySettings>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -762,6 +811,8 @@ class _$UserUpdateGameplaySettingsCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserUpdateGameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -775,6 +826,8 @@ class _$UserUpdateGameplaySettingsCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of UserUpdateGameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GameplaySettingsCopyWith<$Res> get gameplaySettings {
@@ -809,6 +862,8 @@ class __$$UserUpdateGameplaySettingsImplCopyWithImpl<$Res>
       $Res Function(_$UserUpdateGameplaySettingsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserUpdateGameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -848,7 +903,9 @@ class _$UserUpdateGameplaySettingsImpl implements _UserUpdateGameplaySettings {
   @override
   int get hashCode => Object.hash(runtimeType, gameplaySettings);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserUpdateGameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserUpdateGameplaySettingsImplCopyWith<_$UserUpdateGameplaySettingsImpl>
@@ -864,8 +921,11 @@ abstract class _UserUpdateGameplaySettings
 
   @override
   GameplaySettings get gameplaySettings;
+
+  /// Create a copy of UserUpdateGameplaySettings
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserUpdateGameplaySettingsImplCopyWith<_$UserUpdateGameplaySettingsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -874,7 +934,9 @@ abstract class _UserUpdateGameplaySettings
 mixin _$UserUpdateIntroStatus {
   bool get finishedIntro => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserUpdateIntroStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserUpdateIntroStatusCopyWith<UserUpdateIntroStatus> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -899,6 +961,8 @@ class _$UserUpdateIntroStatusCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserUpdateIntroStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -934,6 +998,8 @@ class __$$UserUpdateIntroStatusImplCopyWithImpl<$Res>
       $Res Function(_$UserUpdateIntroStatusImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserUpdateIntroStatus
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -973,7 +1039,9 @@ class _$UserUpdateIntroStatusImpl implements _UserUpdateIntroStatus {
   @override
   int get hashCode => Object.hash(runtimeType, finishedIntro);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserUpdateIntroStatus
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserUpdateIntroStatusImplCopyWith<_$UserUpdateIntroStatusImpl>
@@ -987,8 +1055,11 @@ abstract class _UserUpdateIntroStatus implements UserUpdateIntroStatus {
 
   @override
   bool get finishedIntro;
+
+  /// Create a copy of UserUpdateIntroStatus
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserUpdateIntroStatusImplCopyWith<_$UserUpdateIntroStatusImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
