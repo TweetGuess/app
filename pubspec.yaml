@@ -87,6 +87,7 @@ dependencies:
 
   # Web Compat
   universal_io: ^2.2.2
+  url_strategy: ^0.3.0
 
   # Tracking
   sentry_flutter: ^8.3.0
