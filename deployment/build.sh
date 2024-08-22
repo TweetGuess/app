@@ -32,7 +32,8 @@ echo "ENABLE_ANALYTICS=$enable_analytics" >> $env_file_name
 unzipped_options=$(echo "$firebase_options" | base64 -d | gzip -d)
 
 # Write the unzipped options to a file
-echo "$unzipped_options" >> "lib/core/firebase/firebase_options.dart"
+mkdir -p lib/core/firebase
+echo "$unzipped_options" >> lib/core/firebase/firebase_options.dart
 
 # Setup environment file
 FB_COMMAND="flutter/bin/dart run build_runner build --delete-conflicting-outputs"
