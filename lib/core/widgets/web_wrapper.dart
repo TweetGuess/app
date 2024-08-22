@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const gitHubURL = "https://github.com/TweetGuess/app";
@@ -32,14 +31,10 @@ class WebWrapper extends StatelessWidget {
                 cursor: SystemMouseCursors.click,
                 child: GestureDetector(
                   onTap: _launchGithub,
-                  child: SvgPicture.asset(
-                    "icons/github.svg",
+                  child: Image.asset(
+                    "assets/icons/github.png",
                     width: 32,
                     height: 32,
-                    colorFilter: ColorFilter.mode(
-                      Theme.of(context).iconTheme.color ?? Colors.black,
-                      BlendMode.srcIn,
-                    ),
                   ),
                 ),
               ),
