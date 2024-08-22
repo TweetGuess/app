@@ -101,6 +101,9 @@ class _$GameEventCopyWithImpl<$Res, $Val extends GameEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -117,6 +120,9 @@ class __$$StartGameImplCopyWithImpl<$Res>
   __$$StartGameImplCopyWithImpl(
       _$StartGameImpl _value, $Res Function(_$StartGameImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -249,6 +255,9 @@ class __$$PauseGameImplCopyWithImpl<$Res>
   __$$PauseGameImplCopyWithImpl(
       _$PauseGameImpl _value, $Res Function(_$PauseGameImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -381,6 +390,9 @@ class __$$ExitGameImplCopyWithImpl<$Res>
   __$$ExitGameImplCopyWithImpl(
       _$ExitGameImpl _value, $Res Function(_$ExitGameImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -516,6 +528,8 @@ class __$$SubmitRoundImplCopyWithImpl<$Res>
       _$SubmitRoundImpl _value, $Res Function(_$SubmitRoundImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -554,7 +568,9 @@ class _$SubmitRoundImpl implements SubmitRound {
   @override
   int get hashCode => Object.hash(runtimeType, answer);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SubmitRoundImplCopyWith<_$SubmitRoundImpl> get copyWith =>
@@ -657,7 +673,10 @@ abstract class SubmitRound implements GameEvent {
   factory SubmitRound({required final int answer}) = _$SubmitRoundImpl;
 
   int get answer;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubmitRoundImplCopyWith<_$SubmitRoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -676,6 +695,9 @@ class __$$NextRoundImplCopyWithImpl<$Res>
   __$$NextRoundImplCopyWithImpl(
       _$NextRoundImpl _value, $Res Function(_$NextRoundImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -808,6 +830,9 @@ class __$$NoTimeLeftImplCopyWithImpl<$Res>
   __$$NoTimeLeftImplCopyWithImpl(
       _$NoTimeLeftImpl _value, $Res Function(_$NoTimeLeftImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -940,6 +965,9 @@ class __$$NoLivesLeftImplCopyWithImpl<$Res>
   __$$NoLivesLeftImplCopyWithImpl(
       _$NoLivesLeftImpl _value, $Res Function(_$NoLivesLeftImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of GameEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

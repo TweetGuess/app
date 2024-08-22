@@ -26,8 +26,12 @@ mixin _$UserStatistics {
   double get accuracyOfGuesses => throw _privateConstructorUsedError;
   int get longestStreak => throw _privateConstructorUsedError;
 
+  /// Serializes this UserStatistics to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of UserStatistics
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $UserStatisticsCopyWith<UserStatistics> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -56,6 +60,8 @@ class _$UserStatisticsCopyWithImpl<$Res, $Val extends UserStatistics>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of UserStatistics
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -114,6 +120,8 @@ class __$$UserStatisticsImplCopyWithImpl<$Res>
       _$UserStatisticsImpl _value, $Res Function(_$UserStatisticsImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of UserStatistics
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,12 +207,14 @@ class _$UserStatisticsImpl implements _UserStatistics {
                 other.longestStreak == longestStreak));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, pointsEarned, gamesPlayed,
       roundsPlayed, accuracyOfGuesses, longestStreak);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of UserStatistics
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$UserStatisticsImplCopyWith<_$UserStatisticsImpl> get copyWith =>
@@ -240,8 +250,11 @@ abstract class _UserStatistics implements UserStatistics {
   double get accuracyOfGuesses;
   @override
   int get longestStreak;
+
+  /// Create a copy of UserStatistics
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UserStatisticsImplCopyWith<_$UserStatisticsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

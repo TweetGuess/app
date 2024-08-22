@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
@@ -7,11 +9,11 @@ import 'package:tweetguess/modules/game/presentation/bloc/models/game.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
 import 'package:tweetguess/ui/extensions/number.dart';
 
+import '../../../ui/utils/routes/next_round_transition_route.dart';
 import '../presentation/bloc/game_bloc.dart';
 import '../presentation/bloc/game_event.dart';
 import '../presentation/game.dart';
 import '../presentation/widgets/overview.dart';
-import '../../../ui/utils/routes/next_round_transition_route.dart';
 import 'game_controller.dart';
 
 class PrimaryGameController extends GameController {
@@ -122,8 +124,12 @@ class PrimaryGameController extends GameController {
   void transitionToOverviewExit(
     Game game,
   ) {
+    debugger();
+
     // Firebase END GAME EVENT
     getIt<AnalyticsController>().logEndGame();
+
+    print(getIt<AnalyticsController>().toString());
 
     // Add to Controller
     Navigator.of(context).pushReplacement(

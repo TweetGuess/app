@@ -25,7 +25,9 @@ mixin _$Round {
   int get rightAnswer => throw _privateConstructorUsedError;
   bool? get answeredRight => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Round
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RoundCopyWith<Round> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -53,6 +55,8 @@ class _$RoundCopyWithImpl<$Res, $Val extends Round>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Round
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -111,6 +115,8 @@ class __$$RoundImplCopyWithImpl<$Res>
       _$RoundImpl _value, $Res Function(_$RoundImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Round
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -208,7 +214,9 @@ class _$RoundImpl implements _Round {
       rightAnswer,
       answeredRight);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Round
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RoundImplCopyWith<_$RoundImpl> get copyWith =>
@@ -232,14 +240,17 @@ abstract class _Round implements Round {
   @override
   List<(GlobalKey<UIPrimaryGameButtonState>, (String, String))>
       get answerPossibilities;
-  @override
 
   /// The right answer is given here by the index
+  @override
   int get rightAnswer;
   @override
   bool? get answeredRight;
+
+  /// Create a copy of Round
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RoundImplCopyWith<_$RoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

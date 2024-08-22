@@ -77,6 +77,9 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -93,6 +96,9 @@ class __$$GameInitialImplCopyWithImpl<$Res>
   __$$GameInitialImplCopyWithImpl(
       _$GameInitialImpl _value, $Res Function(_$GameInitialImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -207,6 +213,8 @@ class __$$GameRoundInProgressImplCopyWithImpl<$Res>
       $Res Function(_$GameRoundInProgressImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -220,6 +228,8 @@ class __$$GameRoundInProgressImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GameCopyWith<$Res> get game {
@@ -253,7 +263,9 @@ class _$GameRoundInProgressImpl extends GameRoundInProgress {
   @override
   int get hashCode => Object.hash(runtimeType, game);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GameRoundInProgressImplCopyWith<_$GameRoundInProgressImpl> get copyWith =>
@@ -334,7 +346,10 @@ abstract class GameRoundInProgress extends GameState {
   GameRoundInProgress._() : super._();
 
   Game get game;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GameRoundInProgressImplCopyWith<_$GameRoundInProgressImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -359,6 +374,8 @@ class __$$GameTerminalImplCopyWithImpl<$Res>
       _$GameTerminalImpl _value, $Res Function(_$GameTerminalImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -377,6 +394,8 @@ class __$$GameTerminalImplCopyWithImpl<$Res>
     ));
   }
 
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GameCopyWith<$Res> get game {
@@ -385,6 +404,8 @@ class __$$GameTerminalImplCopyWithImpl<$Res>
     });
   }
 
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $GameEventCopyWith<$Res> get event {
@@ -421,7 +442,9 @@ class _$GameTerminalImpl extends GameTerminal {
   @override
   int get hashCode => Object.hash(runtimeType, game, event);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$GameTerminalImplCopyWith<_$GameTerminalImpl> get copyWith =>
@@ -503,7 +526,10 @@ abstract class GameTerminal extends GameState {
 
   Game get game;
   GameEvent get event;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of GameState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GameTerminalImplCopyWith<_$GameTerminalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -10,6 +10,13 @@
       "type": "dart"
     },
     {
+      "name": "app (web - debug server)",
+      "request": "launch",
+      "suppressWebServerDeviceBrowserLaunch": true,
+      "type": "dart",
+      "args": ["-d", "web-server"]
+    },
+    {
       "name": "app (profile mode)",
       "request": "launch",
       "type": "dart",
@@ -25,7 +32,6 @@
       "name": "app (release mode)",
       "request": "launch",
       "type": "dart",
-
       "flutterMode": "release"
     }
   ]
