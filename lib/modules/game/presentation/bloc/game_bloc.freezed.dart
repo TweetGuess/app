@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'game_event.dart';
+part of 'game_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -22,7 +22,6 @@ mixin _$GameEvent {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) =>
@@ -33,7 +32,6 @@ mixin _$GameEvent {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) =>
@@ -44,7 +42,6 @@ mixin _$GameEvent {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -55,8 +52,7 @@ mixin _$GameEvent {
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
+    required TResult Function(_SubmitRound value) submitRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
   }) =>
@@ -66,8 +62,7 @@ mixin _$GameEvent {
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
+    TResult? Function(_SubmitRound value)? submitRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
   }) =>
@@ -77,8 +72,7 @@ mixin _$GameEvent {
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
+    TResult Function(_SubmitRound value)? submitRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
     required TResult orElse(),
@@ -151,7 +145,6 @@ class _$StartGameImpl implements StartGame {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -165,7 +158,6 @@ class _$StartGameImpl implements StartGame {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -179,7 +171,6 @@ class _$StartGameImpl implements StartGame {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -196,8 +187,7 @@ class _$StartGameImpl implements StartGame {
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
+    required TResult Function(_SubmitRound value) submitRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
   }) {
@@ -210,8 +200,7 @@ class _$StartGameImpl implements StartGame {
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
+    TResult? Function(_SubmitRound value)? submitRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
   }) {
@@ -224,8 +213,7 @@ class _$StartGameImpl implements StartGame {
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
+    TResult Function(_SubmitRound value)? submitRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
     required TResult orElse(),
@@ -286,7 +274,6 @@ class _$PauseGameImpl implements PauseGame {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -300,7 +287,6 @@ class _$PauseGameImpl implements PauseGame {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -314,7 +300,6 @@ class _$PauseGameImpl implements PauseGame {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -331,8 +316,7 @@ class _$PauseGameImpl implements PauseGame {
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
+    required TResult Function(_SubmitRound value) submitRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
   }) {
@@ -345,8 +329,7 @@ class _$PauseGameImpl implements PauseGame {
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
+    TResult? Function(_SubmitRound value)? submitRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
   }) {
@@ -359,8 +342,7 @@ class _$PauseGameImpl implements PauseGame {
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
+    TResult Function(_SubmitRound value)? submitRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
     required TResult orElse(),
@@ -421,7 +403,6 @@ class _$ExitGameImpl implements ExitGame {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -435,7 +416,6 @@ class _$ExitGameImpl implements ExitGame {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -449,7 +429,6 @@ class _$ExitGameImpl implements ExitGame {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -466,8 +445,7 @@ class _$ExitGameImpl implements ExitGame {
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
+    required TResult Function(_SubmitRound value) submitRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
   }) {
@@ -480,8 +458,7 @@ class _$ExitGameImpl implements ExitGame {
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
+    TResult? Function(_SubmitRound value)? submitRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
   }) {
@@ -494,8 +471,7 @@ class _$ExitGameImpl implements ExitGame {
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
+    TResult Function(_SubmitRound value)? submitRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
     required TResult orElse(),
@@ -546,7 +522,7 @@ class __$$SubmitRoundImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SubmitRoundImpl implements SubmitRound {
+class _$SubmitRoundImpl implements _SubmitRound {
   _$SubmitRoundImpl({required this.answer});
 
   @override
@@ -583,7 +559,6 @@ class _$SubmitRoundImpl implements SubmitRound {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -597,7 +572,6 @@ class _$SubmitRoundImpl implements SubmitRound {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -611,7 +585,6 @@ class _$SubmitRoundImpl implements SubmitRound {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -628,8 +601,7 @@ class _$SubmitRoundImpl implements SubmitRound {
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
+    required TResult Function(_SubmitRound value) submitRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
   }) {
@@ -642,8 +614,7 @@ class _$SubmitRoundImpl implements SubmitRound {
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
+    TResult? Function(_SubmitRound value)? submitRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
   }) {
@@ -656,8 +627,7 @@ class _$SubmitRoundImpl implements SubmitRound {
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
+    TResult Function(_SubmitRound value)? submitRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
     required TResult orElse(),
@@ -669,8 +639,8 @@ class _$SubmitRoundImpl implements SubmitRound {
   }
 }
 
-abstract class SubmitRound implements GameEvent {
-  factory SubmitRound({required final int answer}) = _$SubmitRoundImpl;
+abstract class _SubmitRound implements GameEvent {
+  factory _SubmitRound({required final int answer}) = _$SubmitRoundImpl;
 
   int get answer;
 
@@ -679,141 +649,6 @@ abstract class SubmitRound implements GameEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubmitRoundImplCopyWith<_$SubmitRoundImpl> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$NextRoundImplCopyWith<$Res> {
-  factory _$$NextRoundImplCopyWith(
-          _$NextRoundImpl value, $Res Function(_$NextRoundImpl) then) =
-      __$$NextRoundImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$NextRoundImplCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$NextRoundImpl>
-    implements _$$NextRoundImplCopyWith<$Res> {
-  __$$NextRoundImplCopyWithImpl(
-      _$NextRoundImpl _value, $Res Function(_$NextRoundImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of GameEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$NextRoundImpl implements NextRound {
-  _$NextRoundImpl();
-
-  @override
-  String toString() {
-    return 'GameEvent.nextRound()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NextRoundImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() startGame,
-    required TResult Function() pauseGame,
-    required TResult Function() exitGame,
-    required TResult Function(int answer) submitRound,
-    required TResult Function() nextRound,
-    required TResult Function() noTimeLeft,
-    required TResult Function() noLivesLeft,
-  }) {
-    return nextRound();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? startGame,
-    TResult? Function()? pauseGame,
-    TResult? Function()? exitGame,
-    TResult? Function(int answer)? submitRound,
-    TResult? Function()? nextRound,
-    TResult? Function()? noTimeLeft,
-    TResult? Function()? noLivesLeft,
-  }) {
-    return nextRound?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? startGame,
-    TResult Function()? pauseGame,
-    TResult Function()? exitGame,
-    TResult Function(int answer)? submitRound,
-    TResult Function()? nextRound,
-    TResult Function()? noTimeLeft,
-    TResult Function()? noLivesLeft,
-    required TResult orElse(),
-  }) {
-    if (nextRound != null) {
-      return nextRound();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(StartGame value) startGame,
-    required TResult Function(PauseGame value) pauseGame,
-    required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
-    required TResult Function(NoTimeLeft value) noTimeLeft,
-    required TResult Function(NoLivesLeft value) noLivesLeft,
-  }) {
-    return nextRound(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(StartGame value)? startGame,
-    TResult? Function(PauseGame value)? pauseGame,
-    TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
-    TResult? Function(NoTimeLeft value)? noTimeLeft,
-    TResult? Function(NoLivesLeft value)? noLivesLeft,
-  }) {
-    return nextRound?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(StartGame value)? startGame,
-    TResult Function(PauseGame value)? pauseGame,
-    TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
-    TResult Function(NoTimeLeft value)? noTimeLeft,
-    TResult Function(NoLivesLeft value)? noLivesLeft,
-    required TResult orElse(),
-  }) {
-    if (nextRound != null) {
-      return nextRound(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class NextRound implements GameEvent {
-  factory NextRound() = _$NextRoundImpl;
 }
 
 /// @nodoc
@@ -861,7 +696,6 @@ class _$NoTimeLeftImpl implements NoTimeLeft {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -875,7 +709,6 @@ class _$NoTimeLeftImpl implements NoTimeLeft {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -889,7 +722,6 @@ class _$NoTimeLeftImpl implements NoTimeLeft {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -906,8 +738,7 @@ class _$NoTimeLeftImpl implements NoTimeLeft {
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
+    required TResult Function(_SubmitRound value) submitRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
   }) {
@@ -920,8 +751,7 @@ class _$NoTimeLeftImpl implements NoTimeLeft {
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
+    TResult? Function(_SubmitRound value)? submitRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
   }) {
@@ -934,8 +764,7 @@ class _$NoTimeLeftImpl implements NoTimeLeft {
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
+    TResult Function(_SubmitRound value)? submitRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
     required TResult orElse(),
@@ -996,7 +825,6 @@ class _$NoLivesLeftImpl implements NoLivesLeft {
     required TResult Function() pauseGame,
     required TResult Function() exitGame,
     required TResult Function(int answer) submitRound,
-    required TResult Function() nextRound,
     required TResult Function() noTimeLeft,
     required TResult Function() noLivesLeft,
   }) {
@@ -1010,7 +838,6 @@ class _$NoLivesLeftImpl implements NoLivesLeft {
     TResult? Function()? pauseGame,
     TResult? Function()? exitGame,
     TResult? Function(int answer)? submitRound,
-    TResult? Function()? nextRound,
     TResult? Function()? noTimeLeft,
     TResult? Function()? noLivesLeft,
   }) {
@@ -1024,7 +851,6 @@ class _$NoLivesLeftImpl implements NoLivesLeft {
     TResult Function()? pauseGame,
     TResult Function()? exitGame,
     TResult Function(int answer)? submitRound,
-    TResult Function()? nextRound,
     TResult Function()? noTimeLeft,
     TResult Function()? noLivesLeft,
     required TResult orElse(),
@@ -1041,8 +867,7 @@ class _$NoLivesLeftImpl implements NoLivesLeft {
     required TResult Function(StartGame value) startGame,
     required TResult Function(PauseGame value) pauseGame,
     required TResult Function(ExitGame value) exitGame,
-    required TResult Function(SubmitRound value) submitRound,
-    required TResult Function(NextRound value) nextRound,
+    required TResult Function(_SubmitRound value) submitRound,
     required TResult Function(NoTimeLeft value) noTimeLeft,
     required TResult Function(NoLivesLeft value) noLivesLeft,
   }) {
@@ -1055,8 +880,7 @@ class _$NoLivesLeftImpl implements NoLivesLeft {
     TResult? Function(StartGame value)? startGame,
     TResult? Function(PauseGame value)? pauseGame,
     TResult? Function(ExitGame value)? exitGame,
-    TResult? Function(SubmitRound value)? submitRound,
-    TResult? Function(NextRound value)? nextRound,
+    TResult? Function(_SubmitRound value)? submitRound,
     TResult? Function(NoTimeLeft value)? noTimeLeft,
     TResult? Function(NoLivesLeft value)? noLivesLeft,
   }) {
@@ -1069,8 +893,7 @@ class _$NoLivesLeftImpl implements NoLivesLeft {
     TResult Function(StartGame value)? startGame,
     TResult Function(PauseGame value)? pauseGame,
     TResult Function(ExitGame value)? exitGame,
-    TResult Function(SubmitRound value)? submitRound,
-    TResult Function(NextRound value)? nextRound,
+    TResult Function(_SubmitRound value)? submitRound,
     TResult Function(NoTimeLeft value)? noTimeLeft,
     TResult Function(NoLivesLeft value)? noLivesLeft,
     required TResult orElse(),

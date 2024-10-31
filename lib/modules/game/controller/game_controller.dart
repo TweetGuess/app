@@ -1,7 +1,6 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 
-import '../presentation/bloc/game_event.dart';
 import '../presentation/bloc/game_state.dart';
 import '../presentation/bloc/models/game.dart';
 
@@ -25,12 +24,11 @@ abstract class GameController {
   void resumeGame() {}
 
   void handleRoundFinished(
-    RoundFinished inProgressState,
+    RoundFinished finishedState,
     Game game,
   ) {}
 
   void transitionToNextRound(
-    NextRound event,
     GameState state,
   ) {}
 

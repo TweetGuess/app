@@ -1,6 +1,4 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'game_event.freezed.dart';
+part of 'game_bloc.dart';
 
 @freezed
 sealed class GameEvent with _$GameEvent {
@@ -12,8 +10,8 @@ sealed class GameEvent with _$GameEvent {
   // State-dependent Game Events
   factory GameEvent.submitRound({
     required int answer,
-  }) = SubmitRound;
-  factory GameEvent.nextRound() = NextRound;
+  }) = _SubmitRound;
+
   factory GameEvent.noTimeLeft() = NoTimeLeft;
   factory GameEvent.noLivesLeft() = NoLivesLeft;
 }

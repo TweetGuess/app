@@ -11,9 +11,8 @@ import 'package:tweetguess/ui/extensions/number.dart';
 
 import '../../../ui/utils/routes/next_round_transition_route.dart';
 import '../presentation/bloc/game_bloc.dart';
-import '../presentation/bloc/game_event.dart';
 import '../presentation/game.dart';
-import '../presentation/widgets/overview.dart';
+import '../presentation/views/overview.dart';
 import 'game_controller.dart';
 
 class PrimaryGameController extends GameController {
@@ -38,12 +37,12 @@ class PrimaryGameController extends GameController {
 
   @override
   void handleRoundFinished(
-    RoundFinished inProgressState,
+    RoundFinished finishedState,
     Game game,
   ) {
     ignoringTapsNotifier.value = true;
 
-    switch (inProgressState) {
+    switch (finishedState) {
       case RoundRightAnswer():
         {
           var buttonState = game.currentRound
@@ -94,17 +93,10 @@ class PrimaryGameController extends GameController {
           break;
         }
     }
-
-    Future.delayed(const Duration(milliseconds: 1000), () {
-      bloc.add(
-        GameEvent.nextRound(),
-      );
-    });
   }
 
   @override
   void transitionToNextRound(
-    NextRound event,
     GameState state,
   ) {
     // Activate transition to next round

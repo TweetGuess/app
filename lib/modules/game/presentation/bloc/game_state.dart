@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
 
-import 'game_event.dart';
 import 'models/game.dart';
 
 part 'game_state.freezed.dart';

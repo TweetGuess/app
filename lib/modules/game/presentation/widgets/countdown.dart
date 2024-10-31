@@ -3,7 +3,6 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/utils/get_it.dart';
-import 'package:tweetguess/modules/game/presentation/bloc/game_event.dart';
 import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 
 import '../../../../ui/text/countdown_text.dart';

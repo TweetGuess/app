@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../controller/game_controller.dart';
 import '../../bloc/game_bloc.dart';
-import '../../bloc/game_event.dart';
 
 class GameWrapper extends StatelessWidget {
   final GameController controller;
