@@ -95,7 +95,6 @@ dependencies:
   firebase_analytics: ^11.1.0
   envied: ^0.5.4+1
   sensors_plus: ^6.1.0
-  injectable: ^2.5.0
 
 dev_dependencies:
   build_runner: ^2.4.11

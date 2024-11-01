@@ -12,14 +12,16 @@ import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
-import 'package:tweetguess/core/config/interface/app_env.dart';
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/controller/analytics/default_analytics_controller.dart';
 import 'package:tweetguess/core/controller/analytics/null_analytics_controller.dart';
+import 'package:tweetguess/core/data/config/interface/app_env.dart';
+import 'package:tweetguess/core/data/firebase/firebase_options.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
-import 'package:tweetguess/core/firebase/firebase_options.dart';
+import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
+import 'package:tweetguess/core/services/shake_detection/shake_detection_service.dart';
+import 'package:tweetguess/core/ui/widgets/web_wrapper.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
-import 'package:tweetguess/core/widgets/web_wrapper.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
 import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
 import 'package:tweetguess/modules/profile/presentation/profile.dart';
@@ -28,13 +30,13 @@ import 'package:tweetguess/themes.dart';
 import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-import 'core/observers/navigator.dart';
+import 'core/ui/observers/navigator.dart';
 
 void main() async {
   if (kIsWeb) {
     setPathUrlStrategy();
   }
-  
+
   await SentryFlutter.init(
     (options) {
       // TODO: Sensitive data - REMOVE
@@ -98,11 +100,17 @@ void setupGetIt() {
 
   // Global Logger Singleton
   GetIt.instance.registerSingleton<Logger>(Logger());
+
   GetIt.instance.registerSingleton<UserBloc>(UserBloc());
+
   GetIt.instance.registerSingleton<AnalyticsController>(
     AppEnv().enableAnalytics
         ? DefaultAnalyticsController(analytics: FirebaseAnalytics.instance)
         : NullAnalyticsController(analytics: FirebaseAnalytics.instance),
+  );
+
+  GetIt.instance.registerFactory<IShakeDetectionService>(
+    () => ShakeDetectionService(),
   );
 }
 
