@@ -1,7 +1,7 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/const.dart';
+import '../../data/const.dart';
 
 class GameTimer extends StatefulWidget {
   const GameTimer({super.key, this.onFinished, this.countdownTimerKey});

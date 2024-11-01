@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../../../ui/components/primary_game_button.dart';
+import '../../../../ui/components/primary_game_button.dart';
 
 part 'round.freezed.dart';
 

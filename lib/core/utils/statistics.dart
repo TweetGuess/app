@@ -1,4 +1,4 @@
-import '../../modules/game/presentation/bloc/models/game.dart';
+import '../../modules/game/domain/models/game.dart';
 import '../bloc/user/user_state.dart';
 
 extension StatsX on Game {

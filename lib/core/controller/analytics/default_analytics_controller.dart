@@ -9,7 +9,6 @@ class DefaultAnalyticsController extends AnalyticsController {
 
   @override
   void logEndGame() async {
-    debugger();
     await analytics.logEvent(
       name: "end_game",
     );

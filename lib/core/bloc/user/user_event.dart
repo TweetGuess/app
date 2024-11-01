@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tweetguess/core/data/models/user/settings/gameplay.dart';
 
-import '../../../modules/game/presentation/bloc/models/game.dart';
+import '../../../modules/game/domain/models/game.dart';
 import '../../data/models/user/settings/language.dart';
 
 part 'user_event.freezed.dart';

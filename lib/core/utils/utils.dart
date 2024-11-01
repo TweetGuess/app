@@ -1,4 +1,4 @@
-export 'const.dart';
+export '../../modules/game/data/const.dart';
 export 'date.dart';
 export 'get_it.dart';
 export 'list.dart';

@@ -2,11 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../controller/game_controller.dart';
 import '../../bloc/game_bloc.dart';
+import '../../../domain/ui_controller/game_ui_controller.dart';
 
 class GameWrapper extends StatelessWidget {
-  final GameController controller;
+  final IGameUIController controller;
 
   final Widget child;
 

@@ -64,16 +64,12 @@ class _GameScreenState extends State<GameScreen> {
   /// Used to access the TimerController to pause, resume & stop the timer
   final gameTimerKey = GlobalKey<CircularCountDownTimerState>();
 
-  /// Used to update game score after we get feedback on the answer
-  final _gameScoreNotifier = ValueNotifier<int?>(null);
-
   @override
   void initState() {
     super.initState();
 
     context.read<GameBloc>().initRound(
           context,
-          gameScoreNotifier: _gameScoreNotifier,
           gameTimerKey: gameTimerKey,
         );
   }
@@ -305,7 +301,6 @@ class _GameScreenState extends State<GameScreen> {
               child: GameScore(
                 context: context,
                 roundInProgress: value,
-                scoreNotifier: _gameScoreNotifier,
               ),
             ),
             Expanded(

@@ -1,12 +1,18 @@
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
 
-import '../presentation/bloc/game_state.dart';
-import '../presentation/bloc/models/game.dart';
+import '../../presentation/bloc/game_state.dart';
+import '../models/game.dart';
 
-abstract class GameController {
-  GameController(this.context,
-      {required this.gameScoreNotifier, required this.gameTimerKey});
+/// A base controller class that handles UI-related game operations and transitions.
+///
+/// This controller is responsible for managing UI related state and transitions between
+/// different game states like pausing, resuming, handling round completion, and
+/// navigating between rounds.
+abstract class IGameUIController {
+  IGameUIController(this.context,
+      {required this.gameTimerKey, required this.bloc});
 
   /// Used to disable taps during score count animation
   final ValueNotifier<bool> ignoringTapsNotifier = ValueNotifier(false);
@@ -14,8 +20,7 @@ abstract class GameController {
   /// Used to access the TimerController to pause, resume & stop the timer
   GlobalKey<CircularCountDownTimerState> gameTimerKey;
 
-  /// Used to update game score after we get feedback on the answer
-  final ValueNotifier<int?> gameScoreNotifier;
+  final GameBloc bloc;
 
   late BuildContext context;
 

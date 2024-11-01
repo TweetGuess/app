@@ -8,7 +8,7 @@ import 'package:tweetguess/ui/components/primary_container.dart';
 
 import '../../../../ui/components/primary_button.dart';
 import '../../../../ui/utils/routes/circular_transition_route.dart';
-import '../bloc/models/game.dart';
+import '../../domain/models/game.dart';
 import '../game.dart';
 
 class OverviewExitScreen extends StatelessWidget {

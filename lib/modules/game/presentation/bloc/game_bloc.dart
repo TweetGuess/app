@@ -7,20 +7,20 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
-import 'package:tweetguess/core/utils/const.dart';
-import 'package:tweetguess/modules/game/controller/primary_game_controller.dart';
+import 'package:tweetguess/modules/game/data/const.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/utils/game.dart';
+import 'package:tweetguess/modules/game/data/ui_controller/primary_game_ui_controller.dart';
 import 'package:tweetguess/ui/extensions/number.dart';
 
-import '../../controller/game_controller.dart';
-import 'models/game.dart';
+import '../../domain/ui_controller/game_ui_controller.dart';
+import '../../domain/models/game.dart';
 
 part 'game_bloc.freezed.dart';
 part 'game_event.dart';
 
 class GameBloc extends Bloc<GameEvent, GameState> {
-  late GameController gameController;
+  late IGameUIController gameController;
 
   /// This is to avoid multiple handleSubmitRounds
   final _submitRoundCompleter = Completer<void>();
@@ -44,12 +44,10 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   void initRound(
     BuildContext context, {
     required GlobalKey<CircularCountDownTimerState> gameTimerKey,
-    required ValueNotifier<int?> gameScoreNotifier,
   }) {
     // TODO: Add injection
-    gameController = PrimaryGameController(
+    gameController = PrimaryGameUIController(
       context,
-      gameScoreNotifier: gameScoreNotifier,
       gameTimerKey: gameTimerKey,
       bloc: this,
     );
