@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../core/observers/navigator.dart';
+import '../../../core/ui/observers/navigator.dart';
 import '../transitions/helper.dart';
 
 /// Transition for next game round

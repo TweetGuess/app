@@ -16,6 +16,7 @@ class Game with _$Game {
     @Default(GameConstants.MAX_LIVES) int lives,
     @Default(false) bool isPaused,
     required Round currentRound,
+    @Default(GameConstants.MAX_JOKERS) int jokersLeft,
   }) = _Game;
 
   factory Game() {

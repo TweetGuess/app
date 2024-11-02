@@ -1,30 +1,33 @@
 import 'dart:async';
 
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
+import 'package:tweetguess/core/controller/shake/shake_controller.dart';
+import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
+import 'package:tweetguess/core/utils/get_it.dart';
 import 'package:tweetguess/modules/game/data/const.dart';
+import 'package:tweetguess/modules/game/data/ui_controller/primary_game_ui_controller.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/utils/game.dart';
-import 'package:tweetguess/modules/game/data/ui_controller/primary_game_ui_controller.dart';
 import 'package:tweetguess/ui/extensions/number.dart';
 
-import '../../domain/ui_controller/game_ui_controller.dart';
 import '../../domain/models/game.dart';
+import '../../domain/ui_controller/game_ui_controller.dart';
 
 part 'game_bloc.freezed.dart';
 part 'game_event.dart';
 
 class GameBloc extends Bloc<GameEvent, GameState> {
-  late IGameUIController gameController;
-
-  /// This is to avoid multiple handleSubmitRounds
-  final _submitRoundCompleter = Completer<void>();
-
+  late IGameUIController gameUiController;
+  late final ShakeController _shakeController;
+  
   GameBloc([GameState? initial]) : super(initial ?? GameState.initial()) {
     // Handle game state changes
     on<StartGame>(_handleGameState);
@@ -36,7 +39,28 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<NoLivesLeft>(_handleGameEvent);
 
     // Handle round changes
-    on<_SubmitRound>(_handleSubmitRound);
+    on<_SubmitRound>(_handleSubmitRound, transformer: droppable());
+    on<UseJoker>(_handleJokerUsage, transformer: droppable());
+  }
+
+  FutureOr<void> _handleJokerUsage(UseJoker event, Emitter<GameState> emit) async {
+    await state.whenOrNull(
+      roundInProgress: (game) async {
+        if (game.jokersLeft > 0) {
+          HapticFeedback.lightImpact();
+
+          emit(
+            GameState.roundInProgress(
+              game.copyWith(
+                jokersLeft: game.jokersLeft - 1,
+              ),
+            ),
+          );
+
+          await _handleNextRound();
+        }
+      },
+    );
   }
 
   /// Mainly to initialize the GameController in every round
@@ -46,11 +70,33 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     required GlobalKey<CircularCountDownTimerState> gameTimerKey,
   }) {
     // TODO: Add injection
-    gameController = PrimaryGameUIController(
+    gameUiController = PrimaryGameUIController(
       context,
       gameTimerKey: gameTimerKey,
       bloc: this,
     );
+
+    // Setup shake gesture
+    _setupShakeController();
+  }
+
+  // Sets up the shake gesture that allows the user to skip the round
+  void _setupShakeController() async {
+    // Have a delay to not have double joker plays after we push to a new screen
+    await Future.delayed(const Duration(milliseconds: 1000));
+
+    _shakeController = ShakeController(
+      shakeService: getIt<IShakeDetectionService>(),
+      onShake: () {
+        state.whenOrNull(
+          roundInProgress: (game) {
+            if (game.jokersLeft > 0 && !game.isPaused) {
+              add(GameEvent.useJoker());
+            }
+          },
+        );
+      },
+    )..initialize();
   }
 
   FutureOr<void> handleGameStart(StartGame event, Emitter<GameState> emit) {
@@ -66,18 +112,18 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     );
   }
 
-  FutureOr<void> _handleNextRound() {
-    state.whenOrNull(
-      roundInProgress: (game) {
-        var currentRound = game.currentRound;
-
-        var nextRound =
-            GameUtils.generateRound([...game.pastRounds, currentRound]);
-
+  FutureOr<void> _handleNextRound() async {
+    await state.whenOrNull(
+      roundInProgress: (game) async {
         if (game.lives == 0) {
           add(GameEvent.exitGame());
         } else {
-          gameController.transitionToNextRound(
+          var currentRound = game.currentRound;
+
+          var nextRound =
+              GameUtils.generateRound([...game.pastRounds, currentRound]);
+          
+          gameUiController.transitionToNextRound(
             GameState.roundInProgress(
               game.copyWith(
                 pastRounds: [...game.pastRounds, currentRound],
@@ -86,26 +132,23 @@ class GameBloc extends Bloc<GameEvent, GameState> {
             ),
           );
 
-          close();
+          await close();
         }
       },
     );
   }
 
-  void _handleSubmitRound(_SubmitRound event, Emitter<GameState> emit) {
-    if (_submitRoundCompleter.isCompleted) {
-      return;
-    }
-
-    /// If we don't process an event then complete the completer so it doesn't happen anymore
-    _submitRoundCompleter.complete();
-
-    state.whenOrNull(
-      roundInProgress: (game) {
+  FutureOr<void> _handleSubmitRound(
+    _SubmitRound event,
+    Emitter<GameState> emit,
+  ) async {
+    // Wait till transition
+    await state.whenOrNull(
+      roundInProgress: (game) async {
         var answeredRight = false;
 
         if (game.currentRound.rightAnswer == event.answer) {
-          gameController.handleRoundFinished(
+          gameUiController.handleRoundFinished(
             RoundRightAnswer(),
             game,
           );
@@ -113,19 +156,19 @@ class GameBloc extends Bloc<GameEvent, GameState> {
           answeredRight = true;
         } else {
           if (event.answer == GameConstants.NO_TIME_LEFT_EVENT) {
-            gameController.handleRoundFinished(
+            gameUiController.handleRoundFinished(
               RoundNoTimeLeft(),
               game,
             );
           } else {
-            gameController.handleRoundFinished(
+            gameUiController.handleRoundFinished(
               RoundWrongAnswer(selectedAnswer: event.answer),
               game,
             );
           }
         }
 
-        Future.delayed(const Duration(milliseconds: 1000), () {
+        await Future.delayed(const Duration(milliseconds: 1000), () {
           emit(
             GameState.roundInProgress(
               game.copyWith(
@@ -147,7 +190,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     return (game.points +
             (answeredRight
                 ? int.parse(
-                    (gameController.gameTimerKey.currentState?.time ?? '15'),
+                    (gameUiController.gameTimerKey.currentState?.time ?? '15'),
                   )
                 : GameConstants.MINUS_POINTS))
         .toScore();
@@ -182,12 +225,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       roundInProgress: (game) {
         if (event is StartGame) {
           if (game.isPaused) {
-            gameController.resumeGame();
+            gameUiController.resumeGame();
           }
         } else if (event is PauseGame) {
           emit(GameState.roundInProgress(game.copyWith(isPaused: true)));
 
-          gameController.pauseGame();
+          gameUiController.pauseGame();
         } else if (event is ExitGame) {
           _handleGameEnd(game);
 
@@ -201,6 +244,12 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     // Update Stats
     GetIt.I<UserBloc>().add(UserUpdateStats.fromGame(game: game));
 
-    gameController.transitionToOverviewExit(game);
+    gameUiController.transitionToOverviewExit(game);
+  }
+
+  @override
+  Future<void> close() {
+    _shakeController.dispose();
+    return super.close();
   }
 }

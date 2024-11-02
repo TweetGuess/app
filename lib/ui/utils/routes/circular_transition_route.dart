@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/observers/navigator.dart';
+import '../../../core/ui/observers/navigator.dart';
 import '../transitions/helper.dart';
 
 class CircularTransitionRoute extends PageRouteBuilder {

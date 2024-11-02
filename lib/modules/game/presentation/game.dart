@@ -79,7 +79,7 @@ class _GameScreenState extends State<GameScreen> {
     return Scaffold(
       appBar: _buildAppBar(),
       body: GameWrapper(
-        controller: context.read<GameBloc>().gameController,
+        controller: context.read<GameBloc>().gameUiController,
         child: BlocBuilder<GameBloc, GameState>(
           buildWhen: (previous, current) {
             // Don't rebuild for terminal states, we are transitioning to the summary page

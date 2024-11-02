@@ -21,6 +21,7 @@ mixin _$Game {
   int get lives => throw _privateConstructorUsedError;
   bool get isPaused => throw _privateConstructorUsedError;
   Round get currentRound => throw _privateConstructorUsedError;
+  int get jokersLeft => throw _privateConstructorUsedError;
 
   /// Create a copy of Game
   /// with the given fields replaced by the non-null parameter values.
@@ -38,7 +39,8 @@ abstract class $GameCopyWith<$Res> {
       List<Round> pastRounds,
       int lives,
       bool isPaused,
-      Round currentRound});
+      Round currentRound,
+      int jokersLeft});
 
   $RoundCopyWith<$Res> get currentRound;
 }
@@ -63,6 +65,7 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
     Object? lives = null,
     Object? isPaused = null,
     Object? currentRound = null,
+    Object? jokersLeft = null,
   }) {
     return _then(_value.copyWith(
       points: null == points
@@ -85,6 +88,10 @@ class _$GameCopyWithImpl<$Res, $Val extends Game>
           ? _value.currentRound
           : currentRound // ignore: cast_nullable_to_non_nullable
               as Round,
+      jokersLeft: null == jokersLeft
+          ? _value.jokersLeft
+          : jokersLeft // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 
@@ -111,7 +118,8 @@ abstract class _$$GameImplCopyWith<$Res> implements $GameCopyWith<$Res> {
       List<Round> pastRounds,
       int lives,
       bool isPaused,
-      Round currentRound});
+      Round currentRound,
+      int jokersLeft});
 
   @override
   $RoundCopyWith<$Res> get currentRound;
@@ -134,6 +142,7 @@ class __$$GameImplCopyWithImpl<$Res>
     Object? lives = null,
     Object? isPaused = null,
     Object? currentRound = null,
+    Object? jokersLeft = null,
   }) {
     return _then(_$GameImpl(
       points: null == points
@@ -156,6 +165,10 @@ class __$$GameImplCopyWithImpl<$Res>
           ? _value.currentRound
           : currentRound // ignore: cast_nullable_to_non_nullable
               as Round,
+      jokersLeft: null == jokersLeft
+          ? _value.jokersLeft
+          : jokersLeft // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -168,7 +181,8 @@ class _$GameImpl implements _Game {
       final List<Round> pastRounds = const [],
       this.lives = GameConstants.MAX_LIVES,
       this.isPaused = false,
-      required this.currentRound})
+      required this.currentRound,
+      this.jokersLeft = GameConstants.MAX_JOKERS})
       : _pastRounds = pastRounds;
 
   @override
@@ -191,10 +205,13 @@ class _$GameImpl implements _Game {
   final bool isPaused;
   @override
   final Round currentRound;
+  @override
+  @JsonKey()
+  final int jokersLeft;
 
   @override
   String toString() {
-    return 'Game._(points: $points, pastRounds: $pastRounds, lives: $lives, isPaused: $isPaused, currentRound: $currentRound)';
+    return 'Game._(points: $points, pastRounds: $pastRounds, lives: $lives, isPaused: $isPaused, currentRound: $currentRound, jokersLeft: $jokersLeft)';
   }
 
   @override
@@ -209,7 +226,9 @@ class _$GameImpl implements _Game {
             (identical(other.isPaused, isPaused) ||
                 other.isPaused == isPaused) &&
             (identical(other.currentRound, currentRound) ||
-                other.currentRound == currentRound));
+                other.currentRound == currentRound) &&
+            (identical(other.jokersLeft, jokersLeft) ||
+                other.jokersLeft == jokersLeft));
   }
 
   @override
@@ -219,7 +238,8 @@ class _$GameImpl implements _Game {
       const DeepCollectionEquality().hash(_pastRounds),
       lives,
       isPaused,
-      currentRound);
+      currentRound,
+      jokersLeft);
 
   /// Create a copy of Game
   /// with the given fields replaced by the non-null parameter values.
@@ -236,7 +256,8 @@ abstract class _Game implements Game {
       final List<Round> pastRounds,
       final int lives,
       final bool isPaused,
-      required final Round currentRound}) = _$GameImpl;
+      required final Round currentRound,
+      final int jokersLeft}) = _$GameImpl;
 
   @override
   int get points;
@@ -248,6 +269,8 @@ abstract class _Game implements Game {
   bool get isPaused;
   @override
   Round get currentRound;
+  @override
+  int get jokersLeft;
 
   /// Create a copy of Game
   /// with the given fields replaced by the non-null parameter values.

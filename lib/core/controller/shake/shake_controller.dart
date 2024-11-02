@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
+import 'package:tweetguess/core/utils/stream/throttle.dart';
 
 class ShakeController {
   final IShakeDetectionService _shakeService;
@@ -14,7 +15,14 @@ class ShakeController {
   }) : _shakeService = shakeService;
 
   void initialize() {
-    _subscription = _shakeService.onShake.listen((_) => onShake());
+    _subscription = _shakeService.onShake
+        .where(StreamThrottler.throttleWith(const Duration(seconds: 2)))
+        .listen((shake) {
+      if (shake) {
+        onShake();
+      }
+    });
+
     _shakeService.startListening();
   }
 

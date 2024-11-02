@@ -1,21 +1,21 @@
 import 'dart:async';
 
 import 'package:rxdart/transformers.dart';
+import 'package:sensors_plus/sensors_plus.dart';
 import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
 import 'package:tweetguess/modules/game/data/const.dart';
-import 'package:sensors_plus/sensors_plus.dart';
 
 class ShakeDetectionService implements IShakeDetectionService {
   final double threshold;
-  final StreamController<void> _shakeController =
-      StreamController<void>.broadcast();
+  final StreamController<bool> _shakeController =
+      StreamController<bool>.broadcast();
   StreamSubscription? _subscription;
   bool _isListening = false;
 
   ShakeDetectionService({this.threshold = GameConstants.SHAKE_THRESHOLD});
 
   @override
-  Stream<void> get onShake => _shakeController.stream;
+  Stream<bool> get onShake => _shakeController.stream;
 
   @override
   void startListening() {
@@ -30,7 +30,7 @@ class ShakeDetectionService implements IShakeDetectionService {
   void _handleAccelerometerEvent(AccelerometerEvent event) {
     double acceleration = _computeAcceleration(event);
     if (acceleration > threshold) {
-      _shakeController.add(null);
+      _shakeController.add(true);
     }
   }
 

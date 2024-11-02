@@ -14,4 +14,5 @@ sealed class GameEvent with _$GameEvent {
 
   factory GameEvent.noTimeLeft() = NoTimeLeft;
   factory GameEvent.noLivesLeft() = NoLivesLeft;
+  factory GameEvent.useJoker() = UseJoker;
 }
