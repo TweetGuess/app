@@ -28,7 +28,6 @@ import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
 import 'package:tweetguess/modules/profile/presentation/profile.dart';
 import 'package:tweetguess/modules/settings/presentation/settings.dart';
 import 'package:tweetguess/themes.dart';
-import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'core/services/tilt_detection/tilt_detection_service.dart';
@@ -155,6 +154,7 @@ class _TweetGuessState extends State<TweetGuess> {
             // ignore: deprecated_member_use
             useInheritedMediaQuery: true,
             darkTheme: darkThemeData(),
+            restorationScopeId: 'tweetguess',
             locale: context.locale,
             navigatorKey: TweetGuess.globalKey,
             localizationsDelegates: context.localizationDelegates,
@@ -168,30 +168,20 @@ class _TweetGuessState extends State<TweetGuess> {
             ],
             builder: DevicePreview.appBuilder,
             onGenerateRoute: (settings) {
-              switch (settings.name) {
-                case "/":
-                  {
-                    return CircularTransitionRoute(
-                      page: routes['/']!(context),
-                      settings: settings,
-                    );
-                  }
-                default:
-                  // Check if the route exists in your routes map
-                  if (routes.containsKey(settings.name)) {
-                    return MaterialPageRoute(
-                      builder: (context) => routes[settings.name]!(context),
-                      settings: settings,
-                    );
-                  } else {
-                    // If the route does not exist, redirect to a default route
-                    // This could be an error page or the home page as a fallback
-                    return MaterialPageRoute(
-                      builder: (context) => routes['/']!(
-                        context,
-                      ),
-                    );
-                  }
+              // Check if the route exists in your routes map
+              if (routes.containsKey(settings.name)) {
+                return MaterialPageRoute(
+                  builder: (context) => routes[settings.name]!(context),
+                  settings: settings,
+                );
+              } else {
+                // If the route does not exist, redirect to a default route
+                // This could be an error page or the home page as a fallback
+                return MaterialPageRoute(
+                  builder: (context) => routes['/']!(
+                    context,
+                  ),
+                );
               }
             },
           );
