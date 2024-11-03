@@ -47,7 +47,7 @@ class TiltDetectionService implements ITiltDetectionService {
     _isListening = true;
 
     _subscription = _accelerometerStream()
-        .debounceTime(const Duration(milliseconds: 100))
+        .throttleTime(const Duration(milliseconds: 50))
         .listen(_handleAccelerometerEvent);
   }
 

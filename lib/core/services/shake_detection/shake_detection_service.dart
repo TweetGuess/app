@@ -15,7 +15,7 @@ class ShakeDetectionService implements IShakeDetectionService {
   final double threshold;
 
   static const double GRAVITY = 9.81;
-  static const int DEBOUNCE_MS = 200;
+  static const int THROTTLE_MS = 500;
 
   final StreamController<bool> _shakeController =
       StreamController<bool>.broadcast();
@@ -27,7 +27,7 @@ class ShakeDetectionService implements IShakeDetectionService {
   /// Creates a shake detection service with the specified threshold.
   ///
   /// [threshold] defaults to [GameConstants.SHAKE_THRESHOLD] if not provided.
-  ShakeDetectionService({
+  ShakeDetectionService({ 
     this.threshold = GameConstants.SHAKE_THRESHOLD,
     Stream<AccelerometerEvent> Function()? accelerometerStream,
   }) : _accelerometerStream = accelerometerStream ?? accelerometerEventStream;
@@ -42,7 +42,7 @@ class ShakeDetectionService implements IShakeDetectionService {
 
     // Use injected stream factory
     _subscription = _accelerometerStream()
-        .debounceTime(const Duration(milliseconds: DEBOUNCE_MS))
+        .throttleTime(const Duration(milliseconds: THROTTLE_MS))
         .listen(_handleAccelerometerEvent);
   }
 
