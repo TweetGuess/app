@@ -28,6 +28,8 @@ abstract class IGameUIController {
 
   void resumeGame() {}
 
+  void handleRoundSkipped(Game game) {}
+
   void handleRoundFinished(
     RoundFinished finishedState,
     Game game,

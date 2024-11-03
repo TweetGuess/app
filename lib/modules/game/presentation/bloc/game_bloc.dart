@@ -10,7 +10,6 @@ import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/controller/shake/shake_controller.dart';
 import 'package:tweetguess/core/controller/tilt/tilt_controller.dart';
-import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
 import 'package:tweetguess/core/services/tilt_detection/tilt_detection_interface.dart';
 import 'package:tweetguess/core/utils/get_it.dart';
 import 'package:tweetguess/modules/game/data/const.dart';
@@ -55,21 +54,23 @@ class GameBloc extends Bloc<GameEvent, GameState> {
           var newGame = game.copyWith(
             jokersLeft: game.jokersLeft - 1,
           );
-          
+
           emit(
             GameState.roundInProgress(
               newGame,
             ),
           );
 
-          gameUiController.handleRoundFinished(
-            RoundSkipped(),
-            newGame,
-          );
+          gameUiController.handleRoundSkipped(newGame);
 
           await Future.delayed(const Duration(milliseconds: 500));
 
           await _handleNextRound();
+        } else {
+          // Passing down a "-1" so our handler knows that this is a no-joke(r) case
+          gameUiController.handleRoundSkipped(
+            game.copyWith(jokersLeft: -1),
+          );
         }
       },
     );
@@ -102,7 +103,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
       onTilt: () {
         state.whenOrNull(
           roundInProgress: (game) {
-            if (game.jokersLeft > 0 && !game.isPaused) {
+            if (!game.isPaused) {
               add(GameEvent.useJoker());
             }
           },

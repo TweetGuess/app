@@ -41,6 +41,34 @@ class PrimaryGameUIController extends IGameUIController {
   }
 
   @override
+  void handleRoundSkipped(Game game) {
+    HapticFeedback.lightImpact();
+
+    if (game.jokersLeft >= 0) {
+      StatusAlert.show(
+        context,
+        duration: const Duration(milliseconds: 1000),
+        title: 'Round Skipped',
+        blurPower: 10,
+        backgroundColor: Colors.white70,
+        subtitle: 'Jokers left: ${game.jokersLeft}',
+        configuration: const IconConfiguration(icon: Icons.skip_next),
+        maxWidth: 260,
+      );
+    } else {
+      StatusAlert.show(
+        context,
+        duration: const Duration(milliseconds: 1000),
+        title: 'No Jokers Left',
+        blurPower: 10,
+        backgroundColor: Colors.white70,
+        configuration: const IconConfiguration(icon: Icons.error_outline),
+        maxWidth: 260,
+      );
+    }
+  }
+
+  @override
   void handleRoundFinished(
     RoundFinished finishedState,
     Game game,
@@ -92,18 +120,7 @@ class PrimaryGameUIController extends IGameUIController {
 
       case RoundSkipped():
         {
-          HapticFeedback.lightImpact();
-
-          StatusAlert.show(
-            context,
-            duration: const Duration(milliseconds: 1500),
-            title: 'Round Skipped',
-            blurPower: 10,
-            backgroundColor: Colors.white70,
-            subtitle: 'Jokers left: ${game.jokersLeft}',
-            configuration: const IconConfiguration(icon: Icons.skip_next),
-            maxWidth: 260,
-          );
+          handleRoundSkipped(game);
           break;
         }
     }
