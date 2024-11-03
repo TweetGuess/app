@@ -32,6 +32,8 @@ import 'package:url_strategy/url_strategy.dart';
 
 import 'core/services/tilt_detection/tilt_detection_service.dart';
 import 'core/ui/observers/navigator.dart';
+import 'package:go_router/go_router.dart';
+import 'package:tweetguess/core/routing/router.dart';
 
 void main() async {
   if (kIsWeb) {
@@ -131,59 +133,25 @@ class TweetGuess extends StatefulWidget {
 class _TweetGuessState extends State<TweetGuess> {
   @override
   Widget build(BuildContext context) {
-    // TODO: Refactor declarative route usage
-    var routes = {
-      '/': (context) {
-        return GetIt.I<UserBloc>().state.finishedIntro
-            ? const HomeScreen()
-            : const IntroScreen();
-      },
-      '/settings': (context) => const SettingsPage(),
-      '/profile': (context) => const ProfilePage(),
-    };
-
     return MultiBlocProvider(
       providers: [BlocProvider<UserBloc>(create: (_) => GetIt.I<UserBloc>())],
       child: ResponsiveSizer(
         builder: (context, orientation, screenType) {
           var userBloc = context.watch<UserBloc>();
 
-          return MaterialApp(
+          return MaterialApp.router(
+            routerConfig: router,
             title: 'TweetGuess',
             theme: lightThemeData(),
+            darkTheme: darkThemeData(),
             // ignore: deprecated_member_use
             useInheritedMediaQuery: true,
-            darkTheme: darkThemeData(),
             restorationScopeId: 'tweetguess',
             locale: context.locale,
-            navigatorKey: TweetGuess.globalKey,
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             themeMode: userBloc.userSettings.appearance,
-            initialRoute: "/",
-            navigatorObservers: [
-              AppNavObserver(),
-              SentryNavigatorObserver(),
-              FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
-            ],
             builder: DevicePreview.appBuilder,
-            onGenerateRoute: (settings) {
-              // Check if the route exists in your routes map
-              if (routes.containsKey(settings.name)) {
-                return MaterialPageRoute(
-                  builder: (context) => routes[settings.name]!(context),
-                  settings: settings,
-                );
-              } else {
-                // If the route does not exist, redirect to a default route
-                // This could be an error page or the home page as a fallback
-                return MaterialPageRoute(
-                  builder: (context) => routes['/']!(
-                    context,
-                  ),
-                );
-              }
-            },
           );
         },
       ),

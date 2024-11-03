@@ -9,6 +9,7 @@ import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/utils/utils.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../home/presentation/home.dart';
 
@@ -70,16 +71,7 @@ class _IntroScreenState extends State<IntroScreen> {
       ),
       next: const Icon(Icons.arrow_forward),
       onDone: () {
-        Navigator.pushReplacement(
-          context,
-          PageTransition(
-            type: PageTransitionType.fade,
-            curve: Curves.easeInOutSine,
-            childCurrent: widget,
-            alignment: Alignment.bottomCenter,
-            child: const HomeScreen(),
-          ),
-        );
+        context.go('/');
 
         context
             .read<UserBloc>()

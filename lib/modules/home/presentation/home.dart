@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
@@ -196,9 +197,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: BlocProvider<GameBloc>(
               create: (_) => GameBloc(),
               child: GestureDetector(
-                onTapUp: (details) => Navigator.of(context).push(
-                  GameScreen.route(),
-                ),
+                onTapUp: (details) => context.push('/game'),
               ),
             ),
           ),

@@ -29,35 +29,6 @@ class GameScreen extends StatefulWidget {
 
   @override
   State<GameScreen> createState() => _GameScreenState();
-
-  // TODO: Maybe add a round parameter to set condition for when the BlocBuilder should listen?
-  // Have another Route so we can keep the RouteSettings
-  static Route route({
-    bool countdownEnabled = true,
-    GameBloc? bloc,
-    Duration transitionDuration = const Duration(milliseconds: 600),
-  }) {
-    return CircularTransitionRoute(
-      page: BlocProvider<GameBloc>.value(
-        value: bloc ?? GameBloc(),
-        child: (countdownEnabled
-            ? const Countdown()
-            : GameScreen(key: UniqueKey())),
-      ),
-      settings: const RouteSettings(name: "/game"),
-    );
-  }
-
-  static Widget page({
-    GameBloc? bloc,
-    bool countdownEnabled = true,
-  }) {
-    return BlocProvider<GameBloc>.value(
-      value: bloc ?? GameBloc(),
-      child:
-          (countdownEnabled ? const Countdown() : GameScreen(key: UniqueKey())),
-    );
-  }
 }
 
 class _GameScreenState extends State<GameScreen> {
