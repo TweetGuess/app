@@ -45,3 +45,8 @@ class RoundWrongAnswer extends RoundFinished {
 class RoundNoTimeLeft extends RoundFinished {
   RoundNoTimeLeft();
 }
+
+
+class RoundSkipped extends RoundFinished {
+  RoundSkipped();
+}

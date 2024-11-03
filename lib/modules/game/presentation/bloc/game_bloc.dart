@@ -3,14 +3,15 @@ import 'dart:async';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/controller/shake/shake_controller.dart';
+import 'package:tweetguess/core/controller/tilt/tilt_controller.dart';
 import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
+import 'package:tweetguess/core/services/tilt_detection/tilt_detection_interface.dart';
 import 'package:tweetguess/core/utils/get_it.dart';
 import 'package:tweetguess/modules/game/data/const.dart';
 import 'package:tweetguess/modules/game/data/ui_controller/primary_game_ui_controller.dart';
@@ -27,7 +28,8 @@ part 'game_event.dart';
 class GameBloc extends Bloc<GameEvent, GameState> {
   late IGameUIController gameUiController;
   late final ShakeController _shakeController;
-  
+  late final TiltController _tiltController;
+
   GameBloc([GameState? initial]) : super(initial ?? GameState.initial()) {
     // Handle game state changes
     on<StartGame>(_handleGameState);
@@ -43,19 +45,29 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<UseJoker>(_handleJokerUsage, transformer: droppable());
   }
 
-  FutureOr<void> _handleJokerUsage(UseJoker event, Emitter<GameState> emit) async {
+  FutureOr<void> _handleJokerUsage(
+    UseJoker event,
+    Emitter<GameState> emit,
+  ) async {
     await state.whenOrNull(
       roundInProgress: (game) async {
         if (game.jokersLeft > 0) {
-          HapticFeedback.lightImpact();
-
+          var newGame = game.copyWith(
+            jokersLeft: game.jokersLeft - 1,
+          );
+          
           emit(
             GameState.roundInProgress(
-              game.copyWith(
-                jokersLeft: game.jokersLeft - 1,
-              ),
+              newGame,
             ),
           );
+
+          gameUiController.handleRoundFinished(
+            RoundSkipped(),
+            newGame,
+          );
+
+          await Future.delayed(const Duration(milliseconds: 500));
 
           await _handleNextRound();
         }
@@ -77,17 +89,17 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     );
 
     // Setup shake gesture
-    _setupShakeController();
+    _setupTiltController();
   }
 
-  // Sets up the shake gesture that allows the user to skip the round
-  void _setupShakeController() async {
+  // Sets up the tilt gesture that allows the user to skip the round
+  void _setupTiltController() async {
     // Have a delay to not have double joker plays after we push to a new screen
     await Future.delayed(const Duration(milliseconds: 1000));
 
-    _shakeController = ShakeController(
-      shakeService: getIt<IShakeDetectionService>(),
-      onShake: () {
+    _tiltController = TiltController(
+      tiltService: getIt<ITiltDetectionService>(),
+      onTilt: () {
         state.whenOrNull(
           roundInProgress: (game) {
             if (game.jokersLeft > 0 && !game.isPaused) {
@@ -122,7 +134,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
           var nextRound =
               GameUtils.generateRound([...game.pastRounds, currentRound]);
-          
+
           gameUiController.transitionToNextRound(
             GameState.roundInProgress(
               game.copyWith(
@@ -249,7 +261,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
 
   @override
   Future<void> close() {
-    _shakeController.dispose();
+    _tiltController.dispose();
     return super.close();
   }
 }

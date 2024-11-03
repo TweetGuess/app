@@ -96,9 +96,12 @@ dependencies:
   envied: ^0.5.4+1
   sensors_plus: ^6.1.0
   bloc_concurrency: ^0.2.5
+  status_alert: ^1.0.1
 
 dev_dependencies:
   build_runner: ^2.4.11
+  test: ^1.24.0
+  mockito: ^5.4.0
   flutter_test:
     sdk: flutter
   freezed: ^2.3.4

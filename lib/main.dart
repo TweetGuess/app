@@ -20,6 +20,7 @@ import 'package:tweetguess/core/data/firebase/firebase_options.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
 import 'package:tweetguess/core/services/shake_detection/shake_detection_service.dart';
+import 'package:tweetguess/core/services/tilt_detection/tilt_detection_interface.dart';
 import 'package:tweetguess/core/ui/widgets/web_wrapper.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/modules/home/presentation/home.dart';
@@ -30,6 +31,7 @@ import 'package:tweetguess/themes.dart';
 import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 import 'package:url_strategy/url_strategy.dart';
 
+import 'core/services/tilt_detection/tilt_detection_service.dart';
 import 'core/ui/observers/navigator.dart';
 
 void main() async {
@@ -111,6 +113,10 @@ void setupGetIt() {
 
   GetIt.instance.registerFactory<IShakeDetectionService>(
     () => ShakeDetectionService(),
+  );
+
+  GetIt.instance.registerFactory<ITiltDetectionService>(
+    () => TiltDetectionService(),
   );
 }
 

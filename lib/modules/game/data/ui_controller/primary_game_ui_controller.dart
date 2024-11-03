@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:status_alert/status_alert.dart';
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/utils/utils.dart';
-import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
 import 'package:tweetguess/modules/game/domain/models/game.dart';
+import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
 
 import '../../../../ui/utils/routes/next_round_transition_route.dart';
+import '../../domain/ui_controller/game_ui_controller.dart';
 import '../../presentation/bloc/game_bloc.dart';
 import '../../presentation/game.dart';
 import '../../presentation/views/overview.dart';
-import '../../domain/ui_controller/game_ui_controller.dart';
 
 /// A concrete implementation of [IGameUIController] that handles primary game UI effects, transitions & navigation.
 ///
@@ -86,6 +87,23 @@ class PrimaryGameUIController extends IGameUIController {
           for (var possibility in game.currentRound.answerPossibilities) {
             possibility.$1.currentState?.lightUpRed();
           }
+          break;
+        }
+
+      case RoundSkipped():
+        {
+          HapticFeedback.lightImpact();
+
+          StatusAlert.show(
+            context,
+            duration: const Duration(milliseconds: 1500),
+            title: 'Round Skipped',
+            blurPower: 10,
+            backgroundColor: Colors.white70,
+            subtitle: 'Jokers left: ${game.jokersLeft}',
+            configuration: const IconConfiguration(icon: Icons.skip_next),
+            maxWidth: 260,
+          );
           break;
         }
     }
