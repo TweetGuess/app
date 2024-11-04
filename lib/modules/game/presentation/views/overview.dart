@@ -1,12 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
-import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
 import 'package:tweetguess/ui/components/primary_container.dart';
 
 import '../../../../ui/components/primary_button.dart';
@@ -154,10 +152,6 @@ class _CTAButtons extends StatelessWidget {
             text: "game.overview.cta-buttons.play_again".tr(),
             onTap: () => context.push(
               '/game',
-              extra: {
-                'bloc': context.read<GameBloc>(),
-                'countdownEnabled': false,
-              },
             ),
           ),
         ),

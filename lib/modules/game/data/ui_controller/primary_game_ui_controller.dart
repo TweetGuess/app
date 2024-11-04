@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:status_alert/status_alert.dart';
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/routing/custom_transitions.dart';
 import 'package:tweetguess/core/utils/utils.dart';
 import 'package:tweetguess/modules/game/domain/models/game.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
-import 'package:tweetguess/core/routing/custom_transitions.dart';
 
 import '../../domain/ui_controller/game_ui_controller.dart';
 import '../../presentation/bloc/game_bloc.dart';
@@ -127,17 +128,22 @@ class PrimaryGameUIController extends IGameUIController {
 
   @override
   void transitionToNextRound(GameState state) {
-    context.go('/game', extra: {
-      'bloc': GameBloc(state),
-      'countdownEnabled': false,
-      'transition': TransitionType.nextRound,
-    });
+    context.go(
+      '/game',
+      extra: {
+        'bloc': GameBloc(state),
+        'countdownEnabled': false,
+        'transition': TransitionType.nextRound,
+      },
+    );
   }
 
   @override
   void transitionToOverviewExit(Game game) {
     getIt<AnalyticsController>().logEndGame();
 
-    context.go('/game/overview', extra: game);
+    context.replace('/game/overview', extra: {
+      'game': game,
+    },);
   }
 }
