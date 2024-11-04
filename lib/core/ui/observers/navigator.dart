@@ -47,5 +47,5 @@ class RouteStackItem {
   });
 
   factory RouteStackItem.fromRoute(Route route) =>
-      RouteStackItem(name: route.settings.name, args: route.settings.arguments);
+      RouteStackItem(name: route. settings.name, args: route.settings.arguments);
 }

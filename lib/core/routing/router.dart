@@ -19,9 +19,33 @@ import 'package:tweetguess/modules/settings/presentation/settings.dart';
 
 final GlobalKey<NavigatorState> rootNavigatorKey = GlobalKey<NavigatorState>();
 
+/// Enum representing all available routes in the application.
+/// Use this to reference routes in a type-safe way throughout the app.
+enum BaseRoutes {
+  home('/'),
+  intro('/intro'),
+  settings('/settings'),
+  profile('/profile'),
+  game('/game');
+
+  const BaseRoutes(this.path);
+  final String path;
+
+  /// Get the route path
+  String get routePath => path;
+
+  /// Get route name from path
+  static String nameFromPath(String path) {
+    return path.replaceAll('/', '').replaceAll('-', ' ');
+  }
+
+  /// Get route name
+  String get routeName => nameFromPath(path);
+}
+
 final router = GoRouter(
   navigatorKey: rootNavigatorKey,
-  initialLocation: '/',
+  initialLocation: BaseRoutes.home.routePath,
   observers: [
     AppNavObserver(),
     SentryNavigatorObserver(),
@@ -31,32 +55,35 @@ final router = GoRouter(
   redirect: (BuildContext context, GoRouterState state) {
     final bool hasFinishedIntro = GetIt.I<UserBloc>().state.finishedIntro;
 
-    if (!hasFinishedIntro && state.matchedLocation != '/intro') {
-      return '/intro';
+    if (!hasFinishedIntro &&
+        state.matchedLocation != BaseRoutes.intro.routePath) {
+      return BaseRoutes.intro.routePath;
     }
 
-    if (hasFinishedIntro && state.matchedLocation == '/intro') {
-      return '/';
+    if (hasFinishedIntro &&
+        state.matchedLocation == BaseRoutes.intro.routePath) {
+      return BaseRoutes.home.routePath;
     }
 
     return null;
   },
   routes: [
     GoRoute(
-      path: '/',
+      path: BaseRoutes.home.routePath,
+      name: BaseRoutes.home.routePath,
       builder: (context, state) => const HomeScreen(),
     ),
     GoRoute(
-      path: '/intro',
+      path: BaseRoutes.intro.routePath,
       pageBuilder: (context, state) => CustomTransitions.createTransition(
         child: const IntroScreen(),
         type: TransitionType.slideRight,
-        name: 'intro',
+        name: state.fullPath,
         key: state.pageKey,
       ),
     ),
     GoRoute(
-      path: '/settings',
+      path: BaseRoutes.settings.routePath,
       pageBuilder: (context, state) {
         final Map<String, dynamic>? extra =
             state.extra as Map<String, dynamic>?;
@@ -67,13 +94,13 @@ final router = GoRouter(
           child: const SettingsPage(),
           type: transitionType,
           offset: extra?['offset'] as Offset?,
-          name: 'settings',
+          name: state.fullPath,
           key: state.pageKey,
         );
       },
     ),
     GoRoute(
-      path: '/profile',
+      path: BaseRoutes.profile.routePath,
       pageBuilder: (context, state) {
         final Map<String, dynamic>? extra =
             state.extra as Map<String, dynamic>?;
@@ -84,13 +111,13 @@ final router = GoRouter(
           child: const ProfilePage(),
           type: transitionType,
           offset: extra?['offset'] as Offset?,
-          name: 'profile',
+          name: state.fullPath,
           key: state.pageKey,
         );
       },
     ),
     GoRoute(
-      path: '/game',
+      path: BaseRoutes.game.routePath,
       pageBuilder: (context, state) {
         final Map<String, dynamic>? extra =
             state.extra as Map<String, dynamic>?;
@@ -105,22 +132,22 @@ final router = GoRouter(
             child: countdownEnabled ? const Countdown() : const GameScreen(),
           ),
           type: transitionType,
-          name: 'game',
+          name: state.fullPath,
           key: UniqueKey(),
         );
       },
       routes: [
         GoRoute(
-          path: 'overview',
+          path: "overview",
           pageBuilder: (context, state) {
-            final Game game = state.extra as Game;
+            final Map<String, dynamic>? extra =
+                state.extra as Map<String, dynamic>?;
+            final Game game = extra?['game'] as Game;
+
             return CustomTransitions.createTransition(
-              child: BlocProvider.value(
-                value: context.read<GameBloc>(),
-                child: OverviewExitScreen(game: game),
-              ),
+              child: OverviewExitScreen(game: game),
               type: TransitionType.circularReveal,
-              name: 'game-overview',
+              name: state.fullPath,
               key: state.pageKey,
             );
           },
