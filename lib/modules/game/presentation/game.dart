@@ -11,7 +11,6 @@ import 'package:tweetguess/core/data/models/twitter/interface_tweet.dart';
 import 'package:tweetguess/core/data/models/twitter/retwitt/media.dart';
 import 'package:tweetguess/core/utils/date.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
-import 'package:tweetguess/modules/game/presentation/widgets/countdown.dart';
 import 'package:tweetguess/modules/game/presentation/widgets/score.dart';
 import 'package:tweetguess/modules/game/presentation/widgets/timer.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
@@ -19,7 +18,6 @@ import 'package:tweetguess/ui/extensions/app_bar.dart';
 import 'package:tweetguess/ui/extensions/color.dart';
 
 import '../../../ui/components/primary_container.dart';
-import '../../../ui/utils/routes/circular_transition_route.dart';
 import 'bloc/game_bloc.dart';
 import 'bloc/game_state.dart';
 import 'widgets/helper/wrapper.dart';

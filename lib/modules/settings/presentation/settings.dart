@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:get_it/get_it.dart';
+import 'package:go_router/go_router.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
+import 'package:tweetguess/core/routing/custom_transitions.dart';
 import 'package:tweetguess/modules/settings/presentation/about.dart';
 import 'package:tweetguess/modules/settings/widgets/section_header.dart';
 import 'package:tweetguess/ui/components/primary_bottom_sheet.dart';
@@ -103,7 +105,9 @@ class SettingsPage extends StatelessWidget {
             title: "settings.more.about.title".tr(),
             subtitle: "settings.more.about.sub".tr(),
             onPressed: () {
-              Navigator.push(context, AboutScreen.route());
+              context.go('/about', extra: {
+                'transition': TransitionType.slideRight,
+              });
             },
             iconTint: Colors.yellowAccent,
           ),
@@ -140,12 +144,13 @@ class SettingsPage extends StatelessWidget {
       content: Text("settings.account.reset_stats.dialog.body".tr()),
       actions: <Widget>[
         TextButton(
-          onPressed: () => Navigator.of(context).pop(false),
+          onPressed: () => context.pop(false),
           child: Text("global.no".tr()),
         ),
         TextButton(
           onPressed: () {
             GetIt.I<UserBloc>().add(UserResetStats());
+            context.pop();
           },
           child: Text("global.yes".tr()),
         ),
@@ -215,7 +220,7 @@ class _ThemeSelectionWidgetState extends State<_ThemeSelectionWidget> {
                   ),
                 );
             if (mounted) {
-              Navigator.of(context).pop();
+              context.pop();
             }
           },
           child: Text("global.save".tr()),
@@ -271,7 +276,7 @@ class _LangSelectionWidgetState extends State<_LangSelectionWidget> {
                   ),
                 );
             if (mounted) {
-              Navigator.of(context).pop();
+              context.pop();
             }
           },
           child: Text("global.save".tr()),

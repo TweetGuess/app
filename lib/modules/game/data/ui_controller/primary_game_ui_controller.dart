@@ -7,11 +7,21 @@ import 'package:tweetguess/core/utils/utils.dart';
 import 'package:tweetguess/modules/game/domain/models/game.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_state.dart';
 import 'package:tweetguess/ui/components/primary_game_button.dart';
+import 'package:tweetguess/core/routing/custom_transitions.dart';
 
 import '../../domain/ui_controller/game_ui_controller.dart';
 import '../../presentation/bloc/game_bloc.dart';
 
 /// A concrete implementation of [IGameUIController] that handles primary game UI effects, transitions & navigation.
+///
+/// This controller manages the core game UI functionality including:
+/// - Pausing and resuming game timer
+/// - Handling round completion animations and feedback
+/// - Managing transitions between rounds
+/// - Coordinating button state changes and haptic feedback
+/// - Controlling tap interactions during animations
+///
+/// The controller works with [GameBloc] to coordinate effects, navigation and UI updates.
 class PrimaryGameUIController extends IGameUIController {
   PrimaryGameUIController(
     super.context, {
@@ -120,15 +130,13 @@ class PrimaryGameUIController extends IGameUIController {
     context.go('/game', extra: {
       'bloc': GameBloc(state),
       'countdownEnabled': false,
+      'transition': TransitionType.nextRound,
     });
   }
 
   @override
   void transitionToOverviewExit(Game game) {
-    // Firebase END GAME EVENT
     getIt<AnalyticsController>().logEndGame();
-
-    print(getIt<AnalyticsController>().toString());
 
     context.go('/game/overview', extra: game);
   }

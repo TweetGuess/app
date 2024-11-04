@@ -6,14 +6,6 @@ import 'package:tweetguess/ui/utils/routes/slide_right_transition_route.dart';
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
-  // Have another Route so we can keep the RouteSettings
-  static Route route() {
-    return SlideRightTransition(
-      page: const AboutScreen(),
-      settings: const RouteSettings(name: "/about"),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return UIScaffold(

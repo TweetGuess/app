@@ -7,13 +7,12 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tweetguess/core/routing/custom_transitions.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
 import 'package:tweetguess/modules/home/presentation/widgets/info_tooltip.dart';
 import 'package:tweetguess/modules/profile/presentation/profile.dart';
 import 'package:tweetguess/modules/settings/presentation/settings.dart';
 import 'package:universal_io/io.dart';
-
-import '../../../ui/utils/routes/circular_transition_route.dart';
 import '../../game/presentation/game.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -139,13 +138,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return IconButton(
       icon: GestureDetector(
         onTapUp: (details) {
-          Navigator.of(context).push(
-            CircularTransitionRoute(
-              page: const SettingsPage(),
-              offset: details.globalPosition,
-              transitionDuration: const Duration(milliseconds: 300),
-            ),
-          );
+          context.push('/settings', extra: {
+            'transition': TransitionType.circularReveal,
+            'offset': details.globalPosition,
+          });
         },
         child: const Icon(Icons.settings),
       ),
@@ -158,13 +154,10 @@ class _HomeScreenState extends State<HomeScreen> {
       padding: const EdgeInsets.all(10.0),
       child: GestureDetector(
         onTapUp: (details) {
-          Navigator.of(context).push(
-            CircularTransitionRoute(
-              page: const ProfilePage(),
-              offset: details.globalPosition,
-              transitionDuration: const Duration(milliseconds: 300),
-            ),
-          );
+          context.push('/profile', extra: {
+            'transition': TransitionType.circularReveal,
+            'offset': details.globalPosition,
+          });
         },
         child: CircleAvatar(
           radius: 55.0,
@@ -197,7 +190,10 @@ class _HomeScreenState extends State<HomeScreen> {
             child: BlocProvider<GameBloc>(
               create: (_) => GameBloc(),
               child: GestureDetector(
-                onTapUp: (details) => context.push('/game'),
+                onTapUp: (details) => context.push('/game', extra: {
+               
+                  'offset': details.globalPosition,
+                }),
               ),
             ),
           ),

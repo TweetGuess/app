@@ -3,16 +3,14 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
 import 'package:tweetguess/ui/components/primary_container.dart';
 
 import '../../../../ui/components/primary_button.dart';
-import '../../../../ui/utils/routes/circular_transition_route.dart';
 import '../../domain/models/game.dart';
-import '../game.dart';
-import 'package:go_router/go_router.dart';
 
 class OverviewExitScreen extends StatelessWidget {
   const OverviewExitScreen({super.key, required this.game});
@@ -43,7 +41,7 @@ class OverviewExitScreen extends StatelessWidget {
               const Spacer(),
               _Statistics(game: game),
               const Spacer(),
-              const _CTAButtons()
+              const _CTAButtons(),
             ],
           ),
         ),
@@ -78,7 +76,7 @@ class _Statistics extends StatelessWidget {
                 title: "game.overview.statistics.rounds".tr(),
                 value: game.pastRounds.length.toString(),
               ),
-            )
+            ),
           ],
         ),
         const Gap(20),
@@ -97,7 +95,7 @@ class _Statistics extends StatelessWidget {
                 title: "game.overview.statistics.longest_streak".tr(),
                 value: game.longestStreak.toString(),
               ),
-            )
+            ),
           ],
         ),
       ],
@@ -154,11 +152,13 @@ class _CTAButtons extends StatelessWidget {
           child: UIPrimaryButton(
             height: 50,
             text: "game.overview.cta-buttons.play_again".tr(),
-            onTap: () =>
-                context.push('/game', extra: {
-                  'bloc': context.read<GameBloc>(),
-                  'countdownEnabled': false,
-                }),
+            onTap: () => context.push(
+              '/game',
+              extra: {
+                'bloc': context.read<GameBloc>(),
+                'countdownEnabled': false,
+              },
+            ),
           ),
         ),
         const Gap(20),
@@ -170,7 +170,7 @@ class _CTAButtons extends StatelessWidget {
               context.pop();
             },
           ),
-        )
+        ),
       ],
     );
   }

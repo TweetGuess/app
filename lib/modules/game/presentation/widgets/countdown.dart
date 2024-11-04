@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
-import 'package:tweetguess/core/utils/get_it.dart';
-import 'package:tweetguess/ui/utils/routes/circular_transition_route.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/routing/custom_transitions.dart';
+import 'package:tweetguess/core/utils/get_it.dart';
 
 import '../../../../ui/text/countdown_text.dart';
 import '../bloc/game_bloc.dart';
-import '../game.dart';
 
 class Countdown extends StatefulWidget {
   const Countdown({super.key});
@@ -93,10 +92,14 @@ class _CountdownState extends State<Countdown>
       if (_count == 0) {
         context.read<GameBloc>().add(StartGame());
 
-        context.go('/game', extra: {
-          'bloc': context.read<GameBloc>(),
-          'countdownEnabled': false,
-        });
+        context.go(
+          '/game',
+          extra: {
+            'bloc': context.read<GameBloc>(),
+            'countdownEnabled': false,
+            'transition': TransitionType.gameEntry,
+          },
+        );
       }
     });
 
