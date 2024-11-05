@@ -22,8 +22,6 @@ import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/core/routing/router.dart';
 import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
 import 'package:tweetguess/core/services/shake_detection/shake_detection_service.dart';
-import 'package:tweetguess/core/services/share/data/mobile_share_service.dart';
-import 'package:tweetguess/core/services/share/data/web_share_service.dart';
 import 'package:tweetguess/core/services/share/domain/share_service_interface.dart';
 import 'package:tweetguess/core/services/tilt_detection/tilt_detection_interface.dart';
 import 'package:tweetguess/core/ui/widgets/web_wrapper.dart';
@@ -31,6 +29,9 @@ import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/themes.dart';
 import 'package:url_strategy/url_strategy.dart';
 
+import 'core/services/share/data/share_service_stub.dart'
+    if (dart.library.io) 'core/services/share/data/mobile_share_service.dart'
+    if (dart.library.js) 'core/services/share/data/web_share_service.dart';
 import 'core/services/tilt_detection/tilt_detection_service.dart';
 
 void main() async {
@@ -121,7 +122,7 @@ void setupGetIt() {
 
   /** Share related classes */
   GetIt.instance.registerSingleton<IShareService>(
-    kIsWeb ? WebShareService() : MobileShareService(),
+    getShareService(),
   );
 
   GetIt.instance.registerSingleton<ShareController>(

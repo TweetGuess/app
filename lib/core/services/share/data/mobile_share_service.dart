@@ -10,3 +10,6 @@ class MobileShareService implements IShareService {
     );
   }
 }
+
+IShareService getShareService() => MobileShareService();
+  
