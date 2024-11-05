@@ -92,7 +92,7 @@ class _CountdownState extends State<Countdown>
       if (_count == 0) {
         context.read<GameBloc>().add(StartGame());
 
-        context.go(
+        context.pushReplacement(
           '/game',
           extra: {
             'bloc': context.read<GameBloc>(),

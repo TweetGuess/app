@@ -32,6 +32,7 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   /// Used to access the TimerController to pause, resume & stop the timer
   final gameTimerKey = GlobalKey<CircularCountDownTimerState>();
+  final gameScoreKey = GlobalKey<GameScoreState>();
 
   @override
   void initState() {
@@ -268,6 +269,7 @@ class _GameScreenState extends State<GameScreen> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 1.h),
               child: GameScore(
+                key: gameScoreKey,
                 context: context,
                 roundInProgress: value,
               ),

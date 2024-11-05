@@ -127,7 +127,7 @@ class PrimaryGameUIController extends IGameUIController {
 
   @override
   void transitionToNextRound(GameState state) {
-    context.go(
+    context.pushReplacement(
       '/game',
       extra: {
         'bloc': GameBloc(state),
@@ -141,7 +141,7 @@ class PrimaryGameUIController extends IGameUIController {
   void transitionToOverviewExit(Game game) {
     getIt<AnalyticsController>().logEndGame();
 
-    context.replace('/game/overview', extra: {
+    context.pushReplacement('/game/overview', extra: {
       'game': game,
     },);
   }

@@ -15,10 +15,10 @@ class GameScore extends StatefulWidget {
   });
 
   @override
-  State<GameScore> createState() => _GameScoreState();
+  State<GameScore> createState() => GameScoreState();
 }
 
-class _GameScoreState extends State<GameScore> {
+class GameScoreState extends State<GameScore> {
   late final ValueNotifier<int?> scoreNotifier;
 
   @override

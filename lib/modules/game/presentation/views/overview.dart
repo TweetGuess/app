@@ -5,7 +5,6 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/controller/share/share_controller.dart';
-import 'package:tweetguess/core/routing/router.dart';
 import 'package:tweetguess/core/utils/get_it.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:tweetguess/ui/components/buttons/destructive_button.dart';
@@ -28,7 +27,7 @@ class OverviewExitScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.close),
             onPressed: () {
-              router.go('/');
+              context.pop();
             },
           ),
         ],
@@ -155,7 +154,7 @@ class _CTAButtons extends StatelessWidget {
           child: UIPrimaryButton(
             height: 50,
             text: "game.overview.cta-buttons.play_again".tr(),
-            onTap: () => context.push('/game'),
+            onTap: () => context.pushReplacement('/game'),
           ),
         ),
         const Gap(10),
@@ -173,7 +172,7 @@ class _CTAButtons extends StatelessWidget {
         UIDestructiveButton(
           height: 50,
           text: "game.overview.cta-buttons.exit_game".tr(),
-          onTap: () => router.go('/'),
+          onTap: () => context.pop(),
         ),
       ],
     );

@@ -18,8 +18,8 @@ class GameWrapper extends StatelessWidget {
     return ValueListenableBuilder<bool>(
       valueListenable: controller.ignoringTapsNotifier,
       builder: (context, ignoringTaps, child) {
-        return PopScope(
-          onPopInvokedWithResult: (bool didPop, Object? result) async {
+        return WillPopScope(
+          onWillPop: () async {
             context.read<GameBloc>().add(PauseGame());
 
             // If we are not ignoring taps, and the onWillPop callback returns true then we want to exit the game.
@@ -29,6 +29,8 @@ class GameWrapper extends StatelessWidget {
               // If we are not leaving, start the game again.
               context.read<GameBloc>().add(StartGame());
             }
+
+            return false;
           },
           child: IgnorePointer(ignoring: ignoringTaps, child: child),
         );
@@ -36,7 +38,7 @@ class GameWrapper extends StatelessWidget {
       child: child,
     );
   }
-
+  
   Future<bool> _onWillPopCallback(BuildContext context) async {
     return await showDialog<bool>(
       context: context,
