@@ -8,7 +8,6 @@ import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
 import 'package:tweetguess/core/routing/custom_transitions.dart';
-import 'package:tweetguess/modules/settings/presentation/about.dart';
 import 'package:tweetguess/modules/settings/widgets/section_header.dart';
 import 'package:tweetguess/ui/components/primary_bottom_sheet.dart';
 import 'package:tweetguess/ui/components/settings/settings_toggle.dart';
@@ -107,7 +106,7 @@ class SettingsPage extends StatelessWidget {
             onPressed: () {
               context.go('/about', extra: {
                 'transition': TransitionType.slideRight,
-              });
+              },);
             },
             iconTint: Colors.yellowAccent,
           ),

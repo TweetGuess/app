@@ -11,7 +11,7 @@ class GameUtils {
     );
 
     var rndmAuthors = TweetService.getRandomAuthors(
-        [(rndmTweet.authorName, rndmTweet.authorHandle)]);
+        [(rndmTweet.authorName, rndmTweet.authorHandle)],);
 
     var answerPossibilities = rndmAuthors
         .map((e) => (GlobalKey<UIPrimaryGameButtonState>(), e))

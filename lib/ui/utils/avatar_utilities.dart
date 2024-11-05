@@ -11,7 +11,7 @@ List<Color> generateAvatarColors(String name, [List<Color>? colors]) {
     const Color(0xff54a9ec),
     const Color(0xffD0E3EA),
     const Color(0xffFCF7E7),
-    const Color(0xffC24C32)
+    const Color(0xffC24C32),
   ];
 
   final numFromName = getNumber(name);

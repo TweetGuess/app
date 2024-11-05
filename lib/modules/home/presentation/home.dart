@@ -10,13 +10,10 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/routing/custom_transitions.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
 import 'package:tweetguess/modules/home/presentation/widgets/info_tooltip.dart';
-import 'package:tweetguess/modules/profile/presentation/profile.dart';
-import 'package:tweetguess/modules/settings/presentation/settings.dart';
 import 'package:universal_io/io.dart';
-import '../../game/presentation/game.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -141,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
           context.push('/settings', extra: {
             'transition': TransitionType.circularReveal,
             'offset': details.globalPosition,
-          });
+          },);
         },
         child: const Icon(Icons.settings),
       ),
@@ -157,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
           context.push('/profile', extra: {
             'transition': TransitionType.circularReveal,
             'offset': details.globalPosition,
-          });
+          },);
         },
         child: CircleAvatar(
           radius: 55.0,
@@ -193,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onTapUp: (details) => context.push('/game', extra: {
                
                   'offset': details.globalPosition,
-                }),
+                },),
               ),
             ),
           ),

@@ -3,13 +3,13 @@ import 'package:tweetguess/ui/extensions/color.dart';
 
 class UISettingsTile extends StatelessWidget {
   const UISettingsTile({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     required this.subtitle,
     required this.onPressed,
     required this.iconTint,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final String title;

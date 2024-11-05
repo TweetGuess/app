@@ -3,14 +3,14 @@ import 'package:tweetguess/ui/extensions/color.dart';
 
 class UISettingsToggle extends StatelessWidget {
   const UISettingsToggle({
-    Key? key,
+    super.key,
     required this.icon,
     required this.title,
     required this.subtitle,
     required this.onPressed,
     required this.iconTint,
     required this.initialValue,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final String title;

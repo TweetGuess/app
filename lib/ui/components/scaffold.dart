@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 class UIScaffold extends StatelessWidget {
   const UIScaffold({
-    Key? key,
+    super.key,
     this.extendBody = false,
     this.extendBodyBehindAppBar = false,
     this.appBar,
@@ -30,7 +30,7 @@ class UIScaffold extends StatelessWidget {
     this.endDrawerEnableOpenDragGesture = true,
     this.restorationId,
     this.bodyPadding,
-  }) : super(key: key);
+  });
 
   // UIScaffold parameters
   final EdgeInsets? bodyPadding;

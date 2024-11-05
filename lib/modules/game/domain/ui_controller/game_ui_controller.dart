@@ -12,7 +12,7 @@ import '../models/game.dart';
 /// navigating between rounds.
 abstract class IGameUIController {
   IGameUIController(this.context,
-      {required this.gameTimerKey, required this.bloc});
+      {required this.gameTimerKey, required this.bloc,});
 
   /// Used to disable taps during score count animation
   final ValueNotifier<bool> ignoringTapsNotifier = ValueNotifier(false);

@@ -23,16 +23,10 @@ import 'package:tweetguess/core/services/shake_detection/shake_detection_service
 import 'package:tweetguess/core/services/tilt_detection/tilt_detection_interface.dart';
 import 'package:tweetguess/core/ui/widgets/web_wrapper.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
-import 'package:tweetguess/modules/home/presentation/home.dart';
-import 'package:tweetguess/modules/onboarding/presentation/intro.dart';
-import 'package:tweetguess/modules/profile/presentation/profile.dart';
-import 'package:tweetguess/modules/settings/presentation/settings.dart';
 import 'package:tweetguess/themes.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'core/services/tilt_detection/tilt_detection_service.dart';
-import 'core/ui/observers/navigator.dart';
-import 'package:go_router/go_router.dart';
 import 'package:tweetguess/core/routing/router.dart';
 
 void main() async {

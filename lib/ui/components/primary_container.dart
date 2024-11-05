@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PrimaryContainer extends StatelessWidget {
   const PrimaryContainer(
-      {super.key, required this.child, this.backgroundColor, this.height, this.padding});
+      {super.key, required this.child, this.backgroundColor, this.height, this.padding,});
 
   final Widget child;
   final Color? backgroundColor;

@@ -17,7 +17,7 @@ class CountdownText extends StatelessWidget {
 
   const CountdownText(
     this.text, {
-    Key? key,
+    super.key,
     this.style,
     this.strutStyle,
     this.textAlign,
@@ -29,7 +29,7 @@ class CountdownText extends StatelessWidget {
     this.maxLines,
     this.semanticsLabel,
     this.textWidthBasis,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

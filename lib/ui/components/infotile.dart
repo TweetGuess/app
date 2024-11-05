@@ -44,7 +44,7 @@ class InfoTile extends StatelessWidget {
             ? LinearGradient(
                 colors: [
                   gradientColors![0].darken(),
-                  gradientColors![1].darken()
+                  gradientColors![1].darken(),
                 ],
                 begin: gradientPos[0],
                 end: gradientPos[1],
@@ -100,9 +100,9 @@ class InfoTile extends StatelessWidget {
                           icon,
                           size: (IconTheme.of(context).size ?? 24) * 1.2,
                         ),
-                      )
+                      ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),

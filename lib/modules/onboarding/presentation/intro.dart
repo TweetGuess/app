@@ -1,17 +1,14 @@
 import 'package:animated_widgets/widgets/translation_animated.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/bloc/user/user_event.dart';
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/utils/utils.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../home/presentation/home.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});

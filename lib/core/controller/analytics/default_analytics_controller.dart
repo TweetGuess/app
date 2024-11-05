@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 

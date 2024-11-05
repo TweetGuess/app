@@ -27,7 +27,7 @@ class UIPrimaryButtonState extends State<UIPrimaryButton> {
     return ElevatedButton(
       onPressed: widget.onTap,
       child: SizedBox(
-          height: widget.height, child: Center(child: Text(widget.text))),
+          height: widget.height, child: Center(child: Text(widget.text)),),
     );
   }
 }

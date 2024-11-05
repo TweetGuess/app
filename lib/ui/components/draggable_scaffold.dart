@@ -159,14 +159,14 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
                             child:
                                 fullyCollapsed ? const SizedBox() : Container(),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
                 ],
               ),
             ),
-          )
+          ),
         ];
       },
       body: SizedBox(
@@ -176,7 +176,7 @@ class _DraggableScaffoldState extends State<DraggableScaffold> {
             Container(
               color: Theme.of(context).colorScheme.surface.lighten(),
             ),
-            bodyChild
+            bodyChild,
           ],
         ),
       ),

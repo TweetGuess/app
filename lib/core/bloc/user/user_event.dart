@@ -51,7 +51,7 @@ class UserUpdateGameplaySettings extends UserEvent with _$UserUpdateGameplaySett
 class UserUpdateIntroStatus extends UserEvent
     with _$UserUpdateIntroStatus {
   factory UserUpdateIntroStatus(
-          {required bool finishedIntro}) =
+          {required bool finishedIntro,}) =
       _UserUpdateIntroStatus;
 }
 

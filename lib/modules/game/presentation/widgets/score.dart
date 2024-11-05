@@ -103,6 +103,6 @@ class _GameScoreState extends State<GameScore> {
               ),
             ],
           ),
-        ));
+        ),);
   }
 }

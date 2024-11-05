@@ -19,5 +19,5 @@ class Round with _$Round {
 
       /// The right answer is given here by the index
       required int rightAnswer,
-      bool? answeredRight}) = _Round;
+      bool? answeredRight,}) = _Round;
 }
