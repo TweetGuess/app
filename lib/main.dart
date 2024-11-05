@@ -15,11 +15,16 @@ import 'package:tweetguess/core/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/controller/analytics/default_analytics_controller.dart';
 import 'package:tweetguess/core/controller/analytics/null_analytics_controller.dart';
+import 'package:tweetguess/core/controller/share/share_controller.dart';
 import 'package:tweetguess/core/data/config/interface/app_env.dart';
 import 'package:tweetguess/core/data/firebase/firebase_options.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
+import 'package:tweetguess/core/routing/router.dart';
 import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
 import 'package:tweetguess/core/services/shake_detection/shake_detection_service.dart';
+import 'package:tweetguess/core/services/share/data/mobile_share_service.dart';
+import 'package:tweetguess/core/services/share/data/web_share_service.dart';
+import 'package:tweetguess/core/services/share/domain/share_service_interface.dart';
 import 'package:tweetguess/core/services/tilt_detection/tilt_detection_interface.dart';
 import 'package:tweetguess/core/ui/widgets/web_wrapper.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
@@ -27,7 +32,6 @@ import 'package:tweetguess/themes.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 import 'core/services/tilt_detection/tilt_detection_service.dart';
-import 'package:tweetguess/core/routing/router.dart';
 
 void main() async {
   if (kIsWeb) {
@@ -106,12 +110,22 @@ void setupGetIt() {
         : NullAnalyticsController(analytics: FirebaseAnalytics.instance),
   );
 
+  /** Gesture/Shake detection related classes */
   GetIt.instance.registerFactory<IShakeDetectionService>(
     () => ShakeDetectionService(),
   );
 
   GetIt.instance.registerFactory<ITiltDetectionService>(
     () => TiltDetectionService(),
+  );
+
+  /** Share related classes */
+  GetIt.instance.registerSingleton<IShareService>(
+    kIsWeb ? WebShareService() : MobileShareService(),
+  );
+
+  GetIt.instance.registerSingleton<ShareController>(
+    ShareController(shareService: GetIt.instance<IShareService>()),
   );
 }
 
