@@ -157,20 +157,21 @@ class _CTAButtons extends StatelessWidget {
           ),
         ),
         const Gap(10),
-        SizedBox(
-          height: 50,
-          child: UIPrimaryButton(
-            text: "game.overview.cta-buttons.share".tr(),
-            onTap: () => _handleShare(context),
+        Expanded(
+          child: SizedBox(
+            height: 50,
+            child: UIPrimaryButton(
+              text: "game.overview.cta-buttons.share".tr(),
+              icon: const Icon(Icons.share),
+              onTap: () => _handleShare(context),
+            ),
           ),
         ),
         const Gap(10),
-        Expanded(
-          child: UIPrimaryButton(
-            height: 50,
-            text: "game.overview.cta-buttons.exit_game".tr(),
-            onTap: () => context.pop(),
-          ),
+        UIPrimaryButton(
+          height: 50,
+          text: "game.overview.cta-buttons.exit_game".tr(),
+          onTap: () => context.pop(),
         ),
       ],
     );
@@ -185,7 +186,7 @@ class _CTAButtons extends StatelessWidget {
       );
     } catch (e) {
       if (!context.mounted) return;
-      
+
       // Handle errors appropriately
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
