@@ -188,14 +188,14 @@ class _ProfilePageState extends State<ProfilePage> {
               child: SizedBox(
                 width: 15.h,
                 height: 15.h,
-                child: BoringAvatars(
-                  colors: const [
+                child: BoringAvatar(
+                  palette: BoringAvatarPalette([
                     Color(0xff00325b),
                     Color(0xff54a9ec),
                     Color(0xffD0E3EA),
                     Color(0xffFCF7E7),
                     Color(0xffC24C32),
-                  ],
+                  ]),
                   name: userBloc.state.username,
                 ),
               ),
