@@ -7,9 +7,10 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:tweetguess/core/controller/share/share_controller.dart';
 import 'package:tweetguess/core/utils/get_it.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
+import 'package:tweetguess/ui/components/buttons/destructive_button.dart';
 import 'package:tweetguess/ui/components/primary_container.dart';
 
-import '../../../../ui/components/primary_button.dart';
+import '../../../../ui/components/buttons/primary_button.dart';
 import '../../domain/models/game.dart';
 
 class OverviewExitScreen extends StatelessWidget {
@@ -168,7 +169,7 @@ class _CTAButtons extends StatelessWidget {
           ),
         ),
         const Gap(10),
-        UIPrimaryButton(
+        UIDestructiveButton(
           height: 50,
           text: "game.overview.cta-buttons.exit_game".tr(),
           onTap: () => context.pop(),
