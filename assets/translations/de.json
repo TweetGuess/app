@@ -25,8 +25,13 @@
         "accuracy": "Genauigkeit",
         "longest_streak": "Längster Streak"
       },
+      "share": {
+        "text": "Ich habe {points} Punkte in {rounds} Runden gespielt! Kannst du meinen Score knacken? Spiel jetzt bei https://tweetguess.flawn.eu",
+        "error": "Dein Score konnte nicht geteilt werden. Versuche es später nochmal!"
+      },
       "cta-buttons": {
         "play_again": "Nochmal spielen",
+        "share": "Teilen",
         "exit_game": "Beenden"
       },
       "headline": {

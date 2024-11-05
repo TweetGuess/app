@@ -25,8 +25,13 @@
         "accuracy": "Accuracy",
         "longest_streak": "Longest Streak"
       },
+      "share": {
+        "text": "I have {points} points in {rounds} rounds! Can you beat my score? Play now at https://tweetguess.flawn.eu",
+        "error": "Couldn't share your score. Try again later!"
+      },
       "cta-buttons": {
         "play_again": "Play again",
+        "share": "Share",
         "exit_game": "Exit"
       },
       "headline": {
