@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tweetguess/core/controller/share/share_controller.dart';
+import 'package:tweetguess/core/utils/get_it.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:tweetguess/ui/components/primary_container.dart';
 
@@ -39,7 +41,7 @@ class OverviewExitScreen extends StatelessWidget {
               const Spacer(),
               _Statistics(game: game),
               const Spacer(),
-              const _CTAButtons(),
+              _CTAButtons(game: game),
             ],
           ),
         ),
@@ -101,7 +103,6 @@ class _Statistics extends StatelessWidget {
   }
 }
 
-// TODO: Make Container to component and replace here and in other files
 class _StatisticTile extends StatelessWidget {
   const _StatisticTile({
     required this.title,
@@ -140,7 +141,9 @@ class _StatisticTile extends StatelessWidget {
 }
 
 class _CTAButtons extends StatelessWidget {
-  const _CTAButtons();
+  const _CTAButtons({required this.game});
+
+  final Game game;
 
   @override
   Widget build(BuildContext context) {
@@ -150,23 +153,46 @@ class _CTAButtons extends StatelessWidget {
           child: UIPrimaryButton(
             height: 50,
             text: "game.overview.cta-buttons.play_again".tr(),
-            onTap: () => context.push(
-              '/game',
-            ),
+            onTap: () => context.push('/game'),
           ),
         ),
-        const Gap(20),
+        const Gap(10),
+        SizedBox(
+          height: 50,
+          child: UIPrimaryButton(
+            text: "game.overview.cta-buttons.share".tr(),
+            onTap: () => _handleShare(context),
+          ),
+        ),
+        const Gap(10),
         Expanded(
           child: UIPrimaryButton(
             height: 50,
             text: "game.overview.cta-buttons.exit_game".tr(),
-            onTap: () {
-              context.pop();
-            },
+            onTap: () => context.pop(),
           ),
         ),
       ],
     );
+  }
+
+  Future<void> _handleShare(BuildContext context) async {
+    try {
+      await getIt<ShareController>().shareGameResults(
+        points: game.points,
+        rounds: game.pastRounds.length,
+        shareText: "game.overview.share.text".tr(),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      
+      // Handle errors appropriately
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("game.overview.share.error".tr()),
+        ),
+      );
+    }
   }
 }
 
