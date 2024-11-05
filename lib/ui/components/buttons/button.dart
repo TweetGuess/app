@@ -1,10 +1,9 @@
-// ignore_for_file: invalid_use_of_protected_member
-
+// lib/ui/components/buttons/base_button.dart
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class UIPrimaryButton extends StatefulWidget {
-  const UIPrimaryButton({
+abstract class UIButton extends StatefulWidget {
+  const UIButton({
     super.key,
     required this.text,
     this.onTap,
@@ -16,18 +15,18 @@ class UIPrimaryButton extends StatefulWidget {
   final Function()? onTap;
   final double? height;
   final Icon? icon;
-
-  @override
-  State<UIPrimaryButton> createState() => UIPrimaryButtonState();
 }
 
-class UIPrimaryButtonState extends State<UIPrimaryButton> {
-  Duration duration = const Duration(milliseconds: 500);
+abstract class UIButtonState<T extends UIButton> extends State<T> {
+  Duration get duration => const Duration(milliseconds: 500);
   Color? animationColor;
+
+  ButtonStyle getButtonStyle(BuildContext context);
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      style: getButtonStyle(context),
       onPressed: widget.onTap,
       child: SizedBox(
         height: widget.height,
@@ -38,7 +37,7 @@ class UIPrimaryButtonState extends State<UIPrimaryButton> {
             children: [
               if (widget.icon != null) ...[
                 SizedBox(
-                  height: 15, // Adjust the height to match the text size
+                  height: 15,
                   child: FittedBox(
                     fit: BoxFit.scaleDown,
                     child: widget.icon,
