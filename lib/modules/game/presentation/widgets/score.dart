@@ -15,94 +15,91 @@ class GameScore extends StatefulWidget {
   });
 
   @override
-  State<GameScore> createState() => GameScoreState();
+  State<GameScore> createState() => _GameScoreState();
 }
 
-class GameScoreState extends State<GameScore> {
-  late final ValueNotifier<int?> scoreNotifier;
+class _GameScoreState extends State<GameScore> {
+  late int _previousScore;
+  late int _currentScore;
+  bool _isAnimating = false;
 
   @override
   void initState() {
     super.initState();
-    scoreNotifier = ValueNotifier(widget.roundInProgress.game.points);
-  }
-
-  @override
-  void dispose() {
-    scoreNotifier.dispose();
-    super.dispose();
+    _previousScore = widget.roundInProgress.game.points;
+    _currentScore = widget.roundInProgress.game.points;
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<GameBloc, GameState>(
-        listenWhen: (previous, current) {
-          return previous.mapOrNull(
-                roundInProgress: (prev) => prev.game.points,
-              ) !=
-              current.mapOrNull(
-                roundInProgress: (curr) => curr.game.points,
-              );
-        },
-        listener: (context, state) {
-          state.mapOrNull(
-            roundInProgress: (gameState) {
-              scoreNotifier.value = gameState.game.points;
-            },
-          );
-        },
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.primary,
-            borderRadius: BorderRadius.circular(50),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Container(width: 40),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: ValueListenableBuilder(
-                  valueListenable: scoreNotifier,
-                  builder: (context, score, child) {
-                    return TweenAnimationBuilder<int>(
-                      tween: IntTween(
-                        begin: widget.roundInProgress.game.points,
-                        end: score ?? widget.roundInProgress.game.points,
-                      ),
-                      // Hardcoded Values, check Delay before we transition new scren
-                      duration: const Duration(milliseconds: 500),
-                      builder: (context, value, child) {
-                        return AutoSizeText(
-                          '$value',
-                          minFontSize: 30,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Pixeboy",
-                            color: Colors.white,
-                          ),
-                        );
-                      },
-                    );
-                  },
+      listenWhen: (previous, current) {
+        return previous.mapOrNull(
+              roundInProgress: (prev) => prev.game.points,
+            ) !=
+            current.mapOrNull(
+              roundInProgress: (curr) => curr.game.points,
+            );
+      },
+      listener: (context, state) {
+        state.mapOrNull(
+          roundInProgress: (gameState) {
+            setState(() {
+              _previousScore = _currentScore;
+              _currentScore = gameState.game.points;
+              _isAnimating = true;
+            });
+          },
+        );
+      },
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: BorderRadius.circular(50),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(width: 40),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: TweenAnimationBuilder<int>(
+                tween: IntTween(
+                  begin: _previousScore,
+                  end: _currentScore,
+                ),
+                duration: const Duration(milliseconds: 500),
+                onEnd: () => setState(() => _isAnimating = false),
+                builder: (context, value, child) {
+                  return AutoSizeText(
+                    '$value',
+                    minFontSize: 30,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Pixeboy",
+                      color: Colors.white,
+                    ),
+                  );
+                },
+              ),
+            ),
+            Container(
+              width: 40,
+              alignment: Alignment.centerRight,
+              child: const AutoSizeText(
+                'pts',
+                minFontSize: 10,
+                style: TextStyle(
+                  fontFamily: "Pixeboy",
+                  color: Colors.white,
                 ),
               ),
-              Container(
-                width: 40,
-                alignment: Alignment.centerRight,
-                child: const AutoSizeText(
-                  'pts',
-                  minFontSize: 10,
-                  style: TextStyle(
-                    fontFamily: "Pixeboy",
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),);
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

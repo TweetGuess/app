@@ -181,18 +181,17 @@ class GameBloc extends Bloc<GameEvent, GameState> {
           }
         }
 
-        await Future.delayed(const Duration(milliseconds: 1000), () {
-          emit(
-            GameState.roundInProgress(
-              game.copyWith(
-                currentRound:
-                    game.currentRound.copyWith(answeredRight: answeredRight),
-                points: _calculatePointsForNextRound(game, answeredRight),
-                lives: !answeredRight ? game.lives - 1 : game.lives,
-              ),
+        emit(
+          GameState.roundInProgress(
+            game.copyWith(
+              currentRound:
+                  game.currentRound.copyWith(answeredRight: answeredRight),
+              points: _calculatePointsForNextRound(game, answeredRight),
+              lives: !answeredRight ? game.lives - 1 : game.lives,
             ),
-          );
-
+          ),
+        );
+        await Future.delayed(const Duration(milliseconds: 1000), () {
           _handleNextRound();
         });
       },

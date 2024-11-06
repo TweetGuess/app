@@ -71,7 +71,9 @@ final router = GoRouter(
     GoRoute(
       path: BaseRoutes.home.routePath,
       name: BaseRoutes.home.routePath,
-      builder: (context, state) => const HomeScreen(),
+      builder: (context, state) => HomeScreen(
+        key: state.pageKey,
+      ),
     ),
     GoRoute(
       path: BaseRoutes.intro.routePath,
@@ -133,7 +135,7 @@ final router = GoRouter(
           ),
           type: transitionType,
           name: state.fullPath,
-          key: UniqueKey(),
+          key: state.pageKey,
         );
       },
       routes: [

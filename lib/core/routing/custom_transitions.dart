@@ -82,7 +82,7 @@ class CustomTransitions {
               );
             } else {
               // What looks without sense makes sense as we only want the transition to happen when we exit the game
-              if (AppNavObserver.navStack.last.name != "/game/overview") {
+              if (GoRouter.of(context).routerDelegate.currentConfiguration.last.matchedLocation != "/game/overview") {
                 return TransitionHelper.slideRightTransition(
                   context,
                   animation,
@@ -105,7 +105,7 @@ class CustomTransitions {
           key: key,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // What looks without sense makes sense as we only want the transition to happen when we exit the game
-            if (AppNavObserver.navStack.last.name != "/game/overview") {
+            if (GoRouter.of(context).routerDelegate.currentConfiguration.last.matchedLocation != "/game/overview") {
               return TransitionHelper.slideRightTransition(
                 context,
                 animation,
