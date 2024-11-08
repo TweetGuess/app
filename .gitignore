@@ -19,7 +19,7 @@ lib/core/firebase/firebase_options.dart
 .buildlog/
 .history
 .svn/
-.vercel/
+.vercel/*
 
 # IntelliJ related
 *.iml
