@@ -27,7 +27,15 @@ The project is written in Dart, using Flutter as the UI framework. To run it...
 
 1) Just decide which one of the supported platforms you want to use (currently iOS, Android & Web),
 2) Setup the environment variables & Firebase, 
-3) And you're ready to rumble!
+3) Run the build-runner to generate the necessary auto-generated files via `flutter dart run build_runner build`,
+4) And you're ready to rumble & run the project via `flutter run -d <platform>`! 🚀   
+
+### Web Version
+For the web version, I decided to dedicate a seperate paragraph as building and running might not be as straight forward as on other platforms.
+
+To run the project on browsers besides chrome, either setup a web server via [`webdev`](https://pub.dev/packages/webdev) or use the `flutter run -d web-server`. Debugging is being enabled by the [Dart Debug Extension](https://chromewebstore.google.com/detail/dart-debug-extension/eljbmlghnomdjgdjmbdekegdkbabckhm).
+
+For Chrome, you can just run `flutter run -d chrome` as usual - your browser will open up.
 
 ### Firebase
 
