@@ -1,5 +1,5 @@
 import '../../modules/game/domain/models/game.dart';
-import '../bloc/user/user_state.dart';
+import '../data/bloc/user/user_state.dart';
 
 extension StatsX on Game {
   double get accuracy {

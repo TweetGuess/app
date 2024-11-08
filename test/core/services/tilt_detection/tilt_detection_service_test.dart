@@ -4,7 +4,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'package:test/test.dart';
-import 'package:tweetguess/core/services/tilt_detection/tilt_detection_service.dart';
+import 'package:tweetguess/core/data/services/tilt_detection/tilt_detection_service.dart';
 
 // Generate mocks
 @GenerateNiceMocks([MockSpec<AccelerometerEvent>()])

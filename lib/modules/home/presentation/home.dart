@@ -7,7 +7,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tweetguess/core/routing/custom_transitions.dart';
+import 'package:tweetguess/ui/transitions/custom_transitions.dart';
 import 'package:tweetguess/modules/game/presentation/bloc/game_bloc.dart';
 import 'package:tweetguess/modules/home/presentation/widgets/info_tooltip.dart';
 import 'package:universal_io/io.dart';

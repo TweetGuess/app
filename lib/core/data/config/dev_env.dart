@@ -1,4 +1,4 @@
-part of 'interface/app_env.dart';
+part of '../../domain/config/app_env.dart';
 
 
 @Envied(name: 'DevEnv', path: 'env/.env.dev')

@@ -6,7 +6,7 @@ import 'package:flutter_boring_avatars/flutter_boring_avatars.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/data/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/utils/colors.dart';
 import 'package:tweetguess/ui/components/draggable_scaffold.dart';
 import 'package:tweetguess/ui/utils/avatar_utilities.dart';

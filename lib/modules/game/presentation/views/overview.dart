@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tweetguess/core/controller/share/share_controller.dart';
+import 'package:tweetguess/core/data/controller/share/share_controller.dart';
 import 'package:tweetguess/core/utils/get_it.dart';
 import 'package:tweetguess/core/utils/statistics.dart';
 import 'package:tweetguess/ui/components/buttons/destructive_button.dart';

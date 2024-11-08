@@ -11,28 +11,28 @@ import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:tweetguess/core/bloc/user/user_bloc.dart';
-import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
-import 'package:tweetguess/core/controller/analytics/default_analytics_controller.dart';
-import 'package:tweetguess/core/controller/analytics/null_analytics_controller.dart';
-import 'package:tweetguess/core/controller/share/share_controller.dart';
-import 'package:tweetguess/core/data/config/interface/app_env.dart';
+import 'package:tweetguess/core/data/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/domain/controller/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/data/controller/analytics/default_analytics_controller.dart';
+import 'package:tweetguess/core/data/controller/analytics/null_analytics_controller.dart';
+import 'package:tweetguess/core/data/controller/share/share_controller.dart';
+import 'package:tweetguess/core/domain/config/app_env.dart';
 import 'package:tweetguess/core/data/firebase/firebase_options.dart';
 import 'package:tweetguess/core/data/models/user/settings/language.dart';
-import 'package:tweetguess/core/routing/router.dart';
-import 'package:tweetguess/core/services/shake_detection/shake_detection_interface.dart';
-import 'package:tweetguess/core/services/shake_detection/shake_detection_service.dart';
-import 'package:tweetguess/core/services/share/domain/share_service_interface.dart';
-import 'package:tweetguess/core/services/tilt_detection/tilt_detection_interface.dart';
-import 'package:tweetguess/core/ui/widgets/web_wrapper.dart';
+import 'package:tweetguess/core/data/routing/router.dart';
+import 'package:tweetguess/core/domain/services/shake_detection/shake_detection_interface.dart';
+import 'package:tweetguess/core/data/services/shake_detection/shake_detection_service.dart';
+import 'package:tweetguess/core/domain/services/share/share_service_interface.dart';
+import 'package:tweetguess/core/domain/services/tilt_detection/tilt_detection_interface.dart';
+import 'package:tweetguess/core/presentation/widgets/web_wrapper.dart';
 import 'package:tweetguess/core/utils/tweet_service.dart';
 import 'package:tweetguess/themes.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-import 'core/services/share/data/share_service_stub.dart'
+import 'core/data/services/share/share_service_stub.dart'
     if (dart.library.io) 'core/services/share/data/mobile_share_service.dart'
     if (dart.library.js) 'core/services/share/data/web_share_service.dart';
-import 'core/services/tilt_detection/tilt_detection_service.dart';
+import 'core/data/services/tilt_detection/tilt_detection_service.dart';
 
 void main() async {
   if (kIsWeb) {

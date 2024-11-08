@@ -3,9 +3,9 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'package:tweetguess/core/bloc/user/user_bloc.dart';
-import 'package:tweetguess/core/bloc/user/user_event.dart';
-import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
+import 'package:tweetguess/core/data/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/data/bloc/user/user_event.dart';
+import 'package:tweetguess/core/domain/controller/analytics/analytics_controller.dart';
 import 'package:tweetguess/core/utils/utils.dart';
 import 'package:go_router/go_router.dart';
 

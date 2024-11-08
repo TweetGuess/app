@@ -1,4 +1,4 @@
-part of 'interface/app_env.dart';
+part of '../../domain/config/app_env.dart';
 
 @Envied(name: 'ProdEnv', path: 'env/.env.prod')
 final class ProdEnv implements AppEnv, AppEnvFields {

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tweetguess/core/controller/analytics/analytics_controller.dart';
-import 'package:tweetguess/core/routing/custom_transitions.dart';
+import 'package:tweetguess/core/domain/controller/analytics/analytics_controller.dart';
+import 'package:tweetguess/ui/transitions/custom_transitions.dart';
 import 'package:tweetguess/core/utils/get_it.dart';
 
 import '../../../../ui/text/countdown_text.dart';

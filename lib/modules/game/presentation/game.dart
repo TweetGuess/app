@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'package:tweetguess/core/bloc/user/user_bloc.dart';
+import 'package:tweetguess/core/data/bloc/user/user_bloc.dart';
 import 'package:tweetguess/core/data/models/twitter/interface_tweet.dart';
 import 'package:tweetguess/core/data/models/twitter/retwitt/media.dart';
 import 'package:tweetguess/core/utils/date.dart';
