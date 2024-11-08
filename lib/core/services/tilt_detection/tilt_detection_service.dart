@@ -31,7 +31,6 @@ class TiltDetectionService implements ITiltDetectionService {
   int _currentCheckpointIndex = 0;
   DateTime? _lastCheckpointTime;
 
-  // Add stream factory
   final Stream<AccelerometerEvent> Function() _accelerometerStream;
 
   TiltDetectionService({
