@@ -31,7 +31,7 @@ import 'package:url_strategy/url_strategy.dart';
 
 import 'core/data/services/share/share_service_stub.dart'
     if (dart.library.io) 'core/services/share/data/mobile_share_service.dart'
-    if (dart.library.js) 'core/services/share/data/web_share_service.dart';
+    if (dart.library.js_interop) 'core/services/share/data/web_share_service.dart';
 import 'core/data/services/tilt_detection/tilt_detection_service.dart';
 
 void main() async {
