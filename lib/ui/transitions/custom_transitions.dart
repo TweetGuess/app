@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tweetguess/core/presentation/observers/navigator.dart';
 import 'package:tweetguess/ui/utils/transitions/helper.dart';
 
 enum TransitionType {
@@ -29,7 +28,7 @@ class CustomTransitions {
           arguments: arguments,
           key: key,
         );
-        
+
       case TransitionType.slideRight:
         return CustomTransitionPage<T>(
           child: child,
@@ -46,7 +45,7 @@ class CustomTransitions {
           },
           transitionDuration: duration,
         );
-        
+
       case TransitionType.circularReveal:
         return CustomTransitionPage<T>(
           child: child,
@@ -64,7 +63,7 @@ class CustomTransitions {
           },
           transitionDuration: duration,
         );
-        
+
       case TransitionType.gameEntry:
         return CustomTransitionPage<T>(
           child: child,
@@ -82,7 +81,12 @@ class CustomTransitions {
               );
             } else {
               // What looks without sense makes sense as we only want the transition to happen when we exit the game
-              if (GoRouter.of(context).routerDelegate.currentConfiguration.last.matchedLocation != "/game/overview") {
+              if (GoRouter.of(context)
+                      .routerDelegate
+                      .currentConfiguration
+                      .last
+                      .matchedLocation !=
+                  "/game/overview") {
                 return TransitionHelper.slideRightTransition(
                   context,
                   animation,
@@ -92,11 +96,11 @@ class CustomTransitions {
               } else {
                 return child;
               }
-          }
+            }
           },
-          transitionDuration: duration ,
+          transitionDuration: duration,
         );
-      
+
       case TransitionType.nextRound:
         return CustomTransitionPage<T>(
           child: child,
@@ -105,7 +109,12 @@ class CustomTransitions {
           key: key,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
             // What looks without sense makes sense as we only want the transition to happen when we exit the game
-            if (GoRouter.of(context).routerDelegate.currentConfiguration.last.matchedLocation != "/game/overview") {
+            if (GoRouter.of(context)
+                    .routerDelegate
+                    .currentConfiguration
+                    .last
+                    .matchedLocation !=
+                "/game/overview") {
               return TransitionHelper.slideRightTransition(
                 context,
                 animation,
@@ -120,4 +129,4 @@ class CustomTransitions {
         );
     }
   }
-} 
+}
