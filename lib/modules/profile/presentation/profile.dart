@@ -197,6 +197,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Color(0xffC24C32),
                   ]),
                   name: userBloc.state.username,
+                  shape: CircleBorder(),
                 ),
               ),
             ),
